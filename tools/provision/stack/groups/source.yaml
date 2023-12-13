@@ -1,0 +1,28 @@
+defaults:
+  warehouse_size: XSMALL
+  scaling_policy: ECONOMY
+  auto_suspend: 600
+  auto_resume: true
+  min_cluster_count: 1
+  max_cluster_count: 1
+entries:
+  - env: DEV
+    source: SALESFORCE
+  - env: QA
+    source: SALESFORCE
+  - env: PROD
+    source: SALESFORCE
+  - env: DEV
+    source: SUPPLY_CHAIN
+  - env: QA
+    source: SUPPLY_CHAIN
+  - env: PROD
+    source: SUPPLY_CHAIN
+  - env: DEV
+    source: INVENTORY
+  - env: QA
+    source: INVENTORY
+  - env: PROD
+    source: INVENTORY
+
+

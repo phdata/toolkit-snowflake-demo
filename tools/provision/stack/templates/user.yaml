@@ -1,0 +1,45 @@
+users:
+  - name: "{{ username }}"
+    properties:
+      DISPLAY_NAME: "'{{ username }}'"
+      EMAIL: "'{{ email }}'"
+      DEFAULT_ROLE: "FR_U_{{ username }}"
+      DEFAULT_WAREHOUSE: "USER_ADH_WH"
+      DEFAULT_NAMESPACE: "USER.{{ username }}"
+      # RSA_PUBLIC_KEY: "'{{ rsa_public_key }}'"
+      # RSA_PUBLIC_KEY_2: "'{{ rsa_public_key_2 }}'"
+roles:
+    # Data access
+  - name: "DR_U_{{ username }}"
+    # Functional access
+  - name: "FR_U_{{ username }}"
+databases:
+  - name: "USER_{{username}}"
+schemas:
+  - name: "{{ username }}"
+    database: "USER_{{username}}"
+privilegeGrants:
+    # Database
+  - privilege: "USAGE"
+    objectType: DATABASE
+    objectName: "USER_{{username}}"
+    roleName: "DR_U_{{ username }}"
+    grantOption: false
+  - privilege: "ALL PRIVILEGES"
+    objectType: SCHEMA
+    objectName: "USER_{{username}}.{{ username }}"
+    roleName: "DR_U_{{ username }}"
+    grantOption: true
+roleGrants:
+  - name: "AR_USER_ADH_WH"
+    toRoles:
+      - "FR_U_{{ username }}"
+  - name: "DR_U_{{ username }}"
+    toRoles:
+      - "FR_U_{{ username }}"
+  - name: "FR_U_{{ username }}"
+    toUsers:
+      - "{{ username }}"
+  - name: "FR_U_{{ username }}"
+    toRoles:
+      - "SYSADMIN"
