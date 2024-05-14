@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -uo pipefail
+set -x
+
+if [ "$#" -lt 2 ]; then
+    echo "Usage: $0 <description> <executable> [args...]"
+    exit 1
+fi
+
+description=$1
+shift
+
+executable="$@"
+
+# Get the current time in milliseconds
+start_time=$(python3 -c 'from time import time; print(int(round(time() * 1000)))')
+
+$executable
+
+# Get the current time in milliseconds
+end_time=$(python3 -c 'from time import time; print(int(round(time() * 1000)))')
+
+# Calculate the elapsed time
+real_time=$((end_time - start_time))
+
+
+echo "$description,$real_time" >> benchmark.csv
