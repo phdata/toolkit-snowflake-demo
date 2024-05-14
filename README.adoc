@@ -1,5 +1,6 @@
 = Toolkit Snowflake Demo
 
+== Contents
 This repository contains example configuration for tools in the link:https://toolkit.phdata.io/[phData Toolkit] running against a live Snowflake environment.
 
 Examples include:
@@ -7,3 +8,17 @@ Examples include:
 * **link:https://toolkit.phdata.io/tools/advisor[Advisor tool]**: quickly identifies opportunities to improve the performance, security, and cost-efficiency of your Snowflake environment.
 * **link:https://toolkit.phdata.io/tools/provision[Provision tool]**: An infrastructure-as-code templated-driven engine that manages and inforces your information architecture. It's the DBT for operations.
 * **link:https://toolkit.phdata.io/tools/access[Access tool]**: Helps users and administrators better understand roles and privileges in the Snowflake Data Cloud using a searchable interface.  Drill down to understand your Snowflake and understand the privileges connecting users, roles, privileges, databases, and schemas, and more.
+
+== Layout
+
+The file structure is:
+
+[source,shell]
+----
+tools/
+  /access
+  /advisor
+  /provision
+functionality/
+  /hybrid-tables
+----
