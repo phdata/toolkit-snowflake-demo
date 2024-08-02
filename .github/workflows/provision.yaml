@@ -1,0 +1,59 @@
+name: Snowflake Provisioning
+
+on:
+  pull_request:
+    branches:
+      - "*"
+  push:
+    branches:
+      - master
+
+env:
+  TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
+  TOOLKIT_CLI_DOWNLOAD_URL: ${{ secrets.toolkit_cli_download_url }}
+  TOOLKIT_CLI_VERSION: "0.10.0"
+  SNOWFLAKE_PRIVATE_KEY_PEM: ${{ secrets.snowflake_private_key_pem }}
+  SNOWFLAKE_USER: ${{ vars.snowflake_user }}
+  SNOWFLAKE_URL: ${{ secrets.snowflake_url }}
+  SNOWFLAKE_PRIVATE_KEY_FILE: ${{ vars.snowflake_private_key_file }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download the toolkit-cli
+        shell: bash
+        run: bin/install-toolkit-cli
+
+      - name: Write Snowflake private key
+        shell: bash
+        run: |
+          (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowboarder_it.p8)
+          echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowboarder_it.p8" >> $GITHUB_ENV
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+          distribution: corretto
+
+      - name: Plan on pull request
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: install/toolkit provision apply --plan | tee plan.log
+
+      - name: Apply changes on merge to master
+        shell: bash
+        run: install/toolkit provision apply --approve | tee plan.log
+        if: github.event_name == 'push'
+
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-file: "plan.log"
