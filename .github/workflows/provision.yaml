@@ -28,6 +28,7 @@ jobs:
       - name: Download the toolkit-cli
         shell: bash
         run: |
+          cd tools/provision/stack
           set -euo pipefail
 
           curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
@@ -48,14 +49,11 @@ jobs:
       - name: Plan on pull request
         if: github.event_name == 'pull_request'
         shell: bash
-        run: |
-          cd tools/provision/stack
-          ls -a
-          ../../../install toolkit provision apply --plan | tee plan.log
+        run: install/toolkit provision apply --plan | tee plan.log
 
       - name: Apply changes on merge to master
         shell: bash
-        run: ../../../install toolkit apply --approve | tee plan.log
+        run: install/toolkit provision apply --approve | tee plan.log
         if: github.event_name == 'push'
 
       - name: Create comment
