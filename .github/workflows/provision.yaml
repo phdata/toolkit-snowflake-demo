@@ -49,12 +49,11 @@ jobs:
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
+          cd install/toolkit
           ls -a
-          cd install
-          ls -a
-          cd ../
+          cd ../../
           cd tools/provision/stack
-          toolkit provision apply --plan | tee plan.log
+          ../../../install/toolkit provision apply --plan | tee plan.log
 
       - name: Apply changes on merge to master
         shell: bash
