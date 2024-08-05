@@ -49,6 +49,7 @@ jobs:
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
+          ls -a
           cd tools/provision/stack
           toolkit provision apply --plan | tee plan.log
 
