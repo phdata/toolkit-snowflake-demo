@@ -50,6 +50,9 @@ jobs:
         shell: bash
         run: |
           ls -a
+          cd install
+          ls -a
+          cd ../
           cd tools/provision/stack
           toolkit provision apply --plan | tee plan.log
 
