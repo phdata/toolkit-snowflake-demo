@@ -27,7 +27,11 @@ jobs:
 
       - name: Download the toolkit-cli
         shell: bash
-        run: bin/install-toolkit-cli
+        run: |
+          set -euo pipefail
+
+          curl --fail --output toolkit-cli.zip "$TOOLKIT_CLI_DOWNLOAD_URL"
+          unzip -jd install toolkit-cli.zip
 
       - name: Write Snowflake private key
         shell: bash
