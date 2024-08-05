@@ -50,11 +50,11 @@ jobs:
         shell: bash
         run: |
           cd tools/provision/stack
-          install/toolkit provision apply --plan | tee plan.log
+          ../../install toolkit provision apply --plan | tee plan.log
 
       - name: Apply changes on merge to master
         shell: bash
-        run: ../../../install/toolkit provision apply --approve | tee plan.log
+        run: ../../install toolkit provision apply --approve | tee plan.log
         if: github.event_name == 'push'
 
       - name: Create comment
