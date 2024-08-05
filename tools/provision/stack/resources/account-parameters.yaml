@@ -16,7 +16,7 @@ account:
     prevent_unload_to_inline_url: true
     require_storage_integration_for_stage_creation: true
     require_storage_integration_for_stage_operation: true
-    statement_queued_timeout_in_seconds: 3600 # 1 hour
+    statement_queued_timeout_in_seconds: 3600 # 1 hours
     statement_timeout_in_seconds: 21600 # 6 hours
     timezone: UTC
     transaction_abort_on_error: true
@@ -28,7 +28,7 @@ schemas:
   - name: POLICIES
     database: GOVERNANCE
   - name: TAGS
-    database: GOVERNANCE  
+    database: GOVERNANCE
 privilegeGrants:
   - privilege: all
     objectType: database
@@ -44,35 +44,35 @@ privilegeGrants:
     roleName: SECURITYADMIN
 
 networkPolicies:
-- name: ACCOUNT_NETWORK_POLICY
-  allowedIps:
-  - 0.0.0.0/0
-  properties:
-    comment: "The default network policy"
+  - name: ACCOUNT_NETWORK_POLICY
+    allowedIps:
+      - 0.0.0.0/0
+    properties:
+      comment: "The default network policy"
 
 sessionPolicies:
-- database: GOVERNANCE
-  schema: POLICIES
-  name: ACCOUNT_SESSION_POLICY
-  properties:
-    session_idle_timeout_mins: 10
-    session_ui_idle_timeout_mins: 10
-    comment: "The default session policy"
+  - database: GOVERNANCE
+    schema: POLICIES
+    name: ACCOUNT_SESSION_POLICY
+    properties:
+      session_idle_timeout_mins: 10
+      session_ui_idle_timeout_mins: 10
+      comment: "The default session policy"
 
 passwordPolicies:
-- database: GOVERNANCE
-  schema: POLICIES
-  name: ACCOUNT_PASSWORD_POLICY
-  properties:
-    password_min_length: 12
-    password_max_length: 24
-    password_min_upper_case_chars: 1
-    password_min_lower_case_chars: 1
-    password_min_numeric_chars: 1
-    password_min_special_chars: 1
-    password_max_retries: 5
-    password_lockout_time_mins: 30
-    comment: "The default password policy"
+  - database: GOVERNANCE
+    schema: POLICIES
+    name: ACCOUNT_PASSWORD_POLICY
+    properties:
+      password_min_length: 12
+      password_max_length: 24
+      password_min_upper_case_chars: 1
+      password_min_lower_case_chars: 1
+      password_min_numeric_chars: 1
+      password_min_special_chars: 1
+      password_max_retries: 5
+      password_lockout_time_mins: 30
+      comment: "The default password policy"
 
 resourceMonitors:
   - name: ACCOUNT_RESOURCE_MONITOR
@@ -88,12 +88,12 @@ resourceMonitors:
         action: NOTIFY
 
 tags:
-- name: environment
-  database: GOVERNANCE
-  schema: TAGS
-  allowedValues:
-  - PRODUCTION
-  - DEVELOPMENT
-  - SANDBOX
-  properties:
-    comment: An account tag to mark the purpose of an account
+  - name: environment
+    database: GOVERNANCE
+    schema: TAGS
+    allowedValues:
+      - PRODUCTION
+      - DEVELOPMENT
+      - SANDBOX
+    properties:
+      comment: An account tag to mark the purpose of an account
