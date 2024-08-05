@@ -50,7 +50,7 @@ jobs:
         shell: bash
         run: |
           cd tools/provision/stack
-          ../../../install/toolkit provision apply --plan | tee plan.log
+          install/toolkit provision apply --plan | tee plan.log
 
       - name: Apply changes on merge to master
         shell: bash
