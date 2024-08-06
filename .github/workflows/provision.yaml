@@ -28,7 +28,7 @@ jobs:
       - name: Download the toolkit-cli
         shell: bash
         run: |
-          cd tools/provision/stack
+          cd tools/provision
           set -euo pipefail
 
           curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
@@ -54,7 +54,7 @@ jobs:
         shell: bash
         run: |
           pwd
-          cd tools/provision/stack
+          cd tools/provision
           install/toolkit provision apply --plan | tee plan.log
 
       - name: Apply changes on merge to master
