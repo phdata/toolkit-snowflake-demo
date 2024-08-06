@@ -55,7 +55,6 @@ jobs:
         run: |
           pwd
           cd tools/provision/stack
-          pwd
           install/toolkit provision apply --plan | tee plan.log
 
       - name: Apply changes on merge to master
