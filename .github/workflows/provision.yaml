@@ -49,7 +49,9 @@ jobs:
       - name: Plan on pull request
         if: github.event_name == 'pull_request'
         shell: bash
-        run: toolkit provision apply --plan | tee plan.log
+        run: |
+          which toolkit
+          toolkit provision apply --plan | tee plan.log
 
       - name: Apply changes on merge to master
         shell: bash
