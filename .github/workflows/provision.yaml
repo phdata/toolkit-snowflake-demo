@@ -39,7 +39,7 @@ jobs:
 
       - name: Run admin shell
         shell: bash
-        run: install/toolkit admin shell
+        run: readlink -f install >> $GITHUB_PATH
 
       - name: Write Snowflake private key
         shell: bash
