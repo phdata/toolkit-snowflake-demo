@@ -28,10 +28,14 @@ jobs:
       - name: Download the toolkit-cli
         shell: bash
         run: |
+          cd tools/provision/stack
           set -euo pipefail
 
           curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
           unzip -jd install toolkit-cli.zip
+          cd install 
+          ls -a
+          pwd
 
       - name: Write Snowflake private key
         shell: bash
@@ -49,6 +53,7 @@ jobs:
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
+          pwd
           cd tools/provision/stack
           pwd
           cd ../../../install
