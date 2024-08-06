@@ -53,7 +53,7 @@ jobs:
           pwd
           cd ../../../install
           ls -a
-          toolkit provision apply --plan | tee plan.log
+          /toolkit provision apply --plan | tee plan.log
 
       - name: Apply changes on merge to master
         shell: bash
