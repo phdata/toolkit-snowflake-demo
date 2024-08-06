@@ -50,7 +50,7 @@ jobs:
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
-          toolkit init
+          pwd
           toolkit provision apply --plan | tee plan.log
 
       - name: Apply changes on merge to master
