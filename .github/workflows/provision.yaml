@@ -8,6 +8,10 @@ on:
     branches:
       - master
 
+defaults:
+  run:
+    working-directory: tools/provision
+
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
   TOOLKIT_CLI_DOWNLOAD_URL: ${{ secrets.toolkit_cli_download_url }}
@@ -28,14 +32,14 @@ jobs:
       - name: Download the toolkit-cli
         shell: bash
         run: |
-          cd tools/provision
           set -euo pipefail
 
           curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
           unzip -jd install toolkit-cli.zip
-          cd install 
-          ls -a
-          pwd
+
+      - name: Run admin shell
+        shell: bash
+        run: install/toolkit admin shell
 
       - name: Write Snowflake private key
         shell: bash
@@ -49,13 +53,14 @@ jobs:
           java-version: 11
           distribution: corretto
 
+      - name: Create metadata
+        shell: bash
+        run: toolkit provision init --metadata
+
       - name: Plan on pull request
         if: github.event_name == 'pull_request'
         shell: bash
-        run: |
-          pwd
-          cd tools/provision
-          install/toolkit provision apply --plan | tee plan.log
+        run: install/toolkit provision apply --plan | tee plan.log
 
       - name: Apply changes on merge to master
         shell: bash
