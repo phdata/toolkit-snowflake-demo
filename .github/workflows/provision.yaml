@@ -19,7 +19,7 @@ defaults:
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
   TOOLKIT_CLI_DOWNLOAD_URL: ${{ secrets.toolkit_cli_download_url }}
-  TOOLKIT_CLI_VERSION: "0.49.0"
+  TOOLKIT_CLI_VERSION: ${{ vars.toolkit_cli_version }}
   SNOWFLAKE_PRIVATE_KEY_PEM: ${{ secrets.snowflake_private_key_pem }}
   SNOWFLAKE_USER: ${{ vars.snowflake_user }}
   SNOWFLAKE_URL: ${{ secrets.snowflake_url }}
