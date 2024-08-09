@@ -60,3 +60,10 @@ jobs:
         shell: bash
         run: cp $(ls -t | head -n 1) daily_access_scan.html
 
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-access-scan
+          path: /
+            
+
