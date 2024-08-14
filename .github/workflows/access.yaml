@@ -20,6 +20,8 @@ env:
   SNOWFLAKE_USER: ${{ vars.snowflake_user }}
   SNOWFLAKE_URL: ${{ secrets.snowflake_url }}
   SNOWFLAKE_PRIVATE_KEY_FILE: ${{ vars.snowflake_private_key_file }}
+  DAILY_ACCESS_SCAN_DIRECTORY: ${{ vars.daily_access_scan_directory }}
+  CONNECTION_NAME: ${{ vars.connection_name }}
 
 jobs:
   build:
@@ -33,7 +35,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          echo hi
+          ls -a
           curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
           unzip -jd install toolkit-cli.zip
 
@@ -56,17 +58,36 @@ jobs:
       - name: Scan snowflake
         shell: bash
         run: toolkit access scan snowflake
+
+      - name: Make scans directory
+        shell: bash
+        run: |
+          if [ ! -d $DAILY_ACCESS_SCAN_DIRECTORY ]; then
+            mkdir -p $DAILY_ACCESS_SCAN_DIRECTORY
+          fi
+      
+      - name: Move scans into new directory
+        shell: bash
+        run: find ./ -type f -name "$CONNECTION_NAME_access_*" -exec mv {} /$DAILY_ACCESS_SCAN_DIRECTORY \;
       
       - name: Dump latest scan into file
         shell: bash
-        run: cp $(ls -t | head -n 1) daily_access_scan.html
+        run: |
+         cd $DAILY_ACCESS_SCAN_DIRECTORY
+         cp $(ls -t | head -n 1) daily_access_scan.html
 
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
-          name: daily_access_scan
-          path: /daily_access_scan.html
+          path: $DAILY_ACCESS_SCAN_DIRECTORY/daily_access_scan.html
           if-no-files-found: warn
           overwrite: true
+      
+      - name: Test artifiact was created
+        shell: bash
+        run: |
+          ls -al
+          cd $DAILY_ACCESS_SCAN_DIRECTORY
+          ls -al
             
 
