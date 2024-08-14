@@ -63,7 +63,9 @@ jobs:
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
-          name: daily-access-scan
-          path: /
+          name: daily_access_scan
+          path: /daily_access_scan.html
+          if-no-files-found: warn
+          overwrite: true
             
 
