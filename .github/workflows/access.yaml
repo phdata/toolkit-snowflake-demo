@@ -20,8 +20,6 @@ env:
   SNOWFLAKE_USER: ${{ vars.snowflake_user }}
   SNOWFLAKE_URL: ${{ secrets.snowflake_url }}
   SNOWFLAKE_PRIVATE_KEY_FILE: ${{ vars.snowflake_private_key_file }}
-  DAILY_ACCESS_SCAN_DIRECTORY: ${{ vars.daily_access_scan_directory }}
-  CONNECTION_NAME: ${{ vars.connection_name }}
 
 jobs:
   build:
@@ -66,7 +64,7 @@ jobs:
         shell: bash
         run: |
           toolkit access scan snowflake
-          
+
       - name: Dump latest scan into file
         shell: bash
         run: |
