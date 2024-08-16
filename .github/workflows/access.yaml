@@ -55,55 +55,31 @@ jobs:
           java-version: 11
           distribution: corretto
 
+      - name: Make scans directory
+        shell: bash
+        run: |
+          if [ ! -d daily_access_scans ]; then
+            mkdir -p daily_access_scans
+          fi
+
       - name: Scan snowflake
         shell: bash
         run: |
           toolkit access scan snowflake
-          ls -a
-
-
-      # - name: Make scans directory
-      #   shell: bash
-      #   run: |
-      #     if [ ! -d daily_access_scans ]; then
-      #       mkdir -p daily_access_scans
-      #     fi
-      #     ls 
-      
-      # - name: Move scans into new directory
-      #   shell: bash
-      #   run: | 
-      #     find ./ -type f -name "snowflake_access_*" -exec mv {} /daily_access_scans \;
-      #     cd daily_access_scans
-      #     ls -a
-      
+          
       - name: Dump latest scan into file
         shell: bash
         run: |
+         mv $(ls -t | head -n 1) daily_access_scans
+         cd daily_access_scans/
          cp $(ls -t | head -n 1) daily_access_scan.html
-
-      - name: See if file persists
-        shell: bash
-        run: | 
-          echo --------------
-          echo --------------
-          ls -a
-          echo --------------
-          echo --------------
         
-        
-# cp $(ls -t | head -n 1) daily_access_scan.html
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
           name: my-artifact
-          path: tools/access/daily_access_scan.html
+          path: tools/access/daily_access_scans/daily_access_scan.html
           if-no-files-found: error
           overwrite: true
-      
-      # - name: Test artifiact was created
-      #   shell: bash
-      #   run: |
-      #     ls -al
             
 
