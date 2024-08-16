@@ -35,6 +35,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+
           curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
           unzip -jd install toolkit-cli.zip
 
@@ -56,37 +57,53 @@ jobs:
 
       - name: Scan snowflake
         shell: bash
-        run: toolkit access scan snowflake
-
-      - name: Make scans directory
-        shell: bash
         run: |
-          if [ ! -d $DAILY_ACCESS_SCAN_DIRECTORY ]; then
-            mkdir -p $DAILY_ACCESS_SCAN_DIRECTORY
-          fi
+          toolkit access scan snowflake
+          ls -a
+
+
+      # - name: Make scans directory
+      #   shell: bash
+      #   run: |
+      #     if [ ! -d daily_access_scans ]; then
+      #       mkdir -p daily_access_scans
+      #     fi
+      #     ls 
       
-      - name: Move scans into new directory
-        shell: bash
-        run: find ./ -type f -name "$CONNECTION_NAME_access_*" -exec mv {} /$DAILY_ACCESS_SCAN_DIRECTORY \;
+      # - name: Move scans into new directory
+      #   shell: bash
+      #   run: | 
+      #     find ./ -type f -name "snowflake_access_*" -exec mv {} /daily_access_scans \;
+      #     cd daily_access_scans
+      #     ls -a
       
       - name: Dump latest scan into file
         shell: bash
         run: |
-         cd $DAILY_ACCESS_SCAN_DIRECTORY
          cp $(ls -t | head -n 1) daily_access_scan.html
 
+      - name: See if file persists
+        shell: bash
+        run: | 
+          echo --------------
+          echo --------------
+          ls -a
+          echo --------------
+          echo --------------
+        
+        
+# cp $(ls -t | head -n 1) daily_access_scan.html
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
-          path: $DAILY_ACCESS_SCAN_DIRECTORY/daily_access_scan.html
-          if-no-files-found: warn
+          name: my-artifact
+          path: tools/access/daily_access_scan.html
+          if-no-files-found: error
           overwrite: true
       
-      - name: Test artifiact was created
-        shell: bash
-        run: |
-          ls -al
-          cd $DAILY_ACCESS_SCAN_DIRECTORY
-          ls -al
+      # - name: Test artifiact was created
+      #   shell: bash
+      #   run: |
+      #     ls -al
             
 
