@@ -53,7 +53,7 @@ jobs:
           java-version: 11
           distribution: corretto
 
-      - name: Make check directory
+      - name: Make daily scans directory
         shell: bash
         run: |
           if [ ! -d daily_advisor_scans ]; then
@@ -66,28 +66,12 @@ jobs:
           toolkit advisor scan snowflake
         continue-on-error: true
 
-      - name: Dump latest scan into file
+      - name: Move report into daily scans directory and dump report into renamed file
         shell: bash
         run: | 
-          echo -----------
-          echo -----------
-          ls 
-          echo -----------
-          echo -----------
-          find . -maxdepth 1 -type f -name 'snowflake_check_*' -print0 | xargs -0 -I{} mv {} "$daily_advisor_scans/"
-          echo -----------
-          echo -----------
-          ls 
-          echo -----------
-          echo -----------
+          mv $(find . -maxdepth 1 -type f -name 'snowflake_check_*') daily_advisor_scans
           cd daily_advisor_scans/
-          echo -----------
-          echo -----------
-          pwd
-          ls
-          echo -----------
-          echo -----------
-         # cp $(ls -t | head -n 1) daily_advisor_scan.html
+          cp $(ls -t | head -n 1) daily_advisor_scan.html
 
       - name: Upload reports
         uses: actions/upload-artifact@v4
