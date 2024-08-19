@@ -33,7 +33,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-
           curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
           unzip -jd install toolkit-cli.zip
 
@@ -44,8 +43,8 @@ jobs:
       - name: Write Snowflake private key
         shell: bash
         run: |
-          (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowboarder_it.p8)
-          echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowboarder_it.p8" >> $GITHUB_ENV
+          (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowflake_key.p8)
+          echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
 
       - name: Set up Java
         uses: actions/setup-java@v3
@@ -62,10 +61,9 @@ jobs:
 
       - name: Scan snowflake
         shell: bash
-        run: |
-          toolkit access scan snowflake
+        run: toolkit access scan snowflake
 
-      - name: Dump latest scan into file
+      - name: Move report into daily scans directory and dump report into renamed file 
         shell: bash
         run: |
          mv $(ls -t | head -n 1) daily_access_scans
@@ -75,7 +73,7 @@ jobs:
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
-          name: my-artifact
+          name: daily_access_scan
           path: tools/access/daily_access_scans/daily_access_scan.html
           if-no-files-found: error
           overwrite: true
