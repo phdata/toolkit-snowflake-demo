@@ -1,0 +1,95 @@
+sourceType: snowflake
+tables:
+  - name: case_owner
+    database: synthetic_quality
+    schema: main
+    rows: 1000
+    columns:
+      - name: employee_id
+        provider: NumberSequence
+        dataType: integer
+        primaryKey: true
+      - name: first_name
+        provider: FirstName
+        dataType: varchar
+        precision: 100
+      - name: last_name
+        provider: LastName
+        dataType: varchar
+        precision: 100
+  - name: training
+    database: synthetic_quality
+    schema: main
+    rowGenerator:
+      # most employees have received training, but some have not yet
+      range: 0..1
+      sampler:
+        type: gaussian
+        skew: 2.0
+    columns:
+      - name: employee_id
+        foreignKey: synthetic_quality.main.case_owner.employee_id
+      - name: training_start
+        dataType: date
+        provider: RandomDate
+        config:
+          sampler:
+            type: uniform
+      - name: training_complete
+        dataType: date
+        nullable: true
+        # make the training 5-15 days long
+        # future completion dates will be null to indicate training is not yet complete
+        transform:
+          references:
+            start: training_start
+          function: | 
+            newDate = addDays(start, randomInt(5, 16));
+            if (newDate > currentDate()) {
+              null;
+            } else {
+              newDate;
+            }
+
+  - name: case_details
+    database: synthetic_quality
+    schema: main
+    rowGenerator:
+      range: 50..100
+    columns:
+      - name: case_owner
+        foreignKey: synthetic_quality.main.case_owner.employee_id
+      - name: case_opened
+        dataType: timestamp_tz
+        provider: RandomTimestamp
+        config:
+          sampler:
+            type: uniform
+      - name: case_closed
+        dataType: timestamp_tz
+        nullable: true
+        transform:
+          references:
+            open: case_opened
+            training_start: synthetic_quality.main.training.training_start
+            training_complete: synthetic_quality.main.training.training_complete
+          function: |
+              multiple = 0;
+            
+              if (training_complete != null && open > timestamp(training_complete)) {
+                trainingDays = daysBetween(training_start, training_complete);
+                multiple = trainingDays / 5;
+              } 
+            
+              // reduce the case closure time for every 5 days of training
+              lower = 15 - (multiple * 2);
+              upper = 31 - (multiple * 3);
+              days = randomInt(lower, upper);
+              closed = addDays(open, days);
+            
+              // use null if the close date is beyond the current date to indicate case is still open
+              if (closed >= now()) {
+                null;
+              } else {
+                closed;
+              }

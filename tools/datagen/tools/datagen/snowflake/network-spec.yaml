@@ -1,0 +1,67 @@
+sourceType: snowflake
+tables:
+  - name: NETWORK_EVENTS
+    database: DATAGEN_EXAMPLES
+    schema: NETWORK_SCHEMA
+    columns:
+      - name: EVENT_ID
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+        primaryKey: true
+      - name: TIMESTAMP
+        provider: RandomTimestamp
+        nullable: false
+        dataType: TIMESTAMPNTZ
+        precision: 23
+        scale: 9
+      - name: SOURCE_IP
+        provider: Ipv4Address
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 15
+      - name: DESTINATION_IP
+        provider: Ipv4Address
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 15
+      - name: PROTOCOL
+        provider: LoremIpsum
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 20
+      - name: PORT
+        provider: IpPort
+        density: 0.95
+        nullable: true
+        dataType: NUMBER
+        precision: 38
+      - name: EVENT_SEVERITY
+        provider: Enum
+        config:
+          values:
+            - Warning
+            - Informational
+            - Critical
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 20
+      - name: EVENT_DESCRIPTION
+        provider: LoremIpsum
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 1000
+      - name: DATA_CENTER_ID
+        provider: RandomNumber
+        density: 0.95
+        nullable: true
+        dataType: NUMBER
+        precision: 6
+        scale: 0

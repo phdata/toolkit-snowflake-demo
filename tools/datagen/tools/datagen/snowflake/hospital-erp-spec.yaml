@@ -1,0 +1,237 @@
+sourceType: snowflake
+tables:
+  - name: APPOINTMENTS
+    database: DATAGEN_EXAMPLES
+    schema: HOSPITAL_ERP_SCHEMA
+    columns:
+      - name: APPOINTMENT_ID
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 6
+        primaryKey: true
+      - name: PATIENT_ID
+        foreignKey: DATAGEN_EXAMPLES.HOSPITAL_ERP_SCHEMA.PATIENTS.PATIENT_ID
+        density: 0.95
+        nullable: true
+      - name: DOCTOR_ID
+        foreignKey: DATAGEN_EXAMPLES.HOSPITAL_ERP_SCHEMA.DOCTORS.DOCTOR_ID
+        density: 0.95
+        nullable: true
+      - name: APPOINTMENT_DATE
+        provider: RandomTimestamp
+        density: 0.95
+        nullable: true
+        dataType: TIMESTAMPNTZ
+        precision: 23
+        scale: 9
+      - name: REASON
+        provider: LoremIpsum
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 200
+  - name: DEPARTMENTS
+    database: DATAGEN_EXAMPLES
+    schema: HOSPITAL_ERP_SCHEMA
+    columns:
+      - name: DEPARTMENT_ID
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 6
+        scale: 0
+        primaryKey: true
+      - name: DEPARTMENT_NAME
+        provider: LoremIpsum
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 100
+      - name: LOCATION
+        provider: FullAddress
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 100
+  - name: DOCTORS
+    database: DATAGEN_EXAMPLES
+    schema: HOSPITAL_ERP_SCHEMA
+    columns:
+      - name: DOCTOR_ID
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 6
+        scale: 0
+        primaryKey: true
+      - name: FIRSTNAME
+        provider: FirstName
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 50
+      - name: LASTNAME
+        provider: LastName
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 50
+      - name: SPECIALIZATION
+        provider: LoremIpsum
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 100
+      - name: EMAIL
+        provider: Email
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 100
+      - name: PHONE
+        provider: Phone
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 30
+  - name: MEDICAL_RECORDS
+    database: DATAGEN_EXAMPLES
+    schema: HOSPITAL_ERP_SCHEMA
+    columns:
+      - name: RECORD_ID
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 6
+        scale: 0
+        primaryKey: true
+      - name: PATIENT_ID
+        foreignKey: DATAGEN_EXAMPLES.HOSPITAL_ERP_SCHEMA.PATIENTS.PATIENT_ID
+        density: 0.95
+        nullable: true
+      - name: VISIT_DATE
+        provider: RandomTimestamp
+        density: 0.95
+        nullable: true
+        dataType: TIMESTAMPNTZ
+        precision: 23
+        scale: 9
+      - name: DOCTOR_ID
+        foreignKey: DATAGEN_EXAMPLES.HOSPITAL_ERP_SCHEMA.DOCTORS.DOCTOR_ID
+        density: 0.95
+        nullable: true
+      - name: DIAGNOSIS
+        provider: LoremIpsum
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 38
+      - name: TREATMENT
+        provider: LoremIpsum
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 38
+      - name: PRESCRIPTION
+        provider: LoremIpsum
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 38
+  - name: PATIENTS
+    database: DATAGEN_EXAMPLES
+    schema: HOSPITAL_ERP_SCHEMA
+    columns:
+      - name: PATIENT_ID
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 6
+        scale: 0
+        primaryKey: true
+      - name: FIRSTNAME
+        provider: FirstName
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 50
+      - name: LASTNAME
+        provider: LastName
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 50
+      - name: DATE_OF_BIRTH
+        provider: RandomDate
+        density: 0.95
+        nullable: true
+        dataType: DATE
+      - name: GENDER
+        provider: Gender
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 10
+      - name: PHONE
+        provider: Phone
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 30
+      - name: ADDRESS
+        provider: FullAddress
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 200
+      - name: INSURANCE_ID
+        provider: RandomNumber
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 6
+  - name: STAFF
+    database: DATAGEN_EXAMPLES
+    schema: HOSPITAL_ERP_SCHEMA
+    columns:
+      - name: STAFF_ID
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 6
+        primaryKey: true
+      - name: FIRSTNAME
+        provider: FirstName
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 50
+      - name: LASTNAME
+        provider: LastName
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 50
+      - name: POSITION
+        provider: LoremIpsum
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 100
+      - name: DEPARTMENT_ID
+        foreignKey: DATAGEN_EXAMPLES.HOSPITAL_ERP_SCHEMA.DEPARTMENTS.DEPARTMENT_ID
+        density: 0.95
+        nullable: true
+      - name: EMAIL
+        provider: Email
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 100
+      - name: PHONE
+        provider: Phone
+        density: 0.95
+        nullable: true
+        dataType: VARCHAR
+        precision: 30

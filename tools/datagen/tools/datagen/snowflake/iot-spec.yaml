@@ -1,0 +1,60 @@
+sourceType: snowflake
+tables:
+- name: IOT_DEVICE_DATA
+  database: DATAGEN_EXAMPLES
+  schema: IOT_SCHEMA
+  columns:
+  - name: DATA_ID
+    provider: RandomNumber
+    nullable: false
+    dataType: NUMBER
+    precision: 5
+    scale: 0
+    primaryKey: true
+  - name: DEVICE_ID
+    provider: RandomNumber
+    density: 0.95
+    nullable: true
+    dataType: VARCHAR
+    precision: 10
+  - name: TIMESTAMP
+    provider: RandomTimestamp
+    nullable: false
+    dataType: TIMESTAMPNTZ
+    precision: 23
+    scale: 9
+  - name: SENSOR_TYPE
+    provider: LoremIpsum
+    density: 0.95
+    nullable: true
+    dataType: VARCHAR
+    precision: 50
+  - name: SENSOR_VALUE
+    provider: RandomNumber
+    density: 0.95
+    nullable: true
+    dataType: NUMBER
+    precision: 4
+    scale: 0
+  - name: BATTERY_LEVEL
+    provider: RandomNumber
+    config:
+      min: 1
+      max: 100
+    density: 0.95
+    nullable: true
+    dataType: NUMBER
+    precision: 3
+    scale: 0
+  - name: LOCATION
+    provider: FullAddress
+    density: 0.95
+    nullable: true
+    dataType: VARCHAR
+    precision: 100
+  - name: STATUS
+    provider: RandomBoolean
+    density: 0.95
+    nullable: true
+    dataType: VARCHAR
+    precision: 20

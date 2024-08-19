@@ -1,0 +1,221 @@
+sourceType: snowflake
+tables:
+  - name: DIM_CUSTOMER
+    database: DATAGEN_EXAMPLES
+    schema: SNOWFLAKE_SCHEMA
+    columns:
+      - name: CUSTOMER_KEY
+        primaryKey: true
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+      - name: FIRST_NAME
+        provider: FirstName
+        nullable: false
+        dataType: VARCHAR
+        precision: 50
+      - name: LAST_NAME
+        provider: LastName
+        density: 0.75
+        nullable: true
+        dataType: VARCHAR
+        precision: 50
+      - name: GENDER
+        provider: Gender
+        density: 0.85
+        nullable: true
+        dataType: VARCHAR
+        precision: 10
+      - name: AGE_GROUP
+        provider: Enum
+        config:
+          values:
+          - Children
+          - Young adults
+          - Middle-aged adults
+          - Old adults
+        density: 0.75
+        nullable: true
+        dataType: VARCHAR
+        precision: 20
+  - name: DIM_PRODUCT_CATEGORY
+    database: DATAGEN_EXAMPLES
+    schema: SNOWFLAKE_SCHEMA
+    columns:
+      - name: CATEGORY_KEY
+        primaryKey: true
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+      - name: CATEGORY_NAME
+        provider: LastName
+        nullable: true
+        dataType: VARCHAR
+        precision: 50
+  - name: DIM_PRODUCT
+    database: DATAGEN_EXAMPLES
+    schema: SNOWFLAKE_SCHEMA
+    columns:
+      - name: PRODUCT_KEY
+        primaryKey: true
+        provider: IpPort
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+      - name: PRODUCT_NAME
+        provider: ProductName
+        nullable: false
+        dataType: VARCHAR
+        precision: 50
+      - name: CATEGORY_KEY
+        foreignKey: DATAGEN_EXAMPLES.SNOWFLAKE_SCHEMA.DIM_PRODUCT_CATEGORY.CATEGORY_KEY
+        nullable: false
+  - name: DIM_STORE_LOCATION
+    database: DATAGEN_EXAMPLES
+    schema: SNOWFLAKE_SCHEMA
+    columns:
+      - name: LOCATION_KEY
+        primaryKey: true
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+      - name: CITY
+        provider: City
+        nullable: true
+        dataType: VARCHAR
+        precision: 50
+      - name: STATE
+        provider: State
+        nullable: true
+        dataType: VARCHAR
+        precision: 50
+      - name: COUNTRY
+        provider: Country
+        nullable: true
+        dataType: VARCHAR
+        precision: 100
+  - name: DIM_STORE
+    database: DATAGEN_EXAMPLES
+    schema: SNOWFLAKE_SCHEMA
+    columns:
+      - name: STORE_KEY
+        primaryKey: true
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+      - name: STORE_NAME
+        provider: StreetName
+        nullable: false
+        dataType: VARCHAR
+        precision: 30
+      - name: LOCATION_KEY
+        foreignKey: DATAGEN_EXAMPLES.SNOWFLAKE_SCHEMA.DIM_STORE_LOCATION.LOCATION_KEY
+        nullable: false
+  - name: DIM_DATE
+    database: DATAGEN_EXAMPLES
+    schema: SNOWFLAKE_SCHEMA
+    columns:
+      - name: DATE_KEY
+        primaryKey: true
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+      - name: DATE
+        provider: RandomDate
+        nullable: false
+        dataType: DATE
+      - name: YEAR
+        provider: RandomNumber
+        config:
+          min: 2000
+          max: 2023
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+      - name: QUARTER
+        provider: RandomNumber
+        config:
+          min: 1
+          max: 4
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+      - name: MONTH
+        provider: RandomNumber
+        config:
+          min: 1
+          max: 12
+        nullable: true
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+      - name: DAY
+        provider: RandomNumber
+        config:
+          min: 1
+          max: 31
+        nullable: true
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+      - name: WEEK_DAY
+        provider: RandomNumber
+        config:
+          min: 1
+          max: 7
+        nullable: true
+        dataType: VARCHAR
+        precision: 10
+  - name: FACT_SALES
+    database: DATAGEN_EXAMPLES
+    schema: SNOWFLAKE_SCHEMA
+    rowGenerator:
+      range: 1..5
+    columns:
+      - name: SALES_ID
+        primaryKey: true
+        provider: RandomNumber
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+      - name: DATE_KEY
+        foreignKey: DATAGEN_EXAMPLES.SNOWFLAKE_SCHEMA.DIM_DATE.DATE_KEY
+        nullable: false
+      - name: PRODUCT_KEY
+        foreignKey: DATAGEN_EXAMPLES.SNOWFLAKE_SCHEMA.DIM_PRODUCT.PRODUCT_KEY
+        nullable: false
+      - name: CUSTOMER_KEY
+        foreignKey: DATAGEN_EXAMPLES.SNOWFLAKE_SCHEMA.DIM_CUSTOMER.CUSTOMER_KEY
+        nullable: false
+      - name: STORE_KEY
+        foreignKey: DATAGEN_EXAMPLES.SNOWFLAKE_SCHEMA.DIM_STORE.STORE_KEY
+        nullable: false
+      - name: SALES_AMOUNT
+        provider: RandomNumber
+        nullable: true
+        dataType: NUMBER
+        precision: 5
+        scale: 2
+      - name: QUANTITY
+        provider: RandomNumber
+        config:
+          min: 1
+          max: 20
+        nullable: true
+        dataType: NUMBER
+        precision: 2
+        scale: 0
