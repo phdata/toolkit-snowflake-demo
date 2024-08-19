@@ -48,8 +48,8 @@ jobs:
       - name: Write Snowflake private key
         shell: bash
         run: |
-          (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowboarder_it.p8)
-          echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowboarder_it.p8" >> $GITHUB_ENV
+          (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowflake_key.p8)
+          echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
 
       - name: Set up Java
         uses: actions/setup-java@v3
