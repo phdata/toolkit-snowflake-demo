@@ -54,9 +54,10 @@ jobs:
           distribution: corretto
         
         
-      - name: Add generated data to snowflake
+      - name: Add data to snowflake
         shell: bash 
-        run: toolkit datagen jdbc --append snowflake --spec tools/datagen/snowflake/advanced-snowflake-spec.yaml
+        run: toolkit datagen jdbc snowflake --spec tools/datagen/snowflake/advanced-snowflake-spec.yaml
+        # run: toolkit datagen jdbc --append snowflake --spec tools/datagen/snowflake/advanced-snowflake-spec.yaml
       
       - name: Scan snowflake 
         shell: bash 
