@@ -53,6 +53,24 @@ jobs:
           java-version: 11
           distribution: corretto
         
-      - name: Add data 
+        
+      - name: Add generated data to snowflake
         shell: bash 
         run: toolkit datagen jdbc --append snowflake --spec tools/datagen/snowflake/advanced-snowflake-spec.yaml
+      
+      - name: Scan snowflake 
+        shell: bash 
+        run: toolkit datagen scan snowflake --filter SYNTHETIC_SALES --spec tools/datagen/snowflake/synthetic_sales.yaml
+      
+      - name: Generate report
+        shell: bash
+        run: toolkit datagen show --output=weekly_datagen_report.html tools/datagen/snowflake/synthetic_sales.yaml
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly_datagen_report
+          path: tools/datagen/weekly_datagen_report.html
+          if-no-files-found: error
+          overwrite: true
+            
