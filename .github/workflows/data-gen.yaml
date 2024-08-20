@@ -6,7 +6,7 @@ permissions:
 
 on:
   schedule:
-    - cron: "0 23 * * 0" # Runs every day Sunday at 11:00 p.m.
+    - cron: "0 23 * * *" # Runs every day at 11:00 p.m.
 
 defaults:
   run:
@@ -56,8 +56,7 @@ jobs:
         
       - name: Add data to snowflake
         shell: bash 
-        run: toolkit datagen jdbc snowflake --spec tools/datagen/snowflake/advanced-snowflake-spec.yaml
-        # run: toolkit datagen jdbc --append snowflake --spec tools/datagen/snowflake/advanced-snowflake-spec.yaml
+        run: toolkit datagen jdbc --append snowflake --spec tools/datagen/snowflake/advanced-snowflake-spec.yaml
       
       - name: Scan snowflake 
         shell: bash 
