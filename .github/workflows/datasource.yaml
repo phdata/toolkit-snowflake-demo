@@ -1,4 +1,4 @@
-name: Snowflake DS Reports
+name: Snowflake Data Source Reports
 
 permissions:
   contents: read
@@ -64,19 +64,27 @@ jobs:
         shell: bash
         run: |
           toolkit ds scan snowflake
-          ds show snowflake:scan:latest --format html -o
+          toolkit ds show snowflake:scan:latest --format html -o
           mv $(find . -maxdepth 1 -type f -name 'snowflake_scan_*') daily_ds_reports
-
-      # - name: Move report into daily scans directory and dump report into renamed file
+      
+      - name: Profile snowflake
+        shell: bash
+        run: |
+          toolkit ds profile snowflake:scan:latest
+          toolkit ds show snowflake:profile:latest --format html -o
+          mv $(find . -maxdepth 1 -type f -name 'snowflake_profile_*') daily_ds_reports
+      
+      # - name: Diff snowflake
       #   shell: bash
-      #   run: | 
-      #     mv $(find . -maxdepth 1 -type f -name 'snowflake_check_*') daily_ds_reports
-      #     cd daily_ds_reports/
-      #     cp $(ls -t | head -n 1) daily_advisor_scan.html
-
-      # - name: Upload reports
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     path: tools/datasource/daily_ds_reports/daily_advisor_scan.html
-      #     if-no-files-found: error
-      #     overwrite: true
+      #   run: |
+      #     toolkit ds diff snowflake:profile:latest-1 snowflake:profile:latest
+      #     toolkit ds show snowflake:scan:latest --format html -o
+      #     mv $(find . -maxdepth 1 -type f -name 'snowflake_diff_*') daily_ds_reports
+  
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily_ds_reports
+          path: tools/datasource/daily_ds_reports/
+          if-no-files-found: error
+          overwrite: true
