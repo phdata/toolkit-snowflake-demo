@@ -53,7 +53,7 @@ jobs:
           java-version: 11
           distribution: corretto
 
-      - name: Make daily scans directory
+      - name: Make daily reports directory
         shell: bash
         run: |
           if [ ! -d daily_ds_reports ]; then
