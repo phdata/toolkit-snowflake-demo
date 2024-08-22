@@ -74,12 +74,13 @@ jobs:
           toolkit ds show snowflake:profile:latest --format html -o
           mv $(find . -maxdepth 1 -type f -name 'snowflake_profile_*') daily_ds_reports
       
-      # - name: Diff snowflake
-      #   shell: bash
-      #   run: |
-      #     toolkit ds diff snowflake:profile:latest-1 snowflake:profile:latest
-      #     toolkit ds show snowflake:scan:latest --format html -o
-      #     mv $(find . -maxdepth 1 -type f -name 'snowflake_diff_*') daily_ds_reports
+      - name: Diff snowflake
+        shell: bash
+        run: |
+          toolkit ds diff snowflake:profile:now-1d snowflake:profile:latest 
+          toolkit ds show snowflake:scan:latest --format html -o
+          mv $(find . -maxdepth 1 -type f -name 'snowflake_diff_*') daily_ds_reports
+        continue-on-error: true
   
       - name: Upload reports
         uses: actions/upload-artifact@v4
