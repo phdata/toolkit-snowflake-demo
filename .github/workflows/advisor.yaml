@@ -53,32 +53,17 @@ jobs:
           java-version: 11
           distribution: corretto
 
-      - name: Make daily scans directory
-        shell: bash
-        run: |
-          if [ ! -d daily_advisor_scans ]; then
-            mkdir -p daily_advisor_scans
-          fi
-
       - name: Scan snowflake
-        shell: bash
-        run: |
-          toolkit advisor scan snowflake
+        run: toolkit advisor scan snowflake
         continue-on-error: true
 
-      - name: Move report into daily scans directory and dump report into renamed file
-        shell: bash
-        run: | 
-          mv $(find . -maxdepth 1 -type f -name 'snowflake_check_*') daily_advisor_scans
-          cd daily_advisor_scans/
-          cp $(ls -t | head -n 1) daily_advisor_scan.html
+      - name: Rename HTML report
+        run: cp $(find . -maxdepth 1 -type f -name 'snowflake_check_*') advisor-scan.html
 
-      - name: Upload reports
+      - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: daily_advisor_scan
-          path: tools/advisor/daily_advisor_scans/daily_advisor_scan.html
+          name: advisor-scan
+          path: tools/advisor/advisor-scan.html
           if-no-files-found: error
           overwrite: true
-            
-
