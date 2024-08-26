@@ -65,8 +65,6 @@ jobs:
           toolkit ds profile snowflake:scan:latest
           toolkit ds show snowflake:profile:latest --format html -o daily-ds-reports/ds-profile.html
       
-     
-
       - name: Diff snowflake
         shell: bash
         run: |
@@ -74,16 +72,14 @@ jobs:
           toolkit ds show snowflake.snowflake:diff:latest --format html -o daily-ds-reports/ds-diff.html
         continue-on-error: true
 
-      # add admin clean command to remove old snapshots
-      # ignore html files 
       - name: Commit snapshots to git
         run: | 
           git add ./tools
           current-date=$(date '+%Y-%m-%d %H:%M:%S')
-          commit-message="Add snapshot files - ${current_date}"
+          commit-message="Add snapshot files - ${current-date}"
           git commit -m "${commit-message}"
           git push origin master
-  
+      
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
@@ -91,3 +87,6 @@ jobs:
           path: tools/datasource/daily-ds-reports/
           if-no-files-found: error
           overwrite: true
+
+      - name: Remove old snapshots
+        run: toolkit admin clean --approve --days=2
