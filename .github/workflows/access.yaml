@@ -30,18 +30,15 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Download the toolkit-cli
-        shell: bash
         run: |
           set -euo pipefail
           curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
           unzip -jd install toolkit-cli.zip
 
       - name: Run admin shell
-        shell: bash
         run: readlink -f install >> $GITHUB_PATH
 
       - name: Write Snowflake private key
-        shell: bash
         run: |
           (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowflake_key.p8)
           echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
@@ -51,9 +48,8 @@ jobs:
         with:
           java-version: 11
           distribution: corretto
-          
+
       - name: Scan snowflake
-        shell: bash
         run: toolkit access scan snowflake
 
       - name: Create HTML report
