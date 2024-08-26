@@ -30,19 +30,16 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Download the toolkit-cli
-        shell: bash
         run: |
           set -euo pipefail
 
           curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
           unzip -jd install toolkit-cli.zip
 
-      - name: Run admin shell
-        shell: bash
+      - name: Add toolkit to PATH
         run: readlink -f install >> $GITHUB_PATH
 
       - name: Write Snowflake private key
-        shell: bash
         run: |
           (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowflake_key.p8)
           echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
@@ -54,23 +51,20 @@ jobs:
           distribution: corretto
         
         
-      - name: Add data to snowflake
-        shell: bash 
+      - name: Add data to snowflake 
         run: toolkit datagen jdbc --append snowflake --spec specs/advanced-snowflake-spec.yaml
       
-      - name: Scan snowflake 
-        shell: bash 
-        run: toolkit datagen scan snowflake --filter SYNTHETIC_SALES --spec specs/synthetic_sales.yaml
+      - name: Scan snowflake  
+        run: toolkit datagen scan snowflake --filter SYNTHETIC_SALES --spec specs/synthetic-sales.yaml
       
       - name: Generate report
-        shell: bash
-        run: toolkit datagen show --output=weekly_datagen_report.html specs/synthetic_sales.yaml
+        run: toolkit datagen show --output=datagen-sales-report.html specs/synthetic-sales.yaml
 
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: weekly_datagen_report
-          path: tools/datagen/weekly_datagen_report.html
+          name: datagen-sales-report
+          path: tools/datagen/datagen-sales-report.html
           if-no-files-found: error
           overwrite: true
             
