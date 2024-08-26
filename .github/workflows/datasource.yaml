@@ -74,13 +74,14 @@ jobs:
           toolkit ds show snowflake.snowflake:diff:latest --format html -o daily-ds-reports/ds-diff.html
         continue-on-error: true
 
-      #  add date to commit msg and time - use date command 
       # add admin clean command to remove old snapshots
       # ignore html files 
       - name: Commit snapshots to git
         run: | 
           git add ./tools
-          git commit -am "Add snapshot files"
+          current-date=$(date '+%Y-%m-%d %H:%M:%S')
+          commit-message="Add snapshot files - ${current_date}"
+          git commit -m "${commit-message}"
           git push origin master
   
       - name: Upload reports
