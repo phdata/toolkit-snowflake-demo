@@ -30,7 +30,6 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Download the toolkit-cli
-        shell: bash
         run: |
           set -euo pipefail
 
@@ -38,11 +37,9 @@ jobs:
           unzip -jd install toolkit-cli.zip
 
       - name: Run admin shell
-        shell: bash
         run: readlink -f install >> $GITHUB_PATH
 
       - name: Write Snowflake private key
-        shell: bash
         run: |
           (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowflake_key.p8)
           echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
@@ -54,19 +51,16 @@ jobs:
           distribution: corretto
 
       - name: Scan snowflake
-        shell: bash
         run: |
           toolkit ds scan snowflake
           toolkit ds show snowflake:scan:latest --format html -o daily-ds-reports/ds-scan.html
       
       - name: Profile snowflake
-        shell: bash
         run: |
           toolkit ds profile snowflake:scan:latest
           toolkit ds show snowflake:profile:latest --format html -o daily-ds-reports/ds-profile.html
       
       - name: Diff snowflake
-        shell: bash
         run: |
           toolkit ds diff snowflake:profile:latest-1 snowflake:profile:latest 
           toolkit ds show snowflake.snowflake:diff:latest --format html -o daily-ds-reports/ds-diff.html
