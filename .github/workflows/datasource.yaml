@@ -53,45 +53,40 @@ jobs:
           java-version: 11
           distribution: corretto
 
-      - name: Make daily reports directory
-        shell: bash
-        run: |
-          if [ ! -d daily_ds_reports ]; then
-            mkdir -p daily_ds_reports
-          fi
-
       - name: Scan snowflake
         shell: bash
         run: |
           toolkit ds scan snowflake
-          toolkit ds show snowflake:scan:latest --format html -o ds-scan.html
-          mv ds-scan.html daily_ds_reports
+          toolkit ds show snowflake:scan:latest --format html -o daily-ds-reports/ds-scan.html
       
       - name: Profile snowflake
         shell: bash
         run: |
           toolkit ds profile snowflake:scan:latest
-          toolkit ds show snowflake:profile:latest --format html -o ds-profile.html
-          mv ds-profile.html daily_ds_reports
+          toolkit ds show snowflake:profile:latest --format html -o daily-ds-reports/ds-profile.html
       
-      - name: Commit snapshots to git
-        run: | 
-          git add ./tools
-          git commit -am "add snapshot files"
-          git push origin master
+     
 
       - name: Diff snowflake
         shell: bash
         run: |
-          toolkit ds diff snowflake:profile:now-1d snowflake:profile:latest 
-          toolkit ds show snowflake:diff:latest --format html -o ds-diff.html
-          mv ds-diff.html daily_ds_reports
+          toolkit ds diff snowflake:profile:latest-1 snowflake:profile:latest 
+          toolkit ds show snowflake.snowflake:diff:latest --format html -o daily-ds-reports/ds-diff.html
         continue-on-error: true
+
+      #  add date to commit msg and time - use date command 
+      # add admin clean command to remove old snapshots
+      # ignore html files 
+      - name: Commit snapshots to git
+        run: | 
+          git add ./tools
+          git commit -am "Add snapshot files"
+          git push origin master
   
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
-          name: daily_ds_reports
-          path: tools/datasource/daily_ds_reports/
+          name: daily-ds-reports
+          path: tools/datasource/daily-ds-reports/
           if-no-files-found: error
           overwrite: true
