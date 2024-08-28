@@ -69,8 +69,8 @@ jobs:
       - name: Commit snapshots to git
         run: | 
           git add ./tools
-          current-date=$(date '+%Y-%m-%d %H:%M:%S')
-          commit-message="Add snapshot files - ${current-date}"
+          current_date=$(date '+%Y-%m-%d %H:%M:%S')
+          commit_message="Add snapshot files - ${current-date}"
           git commit -m "${commit-message}"
           git push origin master
       
@@ -80,7 +80,6 @@ jobs:
           name: daily-ds-reports
           path: tools/datasource/daily-ds-reports/
           if-no-files-found: error
-          overwrite: true
 
       - name: Remove old snapshots
-        run: toolkit admin clean --approve --days=1
+        run: toolkit admin clean --approve --days=30
