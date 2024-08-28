@@ -51,11 +51,9 @@ jobs:
           distribution: corretto
 
       - name: Scan snowflake
-        run: | 
-          toolkit admin extract advisor
-          toolkit advisor scan snowflake
+        run: toolkit advisor scan snowflake
 
-      - name: Rename HTML report
+      - name: Create HTML report
         run: toolkit advisor show snowflake:check:latest -o advisor-scan.html
 
       - name: Upload report
