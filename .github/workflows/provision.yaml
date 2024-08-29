@@ -7,11 +7,13 @@ on:
       - "*"
     paths:
       - "tools/provision/**"
+      - .github/workflows/provision.yaml
   push:
     branches:
       - master
     paths:
       - "tools/provision/**"
+      - .github/workflows/provision.yaml
 
 defaults:
   run:
