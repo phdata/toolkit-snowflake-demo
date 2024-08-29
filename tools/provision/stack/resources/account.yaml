@@ -133,7 +133,8 @@ authenticationPolicies:
     schema: policy
     name: breakglass_authentication_policy
     properties:
-      authentication_methods: password
+      authentication_methods:
+        - password
       client_types:
         - snowflake_ui
 
