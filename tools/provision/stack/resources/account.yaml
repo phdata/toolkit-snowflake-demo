@@ -2,6 +2,7 @@ account:
   resourceMonitor: account_resource_monitor
   sessionPolicy: GOVERNANCE.POLICY.ACCOUNT_SESSION_POLICY
   passwordPolicy: GOVERNANCE.POLICY.ACCOUNT_PASSWORD_POLICY
+  authenticationPolicy: GOVERNANCE.POLICY.ACCOUNT_AUTHENTICATION_POLICY
   tags:
     governance.tag.environment: development
   parameters:
@@ -15,9 +16,9 @@ account:
     allow_id_token: true
     # prevent logging value bound in prepared statements since they may be sensitive
     client_enable_log_info_statement_parameters: false
-    # prevent nondeterministic merge statements
+    # prevent nondeterministic MERGE statements
     error_on_nondeterministic_merge: true
-    # prevent nondeterministic update statements
+    # prevent nondeterministic UPDATE statements
     error_on_nondeterministic_update: true
     # terminate statements that are queued longer than this timeout
     statement_queued_timeout_in_seconds: 3600 # 1 hour
@@ -67,28 +68,39 @@ privilegeGrants:
     objectName: governance.tag
     roleName: securityadmin
 
-networkPolicies:
-  - name: account_network_policy
-    allowedIps:
+networkRules:
+  - database: governance
+    schema: policy
+    name: allow_public_access
+    ruleType: IPV4
+    mode: ingress
+    valueList:
       - 0.0.0.0/0
     properties:
-      comment: "The default network policy"
+      comment: Allow public internet access
+
+networkPolicies:
+  - name: account_network_policy
+    allowedNetworkRules:
+      - GOVERNANCE.POLICY.ALLOW_PUBLIC_ACCESS
+    properties:
+      comment: The account network policy
 
 sessionPolicies:
   - database: governance
     schema: policy
     name: account_session_policy
     properties:
-      session_idle_timeout_mins: 10
+      session_idle_timeout_mins: 10 # CIS-1.9
       session_ui_idle_timeout_mins: 10
-      comment: "The default session policy"
+      comment: The account session policy
 
 passwordPolicies:
   - database: governance
     schema: policy
     name: account_password_policy
     properties:
-      password_min_length: 12
+      password_min_length: 14 # CIS-1.5
       password_max_length: 24
       password_min_upper_case_chars: 1
       password_min_lower_case_chars: 1
@@ -96,19 +108,63 @@ passwordPolicies:
       password_min_special_chars: 1
       password_max_retries: 5
       password_lockout_time_mins: 30
-      comment: "The default password policy"
+      comment: The account password policy
+
+authenticationPolicies:
+  # todo: is this a good default authentication policy?
+  - database: governance
+    schema: policies
+    name: account_authentication_policy
+    properties:
+      authentication_methods:
+        - saml
+        - oauth
+      client_types:
+        - snowflake_ui
+        - snowsql
+        - drivers
+      mfa_enrollment: required
+      # todo: ideally you would lock this down to specific security integrations
+#      security_integrations:
+#        - 'your-scim-integration'
+
+  # apply to break-glass user
+  - database: governance
+    schema: policy
+    name: breakglass_authentication_policy
+    properties:
+      authentication_methods: password
+      client_types:
+        - snowflake_ui
+
+  # apply to service accounts
+  - database: governance
+    schema: policy
+    name: service_authentication_policy
+    properties:
+      authentication_methods:
+        - keypair
+        - oauth
+      client_types:
+        - drivers
+        - snowsql
 
 resourceMonitors:
   - name: account_resource_monitor
     creditQuota: 500
     startTimestamp: immediately
     frequency: monthly
+    notifyUsers:
+      # todo: this user needs a verified email
+      - admin
     triggers:
       - threshold: 50
         action: notify
       - threshold: 75
         action: notify
       - threshold: 90
+        action: notify
+      - threshold: 100
         action: notify
 
 tags:
