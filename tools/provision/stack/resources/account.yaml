@@ -78,6 +78,14 @@ roles:
   - name: tag_admin
   - name: policy_admin
 
+roleGrants:
+  - name: tag_admin
+    toRoles:
+      - sysadmin
+  - name: policy_admin
+    toRoles:
+      - sysadmin
+
 privilegeGrants:
   # privilege grants to the TAG_ADMIN role to manage tags
   - privilege: usage
