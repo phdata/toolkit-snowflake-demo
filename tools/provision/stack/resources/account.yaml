@@ -47,26 +47,80 @@ account:
     # prevent COPY INTO statements from unloading data to an inline URL, CIS-4.8
     prevent_unload_to_inline_url: true
 
+resourceMonitors:
+  - name: account_resource_monitor
+    creditQuota: 500
+    startTimestamp: immediately
+    frequency: monthly
+    notifyUsers:
+      # todo: this user needs a verified email
+      - admin
+    triggers:
+      - threshold: 50
+        action: notify
+      - threshold: 75
+        action: notify
+      - threshold: 90
+        action: notify
+      - threshold: 100
+        action: notify
+
 databases:
   - name: governance
+
 schemas:
   - name: policy
     database: governance
   - name: tag
     database: governance
+
+roles:
+  - name: tag_admin
+  - name: policy_admin
+
 privilegeGrants:
-  - privilege: all
+  # privilege grants to the TAG_ADMIN role to manage tags
+  - privilege: usage
     objectType: database
     objectName: governance
-    roleName: securityadmin
-  - privilege: all
-    objectType: schema
-    objectName: governance.policy
-    roleName: securityadmin
-  - privilege: all
+    roleName: tag_admin
+  - privilege: usage
     objectType: schema
     objectName: governance.tag
-    roleName: securityadmin
+    roleName: tag_admin
+  - privilege: create tag
+    objectType: schema
+    objectName: governance.tag
+    roleName: tag_admin
+  # privilege grants to the POLICY_ADMIN role to manage policies
+  - privilege: usage
+    objectType: database
+    objectName: governance
+    roleName: policy_admin
+  - privilege: usage
+    objectType: schema
+    objectName: governance.policy
+    roleName: policy_admin
+  - privilege: create password policy
+    objectType: schema
+    objectName: governance.policy
+    roleName: policy_admin
+  - privilege: apply password policy
+    objectType: account
+    objectName: ""
+    roleName: policy_admin
+  - privilege: create session policy
+    objectType: schema
+    objectName: governance.policy
+    roleName: policy_admin
+  - privilege: apply session policy
+    objectType: account
+    objectName: ""
+    roleName: policy_admin
+  - privilege: create network policy
+    objectType: account
+    objectName: ""
+    roleName: policy_admin
 
 networkRules:
   - database: governance
@@ -113,7 +167,7 @@ passwordPolicies:
 authenticationPolicies:
   # todo: is this a good default authentication policy?
   - database: governance
-    schema: policies
+    schema: policy
     name: account_authentication_policy
     properties:
       authentication_methods:
@@ -149,24 +203,6 @@ authenticationPolicies:
       client_types:
         - drivers
         - snowsql
-
-resourceMonitors:
-  - name: account_resource_monitor
-    creditQuota: 500
-    startTimestamp: immediately
-    frequency: monthly
-    notifyUsers:
-      # todo: this user needs a verified email
-      - admin
-    triggers:
-      - threshold: 50
-        action: notify
-      - threshold: 75
-        action: notify
-      - threshold: 90
-        action: notify
-      - threshold: 100
-        action: notify
 
 tags:
   - name: environment
