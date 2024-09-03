@@ -223,12 +223,12 @@ tags:
     database: governance
     schema: tag
     allowedValues:
-      - production
-      - development
-      - sandbox
+      - dev
+      - qa
+      - prod
     properties:
-      comment: Environment supported
-  - name: security_class
+      comment: Tag to indicate which environment an object is associated with
+  - name: data_classification
     database: governance
     schema: tag
     allowedValues:
@@ -236,4 +236,4 @@ tags:
       - PCI
       - PHI
     properties:
-      comment: Sensitive data type
+      comment: A tag to indicate if the data contained by the object belongs to a sensitive classification
