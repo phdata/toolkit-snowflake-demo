@@ -83,10 +83,14 @@ roleGrants:
     toRoles:
       - sysadmin
       - {{ provision_role }}
+    toUsers:
+      - {{ provision_user }}
   - name: policy_admin
     toRoles:
       - sysadmin
       - {{ provision_role }}
+    toUsers:
+      - {{ provision_user }}
 
 privilegeGrants:
   # privilege grants to the TAG_ADMIN role to manage tags
