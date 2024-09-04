@@ -1,0 +1,165 @@
+databases:
+  - name: {{ name }}
+    properties:
+      comment: The database for the {{ name }} project
+
+
+schemas:
+  - database: {{ name }}
+    name: raw
+    properties:
+      comment: This schema contains raw data without any transformations.
+  - database: {{ name }}
+    name: standardized
+    properties:
+      comment: This schema provides data for exploration and building use cases.
+  - database: {{ name }}
+    name: conformed
+    properties:
+      comment: This schema provides curated data that has been transformed to meet specific business requirements.
+
+{% set schemas = ['raw', 'standardized', 'conformed'] %}
+
+# todo make this an external stage using a storage integration
+stages:
+  - database: {{ name }}
+    schema: raw
+    name: ingest
+    properties:
+      comment: The stage containing files to ingest into the raw layer.
+
+
+roles:
+  - name: {{ name }}_admin
+    properties:
+      comment: The admin role for the {{ name }} project
+  - name: {{ name }}_rw
+    properties:
+      comment: The read-write role for the {{ name }} project
+  - name: {{ name }}_ro
+    properties:
+      comment: The read-only role for the {{ name }} project
+
+roleGrants:
+  - name: {{ name }}_ro
+    toRoles:
+      - {{ name }}_rw
+  - name: {{ name }}_rw
+    toRoles:
+      - {{ name }}_admin
+  - name: {{ name }}_admin
+    toRoles:
+      - sysadmin
+
+# The admin role inherits the read-write role privileges, which inherits the read-only role privileges, so we only
+# need to grant each role the individual privileges it needs beyond the lower roles.
+privilegeGrants:
+  # read-only role privileges
+  - privilege: usage
+    objectName: {{ name }}
+    objectType: database
+    roleName: {{ name }}_ro
+  - privilege: usage
+    objectName: standardized
+    objectType: schema
+    roleName: {{ name }}_ro
+  - privilege: usage
+    objectName: conformed
+    objectType: schema
+    roleName: {{ name }}_ro
+  # read-write role privileges
+  - privilege: monitor
+    objectName: {{ name }}
+    objectType: database
+    roleName: {{ name }}_rw
+  - privilege: modify
+    objectName: {{ name }}
+    objectType: database
+    roleName: {{ name }}_rw
+  {% for schema in schemas %}
+  - privilege: modify
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: monitor
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create table
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create dynamic table
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create external table
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create iceberg table
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create materialized view
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create view
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create task
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create alert
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create stream
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create pipe
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create file format
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create sequence
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create function
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create procedure
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create stage
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  - privilege: create git repository
+    objectName: {{ name }}.{{ schema }}
+    objectType: schema
+    roleName: {{ name }}_rw
+  {% endfor %}
+  - privilege: usage
+    objectName: {{ name }}.ingest
+    objectType: stage
+    roleName: {{ name }}_rw
+  - privilege: read
+    objectName: {{ name }}.ingest
+    objectType: stage
+    roleName: {{ name }}_rw
+  - privilege: write
+    objectName: {{ name }}.ingest
+    objectType: stage
+    roleName: {{ name }}_rw
+  # todo what additional privileges should the admin role have?

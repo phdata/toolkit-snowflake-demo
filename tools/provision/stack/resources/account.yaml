@@ -82,13 +82,11 @@ roleGrants:
   - name: tag_admin
     toRoles:
       - sysadmin
-      - {{ provision_role }}
     toUsers:
       - {{ provision_user }}
   - name: policy_admin
     toRoles:
       - sysadmin
-      - {{ provision_role }}
     toUsers:
       - {{ provision_user }}
 
