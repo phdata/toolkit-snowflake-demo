@@ -8,9 +8,9 @@ on:
   schedule:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
 
-defaults:
-  run:
-    working-directory: tools/access
+# defaults:
+#   run:
+#     working-directory: tools/access
 
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
@@ -28,40 +28,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: PWD
-        run: pwd
+
       - name: Use Composite Action
-        uses: phdata/toolkit-snowflake-demo/.github/actions/common-setup/cli-setup.yaml@master
-
-        # uses: phdata/toolkit-snowflake-demo/.github/actions/cli-setup.yaml@master
-      # - name: Checkout
-      #   uses: actions/checkout@v3
-
-      # - name: Download the toolkit-cli
-      #   run: |
-      #     set -euo pipefail
-      #     curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
-      #     unzip -jd install toolkit-cli.zip
-
-      # - name: Add toolkit to PATH
-      #   run: readlink -f install >> $GITHUB_PATH
-
-      # - name: Write Snowflake private key
-      #   run: |
-      #     (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowflake_key.p8)
-      #     echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
-
-      # - name: Set up Java
-      #   uses: actions/setup-java@v3
-      #   with:
-      #     java-version: 11
-      #     distribution: corretto
+        uses: ./.github/actions/common-setup
 
       - name: Scan snowflake
-        run: toolkit access scan snowflake
+        run: | 
+          cd tools/access
+          toolkit access scan snowflake
 
       - name: Create HTML report
-        run: toolkit access show snowflake:access:latest -o access-scan.html
+        run: | 
+          cd tools/access
+          toolkit access show snowflake:access:latest -o access-scan.html
         
       - name: Upload report
         uses: actions/upload-artifact@v4
