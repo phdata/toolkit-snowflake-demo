@@ -8,10 +8,6 @@ on:
   schedule:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
 
-# defaults:
-#   run:
-#     working-directory: tools/access
-
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
   TOOLKIT_CLI_DOWNLOAD_URL: ${{ secrets.toolkit_cli_download_url }}

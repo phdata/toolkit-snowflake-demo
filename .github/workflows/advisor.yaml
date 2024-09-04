@@ -8,10 +8,6 @@ on:
   schedule:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
 
-defaults:
-  run:
-    working-directory: tools/advisor
-
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
   TOOLKIT_CLI_DOWNLOAD_URL: ${{ secrets.toolkit_cli_download_url }}
@@ -27,34 +23,20 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Download the toolkit-cli
-        run: |
-          set -euo pipefail
-
-          curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
-          unzip -jd install toolkit-cli.zip
-
-      - name: Add toolkit to PATH
-        run: readlink -f install >> $GITHUB_PATH
-
-      - name: Write Snowflake private key
-        run: |
-          (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowflake_key.p8)
-          echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
-
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: 11
-          distribution: corretto
+      - name: Use Composite Action
+        uses: ./.github/actions/common-setup
 
       - name: Scan snowflake
-        run: toolkit advisor scan snowflake
+        run: | 
+          cd tools/advisor
+          toolkit advisor scan snowflake
 
       - name: Create HTML report
-        run: toolkit advisor show snowflake:check:latest -o advisor-scan.html
+        run: | 
+          cd tools/advisor
+          toolkit advisor show snowflake:check:latest -o advisor-scan.html
 
       - name: Upload report
         uses: actions/upload-artifact@v4
