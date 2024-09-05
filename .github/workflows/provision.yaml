@@ -12,9 +12,9 @@ on:
     branches:
       - master
 
-# defaults:
-#   run:
-#     working-directory: tools/provision
+defaults:
+  run:
+    working-directory: tools/provision
 
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
@@ -65,19 +65,21 @@ jobs:
       - name: Create metadata
         shell: bash
         run: |
-          cd tools/provision
+          echo ===========
+          echo ===========
+          ls /tmp/
+          echo ===========
+          echo ===========
           toolkit provision init --metadata
 
       - name: Plan on pull request
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
-          cd tools/provision
           toolkit provision apply --plan
 
       - name: Apply changes on merge to master
         shell: bash
         run: |
-          cd tools/provision
           toolkit provision apply
         if: github.event_name == 'push'
