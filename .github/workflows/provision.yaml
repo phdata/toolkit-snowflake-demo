@@ -35,32 +35,33 @@ jobs:
 
       - name: Use Composite Action
         uses: ./.github/actions/common-setup
-      # - name: Checkout
-      #   uses: actions/checkout@v3
 
-      # - name: Download the toolkit-cli
-      #   shell: bash
-      #   run: |
-      #     set -euo pipefail
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      #     curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
-      #     unzip -jd install toolkit-cli.zip
+      - name: Download the toolkit-cli
+        shell: bash
+        run: |
+          set -euo pipefail
 
-      # - name: Run admin shell
-      #   shell: bash
-      #   run: readlink -f install >> $GITHUB_PATH
+          curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
+          unzip -jd install toolkit-cli.zip
 
-      # - name: Write Snowflake private key
-      #   shell: bash
-      #   run: |
-      #     (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowflake_key.p8)
-      #     echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
+      - name: Run admin shell
+        shell: bash
+        run: readlink -f install >> $GITHUB_PATH
 
-      # - name: Set up Java
-      #   uses: actions/setup-java@v3
-      #   with:
-      #     java-version: 11
-      #     distribution: corretto
+      - name: Write Snowflake private key
+        shell: bash
+        run: |
+          (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowflake_key.p8)
+          echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+          distribution: corretto
 
       - name: Create metadata
         shell: bash
