@@ -44,10 +44,8 @@ jobs:
 
       - name: Plan on pull request
         if: github.event_name == 'pull_request'
-        run: |
-          toolkit provision apply --plan
+        run: toolkit provision apply --plan
 
       - name: Apply changes on merge to master
-        run: |
-          toolkit provision apply
+        run: toolkit provision apply
         if: github.event_name == 'push'

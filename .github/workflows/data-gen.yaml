@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: "0 23 * * *" # Runs every day at 11:00 p.m.
 
+defaults:
+  run:
+    working-directory: tools/datagen
+
 jobs:
   build:
     runs-on: ubuntu-latest
