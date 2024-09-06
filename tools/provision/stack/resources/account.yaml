@@ -77,6 +77,7 @@ schemas:
 roles:
   - name: tag_admin
   - name: policy_admin
+  - name: log_admin
 
 roleGrants:
   - name: tag_admin
@@ -91,6 +92,9 @@ roleGrants:
       - {{ provision_user }}
 
 privilegeGrants:
+  - privilege: modify log level
+    objectType: account
+    roleName: log_admin
   # privilege grants to the TAG_ADMIN role to manage tags
   - privilege: usage
     objectType: database
