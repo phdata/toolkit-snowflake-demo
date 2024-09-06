@@ -1,5 +1,7 @@
 account:
   resourceMonitor: account_resource_monitor
+  # These policy identifiers are fully qualified, and so they must use the correct identifier casing because the tool
+  # cannot automatically normalize a fully-qualified identifier from a string
   sessionPolicy: GOVERNANCE.POLICY.ACCOUNT_SESSION_POLICY
   passwordPolicy: GOVERNANCE.POLICY.ACCOUNT_PASSWORD_POLICY
   authenticationPolicy: GOVERNANCE.POLICY.ACCOUNT_AUTHENTICATION_POLICY
@@ -7,14 +9,14 @@ account:
     governance.tag.environment: dev
   parameters:
     # assign a network policy to the account, allowing/blocking access based on network rules
-    network_policy: ACCOUNT_NETWORK_POLICY
+    network_policy: account_network_policy
     # abort queries where the connection is lost due to abrupt session termination
     abort_detached_query: true
     # allow clients to cache MFA tokens to prevent multiple MFA prompts when using multiple connections
     allow_client_mfa_caching: true
     # allow clients to cache ID tokens to prevent multiple browser prompts when using SSO with multiple connections
     allow_id_token: true
-    # prevent logging value bound in prepared statements since they may be sensitive
+    # prevent logging values bound in prepared statements since they may be sensitive
     client_enable_log_info_statement_parameters: false
     # prevent nondeterministic MERGE statements
     error_on_nondeterministic_merge: true
@@ -69,14 +71,17 @@ databases:
   - name: governance
 
 schemas:
-  - name: policy
-    database: governance
-  - name: tag
-    database: governance
+  - database: governance
+    name: policy
+  - database: governance
+    name: tag
+  - database: governance
+    name: alert
 
 roles:
   - name: tag_admin
   - name: policy_admin
+  - name: alert_admin
   - name: log_admin
 
 roleGrants:
@@ -92,10 +97,28 @@ roleGrants:
       - {{ provision_user }}
 
 privilegeGrants:
+  # privilege grants to the LOG_ADMIN role to manage logs
   - privilege: modify log level
     objectType: account
     roleName: log_admin
     owner: accountadmin
+  # privilege grants to the ALERT_ADMIN role to manage alerts
+  - privilege: execute alert
+    objectType: account
+    roleName: alert_admin
+    owner: accountadmin
+  - privilege: usage
+    objectType: database
+    objectName: governance
+    roleName: alert_admin
+  - privilege: usage
+    objectType: schema
+    objectName: governance.alert
+    roleName: alert_admin
+  - privilege: create alert
+    objectType: schema
+    objectName: governance.alert
+    roleName: alert_admin
   # privilege grants to the TAG_ADMIN role to manage tags
   - privilege: usage
     objectType: database
@@ -110,6 +133,18 @@ privilegeGrants:
     objectName: governance.tag
     roleName: tag_admin
   # privilege grants to the POLICY_ADMIN role to manage policies
+  - privilege: apply password policy
+    objectType: account
+    roleName: policy_admin
+    owner: accountadmin
+  - privilege: apply session policy
+    objectType: account
+    roleName: policy_admin
+    owner: accountadmin
+  - privilege: create network policy
+    objectType: account
+    roleName: policy_admin
+    owner: accountadmin
   - privilege: usage
     objectType: database
     objectName: governance
@@ -122,38 +157,60 @@ privilegeGrants:
     objectType: schema
     objectName: governance.policy
     roleName: policy_admin
-  - privilege: apply password policy
-    objectType: account
-    roleName: policy_admin
-    owner: accountadmin
   - privilege: create session policy
     objectType: schema
     objectName: governance.policy
     roleName: policy_admin
-  - privilege: apply session policy
-    objectType: account
+  - privilege: create authentication policy
+    objectType: schema
+    objectName: governance.policy
     roleName: policy_admin
-    owner: accountadmin
   - privilege: create network policy
-    objectType: account
+    objectType: schema
+    objectName: governance.policy
     roleName: policy_admin
-    owner: accountadmin
+  - privilege: create password policy
+    objectType: schema
+    objectName: governance.policy
+    roleName: policy_admin
+  - privilege: create session policy
+    objectType: schema
+    objectName: governance.policy
+    roleName: policy_admin
+  - privilege: create authentication policy
+    objectType: schema
+    objectName: governance.policy
+    roleName: policy_admin
+  - privilege: create network policy
+    objectType: schema
+    objectName: governance.policy
+    roleName: policy_admin
 
 networkRules:
   - database: governance
     schema: policy
-    name: allow_public_access
-    ruleType: IPV4
+    name: allow_public_ingress
+    ruleType: ipv4
     mode: ingress
     valueList:
       - 0.0.0.0/0
     properties:
-      comment: Allow public internet access
+      comment: Allow public internet access to the Snowflake account
+  - database: governance
+    schema: policy
+    name: allow_public_egress
+    ruleType: ipv4
+    mode: egress
+    valueList:
+      - 0.0.0.0/0
+    properties:
+      comment: Allow public internet access to the Snowflake account
 
 networkPolicies:
   - name: account_network_policy
     allowedNetworkRules:
-      - GOVERNANCE.POLICY.ALLOW_PUBLIC_ACCESS
+      - GOVERNANCE.POLICY.ALLOW_PUBLIC_INGRESS
+      - GOVERNANCE.POLICY.ALLOW_PUBLIC_EGRESS
     properties:
       comment: The account network policy
 
@@ -222,18 +279,18 @@ authenticationPolicies:
         - snowsql
 
 tags:
-  - name: environment
-    database: governance
+  - database: governance
     schema: tag
+    name: environment
     allowedValues:
       - dev
       - qa
       - prod
     properties:
-      comment: Tag to indicate which environment an object is associated with
-  - name: data_classification
-    database: governance
+      comment: A tag to indicate which environment an object is associated with
+  - database: governance
     schema: tag
+    name: data_classification
     allowedValues:
       - PII
       - PCI
