@@ -3,12 +3,12 @@ description: A composite action to install the toolkit and connect to snowflake
 
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
-  TOOLKIT_CLI_DOWNLOAD_URL: ${{ secrets.toolkit_cli_download_url }}
   TOOLKIT_CLI_VERSION: ${{ vars.toolkit_cli_version }}
   SNOWFLAKE_PRIVATE_KEY_PEM: ${{ secrets.snowflake_private_key_pem }}
   SNOWFLAKE_USER: ${{ vars.snowflake_user }}
   SNOWFLAKE_URL: ${{ secrets.snowflake_url }}
-  SNOWFLAKE_PRIVATE_KEY_FILE: ${{ vars.snowflake_private_key_file }}
+  TOOLKIT_CLI_DOWNLOAD_TOKEN: ${{ secrets.toolkit_cli_download_token }}
+  TOOLKIT_CLI_VERSION: ${{ vars.toolkit_cli_version }}
 
 runs:
   using: "composite"
@@ -17,7 +17,7 @@ runs:
       run: |
 
         set -euo pipefail
-        curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
+        curl --fail --output toolkit-cli.zip "https://repo.phdata.io/$TOOLKIT_CLI_DOWNLOAD_TOKEN/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/$TOOLKIT_CLI_VERSION/toolkit-cli-$TOOLKIT_CLI_VERSION.zip"
         unzip -jd install toolkit-cli.zip
 
     - name: Add toolkit to PATH
@@ -27,11 +27,6 @@ runs:
       run: |
         (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowflake_key.p8)
         echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
-        echo ===========
-        echo ===========
-        ls /tmp/
-        echo ===========
-        echo ===========
 
     - name: Set up Java
       uses: actions/setup-java@v3
