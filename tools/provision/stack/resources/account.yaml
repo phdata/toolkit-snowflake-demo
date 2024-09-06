@@ -95,6 +95,7 @@ privilegeGrants:
   - privilege: modify log level
     objectType: account
     roleName: log_admin
+    owner: accountadmin
   # privilege grants to the TAG_ADMIN role to manage tags
   - privilege: usage
     objectType: database
@@ -123,20 +124,20 @@ privilegeGrants:
     roleName: policy_admin
   - privilege: apply password policy
     objectType: account
-    objectName: ""
     roleName: policy_admin
+    owner: accountadmin
   - privilege: create session policy
     objectType: schema
     objectName: governance.policy
     roleName: policy_admin
   - privilege: apply session policy
     objectType: account
-    objectName: ""
     roleName: policy_admin
+    owner: accountadmin
   - privilege: create network policy
     objectType: account
-    objectName: ""
     roleName: policy_admin
+    owner: accountadmin
 
 networkRules:
   - database: governance
