@@ -7,6 +7,13 @@ permissions:
 on:
   schedule:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
+env:
+  TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
+  TOOLKIT_CLI_VERSION: ${{ vars.toolkit_cli_version }}
+  SNOWFLAKE_PRIVATE_KEY_PEM: ${{ secrets.snowflake_private_key_pem }}
+  SNOWFLAKE_USER: ${{ vars.snowflake_user }}
+  SNOWFLAKE_URL: ${{ secrets.snowflake_url }}
+  TOOLKIT_CLI_DOWNLOAD_TOKEN: ${{ secrets.toolkit_cli_download_token }}
 
 jobs:
   build:
@@ -18,6 +25,10 @@ jobs:
 
       - name: Use Composite Action
         uses: ./.github/actions/common-setup
+        with: 
+          toolkit_cli_download_token: $TOOLKIT_CLI_DOWNLOAD_TOKEN
+          toolkit_cli_version: $TOOLKIT_CLI_VERSION
+          snowflake_private_key_pem: $SNOWFLAKE_PRIVATE_KEY_PEM
 
       - name: Scan snowflake
         run: | 

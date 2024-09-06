@@ -1,23 +1,26 @@
 name: CLI Setup
 description: A composite action to install the toolkit and connect to snowflake
-
-env:
-  TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
-  TOOLKIT_CLI_VERSION: ${{ vars.toolkit_cli_version }}
-  SNOWFLAKE_PRIVATE_KEY_PEM: ${{ secrets.snowflake_private_key_pem }}
-  SNOWFLAKE_USER: ${{ vars.snowflake_user }}
-  SNOWFLAKE_URL: ${{ secrets.snowflake_url }}
-  TOOLKIT_CLI_DOWNLOAD_TOKEN: ${{ secrets.toolkit_cli_download_token }}
-  TOOLKIT_CLI_VERSION: ${{ vars.toolkit_cli_version }}
+inputs:
+  toolkit_cli_download_token:
+    description: "Token to download the toolkit"
+    required: true
+    default: ""
+  toolkit_cli_version:
+    description: "Version of the toolkit cli to install"
+    required: true
+    default: "0.50.0"
+  snowflake_private_key_pem:
+    description: "Snowflake private key in pem format"
+    required: true
+    default: ""
 
 runs:
   using: "composite"
   steps:
     - name: Download the toolkit-cli
       run: |
-
         set -euo pipefail
-        curl --fail --output toolkit-cli.zip "https://repo.phdata.io/$TOOLKIT_CLI_DOWNLOAD_TOKEN/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/$TOOLKIT_CLI_VERSION/toolkit-cli-$TOOLKIT_CLI_VERSION.zip"
+        curl --fail --output toolkit-cli.zip "https://repo.phdata.io/${{ inputs.toolkit_cli_download_token }}/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/${{ inputs.toolkit_cli_version }}/toolkit-cli-${{ inputs.toolkit_cli_version }}.zip"
         unzip -jd install toolkit-cli.zip
 
     - name: Add toolkit to PATH
@@ -25,7 +28,7 @@ runs:
 
     - name: Write Snowflake private key
       run: |
-        (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowflake_key.p8)
+        (umask  077 ; echo ${{ inputs.snowflake_private_key_pem }} | base64 --decode > /tmp/snowflake_key.p8)
         echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
 
     - name: Set up Java
