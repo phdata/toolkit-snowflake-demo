@@ -18,6 +18,7 @@ runs:
   using: "composite"
   steps:
     - name: Download the toolkit-cli
+      shell: bash
       run: |
         set -euo pipefail
         curl --fail --output toolkit-cli.zip "https://repo.phdata.io/${{ inputs.toolkit_cli_download_token }}/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/${{ inputs.toolkit_cli_version }}/toolkit-cli-${{ inputs.toolkit_cli_version }}.zip"
