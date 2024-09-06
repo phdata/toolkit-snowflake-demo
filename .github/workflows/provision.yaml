@@ -34,24 +34,20 @@ jobs:
 
       - name: Use Composite Action
         uses: ./.github/actions/common-setup
-        shell: bash
         with:
           toolkit_cli_download_token: $TOOLKIT_CLI_DOWNLOAD_TOKEN
           toolkit_cli_version: $TOOLKIT_CLI_VERSION
           snowflake_private_key_pem: $SNOWFLAKE_PRIVATE_KEY_PEM
 
       - name: Create metadata
-        shell: bash
         run: toolkit provision init --metadata
 
       - name: Plan on pull request
         if: github.event_name == 'pull_request'
-        shell: bash
         run: |
           toolkit provision apply --plan
 
       - name: Apply changes on merge to master
-        shell: bash
         run: |
           toolkit provision apply
         if: github.event_name == 'push'
