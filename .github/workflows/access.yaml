@@ -25,6 +25,7 @@ jobs:
 
       - name: Use Composite Action
         uses: ./.github/actions/common-setup
+        shell: bash
         with: 
           toolkit_cli_download_token: $TOOLKIT_CLI_DOWNLOAD_TOKEN
           toolkit_cli_version: $TOOLKIT_CLI_VERSION
