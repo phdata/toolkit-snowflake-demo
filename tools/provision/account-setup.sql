@@ -53,9 +53,12 @@ ALTER WAREHOUSE PHDATA_WH SET RESOURCE_MONITOR = PHDATA_MONITOR;
 USE ROLE useradmin;
 CREATE OR REPLACE ROLE policy_admin;
 CREATE OR REPLACE ROLE tag_admin;
+CREATE OR REPLACE ROLE alert_admin;
 
 USE ROLE securityadmin;
 GRANT ROLE policy_admin TO ROLE provision_admin;
 GRANT ROLE policy_admin TO USER provision_user;
 GRANT ROLE tag_admin TO ROLE provision_admin;
 GRANT ROLE tag_admin TO USER provision_user;
+GRANT ROLE alert_admin TO ROLE provision_admin;
+GRANT ROLE alert_admin TO USER provision_user;
