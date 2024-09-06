@@ -29,14 +29,10 @@ jobs:
           snowflake_private_key_pem: $SNOWFLAKE_PRIVATE_KEY_PEM
 
       - name: Scan snowflake
-        run: | 
-          cd tools/advisor
-          toolkit advisor scan snowflake
+        run: toolkit advisor scan snowflake
 
       - name: Create HTML report
-        run: | 
-          cd tools/advisor
-          toolkit advisor show snowflake:check:latest -o advisor-scan.html
+        run: toolkit advisor show snowflake:check:latest -o advisor-scan.html
 
       - name: Upload report
         uses: actions/upload-artifact@v4
