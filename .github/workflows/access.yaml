@@ -1,7 +1,6 @@
 name: Snowflake Access Scan
 
 permissions:
-  contents: read
   contents: write
 
 on:
@@ -31,7 +30,7 @@ jobs:
       - name: Use Composite Action
         uses: ./.github/actions/common-setup
         shell: bash
-        with: 
+        with:
           toolkit_cli_download_token: $TOOLKIT_CLI_DOWNLOAD_TOKEN
           toolkit_cli_version: $TOOLKIT_CLI_VERSION
           snowflake_private_key_pem: $SNOWFLAKE_PRIVATE_KEY_PEM
@@ -41,7 +40,7 @@ jobs:
 
       - name: Create HTML report
         run: toolkit access show snowflake:access:latest -o access-scan.html
-        
+
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:

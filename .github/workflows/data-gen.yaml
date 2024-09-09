@@ -1,7 +1,6 @@
 name: Snowflake Data Generation
 
 permissions:
-  contents: read
   contents: write
 
 on:
@@ -23,17 +22,17 @@ jobs:
       - name: Use Composite Action
         uses: ./.github/actions/common-setup
         shell: bash
-        with: 
+        with:
           toolkit_cli_download_token: $TOOLKIT_CLI_DOWNLOAD_TOKEN
           toolkit_cli_version: $TOOLKIT_CLI_VERSION
           snowflake_private_key_pem: $SNOWFLAKE_PRIVATE_KEY_PEM
-         
-      - name: Add data to snowflake 
+
+      - name: Add data to snowflake
         run: toolkit datagen jdbc --append snowflake --spec specs/advanced-snowflake-spec.yaml
-      
-      - name: Scan snowflake  
+
+      - name: Scan snowflake
         run: toolkit datagen scan snowflake --filter SYNTHETIC_SALES --spec specs/synthetic-sales.yaml
-      
+
       - name: Generate report
         run: toolkit datagen show --output=datagen-sales-report.html specs/advanced-snowflake-spec.yaml
 
@@ -43,4 +42,3 @@ jobs:
           name: datagen-sales-report
           path: tools/datagen/datagen-sales-report.html
           if-no-files-found: error
-            

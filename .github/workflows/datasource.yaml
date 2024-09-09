@@ -1,7 +1,6 @@
 name: Snowflake Data Source Reports
 
 permissions:
-  contents: read
   contents: write
 
 on:
@@ -54,12 +53,12 @@ jobs:
         run: |
           toolkit ds scan snowflake
           toolkit ds show snowflake:scan:latest --format html -o daily-ds-reports/ds-scan.html
-      
+
       - name: Profile snowflake
         run: |
           toolkit ds profile snowflake:scan:latest
           toolkit ds show snowflake:profile:latest --format html -o daily-ds-reports/ds-profile.html
-      
+
       - name: Diff snowflake
         run: |
           toolkit ds diff snowflake:profile:latest-1 snowflake:profile:latest 
@@ -67,13 +66,13 @@ jobs:
         continue-on-error: true
 
       - name: Commit snapshots to git
-        run: | 
+        run: |
           git add ./tools
           current_date=$(date '+%Y-%m-%d %H:%M:%S')
           commit_message="Add snapshot files - ${current-date}"
           git commit -m "${commit-message}"
           git push origin master
-      
+
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
