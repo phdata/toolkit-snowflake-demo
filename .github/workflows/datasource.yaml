@@ -35,29 +35,6 @@ jobs:
           toolkit_cli_download_token: $TOOLKIT_CLI_DOWNLOAD_TOKEN
           toolkit_cli_version: $TOOLKIT_CLI_VERSION
           snowflake_private_key_pem: $SNOWFLAKE_PRIVATE_KEY_PEM
-      # - name: Checkout
-      #   uses: actions/checkout@v3
-
-      # - name: Download the toolkit-cli
-      #   run: |
-      #     set -euo pipefail
-
-      #     curl --fail --output toolkit-cli.zip $TOOLKIT_CLI_DOWNLOAD_URL
-      #     unzip -jd install toolkit-cli.zip
-
-      # - name: Add toolkit to PATH
-      #   run: readlink -f install >> $GITHUB_PATH
-
-      # - name: Write Snowflake private key
-      #   run: |
-      #     (umask  077 ; echo $SNOWFLAKE_PRIVATE_KEY_PEM | base64 --decode > /tmp/snowflake_key.p8)
-      #     echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
-
-      # - name: Set up Java
-      #   uses: actions/setup-java@v3
-      #   with:
-      #     java-version: 11
-      #     distribution: corretto
 
       - name: Scan snowflake
         run: |
