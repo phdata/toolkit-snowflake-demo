@@ -1,0 +1,41 @@
+name: CLI Setup
+description: A composite action to install the toolkit and connect to snowflake
+inputs:
+  toolkit_cli_download_token:
+    description: "Token to download the toolkit"
+    required: true
+    default: ""
+  toolkit_cli_version:
+    description: "Version of the toolkit cli to install"
+    required: true
+    default: "0.50.0"
+  snowflake_private_key_pem:
+    description: "Snowflake private key in pem format"
+    required: true
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+    - name: Download the toolkit-cli
+      shell: bash
+      run: |
+        set -euo pipefail
+        curl --fail --output toolkit-cli.zip "https://repo.phdata.io/${{ inputs.toolkit_cli_download_token }}/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/${{ inputs.toolkit_cli_version }}/toolkit-cli-${{ inputs.toolkit_cli_version }}.zip"
+        unzip -jd install toolkit-cli.zip
+
+    - name: Add toolkit to PATH
+      shell: bash
+      run: readlink -f install >> $GITHUB_PATH
+
+    - name: Write Snowflake private key
+      shell: bash
+      run: |
+        (umask  077 ; echo ${{ inputs.snowflake_private_key_pem }} | base64 --decode > /tmp/snowflake_key.p8)
+        echo "SNOWFLAKE_PRIVATE_KEY_FILE=/tmp/snowflake_key.p8" >> $GITHUB_ENV
+
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: 11
+        distribution: corretto
