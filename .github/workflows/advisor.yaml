@@ -1,7 +1,6 @@
 name: Snowflake Advisor Scan
 
 permissions:
-  contents: read
   contents: write
 
 on:
@@ -23,7 +22,7 @@ jobs:
       - name: Use Composite Action
         uses: ./.github/actions/common-setup
         shell: bash
-        with: 
+        with:
           toolkit_cli_download_token: $TOOLKIT_CLI_DOWNLOAD_TOKEN
           toolkit_cli_version: $TOOLKIT_CLI_VERSION
           snowflake_private_key_pem: $SNOWFLAKE_PRIVATE_KEY_PEM
