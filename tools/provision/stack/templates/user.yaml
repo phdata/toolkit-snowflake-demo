@@ -1,0 +1,25 @@
+users:
+  - name: {{tool_name}}_DEMO_USER
+    properties:
+      EMAIL : '{{email}}'
+      DEFAULT_ROLE: {{tool_name}}_DEMO_ROLE
+      LOGIN_NAME: '{{tool_name}}_DEMO_USER'
+      DEFAULT_WAREHOUSE: PROVISIONING
+      {% if rsa_public_key %}
+      RSA_PUBLIC_KEY: {{ rsa_public_key }}
+      {% endif %}
+      {% if rsa_public_key_2 %}
+      RSA_PUBLIC_KEY_2: {{ rsa_public_key_2 }}
+      {% endif %}
+roles:
+  - name: {{tool_name}}_DEMO_ROLE
+privilegeGrants:
+  - privilege: ALL PRIVILEGES
+    objectType: WAREHOUSE
+    objectName: PROVISIONING
+    roleName: {{tool_name}}_DEMO_ROLE
+    grantOption: true
+roleGrants:
+  - name: {{tool_name}}_DEMO_ROLE
+    toUsers: 
+      - {{tool_name}}_DEMO_USER
