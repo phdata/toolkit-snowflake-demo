@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Use Composite Action
+      - name: Run common setup
         uses: ./.github/actions/common-setup
         with:
           toolkit_cli_download_token: $TOOLKIT_CLI_DOWNLOAD_TOKEN
