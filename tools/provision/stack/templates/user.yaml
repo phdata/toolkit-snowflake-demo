@@ -4,7 +4,7 @@ users:
       default_role: {{tool_name}}_demo_role
       login_name: '{{tool_name}}_demo_user'
       default_warehouse: provisioning
-      TYPE: service
+      type: service
       {% if rsa_public_key %}
       rsa_public_key: {{ rsa_public_key }}
       {% endif %}
