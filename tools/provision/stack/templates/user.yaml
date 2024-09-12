@@ -1,15 +1,15 @@
 users:
   - name: {{tool_name}}_demo_user
     properties:
-      DEFAULT_ROLE: {{tool_name}}_demo_role
-      LOGIN_NAME: '{{tool_name}}_demo_user'
-      DEFAULT_WAREHOUSE: provisioning
+      default_role: {{tool_name}}_demo_role
+      login_name: '{{tool_name}}_demo_user'
+      default_warehouse: provisioning
       TYPE: service
       {% if rsa_public_key %}
-      RSA_PUBLIC_KEY: {{ rsa_public_key }}
+      rsa_public_key: {{ rsa_public_key }}
       {% endif %}
       {% if rsa_public_key_2 %}
-      RSA_PUBLIC_KEY_2: {{ rsa_public_key_2 }}
+      rsa_public_key_2: {{ rsa_public_key_2 }}
       {% endif %}
 roles:
   - name: {{tool_name}}_demo_role
