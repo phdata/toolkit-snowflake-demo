@@ -7,7 +7,7 @@ on:
 
 defaults:
   run:
-    working-directory: tools/datasource
+    working-directory: tools/data-source
 
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
@@ -42,6 +42,7 @@ jobs:
         run: |
           toolkit ds diff snowflake:profile:latest-1 snowflake:profile:latest 
           toolkit ds show snowflake.snowflake:diff:latest --format html -o daily-ds-reports/ds-diff.html
+        # todo we should improve this so it can run the first time without failing
         continue-on-error: true
 
       - name: Commit snapshots to git
@@ -56,7 +57,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: daily-ds-reports
-          path: tools/datasource/daily-ds-reports/
+          path: tools/data-source/daily-ds-reports/
           if-no-files-found: error
 
       - name: Remove old snapshots
