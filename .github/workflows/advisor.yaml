@@ -1,15 +1,17 @@
 name: Snowflake Advisor Scan
 
-permissions:
-  contents: write
-
 on:
+  workflow_dispatch: {}
   schedule:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
 
 defaults:
   run:
     working-directory: tools/advisor
+
+env:
+  TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
+  SNOWFLAKE_URL: ${{ secrets.snowflake_url }}
 
 jobs:
   build:
@@ -22,9 +24,9 @@ jobs:
       - name: Run common setup
         uses: ./.github/actions/common-setup
         with:
-          toolkit_cli_download_token: $TOOLKIT_CLI_DOWNLOAD_TOKEN
-          toolkit_cli_version: $TOOLKIT_CLI_VERSION
-          snowflake_private_key_pem: $SNOWFLAKE_PRIVATE_KEY_PEM
+          toolkit_cli_download_token: ${{ secrets.toolkit_auth_token }}
+          toolkit_cli_version: ${{ vars.toolkit_cli_version }}
+          snowflake_private_key_pem: ${{ secrets.snowflake_private_key_pem }}
 
       - name: Scan snowflake
         run: toolkit advisor scan snowflake
