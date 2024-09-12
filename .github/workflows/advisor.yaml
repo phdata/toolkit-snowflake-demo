@@ -24,7 +24,7 @@ jobs:
       - name: Run common setup
         uses: ./.github/actions/common-setup
         with:
-          toolkit_cli_download_token: ${{ secrets.toolkit_auth_token }}
+          toolkit_cli_download_token: ${{ secrets.toolkit_cli_download_token }}
           toolkit_cli_version: ${{ vars.toolkit_cli_version }}
           snowflake_private_key_pem: ${{ secrets.snowflake_private_key_pem }}
 
