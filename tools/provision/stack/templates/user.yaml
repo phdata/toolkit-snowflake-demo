@@ -3,8 +3,8 @@ users:
     properties:
       DEFAULT_ROLE: {{tool_name}}_demo_role
       LOGIN_NAME: '{{tool_name}}_demo_user'
-      DEFAULT_WAREHOUSE: PROVISIONING
-      TYPE: SERVICE
+      DEFAULT_WAREHOUSE: provisioning
+      TYPE: service
       {% if rsa_public_key %}
       RSA_PUBLIC_KEY: {{ rsa_public_key }}
       {% endif %}
@@ -14,8 +14,8 @@ users:
 roles:
   - name: {{tool_name}}_demo_role
 privilegeGrants:
-  - privilege: ALL PRIVILEGES
-    objectType: WAREHOUSE
+  - privilege: all privileges
+    objectType: warehouse
     objectName: provisioning
     roleName: {{tool_name}}_demo_role
     grantOption: true
