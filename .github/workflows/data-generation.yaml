@@ -1,15 +1,17 @@
-name: Snowflake Data Generation
-
-permissions:
-  contents: write
+name: Data Generation Tool
 
 on:
+  workflow_dispatch: {}
   schedule:
     - cron: "0 23 * * *" # Runs every day at 11:00 p.m.
 
 defaults:
   run:
-    working-directory: tools/datagen
+    working-directory: tools/data-generation
+
+env:
+  TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
+  SNOWFLAKE_URL: ${{ secrets.snowflake_url }}
 
 jobs:
   build:
@@ -22,9 +24,9 @@ jobs:
       - name: Run common setup
         uses: ./.github/actions/common-setup
         with:
-          toolkit_cli_download_token: $TOOLKIT_CLI_DOWNLOAD_TOKEN
-          toolkit_cli_version: $TOOLKIT_CLI_VERSION
-          snowflake_private_key_pem: $SNOWFLAKE_PRIVATE_KEY_PEM
+          toolkit_cli_download_token: ${{ secrets.toolkit_cli_download_token }}
+          toolkit_cli_version: ${{ vars.toolkit_cli_version }}
+          snowflake_private_key_pem: ${{ secrets.snowflake_private_key_pem }}
 
       - name: Add data to snowflake
         run: toolkit datagen jdbc --append snowflake --spec specs/advanced-snowflake-spec.yaml
@@ -39,5 +41,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: datagen-sales-report
-          path: tools/datagen/datagen-sales-report.html
+          path: tools/data-generation/datagen-sales-report.html
           if-no-files-found: error

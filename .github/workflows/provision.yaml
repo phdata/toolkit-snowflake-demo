@@ -1,10 +1,7 @@
-name: Snowflake Provisioning
-
-permissions:
-  contents: read
-  pull-requests: write
+name: Provision Tool
 
 on:
+  workflow_dispatch: {}
   pull_request:
     branches:
       - "*"
@@ -18,11 +15,7 @@ defaults:
 
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
-  TOOLKIT_CLI_VERSION: ${{ vars.toolkit_cli_version }}
-  SNOWFLAKE_PRIVATE_KEY_PEM: ${{ secrets.snowflake_private_key_pem }}
-  SNOWFLAKE_USER: ${{ vars.snowflake_user }}
   SNOWFLAKE_URL: ${{ secrets.snowflake_url }}
-  TOOLKIT_CLI_DOWNLOAD_TOKEN: ${{ secrets.toolkit_cli_download_token }}
 
 jobs:
   build:
@@ -35,9 +28,9 @@ jobs:
       - name: Run common setup
         uses: ./.github/actions/common-setup
         with:
-          toolkit_cli_download_token: $TOOLKIT_CLI_DOWNLOAD_TOKEN
-          toolkit_cli_version: $TOOLKIT_CLI_VERSION
-          snowflake_private_key_pem: $SNOWFLAKE_PRIVATE_KEY_PEM
+          toolkit_cli_download_token: ${{ secrets.toolkit_cli_download_token }}
+          toolkit_cli_version: ${{ vars.toolkit_cli_version }}
+          snowflake_private_key_pem: ${{ secrets.snowflake_private_key_pem }}
 
       - name: Create metadata
         run: toolkit provision init --metadata
