@@ -1,9 +1,7 @@
-name: Snowflake Access Scan
-
-permissions:
-  contents: write
+name: Access Tool
 
 on:
+  workflow_dispatch: {}
   schedule:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
 
@@ -13,11 +11,7 @@ defaults:
 
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
-  TOOLKIT_CLI_VERSION: ${{ vars.toolkit_cli_version }}
-  SNOWFLAKE_PRIVATE_KEY_PEM: ${{ secrets.snowflake_private_key_pem }}
-  SNOWFLAKE_USER: ${{ vars.snowflake_user }}
   SNOWFLAKE_URL: ${{ secrets.snowflake_url }}
-  TOOLKIT_CLI_DOWNLOAD_TOKEN: ${{ secrets.toolkit_cli_download_token }}
 
 jobs:
   build:
@@ -27,13 +21,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Use Composite Action
+      - name: Run common setup
         uses: ./.github/actions/common-setup
-        shell: bash
         with:
-          toolkit_cli_download_token: $TOOLKIT_CLI_DOWNLOAD_TOKEN
-          toolkit_cli_version: $TOOLKIT_CLI_VERSION
-          snowflake_private_key_pem: $SNOWFLAKE_PRIVATE_KEY_PEM
+          toolkit_cli_download_token: ${{ secrets.toolkit_cli_download_token }}
+          toolkit_cli_version: ${{ vars.toolkit_cli_version }}
+          snowflake_private_key_pem: ${{ secrets.snowflake_private_key_pem }}
 
       - name: Scan snowflake
         run: toolkit access scan snowflake
