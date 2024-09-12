@@ -9,29 +9,19 @@ defaults:
     1V0t+KzmWTTausfxrl/5K1r5cRNmURp2nUPZmDcQMR3zl17by9hrU82moCPh5yOk
     uwIDAQAB
     -----END PUBLIC KEY-----
-  rsa_public_key_2: ""
+  rsa_public_key_2: |
+  -----BEGIN PUBLIC KEY-----
+  MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo7ITeNXPX//zwR5bKBa9
+  BZ58dhUZ9vznrYt7XxIVz7N76FABFnawloT2cQwGb5Q6Kg4vTQLqyvuG8844RvAY
+  8QjNONUTZcK5dnmbupvzIqIF964Y4W4twVZ4wjPTZhCeeNKxfrB8fhVp5Aztsf7w
+  p9D+bBnbtSscAHs6a+NtJFmg4smynapr5eT9PjWGXTDGPbvaYq2CS/ph7W8A6Nx+
+  vjTIYQZpLmfgwWbeeIM2V5zxT4wUORdzwTyfqzgqB1aciXe/+8p3xTFb5mq6Gl2K
+  aoBgzkXoj4NjRotG5VRzP9bgXX/t55fvRJmZsNK1rQaIjvYCWjVYkUMY03iOmYrC
+  IwIDAQAB
+  -----END PUBLIC KEY-----
 entries:
-  # NOTE: The properties password and must_change_password are only applied on first run
-  # and cannot be updated by tram after the user has been created. You can reset a users
-  # password from the console as follows:
-  #  ALTER USER <USER> SET password = '<PASSWORD>' must_change_password = true;
   - tool_name: access
-    email: testuser1@phdata.io
-    password: <REPLACE WITH PASSWORD>
-    must_change_password: true
   - tool_name: advisor
-    email: testuser2@phdata.io
-    password: <REPLACE WITH PASSWORD>
-    must_change_password: true
   - tool_name: datasource
-    email: testuser2@phdata.io
-    password: <REPLACE WITH PASSWORD>
-    must_change_password: true
   - tool_name: datagen
-    email: testuser2@phdata.io
-    password: <REPLACE WITH PASSWORD>
-    must_change_password: true
   - tool_name: provision
-    email: testuser2@phdata.io
-    password: <REPLACE WITH PASSWORD>
-    must_change_password: true
