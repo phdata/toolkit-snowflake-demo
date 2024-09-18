@@ -1,0 +1,34 @@
+users:
+  - name: {{tool_name}}_tool_user
+    properties:
+      default_role: {{tool_name}}_tool
+      default_warehouse: {{tool_name}}
+      type: service
+      rsa_public_key: |
+        -----BEGIN PUBLIC KEY-----
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzHp/f+LFvH4A4kDt586m
+        6Cook475PFMJneAA3UxtTDN9T+wvtGtzlU7mTSE52tt/sA22IuiDNJbxnpg4QE7z
+        kWzrfpMWXdE0rBgEnj5zqUA/yUiAXQWr0dpm/zEM66l/DTcg172bitNp5EgsKSz/
+        H0Ibz77acFYntLEfGLqNuSsejQr7T3tMfULbaWXRI8xoII9LSDnBshGFoHreal/K
+        JU/QoZHdOKLjo9Xd+pjWBJoPTiJejHx9PwHfixr+bKmT4u4R7JETD66ZVbS2PAe6
+        1V0t+KzmWTTausfxrl/5K1r5cRNmURp2nUPZmDcQMR3zl17by9hrU82moCPh5yOk
+        uwIDAQAB
+        -----END PUBLIC KEY-----
+roles:
+  - name: {{tool_name}}_tool
+warehouses: 
+  - name: {{tool_name}}
+    properties:
+      warehouse_size: xsmall
+      auto_suspend: 60
+      initially_suspended: true
+privilegeGrants:
+  - privilege: all privileges
+    objectType: warehouse
+    objectName: {{tool_name}}
+    roleName: {{tool_name}}_tool
+    grantOption: true
+roleGrants:
+  - name: {{tool_name}}_tool
+    toUsers: 
+      - {{tool_name}}_tool_user

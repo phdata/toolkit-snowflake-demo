@@ -31,9 +31,6 @@ jobs:
       - name: Add data to snowflake
         run: toolkit datagen jdbc --append snowflake --spec specs/advanced-snowflake-spec.yaml
 
-      - name: Scan snowflake
-        run: toolkit datagen scan snowflake --filter SYNTHETIC_SALES --spec specs/synthetic-sales.yaml
-
       - name: Generate report
         run: toolkit datagen show --output=datagen-sales-report.html specs/advanced-snowflake-spec.yaml
 
