@@ -2,7 +2,7 @@ users:
   - name: {{tool_name}}_tool_user
     properties:
       default_role: {{tool_name}}_tool_role
-      default_warehouse: {{tool_name}}
+      default_warehouse: {{tool_name}}_tool_wh 
       type: service
       rsa_public_key: |
         -----BEGIN PUBLIC KEY-----
@@ -17,7 +17,7 @@ users:
 roles:
   - name: {{tool_name}}_tool_role
 warehouses: 
-  - name: {{tool_name}}
+  - name: {{tool_name}}_tool_wh
     properties:
       warehouse_size: xsmall
       auto_suspend: 60
@@ -25,7 +25,7 @@ warehouses:
 privilegeGrants:
   - privilege: all privileges
     objectType: warehouse
-    objectName: {{tool_name}}
+    objectName: {{tool_name}}_tool_wh
     roleName: {{tool_name}}_tool_role
     grantOption: true
 roleGrants:
