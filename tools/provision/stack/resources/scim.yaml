@@ -1,0 +1,35 @@
+roles:
+  # role create for SCIM security integrations
+  - name: aad_provisioner
+
+roleGrants:
+  - name: aad_provisioner
+    toRoles:
+      - accountadmin
+  - name: aad_provisioner
+    toRoles:
+      - useradmin
+
+privilegeGrants:
+  # privilege grants to the ALERT_ADMIN role to manage alerts
+  - objectType: account
+    roleName: aad_provisioner
+    owner: accountadmin
+    privilege:
+      - create user
+      - create role
+
+# create or replace security integration aad_provisioning
+#     type = scim
+#     scim_client = 'azure'
+#     run_as_role = 'AAD_PROVISIONER';
+# select system$generate_scim_access_token('AAD_PROVISIONING');
+
+users:
+  # users provisioned by SCIM can be placed here for stack usage
+  - name: GHENKE@PHDATA.IO
+    alterableOnly: true
+  - name: SADDAGARLA@PHDATA.IO
+    alterableOnly: true
+  - name: AFOKKEN@PHDATA.IO
+    alterableOnly: true

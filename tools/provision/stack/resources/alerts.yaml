@@ -1,0 +1,27 @@
+# CREATE NOTIFICATION INTEGRATION alert_email_integration
+#   TYPE = EMAIL
+#   ENABLED = TRUE
+#   DEFAULT_SUBJECT = 'Snowflake Alert: Org Account'
+#   COMMENT = 'Notification integration used for email alerts';
+
+alerts:
+  - name: break_glass_login_alert
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    # hourly at minute 0
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      SELECT *
+      FROM snowflake.account_usage.login_history
+      WHERE user_name = break_glass
+      AND event_timestamp >= DATEADD(hour, -1, CURRENT_TIMESTAMP())
+      AND is_success = 'YES'
+    action: |
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration',
+        'GHENKE@PHDATA.IO',
+        'Snowflake Alert: Org Account - break_glass login',
+        'The Org Account break_glass user was used');
+    state: resume
+    properties:
+      comment: Alerts if the break glass account was used in the last hour

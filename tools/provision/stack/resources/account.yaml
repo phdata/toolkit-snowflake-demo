@@ -9,7 +9,7 @@ account:
     governance.tag.environment: dev
   parameters:
     # assign a network policy to the account, allowing/blocking access based on network rules
-    network_policy: account_network_policy
+    network_policy: ACCOUNT_NETWORK_POLICY
     # abort queries where the connection is lost due to abrupt session termination
     abort_detached_query: true
     # allow clients to cache MFA tokens to prevent multiple MFA prompts when using multiple connections
@@ -33,7 +33,10 @@ account:
     # do not redact queries that fail due to a syntax error to facilitate debugging
     enable_unredacted_query_syntax_error: true
     # periodically re-encrypt table data with new keys CIS-4.1
-    periodic_data_rekeying: true
+    enable_tri_secret_and_rekey_opt_out_for_image_repository: true
+    enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage: true
+    # TODO: Uncomment once the above 2 properties are set.
+    # periodic_data_rekeying: true
     # use 256 bit keys when encrypting data with Snowflake clients CIS-4.2
     client_encryption_key_size: 256
     # set the default data retention on objects that support time travel, CIS-4.3
@@ -48,6 +51,12 @@ account:
     require_storage_integration_for_stage_operation: true
     # prevent COPY INTO statements from unloading data to an inline URL, CIS-4.8
     prevent_unload_to_inline_url: true
+    # initialize serverless tasks with a smaller initial warehouse size by default
+    user_task_managed_initial_warehouse_size: xsmall
+    # set the account level event table
+    # TODO: Uncomment once the table has been created.
+    #event_table: GOVERNANCE.LOG.ACCOUNT_EVENTS
+    #log_level: INFO
 
 resourceMonitors:
   - name: account_resource_monitor
@@ -55,8 +64,8 @@ resourceMonitors:
     startTimestamp: immediately
     frequency: monthly
     notifyUsers:
-      # todo: this user needs a verified email
-      - admin
+      # TODO: Add a user with a verified email.
+      # https://docs.snowflake.com/en/user-guide/ui-snowsight-profile#verify-your-email-address
     triggers:
       - threshold: 50
         action: notify
@@ -65,18 +74,108 @@ resourceMonitors:
       - threshold: 90
         action: notify
       - threshold: 100
+        action: suspend
+      - threshold: 110
+        action: suspend_immediate
+  - name: weekly_resource_monitor
+    creditQuota: 100
+    startTimestamp: immediately
+    frequency: weekly
+    notifyUsers:
+      # TODO: Add a user with a verified email.
+      # https://docs.snowflake.com/en/user-guide/ui-snowsight-profile#verify-your-email-address
+    triggers:
+      - threshold: 50
         action: notify
+      - threshold: 75
+        action: notify
+      - threshold: 90
+        action: notify
+      - threshold: 100
+        action: suspend
+      - threshold: 110
+        action: suspend_immediate
+  # monitor created by provision init
+  - name: provision_wh_monitor
+    creditQuota: 50
+    startTimestamp: immediately
+    frequency: weekly
+    notifyUsers:
+      notifyUsers:
+        # TODO: Add a user with a verified email.
+        # https://docs.snowflake.com/en/user-guide/ui-snowsight-profile#verify-your-email-address
+    triggers:
+      - threshold: 75
+        action: notify
+      - threshold: 100
+        action: suspend
+
+warehouses:
+  # warehouse created by provision init
+  - name: provision_wh
+    properties:
+      warehouse_size: xsmall
+      resource_monitor: provision_wh_monitor
+      auto_suspend: 60
+      auto_resume: true
+      initially_suspended: true
+      warehouse_type: standard
+      min_cluster_count: 1
+      max_cluster_count: 1
+      scaling_policy: standard
+      enable_query_acceleration: false
+      comment: Warehouse for the Provision tool
+  - name: default_user_wh
+    properties:
+      warehouse_size: xsmall
+      resource_monitor: weekly_resource_monitor
+      auto_suspend: 60
+      auto_resume: true
+      initially_suspended: true
+      warehouse_type: standard
+      min_cluster_count: 1
+      max_cluster_count: 1
+      scaling_policy: standard
+      enable_query_acceleration: false
+      comment: The default user warehouse
+  - name: alert_wh
+    properties:
+      warehouse_size: xsmall
+      resource_monitor: weekly_resource_monitor
+      auto_suspend: 60
+      auto_resume: true
+      initially_suspended: true
+      warehouse_type: standard
+      min_cluster_count: 1
+      max_cluster_count: 1
+      scaling_policy: standard
+      enable_query_acceleration: false
+      comment: Warehouse for alerts
 
 databases:
+  # database created by provision init
+  - name: phdata
   - name: governance
 
 schemas:
+  # remove the default public schemas
+  - database: phdata
+    name: public
+    destroy: true
+  - database: governance
+    name: public
+    destroy: true
+  # schema created by provision init
+  - database: phdata
+    name: provision
   - database: governance
     name: policy
   - database: governance
     name: tag
   - database: governance
     name: alert
+  - database: governance
+    name: log
 
 roles:
   - name: tag_admin
@@ -85,106 +184,160 @@ roles:
   - name: log_admin
 
 roleGrants:
-  - name: tag_admin
+  # role grants created by provision init
+  - name: sysadmin
+    toRoles:
+      - provision_admin
+  - name: securityadmin
+    toRoles:
+      - provision_admin
+  - name: useradmin
+    toRoles:
+      - provision_admin
+  - name: provision_admin
+    toUsers:
+      - provision_user
+  - name: alert_admin
     toRoles:
       - sysadmin
-    toUsers:
-      - {{ provision_user }}
+  - name: log_admin
+    toRoles:
+      - sysadmin
   - name: policy_admin
     toRoles:
       - sysadmin
-    toUsers:
-      - {{ provision_user }}
+  - name: share_admin
+    toRoles:
+      - sysadmin
+  - name: tag_admin
+    toRoles:
+      - sysadmin
 
 privilegeGrants:
+  # privilege grants to the ALERT_ADMIN role to manage alerts
+  - objectType: account
+    roleName: alert_admin
+    owner: accountadmin
+    privilege:
+      - create integration
+      - execute alert
+      - execute task
+      - execute managed alert
+      - execute managed task
+      - audit
+      - monitor
+      - monitor execution
+      - monitor security
+      - monitor usage
+  # many alerts use the snowflake shared database for account usage.
+  - objectType: database
+    objectName: snowflake
+    roleName: alert_admin
+    privilege: imported privileges
+  - objectType: database
+    objectName: governance
+    roleName: alert_admin
+    privilege: usage
+  - objectType: schema
+    objectName: governance.alert
+    roleName: alert_admin
+    privilege:
+      - usage
+      - create alert
+  - objectType: warehouse
+    objectName: alert_wh
+    roleName: alert_admin
+    privilege: usage
   # privilege grants to the LOG_ADMIN role to manage logs
-  - privilege: modify log level
-    objectType: account
+  - objectType: account
     roleName: log_admin
     owner: accountadmin
-  # privilege grants to the ALERT_ADMIN role to manage alerts
-  - privilege: execute alert
-    objectType: account
-    roleName: alert_admin
-    owner: accountadmin
-  - privilege: usage
-    objectType: database
+    privilege:
+      - modify log level
+      - modify session log level
+      - modify trace level
+      - modify session trace level
+      - audit
+      - monitor
+      - monitor execution
+      - monitor security
+      - monitor usage
+  - objectType: database
     objectName: governance
-    roleName: alert_admin
-  - privilege: usage
-    objectType: schema
-    objectName: governance.alert
-    roleName: alert_admin
-  - privilege: create alert
-    objectType: schema
-    objectName: governance.alert
-    roleName: alert_admin
-  # privilege grants to the TAG_ADMIN role to manage tags
-  - privilege: usage
-    objectType: database
-    objectName: governance
-    roleName: tag_admin
-  - privilege: usage
-    objectType: schema
-    objectName: governance.tag
-    roleName: tag_admin
-  - privilege: create tag
-    objectType: schema
-    objectName: governance.tag
-    roleName: tag_admin
+    roleName: log_admin
+    privilege: usage
+  - objectType: schema
+    objectName: governance.log
+    roleName: log_admin
+    privilege:
+      - usage
+      - create event table
   # privilege grants to the POLICY_ADMIN role to manage policies
-  - privilege: apply password policy
-    objectType: account
-    roleName: policy_admin
+  - objectType: account
     owner: accountadmin
-  - privilege: apply session policy
-    objectType: account
     roleName: policy_admin
-    owner: accountadmin
-  - privilege: create network policy
-    objectType: account
-    roleName: policy_admin
-    owner: accountadmin
-  - privilege: usage
-    objectType: database
+    privilege:
+      - apply aggregation policy
+      - apply authentication policy
+      - apply masking policy
+      - apply row access policy
+      - apply packages policy
+      - apply password policy
+      - apply privacy policy
+      - apply projection policy
+      - apply session policy
+      - attach policy
+      - create network policy
+  - objectType: database
     objectName: governance
     roleName: policy_admin
-  - privilege: usage
-    objectType: schema
+    privilege: usage
+  - objectType: schema
     objectName: governance.policy
     roleName: policy_admin
-  - privilege: create password policy
-    objectType: schema
-    objectName: governance.policy
+    privilege:
+      - usage
+      - create password policy
+      - create session policy
+      - create authentication policy
+      - create network rule
+  - objectType: user
+    objectName: break_glass
     roleName: policy_admin
-  - privilege: create session policy
-    objectType: schema
-    objectName: governance.policy
-    roleName: policy_admin
-  - privilege: create authentication policy
-    objectType: schema
-    objectName: governance.policy
-    roleName: policy_admin
-  - privilege: create network policy
-    objectType: schema
-    objectName: governance.policy
-    roleName: policy_admin
-  - privilege: create password policy
-    objectType: schema
-    objectName: governance.policy
-    roleName: policy_admin
-  - privilege: create session policy
-    objectType: schema
-    objectName: governance.policy
-    roleName: policy_admin
-  - privilege: create authentication policy
-    objectType: schema
-    objectName: governance.policy
-    roleName: policy_admin
-  - privilege: create network policy
-    objectType: schema
-    objectName: governance.policy
-    roleName: policy_admin
+    privilege:
+      - apply authentication policy
+  # privilege grants to the SHARE_ADMIN role to manage data sharing
+  - objectType: account
+    roleName: share_admin
+    owner: accountadmin
+    privilege:
+      - bind service endpoint
+      - create account
+      - create data exchange listing
+      - create external volume
+      - create share
+      - import share
+      - monitor usage
+  # privilege grants to the TAG_ADMIN role to manage tags
+  - objectType: account
+    roleName: tag_admin
+    owner: accountadmin
+    privilege: apply tag
+  - objectType: database
+    objectName: governance
+    roleName: tag_admin
+    privilege: usage
+  - objectType: schema
+    objectName: governance.tag
+    roleName: tag_admin
+    privilege:
+      - usage
+      - create tag
+  # allow all users to use the default_user_wh
+  - objectType: warehouse
+    objectName: default_user_wh
+    roleName: public
+    privilege: usage
 
 networkRules:
   - database: governance
@@ -196,21 +349,11 @@ networkRules:
       - 0.0.0.0/0
     properties:
       comment: Allow public internet access to the Snowflake account
-  - database: governance
-    schema: policy
-    name: allow_public_egress
-    ruleType: ipv4
-    mode: egress
-    valueList:
-      - 0.0.0.0/0
-    properties:
-      comment: Allow public internet access to the Snowflake account
 
 networkPolicies:
   - name: account_network_policy
     allowedNetworkRules:
       - GOVERNANCE.POLICY.ALLOW_PUBLIC_INGRESS
-      - GOVERNANCE.POLICY.ALLOW_PUBLIC_EGRESS
     properties:
       comment: The account network policy
 
@@ -221,6 +364,7 @@ sessionPolicies:
     properties:
       session_idle_timeout_mins: 10 # CIS-1.9
       session_ui_idle_timeout_mins: 10
+      # TODO: support allowed_secondary_roles
       comment: The account session policy
 
 passwordPolicies:
@@ -239,7 +383,6 @@ passwordPolicies:
       comment: The account password policy
 
 authenticationPolicies:
-  # todo: is this a good default authentication policy?
   - database: governance
     schema: policy
     name: account_authentication_policy
@@ -247,24 +390,22 @@ authenticationPolicies:
       authentication_methods:
         - saml
         - oauth
+        - keypair
       client_types:
+        - drivers
         - snowflake_ui
         - snowsql
-        - drivers
-      mfa_enrollment: required
-      # todo: ideally you would lock this down to specific security integrations
-#      security_integrations:
-#        - 'your-scim-integration'
 
-  # apply to break-glass user
+  # apply to the break-glass user
   - database: governance
     schema: policy
     name: breakglass_authentication_policy
     properties:
       authentication_methods:
-        - password
+        - keypair
       client_types:
-        - snowflake_ui
+        - drivers
+        - snowsql
 
   # apply to service accounts
   - database: governance
@@ -286,14 +427,15 @@ tags:
       - dev
       - qa
       - prod
+      - org
     properties:
       comment: A tag to indicate which environment an object is associated with
-  - database: governance
-    schema: tag
-    name: data_classification
-    allowedValues:
-      - PII
-      - PCI
-      - PHI
+
+users:
+  - name: break_glass
+    authenticationPolicy: GOVERNANCE.POLICY.BREAKGLASS_AUTHENTICATION_POLICY
     properties:
-      comment: A tag to indicate if the data contained by the object belongs to a sensitive classification
+      login_name: break_glass
+      display_name: break_glass
+      type: service
+      # TODO: Set the rsa_public_key
