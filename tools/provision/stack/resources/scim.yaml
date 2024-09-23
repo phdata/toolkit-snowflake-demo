@@ -9,9 +9,11 @@ roleGrants:
   - name: aad_provisioner
     toRoles:
       - useradmin
+  - name: aad_provisioner
+    toRoles:
+      - securityadmin
 
 privilegeGrants:
-  # privilege grants to the ALERT_ADMIN role to manage alerts
   - objectType: account
     roleName: aad_provisioner
     owner: accountadmin
@@ -25,11 +27,18 @@ privilegeGrants:
 #     run_as_role = 'AAD_PROVISIONER';
 # select system$generate_scim_access_token('AAD_PROVISIONING');
 
+# TODO: Setup SSO.
+# CREATE SECURITY INTEGRATION ENTRA_ID_SSO_INTEGRATION
+# TYPE = SAML2
+# ENABLED = TRUE
+# SAML2_ISSUER =
+# SAML2_SSO_URL =
+# SAML2_PROVIDER = 'CUSTOM'
+# SAML2_X509_CERT =
+# SAML2_SNOWFLAKE_ISSUER_URL =
+# SAML2_SNOWFLAKE_ACS_URL =
+# SAML2_ENABLE_SP_INITIATED =
+# SAML2_SP_INITIATED_LOGIN_PAGE_LABEL = 'Microsoft SSO';
+
 users:
-  # users provisioned by SCIM can be placed here for stack usage
-  - name: GHENKE@PHDATA.IO
-    alterableOnly: true
-  - name: SADDAGARLA@PHDATA.IO
-    alterableOnly: true
-  - name: AFOKKEN@PHDATA.IO
-    alterableOnly: true
+  # users provisioned by SCIM can be placed here for stack usage using 'alterableOnly: true'

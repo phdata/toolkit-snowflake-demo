@@ -17,6 +17,7 @@ alerts:
       WHERE user_name = break_glass
       AND event_timestamp >= DATEADD(hour, -1, CURRENT_TIMESTAMP())
       AND is_success = 'YES'
+    # TODO: Use sent notification instead of send email
     action: |
       CALL SYSTEM$SEND_EMAIL('alert_email_integration',
         'GHENKE@PHDATA.IO',

@@ -4,6 +4,7 @@ account:
   # cannot automatically normalize a fully-qualified identifier from a string
   sessionPolicy: GOVERNANCE.POLICY.ACCOUNT_SESSION_POLICY
   passwordPolicy: GOVERNANCE.POLICY.ACCOUNT_PASSWORD_POLICY
+  # The account authentication policy should be the default for the typical "person" users and all other users should be special cased below.
   authenticationPolicy: GOVERNANCE.POLICY.ACCOUNT_AUTHENTICATION_POLICY
   tags:
     governance.tag.environment: dev
@@ -101,9 +102,8 @@ resourceMonitors:
     startTimestamp: immediately
     frequency: weekly
     notifyUsers:
-      notifyUsers:
-        # TODO: Add a user with a verified email.
-        # https://docs.snowflake.com/en/user-guide/ui-snowsight-profile#verify-your-email-address
+      # TODO: Add a user with a verified email.
+      # https://docs.snowflake.com/en/user-guide/ui-snowsight-profile#verify-your-email-address
     triggers:
       - threshold: 75
         action: notify
@@ -187,16 +187,16 @@ roleGrants:
   # role grants created by provision init
   - name: sysadmin
     toRoles:
-      - provision_admin
+      - {{ provision_role }}
   - name: securityadmin
     toRoles:
-      - provision_admin
+      - {{ provision_role }}
   - name: useradmin
     toRoles:
-      - provision_admin
-  - name: provision_admin
+      - {{ provision_role }}
+  - name: {{ provision_role }}
     toUsers:
-      - provision_user
+      - {{ provision_user }}
   - name: alert_admin
     toRoles:
       - sysadmin
@@ -212,6 +212,9 @@ roleGrants:
   - name: tag_admin
     toRoles:
       - sysadmin
+  - name: accountadmin
+    toUsers:
+      - break_glass
 
 privilegeGrants:
   # privilege grants to the ALERT_ADMIN role to manage alerts
@@ -301,6 +304,7 @@ privilegeGrants:
       - create session policy
       - create authentication policy
       - create network rule
+  # TODO: Verify we need this per user.
   - objectType: user
     objectName: break_glass
     roleName: policy_admin
@@ -339,6 +343,7 @@ privilegeGrants:
     roleName: public
     privilege: usage
 
+# TODO: This is public for demonsration purposes. Adjust to limit network access.
 networkRules:
   - database: governance
     schema: policy
