@@ -312,7 +312,7 @@ privilegeGrants:
       - create privacy policy
       - create session policy
       - create network rule
-  # TODO: Verify we need this per user.
+  # allow the policy_admin to set the break_glass authentication policy
   - objectType: user
     objectName: break_glass
     roleName: policy_admin

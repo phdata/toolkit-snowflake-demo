@@ -7,6 +7,12 @@
 #   DEFAULT_RECIPIENTS = ( '' );
 #   COMMENT = 'Notification integration used for email alerts';
 
+privilegeGrants:
+  - objectType: integration
+    objectName: alert_email_integration
+    roleName: alert_admin
+    privilege: usage
+
 alerts:
   - name: break_glass_login_alert
     database: governance
