@@ -54,10 +54,8 @@ account:
     prevent_unload_to_inline_url: true
     # initialize serverless tasks with a smaller initial warehouse size by default
     user_task_managed_initial_warehouse_size: xsmall
-    # set the account level event table
-    # TODO: Uncomment once the table has been created.
-    #event_table: GOVERNANCE.LOG.ACCOUNT_EVENTS
-    #log_level: INFO
+    # set a default log level
+    log_level: INFO
 
 resourceMonitors:
   - name: account_resource_monitor
@@ -275,10 +273,16 @@ privilegeGrants:
     privilege:
       - usage
       - create event table
+  # the default event table is in the snowflake shared database
+  - objectType: database
+    objectName: snowflake
+    roleName: log_admin
+    privilege: imported privileges
   # privilege grants to the POLICY_ADMIN role to manage policies
   - objectType: account
     owner: accountadmin
     roleName: policy_admin
+    # TODO: Add all create policies below in the schema
     privilege:
       - apply aggregation policy
       - apply authentication policy
@@ -300,9 +304,13 @@ privilegeGrants:
     roleName: policy_admin
     privilege:
       - usage
-      - create password policy
-      - create session policy
       - create authentication policy
+      - create masking policy
+      - create row access policy
+      - create packages policy
+      - create password policy
+      - create privacy policy
+      - create session policy
       - create network rule
   # TODO: Verify we need this per user.
   - objectType: user

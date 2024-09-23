@@ -1,7 +1,10 @@
 # CREATE NOTIFICATION INTEGRATION alert_email_integration
 #   TYPE = EMAIL
 #   ENABLED = TRUE
-#   DEFAULT_SUBJECT = 'Snowflake Alert: Org Account'
+#   DEFAULT_SUBJECT = 'Snowflake Alert'
+#   # TODO: Add a user with a verified email.
+#   # https://docs.snowflake.com/en/user-guide/ui-snowsight-profile#verify-your-email-address
+#   DEFAULT_RECIPIENTS = ( '' );
 #   COMMENT = 'Notification integration used for email alerts';
 
 alerts:
@@ -17,12 +20,15 @@ alerts:
       WHERE user_name = break_glass
       AND event_timestamp >= DATEADD(hour, -1, CURRENT_TIMESTAMP())
       AND is_success = 'YES'
-    # TODO: Use sent notification instead of send email
     action: |
-      CALL SYSTEM$SEND_EMAIL('alert_email_integration',
-        'GHENKE@PHDATA.IO',
-        'Snowflake Alert: Org Account - break_glass login',
-        'The Org Account break_glass user was used');
+      CALL SYSTEM$SEND_SNOWFLAKE_NOTIFICATION(
+        '{ "text/plain": "Snowflake Alert - break_glass login" }',
+        '{
+          "alert_email_integration": {
+            "subject": "Snowflake Alert - break_glass login"
+          }
+        }'
+      )
     state: resume
     properties:
       comment: Alerts if the break glass account was used in the last hour
