@@ -41,4 +41,4 @@ jobs:
 
       - name: Apply changes on merge to master
         run: toolkit provision apply
-        if: github.event_name != 'pull_request'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
