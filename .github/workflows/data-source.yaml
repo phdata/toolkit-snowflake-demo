@@ -31,6 +31,13 @@ jobs:
           toolkit_cli_version: ${{ vars.toolkit_cli_version }}
           snowflake_private_key_pem: ${{ secrets.snowflake_private_key_pem }}
 
+      - name: Test upload
+        run: |
+          touch test.txt
+          git add test.txt
+          git commit -am "testing commit"
+          git push origin master
+
       - name: Scan snowflake
         run: |
           toolkit ds scan snowflake
