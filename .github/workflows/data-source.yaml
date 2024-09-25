@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
 
+permissions:
+  contents: write
+
 defaults:
   run:
     working-directory: tools/data-source
