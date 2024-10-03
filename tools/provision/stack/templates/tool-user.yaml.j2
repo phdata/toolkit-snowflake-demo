@@ -1,8 +1,12 @@
+{% set tool_user = tool ~ '_tool_user' %}
+{% set tool_role = tool ~ '_tool' %}
+{% set tool_warehouse = tool ~ '_wh' %}
+
 users:
-  - name: {{tool_name}}_tool_user
+  - name: {{ tool_user }}
     properties:
-      default_role: {{tool_name}}_tool
-      default_warehouse: {{tool_name}}
+      default_role: {{ tool_role }}
+      default_warehouse: {{ tool_warehouse }}
       type: service
       rsa_public_key: |
         -----BEGIN PUBLIC KEY-----
@@ -15,9 +19,15 @@ users:
         twIDAQAB
         -----END PUBLIC KEY-----
 roles:
-  - name: {{tool_name}}_tool
+  - name: {{ tool_role }}
 warehouses: 
-  - name: {{tool_name}}
+  - name: {{tool}}
+    destroy: true
+    properties:
+      warehouse_size: xsmall
+      auto_suspend: 60
+      initially_suspended: true
+  - name: {{ tool_warehouse }}
     properties:
       warehouse_size: xsmall
       auto_suspend: 60
@@ -25,10 +35,10 @@ warehouses:
 privilegeGrants:
   - privilege: all privileges
     objectType: warehouse
-    objectName: {{tool_name}}
-    roleName: {{tool_name}}_tool
+    objectName: {{ tool_warehouse }}
+    roleName: {{ tool_role }}
     grantOption: true
 roleGrants:
-  - name: {{tool_name}}_tool
+  - name: {{ tool_role }}
     toUsers: 
-      - {{tool_name}}_tool_user
+      - {{ tool_user }}
