@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
 
+permissions:
+  contents: write
+
 defaults:
   run:
     working-directory: tools/data-source
@@ -47,10 +50,10 @@ jobs:
 
       - name: Commit snapshots to git
         run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
           git add ./tools
-          current_date=$(date '+%Y-%m-%d %H:%M:%S')
-          commit_message="Add snapshot files - ${current-date}"
-          git commit -m "${commit-message}"
+          git commit -m "Add snapshot files - $(date '+%Y-%m-%d %H:%M:%S')"
           git push origin master
 
       - name: Upload reports
