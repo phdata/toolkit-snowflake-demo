@@ -54,7 +54,7 @@ jobs:
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
           git status
-          git add ./tools
+          git add tools
           git commit -m "Add snapshot files - $(date -Iseconds)"
           git push origin master
 
