@@ -43,6 +43,7 @@ jobs:
 
       - name: Diff snowflake
         run: |
+          
           toolkit ds diff snowflake:profile:latest-1 snowflake:profile:latest 
           toolkit ds show snowflake.snowflake:diff:latest --format html -o daily-ds-reports/ds-diff.html
         # todo we should improve this so it can run the first time without failing
@@ -53,7 +54,7 @@ jobs:
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
           git add ./tools
-          git commit -m "Add snapshot files - $(date '+%Y-%m-%d %H:%M:%S')"
+          git commit -am "Add snapshot files - $(date -Iseconds)"
           git push origin master
 
       - name: Upload reports
