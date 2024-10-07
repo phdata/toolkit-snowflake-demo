@@ -48,7 +48,10 @@ jobs:
             toolkit ds show snowflake.snowflake:diff:latest --format html -o daily-ds-reports/ds-diff.html
           fi
 
-      - name: Commit snapshots to git
+      - name: Remove old snapshots
+        run: toolkit admin clean --approve --days=60
+
+      - name: Commit snapshots
         run: |
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
@@ -63,6 +66,3 @@ jobs:
           name: daily-ds-reports
           path: tools/data-source/daily-ds-reports/
           if-no-files-found: error
-
-      - name: Remove old snapshots
-        run: toolkit admin clean --approve --days=30
