@@ -43,11 +43,10 @@ jobs:
 
       - name: Diff snowflake
         run: |
-          
-          toolkit ds diff snowflake:profile:latest-1 snowflake:profile:latest 
-          toolkit ds show snowflake.snowflake:diff:latest --format html -o daily-ds-reports/ds-diff.html
-        # todo we should improve this so it can run the first time without failing
-        continue-on-error: true
+          if toolkit ds show snowflake:profile:latest-1; then
+            toolkit ds diff snowflake:profile:latest-1 snowflake:profile:latest 
+            toolkit ds show snowflake.snowflake:diff:latest --format html -o daily-ds-reports/ds-diff.html
+          fi
 
       - name: Commit snapshots to git
         run: |
