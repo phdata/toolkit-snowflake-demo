@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
 
+permissions:
+  contents: write
+
 defaults:
   run:
     working-directory: tools/data-source
@@ -40,18 +43,22 @@ jobs:
 
       - name: Diff snowflake
         run: |
-          toolkit ds diff snowflake:profile:latest-1 snowflake:profile:latest 
-          toolkit ds show snowflake.snowflake:diff:latest --format html -o daily-ds-reports/ds-diff.html
-        # todo we should improve this so it can run the first time without failing
-        continue-on-error: true
+          if toolkit ds show snowflake:profile:latest-1; then
+            toolkit ds diff snowflake:profile:latest-1 snowflake:profile:latest 
+            toolkit ds show snowflake.snowflake:diff:latest --format html -o daily-ds-reports/ds-diff.html
+          fi
 
-      - name: Commit snapshots to git
+      - name: Remove old snapshots
+        run: toolkit admin clean --approve --days=60
+
+      - name: Commit snapshots
         run: |
-          git add ./tools
-          current_date=$(date '+%Y-%m-%d %H:%M:%S')
-          commit_message="Add snapshot files - ${current-date}"
-          git commit -m "${commit-message}"
-          git push origin master
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+          git status
+          git add tools
+          git commit -m "Add snapshot files - $(date -Iseconds)"
+          git push
 
       - name: Upload reports
         uses: actions/upload-artifact@v4
@@ -59,6 +66,3 @@ jobs:
           name: daily-ds-reports
           path: tools/data-source/daily-ds-reports/
           if-no-files-found: error
-
-      - name: Remove old snapshots
-        run: toolkit admin clean --approve --days=30

@@ -5,9 +5,13 @@ on:
   pull_request:
     branches:
       - "*"
+    paths:
+      - "tools/provision/**"
   push:
     branches:
       - master
+    paths:
+      - "tools/provision/**"
 
 defaults:
   run:
