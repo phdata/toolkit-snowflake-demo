@@ -17,17 +17,88 @@ privilegeGrants:
   - objectType: database
     objectName: util
     roleName: public
+  - objectType: database
+    objectName: util
+    roleName: public
     privilege: usage
   - objectType: schema
     objectName: util.formats
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.lines
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.csv
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.csv_with_header
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.csv_skip_header
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.tsv
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.tsv_with_header
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.tsv_skip_header
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.json
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.json_array
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.avro
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.orc
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.parquet
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.xml
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.xml_inner
     roleName: public
     privilege: usage
   - objectType: schema
     objectName: util.functions
     roleName: public
     privilege: usage
+  - objectType: function
+    objectName: util.functions.whoami()
+    roleName: public
+    privilege: usage
   - objectType: schema
     objectName: util.procedures
+    roleName: public
+    privilege: usage
+  - objectType: schema
+    objectName: util.procedures
+    roleName: useradmin
+    privilege: create procedure
+  - objectType: procedure
+    objectName: util.procedures.set_rsa_public_key(varchar)
     roleName: public
     privilege: usage
 
@@ -49,7 +120,6 @@ fileFormats:
     properties:
       skip_blank_lines: true
       null_if:
-        - '\N'
         - '\\N'
         - 'NULL'
         - 'NUL'
@@ -63,7 +133,6 @@ fileFormats:
       parse_header: true
       skip_blank_lines: true
       null_if:
-        - '\N'
         - '\\N'
         - 'NULL'
         - 'NUL'
@@ -77,7 +146,6 @@ fileFormats:
       skip_header: 1
       skip_blank_lines: true
       null_if:
-        - '\N'
         - '\\N'
         - 'NULL'
         - 'NUL'
@@ -91,7 +159,6 @@ fileFormats:
       field_delimiter: \t
       skip_blank_lines: true
       null_if:
-        - '\N'
         - '\\N'
         - 'NULL'
         - 'NUL'
@@ -106,7 +173,6 @@ fileFormats:
       parse_header: true
       skip_blank_lines: true
       null_if:
-        - '\N'
         - '\\N'
         - 'NULL'
         - 'NUL'
@@ -121,7 +187,6 @@ fileFormats:
       skip_header: 1
       skip_blank_lines: true
       null_if:
-        - '\N'
         - '\\N'
         - 'NULL'
         - 'NUL'
@@ -135,7 +200,6 @@ fileFormats:
       enable_octal: true
       allow_duplicate: true
       null_if:
-        - '\N'
         - '\\N'
         - 'NULL'
         - 'NUL'
@@ -150,7 +214,6 @@ fileFormats:
       enable_octal: true
       allow_duplicate: true
       null_if:
-        - '\N'
         - '\\N'
         - 'NULL'
         - 'NUL'
@@ -162,7 +225,6 @@ fileFormats:
     fileType: avro
     properties:
       null_if:
-        - '\N'
         - '\\N'
         - 'NULL'
         - 'NUL'
@@ -171,10 +233,9 @@ fileFormats:
   - name: orc
     database: util
     schema: formats
-    fileType: avro
+    fileType: orc
     properties:
       null_if:
-        - '\N'
         - '\\N'
         - 'NULL'
         - 'NUL'
@@ -183,10 +244,9 @@ fileFormats:
   - name: parquet
     database: util
     schema: formats
-    fileType: avro
+    fileType: parquet
     properties:
       null_if:
-        - '\N'
         - '\\N'
         - 'NULL'
         - 'NUL'
@@ -250,3 +310,25 @@ functions:
         current_timestamp()
     properties:
       comment: 'Returns the current user, role, region, account, database, schema, warehouse, client, session, ip, and timestamp'
+
+procedures:
+  - name: set_rsa_public_key
+    database: util
+    schema: procedures
+    executeAs: owner
+    owner: useradmin
+    arguments:
+      - name: rsa_public_key
+        type: varchar
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+        user VARCHAR DEFAULT (SELECT '"' || CURRENT_USER() || '"');
+      BEGIN
+        ALTER USER IDENTIFIER(:user) SET rsa_public_key = :rsa_public_key;
+        return 'Success';
+      END;
+    properties:
+      comment: 'Set the rsa_public_key of the calling user'
