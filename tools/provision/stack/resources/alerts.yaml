@@ -1,11 +1,13 @@
-# CREATE NOTIFICATION INTEGRATION alert_email_integration
-#   TYPE = EMAIL
-#   ENABLED = TRUE
-#   DEFAULT_SUBJECT = 'Snowflake Alert'
-#   # TODO: Add a user with a verified email.
-#   # https://docs.snowflake.com/en/user-guide/ui-snowsight-profile#verify-your-email-address
-#   DEFAULT_RECIPIENTS = ( '' );
-#   COMMENT = 'Notification integration used for email alerts';
+notificationIntegrations:
+  - name: alert_email_integration
+    integrationType: email
+    properties:
+      enabled: true
+      default_subject: 'Snowflake Alert: AWS Sandbox Account'
+      comment: Notification integration used for email alerts
+      default_recipients: [
+        GHENKE@PHDATA.IO
+      ]
 
 privilegeGrants:
   - objectType: integration
@@ -23,15 +25,15 @@ alerts:
     condition: |
       SELECT *
       FROM snowflake.account_usage.login_history
-      WHERE user_name = break_glass
+      WHERE user_name = 'break_glass'
       AND event_timestamp >= DATEADD(hour, -1, CURRENT_TIMESTAMP())
       AND is_success = 'YES'
     action: |
       CALL SYSTEM$SEND_SNOWFLAKE_NOTIFICATION(
-        '{ "text/plain": "Snowflake Alert - break_glass login" }',
+        '{ "text/plain": "Snowflake Alert: AWS Sandbox Account - break_glass login" }',
         '{
           "alert_email_integration": {
-            "subject": "Snowflake Alert - break_glass login"
+            "subject": "Snowflake Alert: AWS Sandbox Account - break_glass login"
           }
         }'
       )
