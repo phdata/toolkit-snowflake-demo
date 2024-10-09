@@ -36,9 +36,9 @@ account:
     # periodically re-encrypt table data with new keys CIS-4.1
     enable_tri_secret_and_rekey_opt_out_for_image_repository: true
     enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage: true
-    # TODO: Uncomment once the above 2 properties are set.
+    # periodic_data_rekeying cannot be set to true because the account is using hybrid tables
     # periodic_data_rekeying: true
-    # use 256 bit keys when encrypting data with Snowflake clients CIS-4.2
+    # use 256-bit keys when encrypting data with Snowflake clients CIS-4.2
     client_encryption_key_size: 256
     # set the default data retention on objects that support time travel, CIS-4.3
     data_retention_time_in_days: 7
@@ -59,12 +59,11 @@ account:
 
 resourceMonitors:
   - name: account_resource_monitor
-    creditQuota: 500
+    creditQuota: 300
     startTimestamp: immediately
     frequency: monthly
     notifyUsers:
-      # TODO: Add a user with a verified email.
-      # https://docs.snowflake.com/en/user-guide/ui-snowsight-profile#verify-your-email-address
+      - break_glass
     triggers:
       - threshold: 50
         action: notify
@@ -81,8 +80,7 @@ resourceMonitors:
     startTimestamp: immediately
     frequency: weekly
     notifyUsers:
-      # TODO: Add a user with a verified email.
-      # https://docs.snowflake.com/en/user-guide/ui-snowsight-profile#verify-your-email-address
+      - break_glass
     triggers:
       - threshold: 50
         action: notify
@@ -100,8 +98,7 @@ resourceMonitors:
     startTimestamp: immediately
     frequency: weekly
     notifyUsers:
-      # TODO: Add a user with a verified email.
-      # https://docs.snowflake.com/en/user-guide/ui-snowsight-profile#verify-your-email-address
+      - break_glass
     triggers:
       - threshold: 75
         action: notify
@@ -180,6 +177,7 @@ roles:
   - name: policy_admin
   - name: alert_admin
   - name: log_admin
+  - name: share_admin
 
 roleGrants:
   # role grants created by provision init
@@ -273,25 +271,20 @@ privilegeGrants:
     privilege:
       - usage
       - create event table
-  # the default event table is in the snowflake shared database
-  - objectType: database
-    objectName: snowflake
-    roleName: log_admin
-    privilege: imported privileges
   # privilege grants to the POLICY_ADMIN role to manage policies
   - objectType: account
     owner: accountadmin
     roleName: policy_admin
     privilege:
-      - apply aggregation policy
       - apply authentication policy
-      - apply masking policy
-      - apply row access policy
       - apply packages policy
       - apply password policy
+      - apply session policy
+      - apply aggregation policy
+      - apply masking policy
+      - apply row access policy
       - apply privacy policy
       - apply projection policy
-      - apply session policy
       - attach policy
       - create network policy
   - objectType: database
@@ -304,13 +297,13 @@ privilegeGrants:
     privilege:
       - usage
       - create authentication policy
-      - create masking policy
-      - create row access policy
       - create packages policy
       - create password policy
-      - create privacy policy
       - create session policy
       - create network rule
+      - create masking policy
+      - create row access policy
+      - create privacy policy
   # allow the policy_admin to set the break_glass authentication policy
   - objectType: user
     objectName: break_glass
@@ -350,7 +343,7 @@ privilegeGrants:
     roleName: public
     privilege: usage
 
-# TODO: This is public for demonsration purposes. Adjust to limit network access.
+# TODO: This is public for demonstration purposes. Adjust to limit network access.
 networkRules:
   - database: governance
     schema: policy
@@ -377,6 +370,7 @@ sessionPolicies:
       session_idle_timeout_mins: 10 # CIS-1.9
       session_ui_idle_timeout_mins: 10
       # TODO: support allowed_secondary_roles
+      # allowed_secondary_roles: "('ALL')"
       comment: The account session policy
 
 passwordPolicies:
@@ -447,7 +441,17 @@ users:
   - name: break_glass
     authenticationPolicy: GOVERNANCE.POLICY.BREAKGLASS_AUTHENTICATION_POLICY
     properties:
+      email: toolkit-support@phdata.io
       login_name: break_glass
       display_name: break_glass
       type: service
-      # TODO: Set the rsa_public_key
+      rsa_public_key: |
+        -----BEGIN PUBLIC KEY-----
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnIKnNiP6c9fxEvOOglo7
+        h6R3Poq7Xa6WN720MHjySeu8Wk3hY25e5El3alBScJwf4BTd6y6QtKoCsUufM1Jq
+        x2KVPozvrbciO5XWBf82scJtLhdP61WsJtiH1bfkAxM6H5pV1RAYs8VXvbK+2FFP
+        104GbkZASw1/ozjDpWx27fb57dUseVGguOfPLQdqStLR+zefS4rsw7MLCy5kcCns
+        b6IdGHOKjV1nL+VQWBVvCZK8+5vYk5kdi1NpqNumX1BDd7Xd6rUNSJqACfC3ykJ6
+        pxiQlI6XvUbMJ+AW8lGl8897Zqo2kQuhkR3IBpOMjkhmtEOWcVgjsWDc9Qjm+8hu
+        zwIDAQAB
+        -----END PUBLIC KEY-----
