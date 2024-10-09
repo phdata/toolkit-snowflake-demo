@@ -1,19 +1,17 @@
 roles:
-  # role create for SCIM security integrations
+  # role created for SCIM security integrations
   - name: aad_provisioner
+  # static groups/roles for default admin role mappings created in Entra
+  - name: snow_demo_accountadmin
 
 roleGrants:
   - name: aad_provisioner
     toRoles:
       - accountadmin
-  - name: aad_provisioner
-    toRoles:
       - useradmin
-  - name: aad_provisioner
-    toRoles:
-      - securityadmin
 
 privilegeGrants:
+  # privilege grants to the ALERT_ADMIN role to manage alerts
   - objectType: account
     roleName: aad_provisioner
     owner: accountadmin
@@ -21,24 +19,22 @@ privilegeGrants:
       - create user
       - create role
 
-# create or replace security integration aad_provisioning
-#     type = scim
-#     scim_client = 'azure'
-#     run_as_role = 'AAD_PROVISIONER';
-# select system$generate_scim_access_token('AAD_PROVISIONING');
-
-# TODO: Setup SSO.
-# CREATE SECURITY INTEGRATION ENTRA_ID_SSO_INTEGRATION
-# TYPE = SAML2
-# ENABLED = TRUE
-# SAML2_ISSUER =
-# SAML2_SSO_URL =
-# SAML2_PROVIDER = 'CUSTOM'
-# SAML2_X509_CERT =
-# SAML2_SNOWFLAKE_ISSUER_URL =
-# SAML2_SNOWFLAKE_ACS_URL =
-# SAML2_ENABLE_SP_INITIATED =
-# SAML2_SP_INITIATED_LOGIN_PAGE_LABEL = 'Microsoft SSO';
-
-users:
-  # users provisioned by SCIM can be placed here for stack usage using 'alterableOnly: true'
+securityIntegrations:
+  # Configure Entra provisioning access token via:
+  #   SELECT system$generate_scim_access_token('AAD_PROVISIONING');
+  - name: aad_provisioning
+    integrationType: scim
+    properties:
+      enabled: true
+      scim_client: azure
+      run_as_role: aad_provisioner
+  - name: entra_id_sso_integration
+    integrationType: saml2
+    properties:
+      enabled: true
+      saml2_provider: custom
+      saml2_sp_initiated_login_page_label: Microsoft SSO
+      saml2_enable_sp_initiated: true
+      saml2_issuer: https://sts.windows.net/61993c37-46df-43d6-93f6-5e2d57896ca3/
+      saml2_sso_url: https://login.microsoftonline.com/61993c37-46df-43d6-93f6-5e2d57896ca3/saml2
+      saml2_x509_cert: MIIC8DCCAdigAwIBAgIQUp49XnhrjotMjVOmZIWG8zANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZpY2F0ZTAeFw0yNDEwMDQyMTQ1NTVaFw0yNzEwMDQyMTQ1NTVaMDQxMjAwBgNVBAMTKU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1NPIENlcnRpZmljYXRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzaeyEUjZ70BdBJBI5oejCHtyYS9d4lPtpBekrDKDgQ1abA5izsyACGf9ZIyRd3HxQeC3/nl9UuGHtmXDa5KV+3ElCByFHpF9WnUFFDerOaGhgLicxtYzIZ89ZxFvovbaSkLW7l82auE38h1kjLo6ai7T4OvswxINZdA6P3yq3G/RO7NXvaec8bWNPIreOj5JQAZCxSZRYCB/dzYg1LvfHTMc9Ayqa0/Op8u5PLZvNG4r0aW7NcHP2ed7jzwZzrT/h2lpfGUMJqgQfr46HP5kK1ai6w+wS7mqzvxsmpZPUW7ZIbPQCQitplpdLyazYeze9oURcgiiFS6aiKM7xXtZaQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBY6ZhHq3WJP+DWlIyhoktlN7xuxw5ApSNLf0ndZ1dwXosr12w4n1al9nxKteJ20jq4ptPwiMEoPWt/jalv2TYUlfNiZFDYnLWTkZNrfx1HPKcRI0vWIY+ZLGbm4xEyvui30Qs4ALXbOARdP7gy/i6cxvz9SrQZk3KPoWmViRJr6q25gt92wE1oBvt3pruD5d1XV+UR9nqXb6mVdD9O3GsOxvp6qhtgIGbPnU89pbiKxXJnFqwwIYx8kVRkoIIdsAA7mjelLCyvo7xKmHk4prqSRW5VbkBWbQCNb8Lv5/RC5ODZyL/VC0+waghlee/8p82MG2R8R/jf6wKT0iiNrdT1
