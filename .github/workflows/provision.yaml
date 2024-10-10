@@ -45,6 +45,21 @@ jobs:
         if: github.event_name == 'pull_request'
         run: toolkit provision apply --plan
 
+      - name: Generate report
+        if: github.event_name == 'pull_request'
+        run: toolkit provision show phdatapartner-demo:plan:latest --output=provision-report.html
+
       - name: Apply changes on merge to master
         run: toolkit provision apply
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+      - name: Generate report
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: toolkit provision show phdatapartner-demo:apply:latest --output=provision-report.html
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: provision-report
+          path: tools/provision/provision-report.html
+          if-no-files-found: error
