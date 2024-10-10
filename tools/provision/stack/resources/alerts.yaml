@@ -1,0 +1,41 @@
+notificationIntegrations:
+  - name: alert_email_integration
+    integrationType: email
+    properties:
+      enabled: true
+      default_subject: 'Snowflake Alert: AWS Sandbox Account'
+      comment: Notification integration used for email alerts
+      default_recipients:
+        - toolkit-support@phdata.io
+
+privilegeGrants:
+  - objectType: integration
+    objectName: alert_email_integration
+    roleName: alert_admin
+    privilege: usage
+
+alerts:
+  - name: break_glass_login_alert
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    # hourly at minute 0
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      SELECT *
+      FROM snowflake.account_usage.login_history
+      WHERE user_name = 'break_glass'
+      AND event_timestamp >= DATEADD(hour, -1, CURRENT_TIMESTAMP())
+      AND is_success = 'YES'
+    action: |
+      CALL SYSTEM$SEND_SNOWFLAKE_NOTIFICATION(
+        '{ "text/plain": "Snowflake Alert: AWS Sandbox Account - break_glass login" }',
+        '{
+          "alert_email_integration": {
+            "subject": "Snowflake Alert: AWS Sandbox Account - break_glass login"
+          }
+        }'
+      )
+    state: resume
+    properties:
+      comment: Alerts if the break glass account was used in the last hour

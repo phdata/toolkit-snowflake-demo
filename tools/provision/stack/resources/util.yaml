@@ -1,0 +1,331 @@
+databases:
+  - name: util
+
+schemas:
+  # remove the default public schema
+  - database: util
+    name: public
+    destroy: true
+  - database: util
+    name: formats
+  - database: util
+    name: functions
+  - database: util
+    name: procedures
+
+privilegeGrants:
+  - objectType: database
+    objectName: util
+    roleName: public
+    privilege: usage
+  - objectType: schema
+    objectName: util.formats
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.lines
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.csv
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.csv_with_header
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.csv_skip_header
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.tsv
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.tsv_with_header
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.tsv_skip_header
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.json
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.json_array
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.avro
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.orc
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.parquet
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.xml
+    roleName: public
+    privilege: usage
+  - objectType: file format
+    objectName: util.formats.xml_inner
+    roleName: public
+    privilege: usage
+  - objectType: schema
+    objectName: util.functions
+    roleName: public
+    privilege: usage
+  - objectType: function
+    objectName: util.functions.whoami()
+    roleName: public
+    privilege: usage
+  - objectType: schema
+    objectName: util.procedures
+    roleName: public
+    privilege: usage
+  - objectType: schema
+    objectName: util.procedures
+    roleName: useradmin
+    privilege: create procedure
+  - objectType: procedure
+    objectName: util.procedures.set_rsa_public_key(varchar)
+    roleName: public
+    privilege: usage
+
+fileFormats:
+  - name: lines
+    database: util
+    schema: formats
+    fileType: csv
+    properties:
+      field_delimiter: none
+      skip_blank_lines: true
+      null_if:
+        - ''
+      comment: Each line is a single column row
+  - name: csv
+    database: util
+    schema: formats
+    fileType: csv
+    properties:
+      skip_blank_lines: true
+      null_if:
+        - '\\N'
+        - 'NULL'
+        - 'NUL'
+        - 'null'
+      comment: Comma delimited data
+  - name: csv_with_header
+    database: util
+    schema: formats
+    fileType: csv
+    properties:
+      parse_header: true
+      skip_blank_lines: true
+      null_if:
+        - '\\N'
+        - 'NULL'
+        - 'NUL'
+        - 'null'
+      comment: Comma delimited data with a parsed header line
+  - name: csv_skip_header
+    database: util
+    schema: formats
+    fileType: csv
+    properties:
+      skip_header: 1
+      skip_blank_lines: true
+      null_if:
+        - '\\N'
+        - 'NULL'
+        - 'NUL'
+        - 'null'
+      comment: Comma delimited data with a skipped header line
+  - name: tsv
+    database: util
+    schema: formats
+    fileType: csv
+    properties:
+      field_delimiter: \t
+      skip_blank_lines: true
+      null_if:
+        - '\\N'
+        - 'NULL'
+        - 'NUL'
+        - 'null'
+      comment: Tab delimited data
+  - name: tsv_with_header
+    database: util
+    schema: formats
+    fileType: csv
+    properties:
+      field_delimiter: \t
+      parse_header: true
+      skip_blank_lines: true
+      null_if:
+        - '\\N'
+        - 'NULL'
+        - 'NUL'
+        - 'null'
+      comment: Tab delimited data with a parsed header line
+  - name: tsv_skip_header
+    database: util
+    schema: formats
+    fileType: csv
+    properties:
+      field_delimiter: \t
+      skip_header: 1
+      skip_blank_lines: true
+      null_if:
+        - '\\N'
+        - 'NULL'
+        - 'NUL'
+        - 'null'
+      comment: Tab delimited data with a skipped header line
+  - name: json
+    database: util
+    schema: formats
+    fileType: json
+    properties:
+      enable_octal: true
+      allow_duplicate: true
+      null_if:
+        - '\\N'
+        - 'NULL'
+        - 'NUL'
+        - 'null'
+      comment: JSON data
+  - name: json_array
+    database: util
+    schema: formats
+    fileType: json
+    properties:
+      strip_outer_array: true
+      enable_octal: true
+      allow_duplicate: true
+      null_if:
+        - '\\N'
+        - 'NULL'
+        - 'NUL'
+        - 'null'
+      comment: JSON array data as rows
+  - name: avro
+    database: util
+    schema: formats
+    fileType: avro
+    properties:
+      null_if:
+        - '\\N'
+        - 'NULL'
+        - 'NUL'
+        - 'null'
+      comment: Avro data
+  - name: orc
+    database: util
+    schema: formats
+    fileType: orc
+    properties:
+      null_if:
+        - '\\N'
+        - 'NULL'
+        - 'NUL'
+        - 'null'
+      comment: ORC data
+  - name: parquet
+    database: util
+    schema: formats
+    fileType: parquet
+    properties:
+      null_if:
+        - '\\N'
+        - 'NULL'
+        - 'NUL'
+        - 'null'
+      comment: Parquet data
+  - name: xml
+    database: util
+    schema: formats
+    fileType: xml
+    properties:
+      comment: XML data
+  - name: xml_inner
+    database: util
+    schema: formats
+    fileType: xml
+    properties:
+      strip_outer_element: true
+      comment: XML data inside the outer most element
+
+functions:
+  - name: whoami
+    database: util
+    schema: functions
+    returns:
+      type: table
+      arguments:
+        - name: user
+          type: varchar
+        - name: role
+          type: varchar
+        - name: region
+          type: varchar
+        - name: account
+          type: varchar
+        - name: database
+          type: varchar
+        - name: schema
+          type: varchar
+        - name: warehouse
+          type: varchar
+        - name: client
+          type: varchar
+        - name: session
+          type: varchar
+        - name: ip
+          type: varchar
+        - name: ts
+          type: timestamp_ltz
+    body: |
+      SELECT
+        current_user(),
+        current_role(),
+        current_region(),
+        current_account(),
+        current_database(),
+        current_schema(),
+        current_warehouse(),
+        current_session(),
+        current_client(),
+        current_ip_address(),
+        current_timestamp()
+    properties:
+      comment: 'Returns the current user, role, region, account, database, schema, warehouse, client, session, ip, and timestamp'
+
+procedures:
+  - name: set_rsa_public_key
+    database: util
+    schema: procedures
+    executeAs: owner
+    owner: useradmin
+    arguments:
+      - name: rsa_public_key
+        type: varchar
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+        user VARCHAR DEFAULT (SELECT '"' || CURRENT_USER() || '"');
+      BEGIN
+        ALTER USER IDENTIFIER(:user) SET rsa_public_key = :rsa_public_key;
+        return 'Success';
+      END;
+    properties:
+      comment: 'Set the rsa_public_key of the calling user'
