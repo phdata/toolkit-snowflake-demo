@@ -55,111 +55,57 @@ roleGrants:
 # need to grant each role the individual privileges it needs beyond the lower roles.
 privilegeGrants:
   # read-only role privileges
-  - privilege: usage
+  - objectType: database
     objectName: {{ name }}
-    objectType: database
     roleName: {{ name }}_ro
-  - privilege: usage
-    objectName: standardized
-    objectType: schema
+    privilege: usage
+  - objectType: schema
+    objectName: {{ name }}.standardized
     roleName: {{ name }}_ro
-  - privilege: usage
-    objectName: conformed
-    objectType: schema
+    privilege: usage
+  - objectType: schema
+    objectName: {{ name }}.conformed
     roleName: {{ name }}_ro
+    privilege: usage
   # read-write role privileges
-  - privilege: monitor
+  - objectType: database
     objectName: {{ name }}
-    objectType: database
     roleName: {{ name }}_rw
-  - privilege: modify
+    privilege: monitor
+  - objectType: database
     objectName: {{ name }}
-    objectType: database
     roleName: {{ name }}_rw
+    privilege: modify
   {% for schema in schemas %}
-  - privilege: modify
+  - objectType: schema
     objectName: {{ name }}.{{ schema }}
-    objectType: schema
     roleName: {{ name }}_rw
-  - privilege: monitor
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create table
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create dynamic table
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create external table
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create iceberg table
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create materialized view
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create view
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create task
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create alert
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create stream
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create pipe
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create file format
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create sequence
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create function
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create procedure
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create stage
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
-  - privilege: create git repository
-    objectName: {{ name }}.{{ schema }}
-    objectType: schema
-    roleName: {{ name }}_rw
+    privilege:
+    - modify
+    - monitor
+    - create table
+    - create dynamic table
+    - create external table
+    - create iceberg table
+    - create view
+    - create materialized view
+    - create task
+    - create alert
+    - create stream
+    - create pipe
+    - create file format
+    - create sequence
+    - create function
+    - create procedure
+    - create stage
+    - create git repository
   {% endfor %}
-  - privilege: usage
-    objectName: {{ name }}.ingest
-    objectType: stage
+  - objectType: stage
+    objectName: {{ name }}.raw.ingest
     roleName: {{ name }}_rw
-  - privilege: read
-    objectName: {{ name }}.ingest
-    objectType: stage
-    roleName: {{ name }}_rw
-  - privilege: write
-    objectName: {{ name }}.ingest
-    objectType: stage
-    roleName: {{ name }}_rw
+    privilege:
+    # todo you would grant this on an external stage
+    # - usage
+    - read
+    - write
   # todo what additional privileges should the admin role have?
