@@ -1,11 +1,9 @@
 account:
   resourceMonitor: account_resource_monitor
-  # These policy identifiers are fully qualified, and so they must use the correct identifier casing because the tool
-  # cannot automatically normalize a fully-qualified identifier from a string
-  sessionPolicy: GOVERNANCE.POLICY.ACCOUNT_SESSION_POLICY
-  passwordPolicy: GOVERNANCE.POLICY.ACCOUNT_PASSWORD_POLICY
+  sessionPolicy: governance.policy.account_session_policy
+  passwordPolicy: governance.policy.account_password_policy
   # The account authentication policy should be the default for the typical "person" users and all other users should be special cased below.
-  authenticationPolicy: GOVERNANCE.POLICY.ACCOUNT_AUTHENTICATION_POLICY
+  authenticationPolicy: governance.policy.account_authentication_policy
   tags:
     governance.tag.environment: dev
   parameters:
