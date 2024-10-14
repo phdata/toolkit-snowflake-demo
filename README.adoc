@@ -7,6 +7,10 @@ toc::[]
 
 This repository demonstrates using the https://toolkit.phdata.io[phData Toolkit CLI] with CICD, targeting a Snowflake account.
 
+== Workflows
+
 Each tool has its own project directory named respectively.
 Most of the link:.github/workflows[workflows] run on a schedule, or can be manually run.
 The link:.github/workflows/provision.yaml[Provision workflow] runs for each PR containing changes to the link:provision[provision] directory, and then again on merge to master.
+
+The link:.github/actions/common-setup[common-setup] action encapsulates the common setup required for each workflow, specifically installing Java, installing the Toolkit CLI, and configuring CLI auth from a secret.
