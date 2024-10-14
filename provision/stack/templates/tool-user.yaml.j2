@@ -33,11 +33,19 @@ warehouses:
       auto_suspend: 60
       initially_suspended: true
 privilegeGrants:
-  - privilege: all privileges
-    objectType: warehouse
+  - objectType: warehouse
     objectName: {{ tool_warehouse }}
     roleName: {{ tool_role }}
     grantOption: true
+    privilege:
+      - modify
+      - monitor
+      - operator
+      - usage
+  - objectType: database
+    objectName: snowflake
+    roleName: {{ tool_role }}
+    privilege: imported privileges
 roleGrants:
   - name: {{ tool_role }}
     toUsers: 
