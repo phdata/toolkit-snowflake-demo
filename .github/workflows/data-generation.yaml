@@ -32,11 +32,11 @@ jobs:
         run: toolkit datagen jdbc --append snowflake --spec specs/advanced-snowflake-spec.yaml
 
       - name: Generate report
-        run: toolkit datagen show --output=datagen-sales-report.html specs/advanced-snowflake-spec.yaml
+        run: toolkit datagen show --output=datagen-report.html specs/advanced-snowflake-spec.yaml
 
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: datagen-sales-report
-          path: data-generation/datagen-sales-report.html
+          name: datagen-report
+          path: data-generation/datagen-report.html
           if-no-files-found: error
