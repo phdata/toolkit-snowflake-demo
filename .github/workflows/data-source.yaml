@@ -10,7 +10,7 @@ permissions:
 
 defaults:
   run:
-    working-directory: tools/data-source
+    working-directory: data-source
 
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
@@ -64,5 +64,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: daily-ds-reports
-          path: tools/data-source/daily-ds-reports/
+          path: data-source/daily-ds-reports/
           if-no-files-found: error
