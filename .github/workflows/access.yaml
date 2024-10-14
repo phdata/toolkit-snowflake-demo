@@ -7,7 +7,7 @@ on:
 
 defaults:
   run:
-    working-directory: tools/access
+    working-directory: access
 
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
@@ -38,5 +38,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: access-scan
-          path: tools/access/access-scan.html
+          path: access/access-scan.html
           if-no-files-found: error

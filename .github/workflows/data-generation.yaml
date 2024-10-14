@@ -7,7 +7,7 @@ on:
 
 defaults:
   run:
-    working-directory: tools/data-generation
+    working-directory: data-generation
 
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
@@ -38,5 +38,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: datagen-sales-report
-          path: tools/data-generation/datagen-sales-report.html
+          path: data-generation/datagen-sales-report.html
           if-no-files-found: error

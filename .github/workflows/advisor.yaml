@@ -7,7 +7,7 @@ on:
 
 defaults:
   run:
-    working-directory: tools/advisor
+    working-directory: advisor
 
 env:
   TOOLKIT_AUTH_TOKEN: ${{ secrets.toolkit_auth_token }}
@@ -38,5 +38,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: advisor-scan
-          path: tools/advisor/advisor-scan.html
+          path: advisor/advisor-scan.html
           if-no-files-found: error
