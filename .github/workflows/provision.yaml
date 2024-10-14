@@ -41,7 +41,7 @@ jobs:
       - name: Create metadata
         run: toolkit provision init --metadata
 
-      - name: Plan on pull request
+      - name: Plan changes
         if: github.event_name == 'pull_request'
         run: toolkit provision apply --plan
 
@@ -49,7 +49,7 @@ jobs:
         if: github.event_name == 'pull_request'
         run: toolkit provision show phdatapartner-demo:plan:latest --output=provision-report.html
 
-      - name: Apply changes on merge to master
+      - name: Apply changes
         run: toolkit provision apply
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
 

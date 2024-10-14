@@ -34,18 +34,18 @@ jobs:
       - name: Scan snowflake
         run: |
           toolkit ds scan snowflake
-          toolkit ds show snowflake:scan:latest --format html -o daily-ds-reports/ds-scan.html
+          toolkit ds show snowflake:scan:latest --format html -o reports/scan-report.html
 
       - name: Profile snowflake
         run: |
           toolkit ds profile snowflake:scan:latest
-          toolkit ds show snowflake:profile:latest --format html -o daily-ds-reports/ds-profile.html
+          toolkit ds show snowflake:profile:latest --format html -o reports/profile-report.html
 
       - name: Diff snowflake
         run: |
-          if toolkit ds show snowflake:profile:latest-1; then
+          if toolkit ds show snowflake:profile:latest-1 &> /dev/null; then
             toolkit ds diff snowflake:profile:latest-1 snowflake:profile:latest 
-            toolkit ds show snowflake.snowflake:diff:latest --format html -o daily-ds-reports/ds-diff.html
+            toolkit ds show snowflake.snowflake:diff:latest --format html -o reports/diff-report.html
           fi
 
       - name: Remove old snapshots
@@ -63,6 +63,6 @@ jobs:
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
-          name: daily-ds-reports
-          path: data-source/daily-ds-reports/
+          name: data-source-reports
+          path: data-source/reports
           if-no-files-found: error
