@@ -1,0 +1,52 @@
+users:
+  - name: datagen_tool_user
+    properties:
+      default_role: datagen_tool
+      default_warehouse: datagen_wh
+      type: service
+      rsa_public_key: |
+        -----BEGIN PUBLIC KEY-----
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8apBpcFY4t0QsiJ7e125
+        b8z+T4gPxdIY4A8BlNvNC+jf/0LaCDL4Jm1TkmCW9+pCZwZNlPs3nJ4apm4iQVYh
+        3EiwI+i4DskSPy4xhowxoeaz6VU5i1faA6UgxW2F3jy6DfRuy6zdBPVnMPfiNmOh
+        Z3KMtka8S6IBcITJSBRX1yzC7H5KCaiRHrMJuBOP42MR3ebxlcH6LoRsw+rz4cwz
+        pqCFXK3jcoB5btz9MjbCPDx9/K6uPBgVQlOYBi4DSEn8fmrfopSComQ+okqzNl23
+        el94QGHdSYNXFnx30tzW7iFbEfnB28+RZjxbQGng6+3aFG2/7yOcZkATJ6cTpxne
+        twIDAQAB
+        -----END PUBLIC KEY-----
+
+roles:
+  - name: datagen_tool
+
+warehouses:
+  - name: datagen_wh
+    properties:
+      warehouse_size: xsmall
+      auto_suspend: 60
+      initially_suspended: true
+
+databases:
+  - name: synthetic_sales
+
+privilegeGrants:
+  - objectType: warehouse
+    objectName: datagen_wh
+    roleName: datagen_tool
+    grantOption: true
+    privilege:
+      - monitor
+      - operate
+      - usage
+  - objectType: database
+    objectName: synthetic_sales
+    roleName: datagen_tool
+    privilege:
+      - create schema
+      - modify
+      - monitor
+      - usage
+
+roleGrants:
+  - name: datagen_tool
+    toUsers:
+      - datagen_tool_user

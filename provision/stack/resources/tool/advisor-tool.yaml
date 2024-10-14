@@ -1,12 +1,8 @@
-{% set tool_user = tool ~ '_tool_user' %}
-{% set tool_role = tool ~ '_tool' %}
-{% set tool_warehouse = tool ~ '_wh' %}
-
 users:
-  - name: {{ tool_user }}
+  - name: advisor_tool_user
     properties:
-      default_role: {{ tool_role }}
-      default_warehouse: {{ tool_warehouse }}
+      default_role: advisor_tool
+      default_warehouse: advisor_wh
       type: service
       rsa_public_key: |
         -----BEGIN PUBLIC KEY-----
@@ -18,35 +14,36 @@ users:
         el94QGHdSYNXFnx30tzW7iFbEfnB28+RZjxbQGng6+3aFG2/7yOcZkATJ6cTpxne
         twIDAQAB
         -----END PUBLIC KEY-----
+
 roles:
-  - name: {{ tool_role }}
-warehouses: 
-  - name: {{tool}}
-    destroy: true
+  - name: advisor_tool
+
+warehouses:
+  - name: advisor_wh
     properties:
       warehouse_size: xsmall
       auto_suspend: 60
       initially_suspended: true
-  - name: {{ tool_warehouse }}
-    properties:
-      warehouse_size: xsmall
-      auto_suspend: 60
-      initially_suspended: true
+
 privilegeGrants:
   - objectType: warehouse
-    objectName: {{ tool_warehouse }}
-    roleName: {{ tool_role }}
+    objectName: advisor_wh
+    roleName: advisor_tool
     grantOption: true
     privilege:
-      - modify
       - monitor
       - operate
       - usage
   - objectType: database
     objectName: snowflake
-    roleName: {{ tool_role }}
+    roleName: advisor_tool
     privilege: imported privileges
+  - objectType: account
+    roleName: advisor_tool
+    privilege: resolve all
+    owner: accountadmin
+
 roleGrants:
-  - name: {{ tool_role }}
-    toUsers: 
-      - {{ tool_user }}
+  - name: advisor_tool
+    toUsers:
+      - advisor_tool_user

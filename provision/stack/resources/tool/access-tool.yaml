@@ -1,0 +1,45 @@
+users:
+  - name: access_tool_user
+    properties:
+      default_role: access_tool
+      default_warehouse: access_wh
+      type: service
+      rsa_public_key: |
+        -----BEGIN PUBLIC KEY-----
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8apBpcFY4t0QsiJ7e125
+        b8z+T4gPxdIY4A8BlNvNC+jf/0LaCDL4Jm1TkmCW9+pCZwZNlPs3nJ4apm4iQVYh
+        3EiwI+i4DskSPy4xhowxoeaz6VU5i1faA6UgxW2F3jy6DfRuy6zdBPVnMPfiNmOh
+        Z3KMtka8S6IBcITJSBRX1yzC7H5KCaiRHrMJuBOP42MR3ebxlcH6LoRsw+rz4cwz
+        pqCFXK3jcoB5btz9MjbCPDx9/K6uPBgVQlOYBi4DSEn8fmrfopSComQ+okqzNl23
+        el94QGHdSYNXFnx30tzW7iFbEfnB28+RZjxbQGng6+3aFG2/7yOcZkATJ6cTpxne
+        twIDAQAB
+        -----END PUBLIC KEY-----
+
+roles:
+  - name: access_tool
+
+warehouses:
+  - name: access_wh
+    properties:
+      warehouse_size: xsmall
+      auto_suspend: 60
+      initially_suspended: true
+
+privilegeGrants:
+  - objectType: warehouse
+    objectName: access_wh
+    roleName: access_tool
+    grantOption: true
+    privilege:
+      - monitor
+      - operate
+      - usage
+  - objectType: database
+    objectName: snowflake
+    roleName: access_tool
+    privilege: imported privileges
+
+roleGrants:
+  - name: access_tool
+    toUsers:
+      - access_tool_user
