@@ -1,0 +1,61 @@
+# This user executes tutorials in workflows in https://github.com/phdata/toolkit
+users:
+  - name: tutorial_user
+    properties:
+      type: service
+      default_warehouse: tutorial_wh
+      default_role: tutorial
+      rsa_public_key: |
+        -----BEGIN PUBLIC KEY-----
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjx2wFFiLSEv0Ek2gDMBz
+        RgAob60d1bC1ekQjqoXAE4l4VQQ/6ZvDNtHwavsJh/kLpbp094F+967bLJMa6gCp
+        jTJVH9R8DJBeRZ4zjuGfbnZQLfmFR+2hHwl+pRtjSXXvnV3NWg+BUkN1Cnb8nn2Q
+        JkEa+2a8hZQyXl0haAULnpbwEmcFmpmAg9fSkoN8qUGSzWqDqvrLRFudQMWh5N/b
+        lNB0Awxb92A7C/k8yV9ICnnio+GR0LOvLdy8NFWkwZseejVblAsw2PPa8BuZyHxe
+        i21pcGKRKb1k5wGwj7vojYJRvWNjNsTEd2sGD3fLsmXfJxov6V4s/QpTCo2BeVEs
+        7wIDAQAB
+        -----END PUBLIC KEY-----
+
+warehouses:
+  - name: tutorial_wh
+    properties:
+      warehouse_size: xsmall
+      auto_suspend: 60
+      initially_suspended: true
+
+databases:
+  - name: tutorials
+
+roles:
+  - name: tutorial
+
+roleGrants:
+  - name: tutorial
+    toUsers:
+      - tutorial_user
+  - name: sysadmin
+    toRoles:
+      - tutorial
+  - name: sysadmin
+    toRoles:
+      - tutorial
+
+privilegeGrants:
+  - objectType: warehouse
+    objectName: tutorial_wh
+    roleName: tutorial
+    privilege:
+      - monitor
+      - operate
+      - usage
+  - objectType: database
+    objectName: tutorials
+    roleName: tutorial
+    privilege:
+      - modify
+      - monitor
+      - create schema
+  - objectType: database
+    objectName: snowflake
+    roleName: tutorial
+    privilege: imported privileges
