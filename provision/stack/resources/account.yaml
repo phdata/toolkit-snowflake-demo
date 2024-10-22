@@ -158,9 +158,6 @@ schemas:
   - database: governance
     name: public
     destroy: true
-  # schema created by provision init
-  - database: phdata
-    name: provision
   - database: governance
     name: policy
   - database: governance
@@ -171,26 +168,9 @@ schemas:
     name: log
 
 roles:
-  - name: tag_admin
-  - name: policy_admin
-  - name: alert_admin
   - name: log_admin
-  - name: share_admin
 
 roleGrants:
-  # role grants created by provision init
-  - name: sysadmin
-    toRoles:
-      - {{ provision_role }}
-  - name: securityadmin
-    toRoles:
-      - {{ provision_role }}
-  - name: useradmin
-    toRoles:
-      - {{ provision_role }}
-  - name: {{ provision_role }}
-    toUsers:
-      - {{ provision_user }}
   - name: alert_admin
     toRoles:
       - sysadmin
