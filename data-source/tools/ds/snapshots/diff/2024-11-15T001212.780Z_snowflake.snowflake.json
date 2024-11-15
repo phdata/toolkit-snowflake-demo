@@ -1,0 +1,1877 @@
+{
+  "erdGraph": {
+    "edges": [
+      {
+        "from": "SYNTHETIC_SALES.MAIN.CUSTOMER",
+        "to": "SYNTHETIC_SALES.MAIN.ORDER_HISTORY",
+        "diffType": "UNCHANGED"
+      },
+      {
+        "from": "SYNTHETIC_SALES.MAIN.PRODUCT",
+        "to": "SYNTHETIC_SALES.MAIN.ORDER_HISTORY",
+        "diffType": "UNCHANGED"
+      }
+    ],
+    "vertices": [
+      {
+        "id": "TABLE-SYNTHETIC_SALES.MAIN.CUSTOMER",
+        "type": "TABLE",
+        "qualifiedName": "SYNTHETIC_SALES.MAIN.CUSTOMER",
+        "database": "SYNTHETIC_SALES",
+        "schema": "MAIN",
+        "name": "CUSTOMER"
+      },
+      {
+        "id": "TABLE-SYNTHETIC_SALES.MAIN.ORDER_HISTORY",
+        "type": "TABLE",
+        "qualifiedName": "SYNTHETIC_SALES.MAIN.ORDER_HISTORY",
+        "database": "SYNTHETIC_SALES",
+        "schema": "MAIN",
+        "name": "ORDER_HISTORY"
+      },
+      {
+        "id": "TABLE-SYNTHETIC_SALES.MAIN.PRODUCT",
+        "type": "TABLE",
+        "qualifiedName": "SYNTHETIC_SALES.MAIN.PRODUCT",
+        "database": "SYNTHETIC_SALES",
+        "schema": "MAIN",
+        "name": "PRODUCT"
+      }
+    ]
+  },
+  "metadata": {
+    "identifier": {
+      "source": "snowflake.snowflake",
+      "type": "diff",
+      "timestamp": "2024-11-15T00:12:12.780Z"
+    },
+    "source": {
+      "name": "snowflake",
+      "type": "snowflake",
+      "lineage": {
+        "scan": {
+          "source": "snowflake",
+          "type": "scan",
+          "timestamp": "2024-11-14T00:11:12.960Z"
+        },
+        "profile": {
+          "source": "snowflake",
+          "type": "profile",
+          "timestamp": "2024-11-14T00:11:26.130Z"
+        },
+        "match": {
+          "source": "snowflake.snowflake",
+          "type": "match",
+          "timestamp": "2024-11-15T00:12:12.524Z"
+        }
+      },
+      "accountName": "PHDATAPARTNER-DEMO"
+    },
+    "target": {
+      "name": "snowflake",
+      "type": "snowflake",
+      "lineage": {
+        "scan": {
+          "source": "snowflake",
+          "type": "scan",
+          "timestamp": "2024-11-15T00:11:48.674Z"
+        },
+        "profile": {
+          "source": "snowflake",
+          "type": "profile",
+          "timestamp": "2024-11-15T00:12:01.642Z"
+        },
+        "match": {
+          "source": "snowflake.snowflake",
+          "type": "match",
+          "timestamp": "2024-11-15T00:12:12.524Z"
+        }
+      },
+      "accountName": "PHDATAPARTNER-DEMO"
+    },
+    "version": "dev",
+    "license": "PRO",
+    "start": "2024-11-15T00:12:12.653660Z",
+    "end": "2024-11-15T00:12:12.780137Z"
+  },
+  "tables": [
+    {
+      "database": "SYNTHETIC_SALES",
+      "schema": "MAIN",
+      "name": "CUSTOMER",
+      "type": "TABLE",
+      "columns": [
+        {
+          "name": "ID",
+          "ordinalPosition": 1,
+          "type": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "NUMBER",
+          "dataType": "NUMBER(38, 0)",
+          "nullable": false,
+          "primaryKey": true,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 40035,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": 40062,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": 1,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "negative_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "stddev",
+                "value": 13172.514582999063,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source value 13172.514582999063 and target value 13166.101480223331 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "path": "value",
+                      "target": 13166.101480223331,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "zero_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "MODIFIED"
+            }
+          },
+          "diff": {
+            "type": "MODIFIED"
+          }
+        },
+        {
+          "name": "FIRST_NAME",
+          "ordinalPosition": 2,
+          "type": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "TEXT",
+          "dataType": "TEXT(16777216)",
+          "nullable": true,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 4439,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "empty_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": "Willian",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max_length",
+                "value": 11,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": "Albert",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min_length",
+                "value": 2,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 33646,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source numeric 33646 and target numeric 33847 were compared directly",
+                      "path": "value",
+                      "target": 33847,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "MODIFIED"
+            }
+          },
+          "diff": {
+            "type": "MODIFIED"
+          }
+        },
+        {
+          "name": "LAST_NAME",
+          "ordinalPosition": 3,
+          "type": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "TEXT",
+          "dataType": "TEXT(16777216)",
+          "nullable": false,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 454,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "empty_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": "Wyman",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max_length",
+                "value": 13,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": "Armstrong",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min_length",
+                "value": 3,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "diff": {
+            "type": "UNCHANGED"
+          }
+        },
+        {
+          "name": "STATE",
+          "ordinalPosition": 4,
+          "type": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "TEXT",
+          "dataType": "TEXT(16777216)",
+          "nullable": true,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 50,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "empty_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": "Wyoming",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max_length",
+                "value": 14,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": "Alabama",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min_length",
+                "value": 4,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "diff": {
+            "type": "UNCHANGED"
+          }
+        },
+        {
+          "name": "ZIP_CODE",
+          "ordinalPosition": 5,
+          "type": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "TEXT",
+          "dataType": "TEXT(16777216)",
+          "nullable": true,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 776,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "empty_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": "995##",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max_length",
+                "value": 5,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": "01257",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min_length",
+                "value": 5,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "diff": {
+            "type": "UNCHANGED"
+          }
+        }
+      ],
+      "profile": {
+        "gauges": [
+          {
+            "name": "hash_agg",
+            "value": -7684841727576648323,
+            "diff": {
+              "events": [
+                {
+                  "description": "Source numeric -7684841727576648323 and target numeric -5250427370946461189 were compared directly",
+                  "path": "value",
+                  "target": -5250427370946461189,
+                  "type": "MODIFIED"
+                }
+              ],
+              "type": "MODIFIED"
+            }
+          },
+          {
+            "name": "row_count",
+            "value": 130866,
+            "diff": {
+              "events": [
+                {
+                  "description": "Source numeric 130866 and target numeric 131613 were compared directly",
+                  "path": "value",
+                  "target": 131613,
+                  "type": "MODIFIED"
+                }
+              ],
+              "type": "MODIFIED"
+            }
+          }
+        ],
+        "diff": {
+          "type": "MODIFIED"
+        }
+      },
+      "constraints": [
+        {
+          "type": "PRIMARY_KEY",
+          "name": "PK_0",
+          "columns": [
+            "ID"
+          ],
+          "diff": {
+            "type": "UNCHANGED"
+          }
+        }
+      ],
+      "qualifiedName": "SYNTHETIC_SALES.MAIN.CUSTOMER",
+      "diff": {
+        "type": "MODIFIED"
+      }
+    },
+    {
+      "database": "SYNTHETIC_SALES",
+      "schema": "MAIN",
+      "name": "ORDER_HISTORY",
+      "type": "TABLE",
+      "columns": [
+        {
+          "name": "ID",
+          "ordinalPosition": 1,
+          "type": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "NUMBER",
+          "dataType": "NUMBER(38, 0)",
+          "nullable": true,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 52528,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": 52528,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": 1,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "negative_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "stddev",
+                "value": 12177.255470882223,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source value 12177.255470882223 and target value 12121.802580354046 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "path": "value",
+                      "target": 12121.802580354046,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "zero_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "MODIFIED"
+            }
+          },
+          "diff": {
+            "type": "MODIFIED"
+          }
+        },
+        {
+          "name": "PRODUCT_ID",
+          "ordinalPosition": 2,
+          "type": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "NUMBER",
+          "dataType": "NUMBER(38, 0)",
+          "nullable": false,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 9912,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": 10022,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": 1,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "negative_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "stddev",
+                "value": 2464.821817454357,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source value 2464.821817454357 and target value 2453.5737226494743 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "path": "value",
+                      "target": 2453.5737226494743,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "zero_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "MODIFIED"
+            }
+          },
+          "diff": {
+            "type": "MODIFIED"
+          }
+        },
+        {
+          "name": "CUSTOMER_ID",
+          "ordinalPosition": 3,
+          "type": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "NUMBER",
+          "dataType": "NUMBER(38, 0)",
+          "nullable": false,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 29319,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": 40062,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": 1,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "negative_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "stddev",
+                "value": 9761.8052530323,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source value 9761.8052530323 and target value 9717.180624266794 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "path": "value",
+                      "target": 9717.180624266794,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "zero_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "MODIFIED"
+            }
+          },
+          "diff": {
+            "type": "MODIFIED"
+          }
+        },
+        {
+          "name": "SALE_TIMESTAMP",
+          "ordinalPosition": 4,
+          "type": {
+            "name": "TIMESTAMP_NTZ",
+            "precision": 9,
+            "scale": 0,
+            "length": 9,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "TIMESTAMP_NTZ",
+            "precision": 9,
+            "scale": 0,
+            "length": 9,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "TIMESTAMP_NTZ",
+          "dataType": "TIMESTAMP_NTZ",
+          "nullable": false,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 435280,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source numeric 435280 and target numeric 439911 were compared directly",
+                      "path": "value",
+                      "target": 439911,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "max",
+                "value": "2024-11-13T00:17:36.341+00:00",
+                "diff": {
+                  "events": [
+                    {
+                      "path": "value",
+                      "target": "2024-11-14T00:17:36.341+00:00",
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "min",
+                "value": "1990-10-01T18:20:53.619+00:00",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "MODIFIED"
+            }
+          },
+          "diff": {
+            "type": "MODIFIED"
+          }
+        },
+        {
+          "name": "RETURN_TIMESTAMP",
+          "ordinalPosition": 5,
+          "type": {
+            "name": "TIMESTAMP_NTZ",
+            "precision": 9,
+            "scale": 0,
+            "length": 9,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "TIMESTAMP_NTZ",
+            "precision": 9,
+            "scale": 0,
+            "length": 9,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "TIMESTAMP_NTZ",
+          "dataType": "TIMESTAMP_NTZ",
+          "nullable": true,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 74670,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source numeric 74670 and target numeric 75431 were compared directly",
+                      "path": "value",
+                      "target": 75431,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "max",
+                "value": "2024-11-25T01:12:37.239+00:00",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": "1991-10-07T18:08:36.669+00:00",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 393000,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source numeric 393000 and target numeric 397506 were compared directly",
+                      "path": "value",
+                      "target": 397506,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "MODIFIED"
+            }
+          },
+          "diff": {
+            "type": "MODIFIED"
+          }
+        }
+      ],
+      "profile": {
+        "gauges": [
+          {
+            "name": "hash_agg",
+            "value": 4953351254634579131,
+            "diff": {
+              "events": [
+                {
+                  "description": "Source numeric 4953351254634579131 and target numeric 7660300960385766244 were compared directly",
+                  "path": "value",
+                  "target": 7660300960385766244,
+                  "type": "MODIFIED"
+                }
+              ],
+              "type": "MODIFIED"
+            }
+          },
+          {
+            "name": "row_count",
+            "value": 474908,
+            "diff": {
+              "events": [
+                {
+                  "description": "Source numeric 474908 and target numeric 480347 were compared directly",
+                  "path": "value",
+                  "target": 480347,
+                  "type": "MODIFIED"
+                }
+              ],
+              "type": "MODIFIED"
+            }
+          }
+        ],
+        "diff": {
+          "type": "MODIFIED"
+        }
+      },
+      "constraints": [
+        {
+          "type": "FOREIGN_KEY",
+          "name": "FK_1",
+          "columns": [
+            "CUSTOMER_ID"
+          ],
+          "referenceDatabase": "SYNTHETIC_SALES",
+          "referenceSchema": "MAIN",
+          "referenceTable": "CUSTOMER",
+          "referenceColumns": [
+            "ID"
+          ],
+          "diff": {
+            "type": "UNCHANGED"
+          }
+        },
+        {
+          "type": "FOREIGN_KEY",
+          "name": "FK_0",
+          "columns": [
+            "PRODUCT_ID"
+          ],
+          "referenceDatabase": "SYNTHETIC_SALES",
+          "referenceSchema": "MAIN",
+          "referenceTable": "PRODUCT",
+          "referenceColumns": [
+            "ID"
+          ],
+          "diff": {
+            "type": "UNCHANGED"
+          }
+        }
+      ],
+      "qualifiedName": "SYNTHETIC_SALES.MAIN.ORDER_HISTORY",
+      "diff": {
+        "type": "MODIFIED"
+      }
+    },
+    {
+      "database": "SYNTHETIC_SALES",
+      "schema": "MAIN",
+      "name": "PRODUCT",
+      "type": "TABLE",
+      "columns": [
+        {
+          "name": "ID",
+          "ordinalPosition": 1,
+          "type": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "NUMBER",
+          "dataType": "NUMBER(38, 0)",
+          "nullable": false,
+          "primaryKey": true,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 10000,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": 10022,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": 1,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "negative_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "stddev",
+                "value": 3197.5734886840364,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source value 3197.5734886840364 and target value 3200.1885028535426 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "path": "value",
+                      "target": 3200.1885028535426,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "zero_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "MODIFIED"
+            }
+          },
+          "diff": {
+            "type": "MODIFIED"
+          }
+        },
+        {
+          "name": "NAME",
+          "ordinalPosition": 2,
+          "type": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "TEXT",
+          "dataType": "TEXT(16777216)",
+          "nullable": false,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 3236,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "empty_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": "Synergistic Wool Table",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max_length",
+                "value": 29,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": "Aerodynamic Aluminum Keyboard",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min_length",
+                "value": 14,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "diff": {
+            "type": "UNCHANGED"
+          }
+        },
+        {
+          "name": "DESCRIPTION",
+          "ordinalPosition": 3,
+          "type": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "TEXT",
+          "dataType": "TEXT(16777216)",
+          "nullable": false,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 9908,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "empty_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": "Virtual solution-oriented methodology",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max_length",
+                "value": 60,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": "Ameliorated explicit customer loyalty",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min_length",
+                "value": 16,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "diff": {
+            "type": "UNCHANGED"
+          }
+        },
+        {
+          "name": "CATEGORY",
+          "ordinalPosition": 4,
+          "type": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "TEXT",
+            "precision": 16777216,
+            "scale": 0,
+            "length": 16777216,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "TEXT",
+          "dataType": "TEXT(16777216)",
+          "nullable": false,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 875,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "empty_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": "Toys",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max_length",
+                "value": 35,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": "Automotive",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min_length",
+                "value": 4,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "diff": {
+            "type": "UNCHANGED"
+          }
+        },
+        {
+          "name": "LAUNCH_TIMESTAMP",
+          "ordinalPosition": 5,
+          "type": {
+            "name": "TIMESTAMP_NTZ",
+            "precision": 9,
+            "scale": 0,
+            "length": 9,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "TIMESTAMP_NTZ",
+            "precision": 9,
+            "scale": 0,
+            "length": 9,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "TIMESTAMP_NTZ",
+          "dataType": "TIMESTAMP_NTZ",
+          "nullable": false,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 16654,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source numeric 16654 and target numeric 16679 were compared directly",
+                      "path": "value",
+                      "target": 16679,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "max",
+                "value": "2023-10-23T18:22:08.443+00:00",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": "1990-08-23T20:17:05.686+00:00",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "MODIFIED"
+            }
+          },
+          "diff": {
+            "type": "MODIFIED"
+          }
+        },
+        {
+          "name": "DISCONTINUED_TIMESTAMP",
+          "ordinalPosition": 6,
+          "type": {
+            "name": "TIMESTAMP_NTZ",
+            "precision": 9,
+            "scale": 0,
+            "length": 9,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "TIMESTAMP_NTZ",
+            "precision": 9,
+            "scale": 0,
+            "length": 9,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "TIMESTAMP_NTZ",
+          "dataType": "TIMESTAMP_NTZ",
+          "nullable": true,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 6102,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source numeric 6102 and target numeric 6110 were compared directly",
+                      "path": "value",
+                      "target": 6110,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "max",
+                "value": "2023-06-21T04:46:10.692+00:00",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": "1993-10-02T20:17:05.686+00:00",
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 17112,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source numeric 17112 and target numeric 17148 were compared directly",
+                      "path": "value",
+                      "target": 17148,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "MODIFIED"
+            }
+          },
+          "diff": {
+            "type": "MODIFIED"
+          }
+        },
+        {
+          "name": "COST",
+          "ordinalPosition": 7,
+          "type": {
+            "name": "NUMBER",
+            "precision": 6,
+            "scale": 2,
+            "length": 6,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 6,
+            "scale": 2,
+            "length": 6,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "NUMBER",
+          "dataType": "NUMBER(6, 2)",
+          "nullable": false,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 9824,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "max",
+                "value": 8982.7,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": 22.75,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "negative_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "stddev",
+                "value": 1276.9967972384334,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source value 1276.9967972384334 and target value 1277.486076787794 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "path": "value",
+                      "target": 1277.486076787794,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "zero_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "MODIFIED"
+            }
+          },
+          "diff": {
+            "type": "MODIFIED"
+          }
+        },
+        {
+          "name": "PRICE",
+          "ordinalPosition": 8,
+          "type": {
+            "name": "NUMBER",
+            "precision": 7,
+            "scale": 2,
+            "length": 7,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 7,
+            "scale": 2,
+            "length": 7,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "NUMBER",
+          "dataType": "NUMBER(7, 2)",
+          "nullable": true,
+          "primaryKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 21078,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source numeric 21078 and target numeric 21089 were compared directly",
+                      "path": "value",
+                      "target": 21089,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "max",
+                "value": 24955.93,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "min",
+                "value": 25.75,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "negative_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "null_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              },
+              {
+                "name": "stddev",
+                "value": 2804.5676791723276,
+                "diff": {
+                  "events": [
+                    {
+                      "description": "Source value 2804.5676791723276 and target value 2806.538143094057 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "path": "value",
+                      "target": 2806.538143094057,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              },
+              {
+                "name": "zero_count",
+                "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "diff": {
+              "type": "MODIFIED"
+            }
+          },
+          "diff": {
+            "type": "MODIFIED"
+          }
+        }
+      ],
+      "profile": {
+        "gauges": [
+          {
+            "name": "hash_agg",
+            "value": 8962497542410121356,
+            "diff": {
+              "events": [
+                {
+                  "description": "Source numeric 8962497542410121356 and target numeric 5136815307072309213 were compared directly",
+                  "path": "value",
+                  "target": 5136815307072309213,
+                  "type": "MODIFIED"
+                }
+              ],
+              "type": "MODIFIED"
+            }
+          },
+          {
+            "name": "row_count",
+            "value": 23400,
+            "diff": {
+              "events": [
+                {
+                  "description": "Source numeric 23400 and target numeric 23450 were compared directly",
+                  "path": "value",
+                  "target": 23450,
+                  "type": "MODIFIED"
+                }
+              ],
+              "type": "MODIFIED"
+            }
+          }
+        ],
+        "diff": {
+          "type": "MODIFIED"
+        }
+      },
+      "constraints": [
+        {
+          "type": "PRIMARY_KEY",
+          "name": "PK_0",
+          "columns": [
+            "ID"
+          ],
+          "diff": {
+            "type": "UNCHANGED"
+          }
+        }
+      ],
+      "qualifiedName": "SYNTHETIC_SALES.MAIN.PRODUCT",
+      "diff": {
+        "type": "MODIFIED"
+      }
+    }
+  ]
+}
