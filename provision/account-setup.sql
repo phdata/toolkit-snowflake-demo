@@ -49,16 +49,21 @@ CREATE OR REPLACE RESOURCE MONITOR PROVISION_WH_MONITOR WITH
     
 ALTER WAREHOUSE PROVISION_WH SET RESOURCE_MONITOR = PROVISION_WH_MONITOR;
 
--- Additional setup for custom roles used by the provision tool as object owners
-USE ROLE useradmin;
-CREATE OR REPLACE ROLE policy_admin;
-CREATE OR REPLACE ROLE tag_admin;
-CREATE OR REPLACE ROLE alert_admin;
 
-USE ROLE securityadmin;
-GRANT ROLE policy_admin TO ROLE provision_admin;
-GRANT ROLE policy_admin TO USER provision_user;
-GRANT ROLE tag_admin TO ROLE provision_admin;
-GRANT ROLE tag_admin TO USER provision_user;
-GRANT ROLE alert_admin TO ROLE provision_admin;
-GRANT ROLE alert_admin TO USER provision_user;
+-- Additional custom roles to be used by the Provision tool as object owners.
+-- These must be created during initial setup in order to provision a complete stack for the first time with
+-- these roles as owners. Otherwise, you would have to provision these roles first, update the stack with
+-- the resources owned by these roles, and then provision again.
+USE ROLE USERADMIN;
+
+CREATE OR REPLACE ROLE POLICY_ADMIN;
+CREATE OR REPLACE ROLE TAG_ADMIN;
+CREATE OR REPLACE ROLE ALERT_ADMIN;
+CREATE OR REPLACE ROLE SHARE_ADMIN;
+
+USE ROLE SECURITYADMIN;
+
+GRANT ROLE POLICY_ADMIN TO ROLE PROVISION_ADMIN;
+GRANT ROLE TAG_ADMIN TO ROLE PROVISION_ADMIN;
+GRANT ROLE ALERT_ADMIN TO ROLE PROVISION_ADMIN;
+GRANT ROLE SHARE_ADMIN TO ROLE PROVISION_ADMIN;

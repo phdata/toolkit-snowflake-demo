@@ -104,20 +104,6 @@ resourceMonitors:
         action: suspend
 
 warehouses:
-  # warehouse created by provision init
-  - name: provision_wh
-    properties:
-      warehouse_size: xsmall
-      resource_monitor: provision_wh_monitor
-      auto_suspend: 60
-      auto_resume: true
-      initially_suspended: true
-      warehouse_type: standard
-      min_cluster_count: 1
-      max_cluster_count: 1
-      scaling_policy: standard
-      enable_query_acceleration: false
-      comment: Warehouse for the Provision tool
   - name: default_user_wh
     properties:
       warehouse_size: xsmall
