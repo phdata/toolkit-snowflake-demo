@@ -77,7 +77,7 @@ procedures:
       
       BEGIN OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_ALERT_FAILURES();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_ALERT_FAILURES();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - ALERT_FAILURES - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
@@ -161,7 +161,7 @@ procedures:
       
       BEGIN OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_CLOUD_SERVICES_RATIO_OF_CLOUD_SERVICES_BEING_BILLED();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_CLOUD_SERVICES_RATIO_OF_CLOUD_SERVICES_BEING_BILLED();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - CLOUD_SERVICES_RATIO_OF_CLOUD_SERVICES_BEING_BILLED - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
@@ -245,7 +245,7 @@ procedures:
         BEGIN
         OPEN c1;
         FETCH c1 INTO msg;
-        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_GRANTS_FOR_HIGH_PRIVILEGE_ROLES();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_GRANTS_FOR_HIGH_PRIVILEGE_ROLES();' || '\n\n OUTPUT OF ALERT:\n' || msg;
         subj := 'SNOWFLAKE ALERT - GRANTS_FOR_HIGH_PRIVILEGE_ROLES - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       
         CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
@@ -313,7 +313,7 @@ procedures:
       BEGIN
       OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_MATERIALIZED_VIEWS_THAT_ARE_INVALID();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_MATERIALIZED_VIEWS_THAT_ARE_INVALID();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - MATERIALIZED_VIEWS_THAT_ARE_INVALID - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
@@ -355,7 +355,7 @@ procedures:
         BEGIN
         OPEN c1;
         FETCH c1 INTO msg;
-        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_QUERIES_LONG_RUNNING();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_QUERIES_LONG_RUNNING();' || '\n\n OUTPUT OF ALERT:\n' || msg;
         subj := 'SNOWFLAKE ALERT - QUERIES_LONG_RUNNING - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
         CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -387,7 +387,7 @@ procedures:
         BEGIN
         OPEN c1;
         FETCH c1 INTO msg;
-        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_REPLICATION_GROUP_FAILURE();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_REPLICATION_GROUP_FAILURE();' || '\n\n OUTPUT OF ALERT:\n' || msg;
         subj := 'SNOWFLAKE ALERT - REPLICATION_GROUP_FAILURE - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
         CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -421,7 +421,7 @@ procedures:
         BEGIN
         OPEN c1;
         FETCH c1 INTO msg;
-        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_REPLICATION_GROUP_LAG();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_REPLICATION_GROUP_LAG();' || '\n\n OUTPUT OF ALERT:\n' || msg;
         subj := 'SNOWFLAKE ALERT - REPLICATION_GROUP_LAG - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
         CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -482,7 +482,7 @@ procedures:
         BEGIN
         OPEN c1;
         FETCH c1 INTO msg;
-        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_STAGE_AVERAGE_USAGE_INCREASED_BY_X_OR_EXCEEEDED_Y();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_STAGE_AVERAGE_USAGE_INCREASED_BY_X_OR_EXCEEEDED_Y();' || '\n\n OUTPUT OF ALERT:\n' || msg;
         subj := 'SNOWFLAKE ALERT - STAGE_AVERAGE_USAGE_INCREASED_BY_X_OR_EXCEEEDED_Y - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
         CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -515,7 +515,7 @@ procedures:
       BEGIN
       OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_STORAGE_USAGE();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_STORAGE_USAGE();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - STORAGE_USAGE - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -549,7 +549,7 @@ procedures:
       BEGIN
       OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_TABLES_CLONED_AND_HOLDING_STORAGE();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_TABLES_CLONED_AND_HOLDING_STORAGE();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - TABLES_CLONED_AND_HOLDING_STORAGE - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -586,7 +586,7 @@ procedures:
       BEGIN
       OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_TABLES_EMPTY_WITH_DATA_PROTECTION();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_TABLES_EMPTY_WITH_DATA_PROTECTION();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - TABLES_EMPTY_WITH_DATA_PROTECTION - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -686,7 +686,7 @@ procedures:
       BEGIN
       OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_TABLES_STORAGE_FIND_DUPLICATE_TABLES_USING_TIME_TRAVEL();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_TABLES_STORAGE_FIND_DUPLICATE_TABLES_USING_TIME_TRAVEL();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - TABLES_STORAGE_FIND_DUPLICATE_TABLES_USING_TIME_TRAVEL - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -731,7 +731,7 @@ procedures:
       BEGIN
       OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_TASK_ERRORS();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_TASK_ERRORS();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - TASK_ERRORS - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -764,7 +764,7 @@ procedures:
       BEGIN
       OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_USERS_LOGIN_FAILURES();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_USERS_LOGIN_FAILURES();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - USERS_LOGIN_FAILURES - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -800,7 +800,7 @@ procedures:
       BEGIN
       OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_USERS_WITHOUT_LOG_IN_FOR_90_DAYS();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_USERS_WITHOUT_LOG_IN_FOR_90_DAYS();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - USERS_WITHOUT_LOG_IN_FOR_90_DAYS - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -841,7 +841,7 @@ procedures:
       BEGIN
       OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_USERS_WITH_A_PASSWORD_SET();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_USERS_WITH_A_PASSWORD_SET();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - USERS_WITH_A_PASSWORD_SET - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -897,7 +897,7 @@ procedures:
       BEGIN
       OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_WAREHOUSES_WITHOUT_A_RESOURCE_MONITOR();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_WAREHOUSES_WITHOUT_A_RESOURCE_MONITOR();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - WAREHOUSES_WITHOUT_A_RESOURCE_MONITOR - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -968,7 +968,7 @@ procedures:
       BEGIN
       OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_WAREHOUSE_QUEUEING();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_WAREHOUSE_QUEUEING();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - WAREHOUSE_QUEUEING - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
@@ -1039,8 +1039,55 @@ procedures:
       BEGIN
       OPEN c1;
       FETCH c1 INTO msg;
-      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL PLATFORM_DB.ALERTS.SP_WAREHOUSE_SPILLING_TO_STORAGE();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_WAREHOUSE_SPILLING_TO_STORAGE();' || '\n\n OUTPUT OF ALERT:\n' || msg;
       subj := 'SNOWFLAKE ALERT - WAREHOUSE_SPILLING_TO_STORAGE - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails warehouse spilling to storage'
+  - name: sp_pipe_errors_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          SELECT
+            pipetv.pipe_name AS object_name,
+            pipetv.pipe_schema_name AS schema_name,
+            pipetv.pipe_catalog_name AS database_name,
+            'pipe' AS object_type,
+            file_name,
+            pipe_received_time,
+            first_error_message,
+            first_error_line_number,
+            first_error_column_name
+          FROM
+            snowflake.account_usage.copy_history as pipetv
+          WHERE
+            last_load_time >= DATEADD(DAY, -1,CURRENT_TIMESTAMP())
+            AND
+            pipetv.pipe_name IS NOT NULL
+            AND pipetv.STATUS IN
+            (
+            'LOAD_FAILED',
+            'LOAD_SKIPPED',
+            'PARTIALLY_LOADED'
+            )
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+      )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_PIPE_ERRORS();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - PIPE_ERRORS - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
       CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
       END;
     properties:
@@ -1077,9 +1124,9 @@ alerts:
     warehouse: alert_wh
     schedule: USING CRON 0 * * * * UTC
     condition: |
-      CALL governance.alerts.sp_alert_failures()
+      CALL governance.alert.sp_alert_failures()
     action: |
-      CALL governance.alerts.sp_alert_failures_email()
+      CALL governance.alert.sp_alert_failures_email()
     state: resume
     properties:
       comment: 'Alerts if any alerts have failed'
@@ -1089,9 +1136,9 @@ alerts:
     warehouse: alert_wh
     schedule: USING CRON 0 * * * * UTC
     condition: |
-      CALL governance.alerts.sp_cloud_services_ratio_of_cloud_services_being_billed()
+      CALL governance.alert.sp_cloud_services_ratio_of_cloud_services_being_billed()
     action: |
-      CALL governance.alerts.sp_cloud_services_ratio_of_cloud_services_being_billed_email()
+      CALL governance.alert.sp_cloud_services_ratio_of_cloud_services_being_billed_email()
     state: resume
     properties:
       comment: 'Alerts if cloud services ratio of cloud services being billed'
@@ -1101,9 +1148,9 @@ alerts:
     warehouse: alert_wh
     schedule: USING CRON 0 * * * * UTC
     condition: |
-      CALL governance.alerts.sp_grants_for_high_privilege_roles()
+      CALL governance.alert.sp_grants_for_high_privilege_roles()
     action: |
-      CALL governance.alerts.sp_grants_for_high_privilege_roles_email()
+      CALL governance.alert.sp_grants_for_high_privilege_roles_email()
     state: resume
     properties:
       comment: 'Alerts if cloud services ratio of cloud services being billed'
@@ -1113,9 +1160,9 @@ alerts:
     warehouse: alert_wh
     schedule: USING CRON 0 * * * * UTC
     condition: |
-      CALL governance.alerts.sp_materialized_views_that_are_invalid()
+      CALL governance.alert.sp_materialized_views_that_are_invalid()
     action: |
-      CALL governance.alerts.sp_materialized_views_that_are_invalid_email()
+      CALL governance.alert.sp_materialized_views_that_are_invalid_email()
     state: resume
     properties:
       comment: 'Alerts if materialized views are invalid'
@@ -1134,7 +1181,7 @@ alerts:
       ORDER BY total_elapsed_time_minutes DESC
       LIMIT 1
     action: |
-      CALL governance.alerts.sp_queries_long_running_email()
+      CALL governance.alert.sp_queries_long_running_email()
     state: resume
     properties:
       comment: 'Alerts if queries are long running'
@@ -1152,7 +1199,7 @@ alerts:
       WHERE phase_name = 'FAILED' AND start_time >= DATEADD(DAY, -1, CURRENT_TIMESTAMP())
       LIMIT 1
     action: |
-      CALL governance.alerts.sp_replication_group_failure_email()
+      CALL governance.alert.sp_replication_group_failure_email()
     state: resume
     properties:
       comment: 'Alerts if replication group failed'
@@ -1172,7 +1219,7 @@ alerts:
       WHERE replication_lag_minutes >= 60
       LIMIT 1
     action: |
-      CALL governance.alerts.sp_replication_group_lag_email()
+      CALL governance.alert.sp_replication_group_lag_email()
     state: resume
     properties:
       comment: 'Alerts if replication group is lagging'
@@ -1182,9 +1229,9 @@ alerts:
     warehouse: alert_wh
     schedule: USING CRON 0 * * * * UTC
     condition: |
-      CALL governance.alerts.sp_stage_average_usage_increased_by_x_or_exceeeded_y()
+      CALL governance.alert.sp_stage_average_usage_increased_by_x_or_exceeeded_y()
     action: |
-      CALL governance.alerts.sp_stage_average_usage_increased_by_x_or_exceeeded_y_email()
+      CALL governance.alert.sp_stage_average_usage_increased_by_x_or_exceeeded_y_email()
     state: resume
     properties:
       comment: 'Alerts if stage average usage increased by X or exceeded Y'
@@ -1202,7 +1249,7 @@ alerts:
       FROM snowflake.account_usage.table_storage_metrics
       HAVING active_gb >= 1 OR time_travel_gb >= 1024 OR failsafe_gb >= 1024 OR retained_for_clone_gb >= 1024
     action: |
-      CALL governance.alerts.sp_storage_usage_email()
+      CALL governance.alert.sp_storage_usage_email()
     state: resume
     properties:
       comment: 'Alerts storage usage'
@@ -1222,7 +1269,7 @@ alerts:
       WHERE deleted AND retained_for_clone_bytes > 0
       LIMIT 1
     action: |
-      CALL governance.alerts.sp_tables_cloned_and_holding_storage_email()
+      CALL governance.alert.sp_tables_cloned_and_holding_storage_email()
     state: resume
     properties:
       comment: 'Alerts tables cloned and holding storage'
@@ -1244,7 +1291,7 @@ alerts:
       HAVING data_protection_gb > 0
       LIMIT 1
     action: |
-      CALL governance.alerts.sp_tables_empty_with_data_protection_email()
+      CALL governance.alert.sp_tables_empty_with_data_protection_email()
     state: resume
     properties:
       comment: 'Alerts tables empty with data protection'
@@ -1254,9 +1301,9 @@ alerts:
     warehouse: alert_wh
     schedule: USING CRON 0 * * * * UTC
     condition: |
-      CALL governance.alerts.sp_tables_storage_find_duplicate_tables_using_time_travel()
+      CALL governance.alert.sp_tables_storage_find_duplicate_tables_using_time_travel()
     action: |
-      CALL governance.alerts.sp_tables_storage_find_duplicate_tables_using_time_travel_email()
+      CALL governance.alert.sp_tables_storage_find_duplicate_tables_using_time_travel_email()
     state: resume
     properties:
       comment: 'Alerts duplicate tables using time travel'
@@ -1276,7 +1323,7 @@ alerts:
         AND scheduled_time < CURRENT_TIMESTAMP()
       LIMIT 1
     action: |
-      CALL governance.alerts.sp_task_errors_email()
+      CALL governance.alert.sp_task_errors_email()
     state: resume
     properties:
       comment: 'Alerts task errors'
@@ -1294,7 +1341,7 @@ alerts:
       GROUP BY user_name
       HAVING COUNT(*) > 5
     action: |
-      CALL governance.alerts.sp_users_login_failures_email()
+      CALL governance.alert.sp_users_login_failures_email()
     state: resume
     properties:
       comment: 'Alerts users login failures'
@@ -1313,7 +1360,7 @@ alerts:
         AND deleted_on IS NULL
         AND disabled = FALSE
     action: |
-      CALL governance.alerts.sp_users_without_log_in_for_90_days_email()
+      CALL governance.alert.sp_users_without_log_in_for_90_days_email()
     state: resume
     properties:
       comment: 'Alerts users without log in for 90 days'
@@ -1334,7 +1381,7 @@ alerts:
         AND deleted_on IS NULL
       LIMIT 1
     action: |
-      CALL governance.alerts.sp_users_with_a_password_set_email()
+      CALL governance.alert.sp_users_with_a_password_set_email()
     state: resume
     properties:
       comment: 'Alerts users with a password set'
@@ -1344,9 +1391,9 @@ alerts:
     warehouse: alert_wh
     schedule: USING CRON 0 * * * * UTC
     condition: |
-      CALL governance.alerts.sp_warehouses_without_a_resource_monitor()
+      CALL governance.alert.sp_warehouses_without_a_resource_monitor()
     action: |
-      CALL governance.alerts.sp_warehouses_without_a_resource_monitor_email()
+      CALL governance.alert.sp_warehouses_without_a_resource_monitor_email()
     state: resume
     properties:
       comment: 'Alerts warehouses without a resource monitor'
@@ -1356,21 +1403,47 @@ alerts:
     warehouse: alert_wh
     schedule: USING CRON 0 * * * * UTC
     condition: |
-      CALL governance.alerts.sp_warehouse_queueing()
+      CALL governance.alert.sp_warehouse_queueing()
     action: |
-      CALL governance.alerts.sp_warehouse_queueing_email()
+      CALL governance.alert.sp_warehouse_queueing_email()
     state: resume
     properties:
-      comment: 'Alerts if warehouse queueing'
+      comment: 'Alerts if warehouse queueing is high'
   - name: warehouse_spilling_to_storage
     database: governance
     schema: alert
     warehouse: alert_wh
     schedule: USING CRON 0 * * * * UTC
     condition: |
-      CALL governance.alerts.sp_warehouse_spilling_to_storage()
+      CALL governance.alert.sp_warehouse_spilling_to_storage()
     action: |
-      CALL governance.alerts.sp_warehouse_spilling_to_storage_email()
+      CALL governance.alert.sp_warehouse_spilling_to_storage_email()
     state: resume
     properties:
-      comment: Alerts if warehouse spilling to storage
+      comment: 'Alerts if warehouse spilling to storage'
+  - name: pipe_errors
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+        SELECT
+          pipetv.PIPE_NAME
+        FROM
+          snowflake.account_usage.copy_history as pipetv
+        WHERE
+          last_load_time >= DATEADD(DAY, -1,CURRENT_TIMESTAMP())
+          AND
+          pipetv.PIPE_NAME IS NOT NULL
+          AND pipetv.STATUS IN
+          (
+          'LOAD_FAILED',
+          'LOAD_SKIPPED',
+          'PARTIALLY_LOADED'
+          )
+        LIMIT 1
+    action: |
+      CALL governance.alert.sp_pipe_errors_email()
+    state: resume
+    properties:
+      comment: 'Alerts if pipe errors occured'
