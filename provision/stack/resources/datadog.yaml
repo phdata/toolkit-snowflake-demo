@@ -1,0 +1,100 @@
+warehouses:
+  - name: datadog_wh
+    properties:
+      warehouse_size: xsmall
+      auto_suspend: 60
+      auto_resume: true
+      initially_suspended: true
+
+roles:
+  # Create a new role intended to monitor Snowflake usage. The name of the role is customizable.
+  - name: datadog
+
+privilegeGrants:
+  # Grant privileges on the SNOWFLAKE database to the new role.
+  - objectType: database
+    objectName: snowflake
+    roleName: datadog
+    privilege:
+      - imported privileges
+  # Grant usage to your default warehouse to the role DATADOG.
+  - objectType: warehouse
+    objectName: datadog_wh
+    roleName: datadog
+    privilege:
+      - usage
+  # Grant usage on the database, schema, and table of the event table.
+  - objectType: database
+    objectName: phdata
+    roleName: datadog
+    privilege:
+      - usage
+  - objectType: schema
+    objectName: phdata.core
+    roleName: datadog
+    privilege:
+      - usage
+  - objectType: table
+    objectName: phdata.core.demo_events
+    roleName: datadog
+    privilege:
+      - select
+
+databaseRoleGrants:
+  # Grant the following ACCOUNT_USAGE views to the new role. Do this if you wish to collect Snowflake account usage logs and metrics.
+  - name: object_viewer
+    database: snowflake
+    owner: accountadmin
+    toRoles:
+      - datadog
+  - name: usage_viewer
+    database: snowflake
+    owner: accountadmin
+    toRoles:
+      - datadog
+  - name: governance_viewer
+    database: snowflake
+    owner: accountadmin
+    toRoles:
+      - datadog
+  - name: security_viewer
+    database: snowflake
+    owner: accountadmin
+    toRoles:
+      - datadog
+  # Grant ORGANIZATION_USAGE_VIEWER to the new role. Do this if you wish to collect Snowflake organization usage metrics.
+  - name: organization_usage_viewer
+    database: snowflake
+    owner: accountadmin
+    toRoles:
+      - datadog
+  # Grant ORGANIZATION_BILLING_VIEWER to the new role. Do this if you wish to collect Snowflake cost data.
+  - name: organization_billing_viewer
+    database: snowflake
+    owner: accountadmin
+    toRoles:
+      - datadog
+
+applicationRoleGrants:
+  - name: snowflake.events_viewer
+    owner: accountadmin
+    grantee:
+      - datadog
+  - name: snowflake.events_admin
+    owner: accountadmin
+    grantee:
+      - datadog
+
+users:
+  - name: datadog
+    properties:
+      login_name: datadog
+      default_warehouse: datadog_wh
+      default_role: datadog
+      rsa_public_key: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAua1any8GxEN8Ff9MRss951wfKxyl/4P8VopftC5OTP7YDxafUIr+6TaUC2jTw4b+lC42CvtmfLRr+zKvBywHK8v+QzXyu+9en4pEc2qyqoIIFj5weoC/pGgK4nv1emts46E3MJCjcvKx7hWXrHoFwF9WgMALyaLMUB2LB63nWi0U/Xc3FqI0E64X0QISmWhaKD30OYI0cFXwY6ElHNUCas8Z4QOZ+ykXUZUHpwZGvraocm1Pms1++CcDRbKuVGDo5TQkyoHLMSCGKaQv7awuHsvRcdyqVL69ZMOHVazteqH0YWztMXQ7iAvPB/UV5aBIIJqixL56EJ5X0gV9WYCGfwIDAQAB'
+
+roleGrants:
+  # Grant the monitor role to the user.
+  - name: datadog
+    toUsers:
+      - datadog
