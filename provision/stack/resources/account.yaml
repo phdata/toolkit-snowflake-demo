@@ -17,6 +17,8 @@ account:
     allow_id_token: true
     # prevent logging values bound in prepared statements since they may be sensitive
     client_enable_log_info_statement_parameters: false
+    # prevent direct grants to users
+    disable_user_privilege_grants: true
     # prevent nondeterministic MERGE statements
     error_on_nondeterministic_merge: true
     # prevent nondeterministic UPDATE statements
