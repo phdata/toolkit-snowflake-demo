@@ -67,6 +67,42 @@ privilegeGrants:
     objectName: {{ name }}.conformed
     roleName: {{ name }}_ro
     privilege: usage
+  - objectType: tables
+    objectName: schema {{ name }}.standardized
+    roleName: {{ name }}_ro
+    future: true
+    privilege:
+      - select
+  - objectType: tables
+    objectName: schema {{ name }}.conformed
+    roleName: {{ name }}_ro
+    future: true
+    privilege:
+      - select
+  {% if grant_on_all %}
+  - objectType: all tables in schema
+    objectName: {{ name }}.standardized
+    roleName: {{ name }}_ro
+    privilege:
+      - select
+      - insert
+      - update
+      - truncate
+      - delete
+      - evolve schema
+      - references
+  - objectType: all tables in schema
+    objectName: {{ name }}.conformed
+    roleName: {{ name }}_ro
+    privilege:
+      - select
+      - insert
+      - update
+      - truncate
+      - delete
+      - evolve schema
+      - references
+  {% endif %}
   # read-write role privileges
   - objectType: database
     objectName: {{ name }}
@@ -76,6 +112,31 @@ privilegeGrants:
     objectName: {{ name }}
     roleName: {{ name }}_rw
     privilege: modify
+  - objectType: tables
+    objectName: database {{ name }}
+    roleName: {{ name }}_rw
+    future: true
+    privilege:
+      - select
+      - insert
+      - update
+      - truncate
+      - delete
+      - evolve schema
+      - references
+  {% if grant_on_all %}
+  - objectType: all tables in database
+    objectName: {{ name }}
+    roleName: {{ name }}_rw
+    privilege:
+      - select
+      - insert
+      - update
+      - truncate
+      - delete
+      - evolve schema
+      - references
+  {% endif %}
   {% for schema in schemas %}
   - objectType: schema
     objectName: {{ name }}.{{ schema }}
@@ -108,4 +169,16 @@ privilegeGrants:
     # - usage
     - read
     - write
-  # todo what additional privileges should the admin role have?
+  - objectType: tables
+    objectName: database {{ name }}
+    roleName: {{ name }}_admin
+    future: true
+    privilege:
+      - applybudget
+  {% if grant_on_all %}
+  - objectType: all tables in database
+    objectName: {{ name }}
+    roleName: {{ name }}_admin
+    privilege:
+      - applybudget
+  {% endif %}

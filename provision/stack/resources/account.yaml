@@ -335,8 +335,8 @@ sessionPolicies:
     properties:
       session_idle_timeout_mins: 60 # CIS-1.9
       session_ui_idle_timeout_mins: 60
-      # TODO: support allowed_secondary_roles
-      # allowed_secondary_roles: "('ALL')"
+      allowed_secondary_roles:
+        - all
       comment: The account session policy
 
 passwordPolicies:
