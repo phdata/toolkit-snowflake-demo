@@ -41,7 +41,7 @@
     "identifier": {
       "source": "snowflake",
       "type": "scan",
-      "timestamp": "2025-09-13T00:11:14.586Z"
+      "timestamp": "2025-11-12T00:13:33.428Z"
     },
     "source": {
       "name": "snowflake",
@@ -50,8 +50,8 @@
     },
     "version": "dev",
     "license": "PRO",
-    "start": "2025-09-13T00:11:07.110829Z",
-    "end": "2025-09-13T00:11:14.586953Z"
+    "start": "2025-11-12T00:13:25.522171Z",
+    "end": "2025-11-12T00:13:33.428567Z"
   },
   "tables": [
     {
@@ -2494,7 +2494,7 @@
       "schema": "CYBERSYN",
       "name": "CYBERSYN_FINANCIAL_ECONOMIC_INDICATORS_ATTRIBUTES",
       "type": "VIEW",
-      "comment": "Economic metrics including retail sales, consumer credit, mortgage rates, unemployment claims, GDP estimates, employment, and CPI data for various geographic entities, aggregated from various government sources.\n\nThe Cybersyn Financial & Economic Indicators tables include data aggregated from various government sources. It features various economic metrics, such as the Census Bureau's retail sales, Federal Reserve's commercial paper and consumer credit, New York Fed's SOFR and EFFR data, Freddie Mac's house price index and mortgage rates, the Department of Labor's weekly unemployment claims, Bureau of Economic Analysis GDP estimates, Bureau of Labor Statistics employment and CPI data, and more.\n\nProvides a wide format breakdown of variables included in the cybersyn_financial_economic_indicators_timeseries table.",
+      "comment": "Economic metrics including retail sales, consumer credit, mortgage rates, unemployment claims, GDP estimates, PCE price indexes, employment, and CPI data for various geographic entities, aggregated from various government sources.\n\nThe Cybersyn Financial & Economic Indicators tables include data aggregated from various government sources. It features various economic metrics, such as the Census Bureau's retail sales, Federal Reserve's commercial paper and consumer credit, New York Fed's SOFR and EFFR data, Freddie Mac's house price index and mortgage rates, the Department of Labor's weekly unemployment claims, Bureau of Economic Analysis GDP estimates and PCE (Personal Consumption Expenditures) price indexes, Bureau of Labor Statistics employment and CPI data, and more.\n\nProvides a wide format breakdown of variables included in the cybersyn_financial_economic_indicators_timeseries table.",
       "columns": [
         {
           "name": "FRED_SERIES_ID",
@@ -2735,7 +2735,7 @@
       "schema": "CYBERSYN",
       "name": "CYBERSYN_FINANCIAL_ECONOMIC_INDICATORS_TIMESERIES",
       "type": "VIEW",
-      "comment": "Economic metrics including retail sales, consumer credit, mortgage rates, unemployment claims, GDP estimates, employment, and CPI data for various geographic entities, aggregated from various government sources.\n\nThe Cybersyn Financial & Economic Indicators tables include data aggregated from various government sources. It features various economic metrics, such as the Census Bureau's retail sales, Federal Reserve's commercial paper and consumer credit, New York Fed's SOFR and EFFR data, Freddie Mac's house price index and mortgage rates, the Department of Labor's weekly unemployment claims, Bureau of Economic Analysis GDP estimates, Bureau of Labor Statistics employment and CPI data, and more.\n\nEach row represents a distinct timeseries, date, and value by geographic entity. Each variable is detailed in the cybersyn_financial_economic_indicators_attributes table.",
+      "comment": "Economic metrics including retail sales, consumer credit, mortgage rates, unemployment claims, GDP estimates, PCE price indexes, employment, and CPI data for various geographic entities, aggregated from various government sources.\n\nThe Cybersyn Financial & Economic Indicators tables include data aggregated from various government sources. It features various economic metrics, such as the Census Bureau's retail sales, Federal Reserve's commercial paper and consumer credit, New York Fed's SOFR and EFFR data, Freddie Mac's house price index and mortgage rates, the Department of Labor's weekly unemployment claims, Bureau of Economic Analysis GDP estimates and PCE (Personal Consumption Expenditures) price indexes, Bureau of Labor Statistics employment and CPI data, and more.\n\nEach row represents a distinct timeseries, date, and value by geographic entity. Each variable is detailed in the cybersyn_financial_economic_indicators_attributes table.",
       "columns": [
         {
           "name": "GEO_ID",
