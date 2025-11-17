@@ -3,7 +3,7 @@
     "identifier": {
       "source": "snowflake.snowflake",
       "type": "match",
-      "timestamp": "2025-09-18T00:12:08.688Z"
+      "timestamp": "2025-11-17T00:13:49.227Z"
     },
     "source": {
       "name": "snowflake",
@@ -12,7 +12,7 @@
         "scan": {
           "source": "snowflake",
           "type": "scan",
-          "timestamp": "2025-09-17T00:11:51.062Z"
+          "timestamp": "2025-11-16T00:14:14.349Z"
         }
       },
       "accountName": "PHDATAPARTNER-DEMO"
@@ -24,15 +24,15 @@
         "scan": {
           "source": "snowflake",
           "type": "scan",
-          "timestamp": "2025-09-18T00:11:43.004Z"
+          "timestamp": "2025-11-17T00:13:21.563Z"
         }
       },
       "accountName": "PHDATAPARTNER-DEMO"
     },
     "version": "dev",
     "license": "PRO",
-    "start": "2025-09-18T00:12:08.428484Z",
-    "end": "2025-09-18T00:12:08.688243Z"
+    "start": "2025-11-17T00:13:49.024474Z",
+    "end": "2025-11-17T00:13:49.227175Z"
   },
   "views": [
     {
@@ -2010,6 +2010,12 @@
         {
           "source": "COMPANY_RESPONSE_TO_CONSUMER",
           "target": "COMPANY_RESPONSE_TO_CONSUMER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "COMPLAINT_ID",
+          "target": "COMPLAINT_ID",
           "score": 100,
           "matched": true
         },
