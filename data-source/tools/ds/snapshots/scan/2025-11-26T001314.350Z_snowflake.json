@@ -41,7 +41,7 @@
     "identifier": {
       "source": "snowflake",
       "type": "scan",
-      "timestamp": "2025-09-27T00:11:42.512Z"
+      "timestamp": "2025-11-26T00:13:14.350Z"
     },
     "source": {
       "name": "snowflake",
@@ -50,8 +50,8 @@
     },
     "version": "dev",
     "license": "PRO",
-    "start": "2025-09-27T00:11:35.044934Z",
-    "end": "2025-09-27T00:11:42.512786Z"
+    "start": "2025-11-26T00:13:06.132860Z",
+    "end": "2025-11-26T00:13:14.350286Z"
   },
   "tables": [
     {
@@ -1005,18 +1005,18 @@
           "comment": "Description of type of statistic provided by the time series",
           "type": {
             "name": "TEXT",
-            "precision": 72,
+            "precision": 16777216,
             "scale": 0,
-            "length": 72
+            "length": 16777216
           },
           "mappedType": {
             "name": "TEXT",
-            "precision": 72,
+            "precision": 16777216,
             "scale": 0,
-            "length": 72
+            "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(72)",
+          "dataType": "TEXT(16777216)",
           "nullable": true,
           "primaryKey": false
         },
@@ -1026,18 +1026,18 @@
           "comment": "Industry or sub-industry of the time series",
           "type": {
             "name": "TEXT",
-            "precision": 145,
+            "precision": 16777216,
             "scale": 0,
-            "length": 145
+            "length": 16777216
           },
           "mappedType": {
             "name": "TEXT",
-            "precision": 145,
+            "precision": 16777216,
             "scale": 0,
-            "length": 145
+            "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(145)",
+          "dataType": "TEXT(16777216)",
           "nullable": true,
           "primaryKey": false
         },
@@ -1047,18 +1047,18 @@
           "comment": "Size of the establishment for the provided variable",
           "type": {
             "name": "TEXT",
-            "precision": 24,
+            "precision": 16777216,
             "scale": 0,
-            "length": 24
+            "length": 16777216
           },
           "mappedType": {
             "name": "TEXT",
-            "precision": 24,
+            "precision": 16777216,
             "scale": 0,
-            "length": 24
+            "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(24)",
+          "dataType": "TEXT(16777216)",
           "nullable": true,
           "primaryKey": false
         }
@@ -1214,18 +1214,18 @@
           "comment": "Human-readable name for a variable",
           "type": {
             "name": "TEXT",
-            "precision": 160,
+            "precision": 16777216,
             "scale": 0,
-            "length": 160
+            "length": 16777216
           },
           "mappedType": {
             "name": "TEXT",
-            "precision": 160,
+            "precision": 16777216,
             "scale": 0,
-            "length": 160
+            "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(160)",
+          "dataType": "TEXT(16777216)",
           "nullable": true,
           "primaryKey": false
         },
@@ -1277,18 +1277,18 @@
           "comment": "Unit of measure for the value",
           "type": {
             "name": "TEXT",
-            "precision": 18,
+            "precision": 16777216,
             "scale": 0,
-            "length": 18
+            "length": 16777216
           },
           "mappedType": {
             "name": "TEXT",
-            "precision": 18,
+            "precision": 16777216,
             "scale": 0,
-            "length": 18
+            "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(18)",
+          "dataType": "TEXT(16777216)",
           "nullable": true,
           "primaryKey": false
         },
@@ -1319,18 +1319,18 @@
           "comment": "Consumer product being measured",
           "type": {
             "name": "TEXT",
-            "precision": 97,
+            "precision": 16777216,
             "scale": 0,
-            "length": 97
+            "length": 16777216
           },
           "mappedType": {
             "name": "TEXT",
-            "precision": 97,
+            "precision": 16777216,
             "scale": 0,
-            "length": 97
+            "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(97)",
+          "dataType": "TEXT(16777216)",
           "nullable": true,
           "primaryKey": false
         },
@@ -1528,18 +1528,18 @@
           "comment": "Describes the type or level of the entity for additional convenience. Currently, all entities are corporate entities and are denoted as 'Corporate'.",
           "type": {
             "name": "TEXT",
-            "precision": 16777216,
+            "precision": 9,
             "scale": 0,
-            "length": 16777216
+            "length": 9
           },
           "mappedType": {
             "name": "TEXT",
-            "precision": 16777216,
+            "precision": 9,
             "scale": 0,
-            "length": 16777216
+            "length": 9
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
+          "dataType": "TEXT(9)",
           "nullable": true,
           "primaryKey": false
         },
@@ -2494,7 +2494,7 @@
       "schema": "CYBERSYN",
       "name": "CYBERSYN_FINANCIAL_ECONOMIC_INDICATORS_ATTRIBUTES",
       "type": "VIEW",
-      "comment": "Economic metrics including retail sales, consumer credit, mortgage rates, unemployment claims, GDP estimates, employment, and CPI data for various geographic entities, aggregated from various government sources.\n\nThe Cybersyn Financial & Economic Indicators tables include data aggregated from various government sources. It features various economic metrics, such as the Census Bureau's retail sales, Federal Reserve's commercial paper and consumer credit, New York Fed's SOFR and EFFR data, Freddie Mac's house price index and mortgage rates, the Department of Labor's weekly unemployment claims, Bureau of Economic Analysis GDP estimates, Bureau of Labor Statistics employment and CPI data, and more.\n\nProvides a wide format breakdown of variables included in the cybersyn_financial_economic_indicators_timeseries table.",
+      "comment": "Economic metrics including retail sales, consumer credit, mortgage rates, unemployment claims, GDP estimates, PCE price indexes, employment, and CPI data for various geographic entities, aggregated from various government sources.\n\nThe Cybersyn Financial & Economic Indicators tables include data aggregated from various government sources. It features various economic metrics, such as the Census Bureau's retail sales, Federal Reserve's commercial paper and consumer credit, New York Fed's SOFR and EFFR data, Freddie Mac's house price index and mortgage rates, the Department of Labor's weekly unemployment claims, Bureau of Economic Analysis GDP estimates and PCE (Personal Consumption Expenditures) price indexes, Bureau of Labor Statistics employment and CPI data, and more.\n\nProvides a wide format breakdown of variables included in the cybersyn_financial_economic_indicators_timeseries table.",
       "columns": [
         {
           "name": "FRED_SERIES_ID",
@@ -2586,18 +2586,18 @@
           "comment": "Source where the variable is originally collected or published.",
           "type": {
             "name": "TEXT",
-            "precision": 27,
+            "precision": 36,
             "scale": 0,
-            "length": 27
+            "length": 36
           },
           "mappedType": {
             "name": "TEXT",
-            "precision": 27,
+            "precision": 36,
             "scale": 0,
-            "length": 27
+            "length": 36
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(27)",
+          "dataType": "TEXT(36)",
           "nullable": true,
           "primaryKey": false
         },
@@ -2735,7 +2735,7 @@
       "schema": "CYBERSYN",
       "name": "CYBERSYN_FINANCIAL_ECONOMIC_INDICATORS_TIMESERIES",
       "type": "VIEW",
-      "comment": "Economic metrics including retail sales, consumer credit, mortgage rates, unemployment claims, GDP estimates, employment, and CPI data for various geographic entities, aggregated from various government sources.\n\nThe Cybersyn Financial & Economic Indicators tables include data aggregated from various government sources. It features various economic metrics, such as the Census Bureau's retail sales, Federal Reserve's commercial paper and consumer credit, New York Fed's SOFR and EFFR data, Freddie Mac's house price index and mortgage rates, the Department of Labor's weekly unemployment claims, Bureau of Economic Analysis GDP estimates, Bureau of Labor Statistics employment and CPI data, and more.\n\nEach row represents a distinct timeseries, date, and value by geographic entity. Each variable is detailed in the cybersyn_financial_economic_indicators_attributes table.",
+      "comment": "Economic metrics including retail sales, consumer credit, mortgage rates, unemployment claims, GDP estimates, PCE price indexes, employment, and CPI data for various geographic entities, aggregated from various government sources.\n\nThe Cybersyn Financial & Economic Indicators tables include data aggregated from various government sources. It features various economic metrics, such as the Census Bureau's retail sales, Federal Reserve's commercial paper and consumer credit, New York Fed's SOFR and EFFR data, Freddie Mac's house price index and mortgage rates, the Department of Labor's weekly unemployment claims, Bureau of Economic Analysis GDP estimates and PCE (Personal Consumption Expenditures) price indexes, Bureau of Labor Statistics employment and CPI data, and more.\n\nEach row represents a distinct timeseries, date, and value by geographic entity. Each variable is detailed in the cybersyn_financial_economic_indicators_attributes table.",
       "columns": [
         {
           "name": "GEO_ID",
@@ -6318,6 +6318,27 @@
           },
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "COMPLAINT_ID",
+          "ordinalPosition": 20,
+          "comment": "a unique identifier of the complaint",
+          "type": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "dataTypeName": "NUMBER",
+          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "primaryKey": false
         }
