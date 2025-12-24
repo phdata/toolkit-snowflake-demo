@@ -1,0 +1,3707 @@
+{
+  "metadata": {
+    "identifier": {
+      "source": "snowflake.snowflake",
+      "type": "match",
+      "timestamp": "2025-12-24T00:14:23.676Z"
+    },
+    "source": {
+      "name": "snowflake",
+      "type": "snowflake",
+      "lineage": {
+        "scan": {
+          "source": "snowflake",
+          "type": "scan",
+          "timestamp": "2025-12-23T00:13:56.375Z"
+        }
+      },
+      "accountName": "PHDATAPARTNER-DEMO"
+    },
+    "target": {
+      "name": "snowflake",
+      "type": "snowflake",
+      "lineage": {
+        "scan": {
+          "source": "snowflake",
+          "type": "scan",
+          "timestamp": "2025-12-24T00:13:58.405Z"
+        }
+      },
+      "accountName": "PHDATAPARTNER-DEMO"
+    },
+    "version": "dev",
+    "license": "PRO",
+    "start": "2025-12-24T00:14:23.455605Z",
+    "end": "2025-12-24T00:14:23.676878Z"
+  },
+  "views": [
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "BANK_FOR_INTERNATIONAL_SETTLEMENTS_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "BANK_FOR_INTERNATIONAL_SETTLEMENTS_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "COUNTERPARTY_GEO_NAME",
+          "target": "COUNTERPARTY_GEO_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_NAME",
+          "target": "GEO_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASURE",
+          "target": "MEASURE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASUREMENT_TYPE",
+          "target": "MEASUREMENT_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SERIES_ID",
+          "target": "SERIES_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SOURCE",
+          "target": "SOURCE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "BANK_FOR_INTERNATIONAL_SETTLEMENTS_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "BANK_FOR_INTERNATIONAL_SETTLEMENTS_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "COUNTERPARTY_GEO_ID",
+          "target": "COUNTERPARTY_GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "ESTABLISHMENT_SIZE",
+          "target": "ESTABLISHMENT_SIZE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "INDUSTRY",
+          "target": "INDUSTRY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASURE",
+          "target": "MEASURE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "REPORT",
+          "target": "REPORT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SEASONALLY_ADJUSTED",
+          "target": "SEASONALLY_ADJUSTED",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "BUREAU_OF_LABOR_STATISTICS_PRICE_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "BUREAU_OF_LABOR_STATISTICS_PRICE_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "BASE_TYPE",
+          "target": "BASE_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRODUCT",
+          "target": "PRODUCT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "REPORT",
+          "target": "REPORT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SEASONALLY_ADJUSTED",
+          "target": "SEASONALLY_ADJUSTED",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "BUREAU_OF_LABOR_STATISTICS_PRICE_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "BUREAU_OF_LABOR_STATISTICS_PRICE_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "COMPANY_INDEX"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "COMPANY_INDEX"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "CIK",
+          "target": "CIK",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "COMPANY_ID",
+          "target": "COMPANY_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "COMPANY_NAME",
+          "target": "COMPANY_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "EIN",
+          "target": "EIN",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ENTITY_LEVEL",
+          "target": "ENTITY_LEVEL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GLOBAL_TICKERS",
+          "target": "GLOBAL_TICKERS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LEI",
+          "target": "LEI",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PERMID_COMPANY_ID",
+          "target": "PERMID_COMPANY_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRIMARY_EXCHANGE_CODE",
+          "target": "PRIMARY_EXCHANGE_CODE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRIMARY_EXCHANGE_NAME",
+          "target": "PRIMARY_EXCHANGE_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRIMARY_TICKER",
+          "target": "PRIMARY_TICKER",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "COMPANY_RELATIONSHIPS"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "COMPANY_RELATIONSHIPS"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "COMPANY_ID",
+          "target": "COMPANY_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "COMPANY_NAME",
+          "target": "COMPANY_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ENTITY_LEVEL",
+          "target": "ENTITY_LEVEL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELATED_COMPANY_ID",
+          "target": "RELATED_COMPANY_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELATED_COMPANY_NAME",
+          "target": "RELATED_COMPANY_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELATED_ENTITY_LEVEL",
+          "target": "RELATED_ENTITY_LEVEL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELATIONSHIP_END_DATE",
+          "target": "RELATIONSHIP_END_DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELATIONSHIP_START_DATE",
+          "target": "RELATIONSHIP_START_DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELATIONSHIP_TYPE",
+          "target": "RELATIONSHIP_TYPE",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "COMPANY_SECURITY_RELATIONSHIPS"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "COMPANY_SECURITY_RELATIONSHIPS"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "COMPANY_ID",
+          "target": "COMPANY_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "COMPANY_NAME",
+          "target": "COMPANY_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SECURITY_ID",
+          "target": "SECURITY_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SECURITY_ID_TYPE",
+          "target": "SECURITY_ID_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SECURITY_NAME",
+          "target": "SECURITY_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "CYBERSYN_DATA_CATALOG"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "CYBERSYN_DATA_CATALOG"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "CREATED_DATE",
+          "target": "CREATED_DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DATA_SOURCE",
+          "target": "DATA_SOURCE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DATA_SOURCE_URL",
+          "target": "DATA_SOURCE_URL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DESCRIPTION",
+          "target": "DESCRIPTION",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DOCUMENTATION_URL",
+          "target": "DOCUMENTATION_URL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ENTITIES",
+          "target": "ENTITIES",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LAST_UPDATED_TIMESTAMP",
+          "target": "LAST_UPDATED_TIMESTAMP",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LICENSE_URL",
+          "target": "LICENSE_URL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LISTING_NAME",
+          "target": "LISTING_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LISTING_URL",
+          "target": "LISTING_URL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SELECT_RELATED_TABLES",
+          "target": "SELECT_RELATED_TABLES",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SHORT_DESCRIPTION",
+          "target": "SHORT_DESCRIPTION",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TABLE_NAME",
+          "target": "TABLE_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TABLE_NAME_PROPER",
+          "target": "TABLE_NAME_PROPER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TABLE_TYPE",
+          "target": "TABLE_TYPE",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "CYBERSYN_DATA_DICTIONARY"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "CYBERSYN_DATA_DICTIONARY"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "COLUMN_DESCRIPTION",
+          "target": "COLUMN_DESCRIPTION",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "COLUMN_NAME",
+          "target": "COLUMN_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DATA_TYPE",
+          "target": "DATA_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TABLE_NAME",
+          "target": "TABLE_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TABLE_NAME_PROPER",
+          "target": "TABLE_NAME_PROPER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TABLE_TYPE",
+          "target": "TABLE_TYPE",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "CYBERSYN_FINANCIAL_ECONOMIC_INDICATORS_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "CYBERSYN_FINANCIAL_ECONOMIC_INDICATORS_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "FRED_SERIES_ID",
+          "target": "FRED_SERIES_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "INDUSTRY",
+          "target": "INDUSTRY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASURE",
+          "target": "MEASURE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASUREMENT_TYPE",
+          "target": "MEASUREMENT_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELEASE_NAME",
+          "target": "RELEASE_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELEASE_SOURCE",
+          "target": "RELEASE_SOURCE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SEASONALLY_ADJUSTED",
+          "target": "SEASONALLY_ADJUSTED",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "CYBERSYN_FINANCIAL_ECONOMIC_INDICATORS_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "CYBERSYN_FINANCIAL_ECONOMIC_INDICATORS_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "CYBERSYN_VARIABLE_CATALOG"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "CYBERSYN_VARIABLE_CATALOG"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "ADDITIONAL_DATA",
+          "target": "ADDITIONAL_DATA",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DATA_SOURCE",
+          "target": "DATA_SOURCE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DOCUMENTATION_URL",
+          "target": "DOCUMENTATION_URL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ENTITIES",
+          "target": "ENTITIES",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID_LEVELS",
+          "target": "GEO_ID_LEVELS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LISTING_NAME",
+          "target": "LISTING_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LISTING_URL",
+          "target": "LISTING_URL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MAX_DATE",
+          "target": "MAX_DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASURE",
+          "target": "MEASURE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MIN_DATE",
+          "target": "MIN_DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SEASONALLY_ADJUSTED",
+          "target": "SEASONALLY_ADJUSTED",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TABLE_NAME",
+          "target": "TABLE_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "EUROPEAN_CENTRAL_BANK_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "EUROPEAN_CENTRAL_BANK_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_COVERAGE",
+          "target": "GEO_COVERAGE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ITEM_DESCRIPTION",
+          "target": "ITEM_DESCRIPTION",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASURE",
+          "target": "MEASURE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASUREMENT_TYPE",
+          "target": "MEASUREMENT_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SEASONALLY_ADJUSTED",
+          "target": "SEASONALLY_ADJUSTED",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SOURCE",
+          "target": "SOURCE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "EUROPEAN_CENTRAL_BANK_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "EUROPEAN_CENTRAL_BANK_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE_COMMENT",
+          "target": "VALUE_COMMENT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FDIC_BRANCH_LOCATIONS_INDEX"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FDIC_BRANCH_LOCATIONS_INDEX"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "ACQUIRED_DATE",
+          "target": "ACQUIRED_DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ADDRESS",
+          "target": "ADDRESS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "BRANCH_NAME",
+          "target": "BRANCH_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "BRANCH_NUMBER",
+          "target": "BRANCH_NUMBER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "BRANCH_TYPE",
+          "target": "BRANCH_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CHARTER_TYPE",
+          "target": "CHARTER_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CITY",
+          "target": "CITY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "COMPTROLLER_DISTRICT",
+          "target": "COMPTROLLER_DISTRICT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ESTABLISHED_DATE",
+          "target": "ESTABLISHED_DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FDIC_BRANCH_ID",
+          "target": "FDIC_BRANCH_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FDIC_CLASSIFICATION_CODE",
+          "target": "FDIC_CLASSIFICATION_CODE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FDIC_INSTITUTION_CERTIFICATE_NUMBER",
+          "target": "FDIC_INSTITUTION_CERTIFICATE_NUMBER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FDIC_INSTITUTION_ID",
+          "target": "FDIC_INSTITUTION_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FDIC_REGIONAL_OFFICE",
+          "target": "FDIC_REGIONAL_OFFICE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FEDERAL_RESERVE_DISTRICT",
+          "target": "FEDERAL_RESERVE_DISTRICT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID_CBSA",
+          "target": "GEO_ID_CBSA",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID_COUNTY",
+          "target": "GEO_ID_COUNTY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID_METRO_DIV",
+          "target": "GEO_ID_METRO_DIV",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID_STATE",
+          "target": "GEO_ID_STATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID_ZIP",
+          "target": "GEO_ID_ZIP",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "HOLDING_COMPANY_NAME",
+          "target": "HOLDING_COMPANY_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "HOLDING_COMPANY_TYPE",
+          "target": "HOLDING_COMPANY_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "INSTITUTION_CATEGORY",
+          "target": "INSTITUTION_CATEGORY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "INSTITUTION_CHARTER_AGENCY",
+          "target": "INSTITUTION_CHARTER_AGENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "INSTITUTION_MINORITY_DEPOSITORY_STATUS",
+          "target": "INSTITUTION_MINORITY_DEPOSITORY_STATUS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "INSTITUTION_NAME",
+          "target": "INSTITUTION_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "INSTITUTION_PRIMARY_ASSET_SPECIALIZATION",
+          "target": "INSTITUTION_PRIMARY_ASSET_SPECIALIZATION",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "INSTITUTION_PRIMARY_INSURER",
+          "target": "INSTITUTION_PRIMARY_INSURER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "INSTITUTION_PRIMARY_REGULATORY_AGENCY",
+          "target": "INSTITUTION_PRIMARY_REGULATORY_AGENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LATITUDE",
+          "target": "LATITUDE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LONGITUDE",
+          "target": "LONGITUDE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MAIN_OFFICE_FLAG",
+          "target": "MAIN_OFFICE_FLAG",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "OTS_ID",
+          "target": "OTS_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RSSDHCR",
+          "target": "RSSDHCR",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RSSDID",
+          "target": "RSSDID",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FDIC_SUMMARY_OF_DEPOSITS_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FDIC_SUMMARY_OF_DEPOSITS_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASURE",
+          "target": "MEASURE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASUREMENT_TYPE",
+          "target": "MEASUREMENT_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FDIC_SUMMARY_OF_DEPOSITS_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FDIC_SUMMARY_OF_DEPOSITS_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FDIC_BRANCH_ID",
+          "target": "FDIC_BRANCH_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FDIC_INSTITUTION_ID",
+          "target": "FDIC_INSTITUTION_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FHFA_HOUSE_PRICE_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FHFA_HOUSE_PRICE_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "INDEX_TYPE",
+          "target": "INDEX_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PROPERTY_CLASSIFICATION",
+          "target": "PROPERTY_CLASSIFICATION",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SEASONALLY_ADJUSTED",
+          "target": "SEASONALLY_ADJUSTED",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FHFA_HOUSE_PRICE_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FHFA_HOUSE_PRICE_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FHFA_MORTGAGE_PERFORMANCE_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FHFA_MORTGAGE_PERFORMANCE_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MARKET",
+          "target": "MARKET",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_GROUP",
+          "target": "VARIABLE_GROUP",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FHFA_MORTGAGE_PERFORMANCE_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FHFA_MORTGAGE_PERFORMANCE_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FHFA_UNIFORM_APPRAISAL_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FHFA_UNIFORM_APPRAISAL_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "APPRAISAL_PURPOSE",
+          "target": "APPRAISAL_PURPOSE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "APPRAISAL_SOURCE",
+          "target": "APPRAISAL_SOURCE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CATEGORY",
+          "target": "CATEGORY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CHARACTERISTIC",
+          "target": "CHARACTERISTIC",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_GROUP",
+          "target": "VARIABLE_GROUP",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FHFA_UNIFORM_APPRAISAL_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FHFA_UNIFORM_APPRAISAL_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SUPPRESSED",
+          "target": "SUPPRESSED",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_BRANCH_ENTITIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_BRANCH_ENTITIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "ADDRESS",
+          "target": "ADDRESS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ADDRESS_LINE2",
+          "target": "ADDRESS_LINE2",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "BRANCH_NAME",
+          "target": "BRANCH_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CATEGORY",
+          "target": "CATEGORY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CITY",
+          "target": "CITY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "END_DATE",
+          "target": "END_DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_COUNTRY",
+          "target": "ID_COUNTRY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_COUNTY",
+          "target": "ID_COUNTY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_RSSD",
+          "target": "ID_RSSD",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_RSSD_PARENT",
+          "target": "ID_RSSD_PARENT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_STATE",
+          "target": "ID_STATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_ZIP",
+          "target": "ID_ZIP",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "IS_ACTIVE",
+          "target": "IS_ACTIVE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "NAME_PARENT",
+          "target": "NAME_PARENT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "START_DATE",
+          "target": "START_DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "STATE_ABBREVIATION",
+          "target": "STATE_ABBREVIATION",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ZIP_CODE",
+          "target": "ZIP_CODE",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_CFPB_COMPLAINT"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_CFPB_COMPLAINT"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "COMPANY",
+          "target": "COMPANY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "COMPANY_PUBLIC_RESPONSE",
+          "target": "COMPANY_PUBLIC_RESPONSE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "COMPANY_RESPONSE_TO_CONSUMER",
+          "target": "COMPANY_RESPONSE_TO_CONSUMER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "COMPLAINT_ID",
+          "target": "COMPLAINT_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CONSUMER_COMPLAINT_NARRATIVE",
+          "target": "CONSUMER_COMPLAINT_NARRATIVE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CONSUMER_CONSENT_PROVIDED",
+          "target": "CONSUMER_CONSENT_PROVIDED",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CONSUMER_DISPUTED",
+          "target": "CONSUMER_DISPUTED",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DATE_RECEIVED",
+          "target": "DATE_RECEIVED",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DATE_SENT_TO_COMPANY",
+          "target": "DATE_SENT_TO_COMPANY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_STATE",
+          "target": "ID_STATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_ZIP",
+          "target": "ID_ZIP",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ISSUE",
+          "target": "ISSUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRODUCT",
+          "target": "PRODUCT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "STATE",
+          "target": "STATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SUBMITTED_VIA",
+          "target": "SUBMITTED_VIA",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SUB_ISSUE",
+          "target": "SUB_ISSUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SUB_PRODUCT",
+          "target": "SUB_PRODUCT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TAGS",
+          "target": "TAGS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TIMELY_RESPONSE",
+          "target": "TIMELY_RESPONSE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ZIP_CODE",
+          "target": "ZIP_CODE",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_INSTITUTION_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_INSTITUTION_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DEFINITION",
+          "target": "DEFINITION",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_INSTITUTION_ENTITIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_INSTITUTION_ENTITIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "ADDRESS",
+          "target": "ADDRESS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CATEGORY",
+          "target": "CATEGORY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CHARTERING_AUTHORITY",
+          "target": "CHARTERING_AUTHORITY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CHARTER_TYPE",
+          "target": "CHARTER_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CITY",
+          "target": "CITY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "EMPLOYER_IDENTIFICATION_NUMBER",
+          "target": "EMPLOYER_IDENTIFICATION_NUMBER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "END_DATE",
+          "target": "END_DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ENTITY_TYPE",
+          "target": "ENTITY_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FDIC_CERT",
+          "target": "FDIC_CERT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FEDERAL_REGULATOR",
+          "target": "FEDERAL_REGULATOR",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_COUNTRY",
+          "target": "ID_COUNTRY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_COUNTY",
+          "target": "ID_COUNTY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_RSSD",
+          "target": "ID_RSSD",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_STATE",
+          "target": "ID_STATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_ZIP",
+          "target": "ID_ZIP",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "INSURER",
+          "target": "INSURER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "INTERNATIONAL_BANKING_FACILITY",
+          "target": "INTERNATIONAL_BANKING_FACILITY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "IS_ACTIVE",
+          "target": "IS_ACTIVE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LEGAL_ENTITY_IDENTIFIER",
+          "target": "LEGAL_ENTITY_IDENTIFIER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MAJORITY_OWNED_BY_MINORITY_OR_WOMEN",
+          "target": "MAJORITY_OWNED_BY_MINORITY_OR_WOMEN",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "NAICS_CODE",
+          "target": "NAICS_CODE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "NAME",
+          "target": "NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "OCC_ID",
+          "target": "OCC_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "REASON_FOR_ENTITY_TERMINATION",
+          "target": "REASON_FOR_ENTITY_TERMINATION",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SPECIALIZATION_GROUP",
+          "target": "SPECIALIZATION_GROUP",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "START_DATE",
+          "target": "START_DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "STATE_ABBREVIATION",
+          "target": "STATE_ABBREVIATION",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "THRIFT_ID",
+          "target": "THRIFT_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "URL",
+          "target": "URL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ZIP_CODE",
+          "target": "ZIP_CODE",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_INSTITUTION_EVENTS"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_INSTITUTION_EVENTS"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "ACTIVE_PREDECESSOR",
+          "target": "ACTIVE_PREDECESSOR",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ACTIVE_SUCCESSOR",
+          "target": "ACTIVE_SUCCESSOR",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CATEGORY_PREDECESSOR",
+          "target": "CATEGORY_PREDECESSOR",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CATEGORY_SUCCESSOR",
+          "target": "CATEGORY_SUCCESSOR",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_RSSD_PREDECESSOR",
+          "target": "ID_RSSD_PREDECESSOR",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_RSSD_SUCCESSOR",
+          "target": "ID_RSSD_SUCCESSOR",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MERGER_ACCOUNTING_METHOD_UTILIZED",
+          "target": "MERGER_ACCOUNTING_METHOD_UTILIZED",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "NAME_PREDECESSOR",
+          "target": "NAME_PREDECESSOR",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "NAME_SUCCESSOR",
+          "target": "NAME_SUCCESSOR",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TRANSACTION_DATE",
+          "target": "TRANSACTION_DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TRANSFORMATION_TYPE",
+          "target": "TRANSFORMATION_TYPE",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_INSTITUTION_HIERARCHY"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_INSTITUTION_HIERARCHY"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "ACTIVE_OFFSPRING",
+          "target": "ACTIVE_OFFSPRING",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ACTIVE_PARENT",
+          "target": "ACTIVE_PARENT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CATEGORY_OFFSPRING",
+          "target": "CATEGORY_OFFSPRING",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "CATEGORY_PARENT",
+          "target": "CATEGORY_PARENT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_RSSD_OFFSPRING",
+          "target": "ID_RSSD_OFFSPRING",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_RSSD_PARENT",
+          "target": "ID_RSSD_PARENT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "NAME_OFFSPRING",
+          "target": "NAME_OFFSPRING",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "NAME_PARENT",
+          "target": "NAME_PARENT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PARENT_CONTROLS_OFFSPRING",
+          "target": "PARENT_CONTROLS_OFFSPRING",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PERCENT_CONTROL_OF_OFFSPRING",
+          "target": "PERCENT_CONTROL_OF_OFFSPRING",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELATIONSHIP_LEVEL",
+          "target": "RELATIONSHIP_LEVEL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELATIONSHIP_TERMINATED",
+          "target": "RELATIONSHIP_TERMINATED",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_INSTITUTION_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FINANCIAL_INSTITUTION_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID_RSSD",
+          "target": "ID_RSSD",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FX_RATES_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "FX_RATES_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "BASE_CURRENCY_ID",
+          "target": "BASE_CURRENCY_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "BASE_CURRENCY_NAME",
+          "target": "BASE_CURRENCY_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "QUOTE_CURRENCY_ID",
+          "target": "QUOTE_CURRENCY_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "QUOTE_CURRENCY_NAME",
+          "target": "QUOTE_CURRENCY_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "GEOGRAPHY_HIERARCHY"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "GEOGRAPHY_HIERARCHY"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PARENT_GEO_ID",
+          "target": "PARENT_GEO_ID",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "GEOGRAPHY_INDEX"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "GEOGRAPHY_INDEX"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_NAME",
+          "target": "GEO_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ISO_3166_2_CODE",
+          "target": "ISO_3166_2_CODE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ISO_ALPHA2",
+          "target": "ISO_ALPHA2",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ISO_ALPHA3",
+          "target": "ISO_ALPHA3",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ISO_NAME",
+          "target": "ISO_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ISO_NUMERIC_CODE",
+          "target": "ISO_NUMERIC_CODE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LEVEL",
+          "target": "LEVEL",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "GEOGRAPHY_OVERLAPS"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "GEOGRAPHY_OVERLAPS"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "OVERLAPS_WITH",
+          "target": "OVERLAPS_WITH",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "GEOGRAPHY_RELATIONSHIPS"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "GEOGRAPHY_RELATIONSHIPS"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_NAME",
+          "target": "GEO_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LEVEL",
+          "target": "LEVEL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELATED_GEO_ID",
+          "target": "RELATED_GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELATED_GEO_NAME",
+          "target": "RELATED_GEO_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELATED_LEVEL",
+          "target": "RELATED_LEVEL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RELATIONSHIP_TYPE",
+          "target": "RELATIONSHIP_TYPE",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "INTERNATIONAL_MONETARY_FUND_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "INTERNATIONAL_MONETARY_FUND_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASURE",
+          "target": "MEASURE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASUREMENT_TYPE",
+          "target": "MEASUREMENT_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "INTERNATIONAL_MONETARY_FUND_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "INTERNATIONAL_MONETARY_FUND_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "COUNTERPART_GEO_ID",
+          "target": "COUNTERPART_GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "NAICS_CODE_INDEX"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "NAICS_CODE_INDEX"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "NAICS_CLASSIFICATION_YEAR",
+          "target": "NAICS_CLASSIFICATION_YEAR",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "NAICS_CODE",
+          "target": "NAICS_CODE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "NAICS_HIERARCHY",
+          "target": "NAICS_HIERARCHY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SECTOR",
+          "target": "SECTOR",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "OECD_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "OECD_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASURE",
+          "target": "MEASURE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASUREMENT_TYPE",
+          "target": "MEASUREMENT_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SEASONALLY_ADJUSTED",
+          "target": "SEASONALLY_ADJUSTED",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "OECD_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "OECD_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "OPENFIGI_SECURITY_INDEX"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "OPENFIGI_SECURITY_INDEX"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "ASSET_CLASS",
+          "target": "ASSET_CLASS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "EXCHANGE_CODES",
+          "target": "EXCHANGE_CODES",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GLOBAL_TICKERS",
+          "target": "GLOBAL_TICKERS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "OPENFIGI_COMPOSITE_ID",
+          "target": "OPENFIGI_COMPOSITE_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "OPENFIGI_FIGI_ID",
+          "target": "OPENFIGI_FIGI_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "OPENFIGI_SHARE_CLASS_ID",
+          "target": "OPENFIGI_SHARE_CLASS_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRIMARY_TICKER",
+          "target": "PRIMARY_TICKER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SECURITY_NAME",
+          "target": "SECURITY_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SECURITY_SUBTYPE",
+          "target": "SECURITY_SUBTYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SECURITY_TYPE",
+          "target": "SECURITY_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TOP_LEVEL_OPENFIGI_ID",
+          "target": "TOP_LEVEL_OPENFIGI_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TOP_LEVEL_OPENFIGI_ID_TYPE",
+          "target": "TOP_LEVEL_OPENFIGI_ID_TYPE",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "PERMID_SECURITY_INDEX"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "PERMID_SECURITY_INDEX"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "ASSET_CLASS",
+          "target": "ASSET_CLASS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "EXCHANGE_CODE",
+          "target": "EXCHANGE_CODE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GLOBAL_TICKERS",
+          "target": "GLOBAL_TICKERS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PERMID_QUOTE_ID",
+          "target": "PERMID_QUOTE_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PERMID_SECURITY_ID",
+          "target": "PERMID_SECURITY_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRIMARY_EXCHANGE_CODE",
+          "target": "PRIMARY_EXCHANGE_CODE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRIMARY_EXCHANGE_NAME",
+          "target": "PRIMARY_EXCHANGE_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRIMARY_TICKER",
+          "target": "PRIMARY_TICKER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SECURITY_NAME",
+          "target": "SECURITY_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SECURITY_STATUS",
+          "target": "SECURITY_STATUS",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "PUBLIC_HOLIDAY_CALENDAR"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "PUBLIC_HOLIDAY_CALENDAR"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "HOLIDAY_NAME",
+          "target": "HOLIDAY_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ISO_ALPHA2",
+          "target": "ISO_ALPHA2",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "IS_FINANCIAL",
+          "target": "IS_FINANCIAL",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SUBDIVISION",
+          "target": "SUBDIVISION",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "STOCK_PRICE_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "STOCK_PRICE_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "ASSET_CLASS",
+          "target": "ASSET_CLASS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRIMARY_EXCHANGE_CODE",
+          "target": "PRIMARY_EXCHANGE_CODE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRIMARY_EXCHANGE_NAME",
+          "target": "PRIMARY_EXCHANGE_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TICKER",
+          "target": "TICKER",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "US_ECONOMIC_CENSUS_ATTRIBUTES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "US_ECONOMIC_CENSUS_ATTRIBUTES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "CREDIT_CARD_SERVICES_INCOME",
+          "target": "CREDIT_CARD_SERVICES_INCOME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "FREQUENCY",
+          "target": "FREQUENCY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "MEASURE",
+          "target": "MEASURE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "NAICS_CODE",
+          "target": "NAICS_CODE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "NAICS_DESCRIPTION",
+          "target": "NAICS_DESCRIPTION",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "OPERATION_TYPE",
+          "target": "OPERATION_TYPE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRODUCT_SERVICES_LINE",
+          "target": "PRODUCT_SERVICES_LINE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "TAX_STATUS",
+          "target": "TAX_STATUS",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "US_ECONOMIC_CENSUS_TIMESERIES"
+      },
+      "target": {
+        "type": "VIEW",
+        "database": "FINANCE__ECONOMICS",
+        "schema": "CYBERSYN",
+        "name": "US_ECONOMIC_CENSUS_TIMESERIES"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "DATE",
+          "target": "DATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "GEO_ID",
+          "target": "GEO_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "UNIT",
+          "target": "UNIT",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VALUE",
+          "target": "VALUE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE",
+          "target": "VARIABLE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "VARIABLE_NAME",
+          "target": "VARIABLE_NAME",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "source": {
+        "type": "TABLE",
+        "database": "SYNTHETIC_SALES",
+        "schema": "MAIN",
+        "name": "CUSTOMER"
+      },
+      "target": {
+        "type": "TABLE",
+        "database": "SYNTHETIC_SALES",
+        "schema": "MAIN",
+        "name": "CUSTOMER"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "FIRST_NAME",
+          "target": "FIRST_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID",
+          "target": "ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LAST_NAME",
+          "target": "LAST_NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "STATE",
+          "target": "STATE",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ZIP_CODE",
+          "target": "ZIP_CODE",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "TABLE",
+        "database": "SYNTHETIC_SALES",
+        "schema": "MAIN",
+        "name": "ORDER_HISTORY"
+      },
+      "target": {
+        "type": "TABLE",
+        "database": "SYNTHETIC_SALES",
+        "schema": "MAIN",
+        "name": "ORDER_HISTORY"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "CUSTOMER_ID",
+          "target": "CUSTOMER_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID",
+          "target": "ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRODUCT_ID",
+          "target": "PRODUCT_ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "RETURN_TIMESTAMP",
+          "target": "RETURN_TIMESTAMP",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "SALE_TIMESTAMP",
+          "target": "SALE_TIMESTAMP",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "TABLE",
+        "database": "SYNTHETIC_SALES",
+        "schema": "MAIN",
+        "name": "PRODUCT"
+      },
+      "target": {
+        "type": "TABLE",
+        "database": "SYNTHETIC_SALES",
+        "schema": "MAIN",
+        "name": "PRODUCT"
+      },
+      "score": 100,
+      "matched": true,
+      "columns": [
+        {
+          "source": "CATEGORY",
+          "target": "CATEGORY",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "COST",
+          "target": "COST",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DESCRIPTION",
+          "target": "DESCRIPTION",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "DISCONTINUED_TIMESTAMP",
+          "target": "DISCONTINUED_TIMESTAMP",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "ID",
+          "target": "ID",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "LAUNCH_TIMESTAMP",
+          "target": "LAUNCH_TIMESTAMP",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "NAME",
+          "target": "NAME",
+          "score": 100,
+          "matched": true
+        },
+        {
+          "source": "PRICE",
+          "target": "PRICE",
+          "score": 100,
+          "matched": true
+        }
+      ]
+    }
+  ]
+}
