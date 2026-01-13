@@ -17,16 +17,26 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Cache Toolkit CLI
+      id: cache-toolkit-cli
+      uses: actions/cache@v4
+      env:
+        cache-name: cache-node-modules
+      with:
+        # npm cache files are stored in `~/.npm` on Linux/macOS
+        path: cli-install
+        key: toolkit-cli-${{ inputs.toolkit_cli_version }}
     - name: Download the toolkit-cli
+      if: ${{ steps.cache-toolkit-cli.outputs.cache-hit != 'true' }}
       shell: bash
       run: |
         set -euo pipefail
         curl --fail --output toolkit-cli.zip "https://repo.phdata.io/${{ inputs.toolkit_cli_download_token }}/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/${{ inputs.toolkit_cli_version }}/toolkit-cli-${{ inputs.toolkit_cli_version }}.zip"
-        unzip -jd install toolkit-cli.zip
+        unzip -jd cli-install toolkit-cli.zip
 
     - name: Add toolkit to PATH
       shell: bash
-      run: readlink -f install >> $GITHUB_PATH
+      run: readlink -f cli-install >> $GITHUB_PATH
 
     - name: Write Snowflake private key
       shell: bash
