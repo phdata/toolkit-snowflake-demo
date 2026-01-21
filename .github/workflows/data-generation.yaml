@@ -29,7 +29,7 @@ jobs:
           snowflake_private_key_pem: ${{ secrets.snowflake_private_key_pem }}
 
       - name: Add data to snowflake
-        run: toolkit datagen jdbc snowflake specs/advanced-snowflake-spec.yaml --append
+        run: toolkit datagen jdbc snowflake specs/advanced-snowflake-spec.yaml --mode=append
 
       - name: Generate report
         run: toolkit datagen show specs/advanced-snowflake-spec.yaml --output=datagen-report.html
