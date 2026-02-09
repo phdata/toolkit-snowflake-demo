@@ -41,28 +41,36 @@
   },
   "metadata": {
     "identifier": {
+      "id": "snowflake.snowflake:diff:2026-02-09T001948.144Z",
+      "tool": "ds",
       "source": "snowflake.snowflake",
       "type": "diff",
-      "timestamp": "2025-12-11T00:14:25.518Z"
+      "timestamp": "2026-02-09T00:19:48.144Z"
     },
     "source": {
       "name": "snowflake",
       "type": "snowflake",
       "lineage": {
         "scan": {
+          "id": "snowflake:scan:2026-02-08T002317.136Z",
+          "tool": "ds",
           "source": "snowflake",
           "type": "scan",
-          "timestamp": "2025-12-10T00:13:43.904Z"
+          "timestamp": "2026-02-08T00:23:17.136Z"
         },
         "profile": {
+          "id": "snowflake:profile:2026-02-08T002332.909Z",
+          "tool": "ds",
           "source": "snowflake",
           "type": "profile",
-          "timestamp": "2025-12-10T00:13:59.022Z"
+          "timestamp": "2026-02-08T00:23:32.909Z"
         },
         "match": {
+          "id": "snowflake.snowflake:match:2026-02-09T001947.525Z",
+          "tool": "ds",
           "source": "snowflake.snowflake",
           "type": "match",
-          "timestamp": "2025-12-11T00:14:24.955Z"
+          "timestamp": "2026-02-09T00:19:47.525Z"
         }
       },
       "accountName": "PHDATAPARTNER-DEMO"
@@ -72,27 +80,33 @@
       "type": "snowflake",
       "lineage": {
         "scan": {
+          "id": "snowflake:scan:2026-02-09T001917.764Z",
+          "tool": "ds",
           "source": "snowflake",
           "type": "scan",
-          "timestamp": "2025-12-11T00:13:57.710Z"
+          "timestamp": "2026-02-09T00:19:17.764Z"
         },
         "profile": {
+          "id": "snowflake:profile:2026-02-09T001934.025Z",
+          "tool": "ds",
           "source": "snowflake",
           "type": "profile",
-          "timestamp": "2025-12-11T00:14:12.839Z"
+          "timestamp": "2026-02-09T00:19:34.025Z"
         },
         "match": {
+          "id": "snowflake.snowflake:match:2026-02-09T001947.525Z",
+          "tool": "ds",
           "source": "snowflake.snowflake",
           "type": "match",
-          "timestamp": "2025-12-11T00:14:24.955Z"
+          "timestamp": "2026-02-09T00:19:47.525Z"
         }
       },
       "accountName": "PHDATAPARTNER-DEMO"
     },
     "version": "dev",
     "license": "PRO",
-    "start": "2025-12-11T00:14:25.343843Z",
-    "end": "2025-12-11T00:14:25.518539Z"
+    "start": "2026-02-09T00:19:47.963065Z",
+    "end": "2026-02-09T00:19:48.144422Z"
   },
   "tables": [
     {
@@ -125,6 +139,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": false,
+          "identity": false,
           "primaryKey": true,
           "profile": {
             "gauges": [
@@ -165,13 +180,13 @@
               },
               {
                 "name": "stddev",
-                "value": 9726.915657699465,
+                "value": 9329.636282667776,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 9726.915657699465 and target value 9718.977400956543 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 9329.636282667776 and target value 9322.57431576756 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 9718.977400956543,
+                      "target": 9322.57431576756,
                       "type": "MODIFIED"
                     }
                   ],
@@ -218,6 +233,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
@@ -265,13 +281,13 @@
               },
               {
                 "name": "null_count",
-                "value": 97765,
+                "value": 108418,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 97765 and target numeric 97966 were compared directly",
+                      "description": "Source numeric 108418 and target numeric 108619 were compared directly",
                       "path": "value",
-                      "target": 97966,
+                      "target": 108619,
                       "type": "MODIFIED"
                     }
                   ],
@@ -311,6 +327,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": false,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
@@ -396,6 +413,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
@@ -481,6 +499,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
@@ -547,13 +566,13 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": -6844206490482882677,
+            "value": -7094402572371522046,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric -6844206490482882677 and target numeric -3920694718071348837 were compared directly",
+                  "description": "Source numeric -7094402572371522046 and target numeric 3660611487627391501 were compared directly",
                   "path": "value",
-                  "target": -3920694718071348837,
+                  "target": 3660611487627391501,
                   "type": "MODIFIED"
                 }
               ],
@@ -562,13 +581,13 @@
           },
           {
             "name": "row_count",
-            "value": 369159,
+            "value": 408750,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric 369159 and target numeric 369906 were compared directly",
+                  "description": "Source numeric 408750 and target numeric 409497 were compared directly",
                   "path": "value",
-                  "target": 369906,
+                  "target": 409497,
                   "type": "MODIFIED"
                 }
               ],
@@ -589,6 +608,114 @@
           ],
           "diff": {
             "type": "UNCHANGED"
+          }
+        }
+      ],
+      "identityColumn": {
+        "name": "ID",
+        "ordinalPosition": 1,
+        "type": {
+          "name": "NUMBER",
+          "precision": 38,
+          "scale": 0,
+          "length": 38
+        },
+        "mappedType": {
+          "name": "NUMBER",
+          "precision": 38,
+          "scale": 0,
+          "length": 38
+        },
+        "dataTypeName": "NUMBER",
+        "dataType": "NUMBER(38, 0)",
+        "nullable": false,
+        "identity": false,
+        "primaryKey": true,
+        "profile": {
+          "gauges": [
+            {
+              "name": "distinct_count",
+              "value": 40035
+            },
+            {
+              "name": "max",
+              "value": 40062
+            },
+            {
+              "name": "min",
+              "value": 1
+            },
+            {
+              "name": "negative_count",
+              "value": 0
+            },
+            {
+              "name": "null_count",
+              "value": 0
+            },
+            {
+              "name": "stddev",
+              "value": 9329.636282667776
+            },
+            {
+              "name": "zero_count",
+              "value": 0
+            }
+          ]
+        }
+      },
+      "primaryKeyColumns": [
+        {
+          "name": "ID",
+          "ordinalPosition": 1,
+          "type": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "dataTypeName": "NUMBER",
+          "dataType": "NUMBER(38, 0)",
+          "nullable": false,
+          "identity": false,
+          "primaryKey": true,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 40035
+              },
+              {
+                "name": "max",
+                "value": 40062
+              },
+              {
+                "name": "min",
+                "value": 1
+              },
+              {
+                "name": "negative_count",
+                "value": 0
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              },
+              {
+                "name": "stddev",
+                "value": 9329.636282667776
+              },
+              {
+                "name": "zero_count",
+                "value": 0
+              }
+            ]
           }
         }
       ],
@@ -627,6 +754,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
@@ -667,13 +795,13 @@
               },
               {
                 "name": "stddev",
-                "value": 6195.001532661392,
+                "value": 5861.9079318403665,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 6195.001532661392 and target value 6188.129151555016 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 5861.9079318403665 and target value 5856.175914980611 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 6188.129151555016,
+                      "target": 5856.175914980611,
                       "type": "MODIFIED"
                     }
                   ],
@@ -720,6 +848,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": false,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
@@ -760,13 +889,13 @@
               },
               {
                 "name": "stddev",
-                "value": 1228.2827662505078,
+                "value": 1157.7078826176316,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 1228.2827662505078 and target value 1226.8297154907034 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 1157.7078826176316 and target value 1156.4906172697642 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 1226.8297154907034,
+                      "target": 1156.4906172697642,
                       "type": "MODIFIED"
                     }
                   ],
@@ -813,6 +942,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": false,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
@@ -853,13 +983,13 @@
               },
               {
                 "name": "stddev",
-                "value": 4864.9538025486945,
+                "value": 4585.871835834381,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 4864.9538025486945 and target value 4859.207378297103 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 4585.871835834381 and target value 4581.058689562163 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 4859.207378297103,
+                      "target": 4581.058689562163,
                       "type": "MODIFIED"
                     }
                   ],
@@ -906,18 +1036,19 @@
           "dataTypeName": "TIMESTAMP_NTZ",
           "dataType": "TIMESTAMP_NTZ",
           "nullable": false,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 1976131,
+                "value": 2219963,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 1976131 and target numeric 1980897 were compared directly",
+                      "description": "Source numeric 2219963 and target numeric 2224544 were compared directly",
                       "path": "value",
-                      "target": 1980897,
+                      "target": 2224544,
                       "type": "MODIFIED"
                     }
                   ],
@@ -926,12 +1057,12 @@
               },
               {
                 "name": "max",
-                "value": "2025-12-09T13:07:00.132+00:00",
+                "value": "2026-02-06T11:57:50.018+00:00",
                 "diff": {
                   "events": [
                     {
                       "path": "value",
-                      "target": "2025-12-10T06:40:57.311+00:00",
+                      "target": "2026-02-07T16:48:55.717+00:00",
                       "type": "MODIFIED"
                     }
                   ],
@@ -985,18 +1116,19 @@
           "dataTypeName": "TIMESTAMP_NTZ",
           "dataType": "TIMESTAMP_NTZ",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 332388,
+                "value": 374127,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 332388 and target numeric 333175 were compared directly",
+                      "description": "Source numeric 374127 and target numeric 374895 were compared directly",
                       "path": "value",
-                      "target": 333175,
+                      "target": 374895,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1005,7 +1137,7 @@
               },
               {
                 "name": "max",
-                "value": "2026-01-04T16:18:54.051+00:00",
+                "value": "2026-03-07T11:57:50.018+00:00",
                 "diff": {
                   "type": "UNCHANGED"
                 }
@@ -1019,13 +1151,13 @@
               },
               {
                 "name": "null_count",
-                "value": 1830284,
+                "value": 2068566,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 1830284 and target numeric 1834814 were compared directly",
+                      "description": "Source numeric 2068566 and target numeric 2073081 were compared directly",
                       "path": "value",
-                      "target": 1834814,
+                      "target": 2073081,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1046,13 +1178,13 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": -4791748558368764023,
+            "value": -5135792919312109381,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric -4791748558368764023 and target numeric 413228819591979075 were compared directly",
+                  "description": "Source numeric -5135792919312109381 and target numeric -6984756996458863439 were compared directly",
                   "path": "value",
-                  "target": 413228819591979075,
+                  "target": -6984756996458863439,
                   "type": "MODIFIED"
                 }
               ],
@@ -1061,13 +1193,13 @@
           },
           {
             "name": "row_count",
-            "value": 2209949,
+            "value": 2498216,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric 2209949 and target numeric 2215388 were compared directly",
+                  "description": "Source numeric 2498216 and target numeric 2503655 were compared directly",
                   "path": "value",
-                  "target": 2215388,
+                  "target": 2503655,
                   "type": "MODIFIED"
                 }
               ],
@@ -1148,6 +1280,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": false,
+          "identity": false,
           "primaryKey": true,
           "profile": {
             "gauges": [
@@ -1188,13 +1321,13 @@
               },
               {
                 "name": "stddev",
-                "value": 3231.901898544725,
+                "value": 3188.2142262137904,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 3231.901898544725 and target value 3231.106780629046 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 3188.2142262137904 and target value 3187.3656211117354 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 3231.106780629046,
+                      "target": 3187.3656211117354,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1241,6 +1374,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": false,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
@@ -1326,6 +1460,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": false,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
@@ -1411,6 +1546,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": false,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
@@ -1496,18 +1632,19 @@
           "dataTypeName": "TIMESTAMP_NTZ",
           "dataType": "TIMESTAMP_NTZ",
           "nullable": false,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 24442,
+                "value": 25730,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 24442 and target numeric 24467 were compared directly",
+                      "description": "Source numeric 25730 and target numeric 25755 were compared directly",
                       "path": "value",
-                      "target": 24467,
+                      "target": 25755,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1568,18 +1705,19 @@
           "dataTypeName": "TIMESTAMP_NTZ",
           "dataType": "TIMESTAMP_NTZ",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 9816,
+                "value": 10353,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 9816 and target numeric 9828 were compared directly",
+                      "description": "Source numeric 10353 and target numeric 10361 were compared directly",
                       "path": "value",
-                      "target": 9828,
+                      "target": 10361,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1602,13 +1740,13 @@
               },
               {
                 "name": "null_count",
-                "value": 28402,
+                "value": 30332,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 28402 and target numeric 28438 were compared directly",
+                      "description": "Source numeric 30332 and target numeric 30370 were compared directly",
                       "path": "value",
-                      "target": 28438,
+                      "target": 30370,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1648,6 +1786,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(6, 2)",
           "nullable": false,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
@@ -1688,13 +1827,13 @@
               },
               {
                 "name": "stddev",
-                "value": 1362.2661859492678,
+                "value": 1369.4249775695625,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 1362.2661859492678 and target value 1362.4113235761895 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 1369.4249775695625 and target value 1369.5503307968957 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 1362.4113235761895,
+                      "target": 1369.5503307968957,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1741,18 +1880,19 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(7, 2)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 23371,
+                "value": 23596,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 23371 and target numeric 23372 were compared directly",
+                      "description": "Source numeric 23596 and target numeric 23598 were compared directly",
                       "path": "value",
-                      "target": 23372,
+                      "target": 23598,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1789,13 +1929,13 @@
               },
               {
                 "name": "stddev",
-                "value": 2987.2890801111853,
+                "value": 3004.078325061809,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 2987.2890801111853 and target value 2987.4172528920635 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 3004.078325061809 and target value 3004.675059354123 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 2987.4172528920635,
+                      "target": 3004.675059354123,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1823,13 +1963,13 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": 7503602015702540120,
+            "value": 5933543481871247309,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric 7503602015702540120 and target numeric -1243333337635606475 were compared directly",
+                  "description": "Source numeric 5933543481871247309 and target numeric -6672210193617642820 were compared directly",
                   "path": "value",
-                  "target": -1243333337635606475,
+                  "target": -6672210193617642820,
                   "type": "MODIFIED"
                 }
               ],
@@ -1838,13 +1978,13 @@
           },
           {
             "name": "row_count",
-            "value": 39350,
+            "value": 42000,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric 39350 and target numeric 39400 were compared directly",
+                  "description": "Source numeric 42000 and target numeric 42050 were compared directly",
                   "path": "value",
-                  "target": 39400,
+                  "target": 42050,
                   "type": "MODIFIED"
                 }
               ],
@@ -1865,6 +2005,114 @@
           ],
           "diff": {
             "type": "UNCHANGED"
+          }
+        }
+      ],
+      "identityColumn": {
+        "name": "ID",
+        "ordinalPosition": 1,
+        "type": {
+          "name": "NUMBER",
+          "precision": 38,
+          "scale": 0,
+          "length": 38
+        },
+        "mappedType": {
+          "name": "NUMBER",
+          "precision": 38,
+          "scale": 0,
+          "length": 38
+        },
+        "dataTypeName": "NUMBER",
+        "dataType": "NUMBER(38, 0)",
+        "nullable": false,
+        "identity": false,
+        "primaryKey": true,
+        "profile": {
+          "gauges": [
+            {
+              "name": "distinct_count",
+              "value": 10000
+            },
+            {
+              "name": "max",
+              "value": 10022
+            },
+            {
+              "name": "min",
+              "value": 1
+            },
+            {
+              "name": "negative_count",
+              "value": 0
+            },
+            {
+              "name": "null_count",
+              "value": 0
+            },
+            {
+              "name": "stddev",
+              "value": 3188.2142262137904
+            },
+            {
+              "name": "zero_count",
+              "value": 0
+            }
+          ]
+        }
+      },
+      "primaryKeyColumns": [
+        {
+          "name": "ID",
+          "ordinalPosition": 1,
+          "type": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "dataTypeName": "NUMBER",
+          "dataType": "NUMBER(38, 0)",
+          "nullable": false,
+          "identity": false,
+          "primaryKey": true,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 10000
+              },
+              {
+                "name": "max",
+                "value": 10022
+              },
+              {
+                "name": "min",
+                "value": 1
+              },
+              {
+                "name": "negative_count",
+                "value": 0
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              },
+              {
+                "name": "stddev",
+                "value": 3188.2142262137904
+              },
+              {
+                "name": "zero_count",
+                "value": 0
+              }
+            ]
           }
         }
       ],
@@ -1907,6 +2155,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -1937,6 +2186,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -1967,6 +2217,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -1997,6 +2248,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2027,6 +2279,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2057,6 +2310,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2087,6 +2341,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2117,6 +2372,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2147,6 +2403,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2177,6 +2434,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2220,6 +2478,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2250,6 +2509,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2280,6 +2540,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2310,6 +2571,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2340,6 +2602,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2370,6 +2633,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2400,6 +2664,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2443,6 +2708,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2473,6 +2739,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2503,6 +2770,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2533,6 +2801,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(7)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2563,6 +2832,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2593,6 +2863,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(26)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2623,6 +2894,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2653,6 +2925,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2683,6 +2956,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2726,6 +3000,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2756,6 +3031,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2786,6 +3062,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2816,6 +3093,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2846,6 +3124,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2889,6 +3168,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2919,6 +3199,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2949,6 +3230,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -2979,6 +3261,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(11)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3009,6 +3292,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3039,6 +3323,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(20)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3069,6 +3354,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3099,6 +3385,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(24)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3142,6 +3429,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3172,6 +3460,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3202,6 +3491,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3232,6 +3522,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3262,6 +3553,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3305,6 +3597,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(32)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3335,6 +3628,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3365,6 +3659,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(9)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3395,6 +3690,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3425,6 +3721,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3455,6 +3752,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3485,6 +3783,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3515,6 +3814,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3545,6 +3845,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3575,6 +3876,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3605,6 +3907,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3648,6 +3951,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(32)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3678,6 +3982,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3708,6 +4013,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3738,6 +4044,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(32)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3768,6 +4075,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3798,6 +4106,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3828,6 +4137,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(10)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3858,6 +4168,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3888,6 +4199,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3931,6 +4243,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3961,6 +4274,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -3991,6 +4305,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4021,6 +4336,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4051,6 +4367,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4094,6 +4411,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4124,6 +4442,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4154,6 +4473,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4184,6 +4504,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4214,6 +4535,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4244,6 +4566,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4274,6 +4597,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4304,6 +4628,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4334,6 +4659,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4364,6 +4690,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4394,6 +4721,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4424,6 +4752,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4454,6 +4783,7 @@
           "dataTypeName": "TIMESTAMP_TZ",
           "dataType": "TIMESTAMP_TZ",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4484,6 +4814,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4514,6 +4845,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4557,6 +4889,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4587,6 +4920,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4617,6 +4951,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4647,6 +4982,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4677,6 +5013,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4707,6 +5044,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4750,6 +5088,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4780,6 +5119,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4810,6 +5150,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4840,6 +5181,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4870,6 +5212,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(36)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4900,6 +5243,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4930,6 +5274,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4960,6 +5305,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -4990,6 +5336,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5020,6 +5367,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5050,6 +5398,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5093,6 +5442,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5123,6 +5473,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5153,6 +5504,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5183,6 +5535,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5213,6 +5566,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5243,6 +5597,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5286,6 +5641,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5316,6 +5672,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5346,6 +5703,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5376,6 +5734,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5406,6 +5765,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5436,6 +5796,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5466,6 +5827,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5496,6 +5858,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5526,6 +5889,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5556,6 +5920,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5586,6 +5951,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5616,6 +5982,7 @@
           "dataTypeName": "VARIANT",
           "dataType": "VARIANT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5646,6 +6013,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5676,6 +6044,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5706,6 +6075,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5736,6 +6106,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5779,6 +6150,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5809,6 +6181,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5839,6 +6212,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5869,6 +6243,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5899,6 +6274,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5929,6 +6305,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5959,6 +6336,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -5989,6 +6367,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6019,6 +6398,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6049,6 +6429,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6092,6 +6473,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6122,6 +6504,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6152,6 +6535,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6182,6 +6566,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6212,6 +6597,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6242,6 +6628,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6272,6 +6659,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6315,6 +6703,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6345,6 +6734,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6375,6 +6765,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6405,6 +6796,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6435,6 +6827,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6465,6 +6858,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6495,6 +6889,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6525,6 +6920,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6555,6 +6951,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6585,6 +6982,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6615,6 +7013,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6645,6 +7044,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6675,6 +7075,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6705,6 +7106,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6735,6 +7137,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6765,6 +7168,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6795,6 +7199,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6825,6 +7230,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6855,6 +7261,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6885,6 +7292,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6915,6 +7323,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6945,6 +7354,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -6975,6 +7385,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7005,6 +7416,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7035,6 +7447,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7065,6 +7478,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7095,6 +7509,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7125,6 +7540,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7155,6 +7571,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7185,6 +7602,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7215,6 +7633,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7245,6 +7664,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7275,6 +7695,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7305,6 +7726,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7335,6 +7757,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7378,6 +7801,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7408,6 +7832,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7438,6 +7863,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7468,6 +7894,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7498,6 +7925,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(6)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7528,6 +7956,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7571,6 +8000,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7601,6 +8031,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7631,6 +8062,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7661,6 +8093,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7691,6 +8124,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7721,6 +8155,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7751,6 +8186,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7794,6 +8230,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7824,6 +8261,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7854,6 +8292,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7884,6 +8323,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7914,6 +8354,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7944,6 +8385,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -7974,6 +8416,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(5)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8017,6 +8460,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8047,6 +8491,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8077,6 +8522,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8107,6 +8553,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8137,6 +8584,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(6, 2)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8167,6 +8615,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(5)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8210,6 +8659,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8240,6 +8690,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8270,6 +8721,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8300,6 +8752,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8330,6 +8783,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8360,6 +8814,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(7)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8403,6 +8858,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8433,6 +8889,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8463,6 +8920,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8493,6 +8951,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8523,6 +8982,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8553,6 +9013,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(7)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8596,6 +9057,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8626,6 +9088,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8656,6 +9119,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8686,6 +9150,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8716,6 +9181,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8746,6 +9212,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8776,6 +9243,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8806,6 +9274,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8836,6 +9305,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8879,6 +9349,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8909,6 +9380,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8939,6 +9411,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8969,6 +9442,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -8999,6 +9473,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9029,6 +9504,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9059,6 +9535,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9102,6 +9579,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9132,6 +9610,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9162,6 +9641,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9192,6 +9672,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9222,6 +9703,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(27)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9252,6 +9734,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9282,6 +9765,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9312,6 +9796,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9342,6 +9827,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9372,6 +9858,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9402,6 +9889,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9432,6 +9920,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9462,6 +9951,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9492,6 +9982,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(11)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9522,6 +10013,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9552,6 +10044,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9582,6 +10075,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9625,6 +10119,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9655,6 +10150,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9685,6 +10181,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9715,6 +10212,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9745,6 +10243,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9775,6 +10274,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9805,6 +10305,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9835,6 +10336,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9865,6 +10367,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9895,6 +10398,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9925,6 +10429,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9955,6 +10460,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -9985,6 +10491,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10015,6 +10522,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10045,6 +10553,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10075,6 +10584,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10105,6 +10615,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10135,6 +10646,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10165,6 +10677,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10195,6 +10708,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10238,6 +10752,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(25)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10268,6 +10783,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(242)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10298,6 +10814,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(5819)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10328,6 +10845,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(9)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10358,6 +10876,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(13)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10401,6 +10920,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10431,6 +10951,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10461,6 +10982,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(27)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10491,6 +11013,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10521,6 +11044,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10551,6 +11075,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10581,6 +11106,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10611,6 +11137,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10641,6 +11168,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10671,6 +11199,7 @@
           "dataTypeName": "TIMESTAMP_NTZ",
           "dataType": "TIMESTAMP_NTZ",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10701,6 +11230,7 @@
           "dataTypeName": "TIMESTAMP_NTZ",
           "dataType": "TIMESTAMP_NTZ",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10731,6 +11261,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10761,6 +11292,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(55)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10791,6 +11323,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10821,6 +11354,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(85)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10851,6 +11385,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10881,6 +11416,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10911,6 +11447,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10941,6 +11478,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -10971,6 +11509,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(11)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11001,6 +11540,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11031,6 +11571,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11061,6 +11602,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11091,6 +11633,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11121,6 +11664,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11151,6 +11695,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11181,6 +11726,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11211,6 +11757,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11241,6 +11788,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(23)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11271,6 +11819,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11314,6 +11863,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11344,6 +11894,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11374,6 +11925,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11404,6 +11956,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(27)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11434,6 +11987,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11464,6 +12018,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11494,6 +12049,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11524,6 +12080,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(27)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11554,6 +12111,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11584,6 +12142,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11614,6 +12173,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11657,6 +12217,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11687,6 +12248,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11717,6 +12279,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11747,6 +12310,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(27)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11777,6 +12341,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11807,6 +12372,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11837,6 +12403,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11867,6 +12434,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(27)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11897,6 +12465,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11927,6 +12496,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11957,6 +12527,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(38, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -11987,6 +12558,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12030,6 +12602,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12060,6 +12633,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12090,6 +12664,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(242)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12120,6 +12695,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(28, 11)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12150,6 +12726,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(13)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12180,6 +12757,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12223,6 +12801,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12253,6 +12832,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12283,6 +12863,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12313,6 +12894,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12343,6 +12925,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12373,6 +12956,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12403,6 +12987,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12433,6 +13018,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12476,6 +13062,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12506,6 +13093,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12549,6 +13137,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12579,6 +13168,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12609,6 +13199,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12639,6 +13230,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12669,6 +13261,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12699,6 +13292,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12729,6 +13323,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12759,6 +13354,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12802,6 +13398,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12832,6 +13429,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12875,6 +13473,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12905,6 +13504,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12935,6 +13535,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12965,6 +13566,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -12995,6 +13597,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13025,6 +13628,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13055,6 +13659,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13098,6 +13703,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13128,6 +13734,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13158,6 +13765,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13188,6 +13796,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13218,6 +13827,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13248,6 +13858,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13291,6 +13902,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13321,6 +13933,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13351,6 +13964,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13381,6 +13995,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13411,6 +14026,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13441,6 +14057,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13471,6 +14088,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13514,6 +14132,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13544,6 +14163,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13574,6 +14194,7 @@
           "dataTypeName": "NUMBER",
           "dataType": "NUMBER(4, 0)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13604,6 +14225,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13647,6 +14269,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13677,6 +14300,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13707,6 +14331,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13737,6 +14362,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13767,6 +14393,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13797,6 +14424,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13827,6 +14455,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13870,6 +14499,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13900,6 +14530,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13930,6 +14561,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13960,6 +14592,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -13990,6 +14623,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14020,6 +14654,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14063,6 +14698,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14093,6 +14729,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(23)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14123,6 +14760,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14153,6 +14791,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14183,6 +14822,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14213,6 +14853,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14243,6 +14884,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14273,6 +14915,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14303,6 +14946,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14333,6 +14977,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14363,6 +15008,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14393,6 +15039,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14436,6 +15083,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14466,6 +15114,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14496,6 +15145,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14526,6 +15176,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(28)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14556,6 +15207,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14586,6 +15238,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14616,6 +15269,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(8)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14646,6 +15300,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14676,6 +15331,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14706,6 +15362,7 @@
           "dataTypeName": "ARRAY",
           "dataType": "ARRAY",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14749,6 +15406,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14779,6 +15437,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14809,6 +15468,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14839,6 +15499,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14869,6 +15530,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14899,6 +15561,7 @@
           "dataTypeName": "BOOLEAN",
           "dataType": "BOOLEAN",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14942,6 +15605,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -14972,6 +15636,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15002,6 +15667,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15032,6 +15698,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15062,6 +15729,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15092,6 +15760,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(17)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15122,6 +15791,7 @@
           "dataTypeName": "DATE",
           "dataType": "DATE",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15152,6 +15822,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15195,6 +15866,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15225,6 +15897,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15255,6 +15928,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15285,6 +15959,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(13)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15315,6 +15990,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(6)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15345,6 +16021,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15375,6 +16052,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15405,6 +16083,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15435,6 +16114,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15465,6 +16145,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15495,6 +16176,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15538,6 +16220,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15568,6 +16251,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15598,6 +16282,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15628,6 +16313,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(16777216)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15658,6 +16344,7 @@
           "dataTypeName": "FLOAT",
           "dataType": "FLOAT",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
@@ -15688,6 +16375,7 @@
           "dataTypeName": "TEXT",
           "dataType": "TEXT(13)",
           "nullable": true,
+          "identity": false,
           "primaryKey": false,
           "diff": {
             "type": "UNCHANGED"
