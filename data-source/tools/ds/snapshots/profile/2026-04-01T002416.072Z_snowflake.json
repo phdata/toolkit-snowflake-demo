@@ -39,30 +39,30 @@
   },
   "metadata": {
     "identifier": {
-      "id": "snowflake:profile:2026-01-31T001706.787Z",
+      "id": "snowflake:profile:2026-04-01T002416.072Z",
       "tool": "ds",
       "source": "snowflake",
       "type": "profile",
-      "timestamp": "2026-01-31T00:17:06.787Z"
+      "timestamp": "2026-04-01T00:24:16.072Z"
     },
     "source": {
       "name": "snowflake",
       "type": "snowflake",
       "lineage": {
         "scan": {
-          "id": "snowflake:scan:2026-01-31T001650.456Z",
+          "id": "snowflake:scan:2026-04-01T002358.448Z",
           "tool": "ds",
           "source": "snowflake",
           "type": "scan",
-          "timestamp": "2026-01-31T00:16:50.456Z"
+          "timestamp": "2026-04-01T00:23:58.448Z"
         }
       },
       "accountName": "PHDATAPARTNER-DEMO"
     },
     "version": "dev",
     "license": "PRO",
-    "start": "2026-01-31T00:17:01.515731Z",
-    "end": "2026-01-31T00:17:06.787158Z"
+    "start": "2026-04-01T00:24:09.297909Z",
+    "end": "2026-04-01T00:24:16.072356Z"
   },
   "tables": [
     {
@@ -114,7 +114,7 @@
               },
               {
                 "name": "stddev",
-                "value": 9386.682616733347
+                "value": 8981.44600847063
               },
               {
                 "name": "zero_count",
@@ -170,7 +170,7 @@
               },
               {
                 "name": "null_count",
-                "value": 106810
+                "value": 118870
               }
             ]
           }
@@ -336,11 +336,11 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": 3989609719402149845
+            "value": -8017026205728861085
           },
           {
             "name": "row_count",
-            "value": 402774
+            "value": 447594
           }
         ]
       },
@@ -351,6 +351,112 @@
           "columns": [
             "ID"
           ]
+        }
+      ],
+      "identityColumn": {
+        "name": "ID",
+        "ordinalPosition": 1,
+        "type": {
+          "name": "NUMBER",
+          "precision": 38,
+          "scale": 0,
+          "length": 38
+        },
+        "mappedType": {
+          "name": "NUMBER",
+          "precision": 38,
+          "scale": 0,
+          "length": 38
+        },
+        "dataTypeName": "NUMBER",
+        "nullable": false,
+        "identity": false,
+        "primaryKey": true,
+        "profile": {
+          "gauges": [
+            {
+              "name": "distinct_count",
+              "value": 40035
+            },
+            {
+              "name": "max",
+              "value": 40062
+            },
+            {
+              "name": "min",
+              "value": 1
+            },
+            {
+              "name": "negative_count",
+              "value": 0
+            },
+            {
+              "name": "null_count",
+              "value": 0
+            },
+            {
+              "name": "stddev",
+              "value": 8981.44600847063
+            },
+            {
+              "name": "zero_count",
+              "value": 0
+            }
+          ]
+        }
+      },
+      "primaryKeyColumns": [
+        {
+          "name": "ID",
+          "ordinalPosition": 1,
+          "type": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "dataTypeName": "NUMBER",
+          "nullable": false,
+          "identity": false,
+          "primaryKey": true,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 40035
+              },
+              {
+                "name": "max",
+                "value": 40062
+              },
+              {
+                "name": "min",
+                "value": 1
+              },
+              {
+                "name": "negative_count",
+                "value": 0
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              },
+              {
+                "name": "stddev",
+                "value": 8981.44600847063
+              },
+              {
+                "name": "zero_count",
+                "value": 0
+              }
+            ]
+          }
         }
       ],
       "qualifiedName": "SYNTHETIC_SALES.MAIN.CUSTOMER"
@@ -404,7 +510,7 @@
               },
               {
                 "name": "stddev",
-                "value": 5908.441458438427
+                "value": 5586.382519401889
               },
               {
                 "name": "zero_count",
@@ -456,7 +562,7 @@
               },
               {
                 "name": "stddev",
-                "value": 1167.5862122571507
+                "value": 1099.0789600278954
               },
               {
                 "name": "zero_count",
@@ -508,7 +614,7 @@
               },
               {
                 "name": "stddev",
-                "value": 4624.931933161395
+                "value": 4354.066442624641
               },
               {
                 "name": "zero_count",
@@ -540,11 +646,11 @@
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 2182983
+                "value": 2458102
               },
               {
                 "name": "max",
-                "value": "2026-01-30T23:51:16.058+00:00"
+                "value": "2026-03-31T07:51:15.673+00:00"
               },
               {
                 "name": "min",
@@ -580,11 +686,11 @@
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 367861
+                "value": 414565
               },
               {
                 "name": "max",
-                "value": "2026-02-19T01:47:03.789+00:00"
+                "value": "2026-04-11T14:34:37.556+00:00"
               },
               {
                 "name": "min",
@@ -592,7 +698,7 @@
               },
               {
                 "name": "null_count",
-                "value": 2032540
+                "value": 2302278
               }
             ]
           }
@@ -602,11 +708,11 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": -3777304678105327863
+            "value": 1053432713751405343
           },
           {
             "name": "row_count",
-            "value": 2454704
+            "value": 2781044
           }
         ]
       },
@@ -689,7 +795,7 @@
               },
               {
                 "name": "stddev",
-                "value": 3194.976834073919
+                "value": 3143.365024816876
               },
               {
                 "name": "zero_count",
@@ -877,7 +983,7 @@
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 25536
+                "value": 27002
               },
               {
                 "name": "max",
@@ -917,7 +1023,7 @@
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 10273
+                "value": 10844
               },
               {
                 "name": "max",
@@ -929,7 +1035,7 @@
               },
               {
                 "name": "null_count",
-                "value": 30042
+                "value": 32230
               }
             ]
           }
@@ -977,7 +1083,7 @@
               },
               {
                 "name": "stddev",
-                "value": 1368.4099770074226
+                "value": 1375.528359895755
               },
               {
                 "name": "zero_count",
@@ -1009,7 +1115,7 @@
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 23568
+                "value": 23716
               },
               {
                 "name": "max",
@@ -1029,7 +1135,7 @@
               },
               {
                 "name": "stddev",
-                "value": 3001.7073802409914
+                "value": 3022.537523200872
               },
               {
                 "name": "zero_count",
@@ -1043,11 +1149,11 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": 4260654968666350034
+            "value": -1441996383084795018
           },
           {
             "name": "row_count",
-            "value": 41600
+            "value": 44600
           }
         ]
       },
@@ -1058,6 +1164,112 @@
           "columns": [
             "ID"
           ]
+        }
+      ],
+      "identityColumn": {
+        "name": "ID",
+        "ordinalPosition": 1,
+        "type": {
+          "name": "NUMBER",
+          "precision": 38,
+          "scale": 0,
+          "length": 38
+        },
+        "mappedType": {
+          "name": "NUMBER",
+          "precision": 38,
+          "scale": 0,
+          "length": 38
+        },
+        "dataTypeName": "NUMBER",
+        "nullable": false,
+        "identity": false,
+        "primaryKey": true,
+        "profile": {
+          "gauges": [
+            {
+              "name": "distinct_count",
+              "value": 10000
+            },
+            {
+              "name": "max",
+              "value": 10022
+            },
+            {
+              "name": "min",
+              "value": 1
+            },
+            {
+              "name": "negative_count",
+              "value": 0
+            },
+            {
+              "name": "null_count",
+              "value": 0
+            },
+            {
+              "name": "stddev",
+              "value": 3143.365024816876
+            },
+            {
+              "name": "zero_count",
+              "value": 0
+            }
+          ]
+        }
+      },
+      "primaryKeyColumns": [
+        {
+          "name": "ID",
+          "ordinalPosition": 1,
+          "type": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "dataTypeName": "NUMBER",
+          "nullable": false,
+          "identity": false,
+          "primaryKey": true,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 10000
+              },
+              {
+                "name": "max",
+                "value": 10022
+              },
+              {
+                "name": "min",
+                "value": 1
+              },
+              {
+                "name": "negative_count",
+                "value": 0
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              },
+              {
+                "name": "stddev",
+                "value": 3143.365024816876
+              },
+              {
+                "name": "zero_count",
+                "value": 0
+              }
+            ]
+          }
         }
       ],
       "qualifiedName": "SYNTHETIC_SALES.MAIN.PRODUCT"
