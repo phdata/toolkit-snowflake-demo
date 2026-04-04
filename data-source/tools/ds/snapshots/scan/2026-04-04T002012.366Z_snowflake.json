@@ -39,11 +39,11 @@
   },
   "metadata": {
     "identifier": {
-      "id": "snowflake:scan:2026-02-03T001843.027Z",
+      "id": "snowflake:scan:2026-04-04T002012.366Z",
       "tool": "ds",
       "source": "snowflake",
       "type": "scan",
-      "timestamp": "2026-02-03T00:18:43.027Z"
+      "timestamp": "2026-04-04T00:20:12.366Z"
     },
     "source": {
       "name": "snowflake",
@@ -52,8 +52,8 @@
     },
     "version": "dev",
     "license": "PRO",
-    "start": "2026-02-03T00:18:34.506713Z",
-    "end": "2026-02-03T00:18:43.027740Z"
+    "start": "2026-04-04T00:20:05.104029Z",
+    "end": "2026-04-04T00:20:12.366967Z"
   },
   "tables": [
     {
@@ -175,6 +175,50 @@
           "columns": [
             "ID"
           ]
+        }
+      ],
+      "identityColumn": {
+        "name": "ID",
+        "ordinalPosition": 1,
+        "type": {
+          "name": "NUMBER",
+          "precision": 38,
+          "scale": 0,
+          "length": 38
+        },
+        "mappedType": {
+          "name": "NUMBER",
+          "precision": 38,
+          "scale": 0,
+          "length": 38
+        },
+        "dataTypeName": "NUMBER",
+        "dataType": "NUMBER(38, 0)",
+        "nullable": false,
+        "identity": false,
+        "primaryKey": true
+      },
+      "primaryKeyColumns": [
+        {
+          "name": "ID",
+          "ordinalPosition": 1,
+          "type": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "dataTypeName": "NUMBER",
+          "dataType": "NUMBER(38, 0)",
+          "nullable": false,
+          "identity": false,
+          "primaryKey": true
         }
       ],
       "qualifiedName": "SYNTHETIC_SALES.MAIN.CUSTOMER"
@@ -503,6 +547,50 @@
           "columns": [
             "ID"
           ]
+        }
+      ],
+      "identityColumn": {
+        "name": "ID",
+        "ordinalPosition": 1,
+        "type": {
+          "name": "NUMBER",
+          "precision": 38,
+          "scale": 0,
+          "length": 38
+        },
+        "mappedType": {
+          "name": "NUMBER",
+          "precision": 38,
+          "scale": 0,
+          "length": 38
+        },
+        "dataTypeName": "NUMBER",
+        "dataType": "NUMBER(38, 0)",
+        "nullable": false,
+        "identity": false,
+        "primaryKey": true
+      },
+      "primaryKeyColumns": [
+        {
+          "name": "ID",
+          "ordinalPosition": 1,
+          "type": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "mappedType": {
+            "name": "NUMBER",
+            "precision": 38,
+            "scale": 0,
+            "length": 38
+          },
+          "dataTypeName": "NUMBER",
+          "dataType": "NUMBER(38, 0)",
+          "nullable": false,
+          "identity": false,
+          "primaryKey": true
         }
       ],
       "qualifiedName": "SYNTHETIC_SALES.MAIN.PRODUCT"
