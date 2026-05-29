@@ -24,7 +24,7 @@ runs:
         cache-name: cache-node-modules
       with:
         # npm cache files are stored in `~/.npm` on Linux/macOS
-        path: cli-install
+        path: toolkit-cli
         key: toolkit-cli-${{ inputs.toolkit_cli_version }}
     - name: Download the toolkit-cli
       if: ${{ steps.cache-toolkit-cli.outputs.cache-hit != 'true' }}
@@ -46,7 +46,7 @@ runs:
 
     - name: Add toolkit to PATH
       shell: bash
-      run: readlink -f cli-install >> $GITHUB_PATH
+      run: readlink -f toolkit-cli >> $GITHUB_PATH
 
     - name: Write Snowflake private key
       shell: bash
