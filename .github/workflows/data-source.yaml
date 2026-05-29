@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run common setup
         uses: ./.github/actions/common-setup
@@ -61,7 +61,7 @@ jobs:
           git push
 
       - name: Upload reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: data-source-reports
           path: data-source/reports
