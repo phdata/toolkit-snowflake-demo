@@ -31,8 +31,17 @@ runs:
       shell: bash
       run: |
         set -euo pipefail
-        curl --fail --output toolkit-cli.zip "https://repo.phdata.io/${{ inputs.toolkit_cli_download_token }}/toolkit-cli/maven/io/phdata/toolkit/toolkit-cli/${{ inputs.toolkit_cli_version }}/toolkit-cli-${{ inputs.toolkit_cli_version }}.zip"
-        unzip -jd cli-install toolkit-cli.zip
+
+        curl --fail --output toolkit-cli.zip "https://repo.phdata.io/toolkit-cli/${{ inputs.toolkit_cli_version }}/toolkit-cli-${{ inputs.toolkit_cli_version }}.zip"
+        unzip toolkit-cli.zip
+
+        zip_name="${TOOLKIT_CLI_DOWNLOAD_URL##*/}"
+        versioned_dir="${zip_name%.zip}"
+        if [ -d "$versioned_dir" ]; then
+          # this is an older zip file that includes the version in the directory name, so rename it
+          echo "Moving $versioned_dir -> toolkit-cli"
+          mv "$versioned_dir" toolkit-cli
+        fi
 
     - name: Add toolkit to PATH
       shell: bash
