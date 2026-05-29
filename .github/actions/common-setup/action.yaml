@@ -32,7 +32,8 @@ runs:
       run: |
         set -euo pipefail
 
-        curl --fail --output toolkit-cli.zip "https://repo.phdata.io/toolkit-cli/${{ inputs.toolkit_cli_version }}/toolkit-cli-${{ inputs.toolkit_cli_version }}.zip"
+        TOOLKIT_CLI_DOWNLOAD_URL="https://repo.phdata.io/toolkit-cli/${{ inputs.toolkit_cli_version }}/toolkit-cli-${{ inputs.toolkit_cli_version }}.zip"
+        curl --fail --output toolkit-cli.zip "$TOOLKIT_CLI_DOWNLOAD_URL"
         unzip toolkit-cli.zip
 
         zip_name="${TOOLKIT_CLI_DOWNLOAD_URL##*/}"
