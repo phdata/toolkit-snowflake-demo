@@ -1,0 +1,15 @@
+warehouses:
+  - name: {{name}}_{{nonce}}
+    properties:
+      warehouse_size: {{size}}
+      auto_suspend: 60
+      auto_resume: true
+      initially_suspended: true
+
+privilegeGrants:
+  - privilege:
+      - usage
+      - operate
+    objectType: warehouse
+    objectName: {{name}}_{{nonce}}
+    roleName: DEMO_AGENT_RW_{{nonce}}
