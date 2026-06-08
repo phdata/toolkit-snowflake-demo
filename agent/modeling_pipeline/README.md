@@ -360,8 +360,8 @@ snapshot dims get SCD2 plans. The emitted YAMLs are the input to Step 6.
 Inspect the output:
 
 ```bash
-ls data-model-out/             # rationale.md, yamls/
-ls data-model-out/yamls/       # one DiscoveryConfig per fact/dim
+ls data-model-out/             # rationale.md, specs/
+ls data-model-out/specs/       # one DiscoveryConfig per fact/dim
 cat data-model-out/rationale.md
 ```
 
@@ -370,7 +370,7 @@ cat data-model-out/rationale.md
 Two things to know about `agent discovery`'s output layout:
 
 1. `agent model-data` writes its per-table configs into
-   `data-model-out/yamls/*.yaml` (a sibling of `rationale.md`), so the loop
+   `data-model-out/specs/*.yaml` (a sibling of `rationale.md`), so the loop
    iterates that subdirectory, not the top-level `data-model-out/`.
 2. `agent discovery` always writes its output as
    `<output-dir>/data-contract.json` — the YAML's `name:` field does **not**
@@ -378,7 +378,7 @@ Two things to know about `agent discovery`'s output layout:
    every discovery invocation its own output subdirectory:
 
 ```bash
-for f in data-model-out/yamls/*.yaml; do
+for f in data-model-out/specs/*.yaml; do
     name=$(basename "$f" .yaml)
     toolkit agent discovery demo_sf "$f" \
         --use-index \
@@ -420,7 +420,7 @@ CURRENT_DATE"`. Then re-run discovery with `--resolve`:
 
 ```bash
 # after editing comments into discovery-out/dim_customer/data-contract.json:
-toolkit agent discovery demo_sf data-model-out/yamls/dim_customer.yaml \
+toolkit agent discovery demo_sf data-model-out/specs/dim_customer.yaml \
     --resolve discovery-out/dim_customer/data-contract.json
 ```
 
@@ -431,7 +431,7 @@ over all of them:
 ```bash
 for d in discovery-out/*/; do
     name=$(basename "$d")
-    toolkit agent discovery demo_sf "data-model-out/yamls/$name.yaml" \
+    toolkit agent discovery demo_sf "data-model-out/specs/$name.yaml" \
         --resolve "$d/data-contract.json"
 done
 ```

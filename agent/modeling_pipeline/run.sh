@@ -201,12 +201,12 @@ toolkit agent model-data demo_sf \\
 # 6. For each emitted YAML, run discovery against the existing index
 #    (--use-index reuses the step 4 build, no re-scanning).
 #    Notes:
-#      - model-data emits DiscoveryConfigs into data-model-out/yamls/ (not
+#      - model-data emits DiscoveryConfigs into data-model-out/specs/ (not
 #        the top level — rationale.md lives there too).
 #      - discovery always writes <output-dir>/data-contract.json — the YAML
 #        name does NOT drive the filename. Give each invocation its own subdir
 #        so contracts don't overwrite each other.
-for f in data-model-out/yamls/*.yaml; do
+for f in data-model-out/specs/*.yaml; do
     name=\$(basename "\$f" .yaml)
     toolkit agent discovery demo_sf "\$f" \\
         --use-index \\
@@ -221,7 +221,7 @@ done
 #    comments are left unchanged, so sweeping over all of them is safe.
 for d in discovery-out/*/; do
     name=\$(basename "\$d")
-    toolkit agent discovery demo_sf "data-model-out/yamls/\$name.yaml" \\
+    toolkit agent discovery demo_sf "data-model-out/specs/\$name.yaml" \\
         --resolve "\$d/data-contract.json"
 done
 
