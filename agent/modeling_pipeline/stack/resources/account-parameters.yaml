@@ -1,0 +1,54 @@
+account:
+  parameters:
+    timezone: UTC
+
+databases:
+  - name: DEMO_BRONZE_{{nonce}}
+  - name: DEMO_SILVER_{{nonce}}
+  - name: DEMO_GOLD_{{nonce}}
+
+schemas:
+  - name: MAIN
+    database: DEMO_BRONZE_{{nonce}}
+  - name: MAIN
+    database: DEMO_SILVER_{{nonce}}
+  - name: MAIN
+    database: DEMO_GOLD_{{nonce}}
+
+roles:
+  - name: DEMO_AGENT_RW_{{nonce}}
+
+privilegeGrants:
+  - privilege:
+      - usage
+      - monitor
+      - modify
+    objectType: database
+    objectName: DEMO_BRONZE_{{nonce}}
+    roleName: DEMO_AGENT_RW_{{nonce}}
+  - privilege:
+      - usage
+      - monitor
+      - modify
+    objectType: database
+    objectName: DEMO_SILVER_{{nonce}}
+    roleName: DEMO_AGENT_RW_{{nonce}}
+  - privilege:
+      - usage
+      - monitor
+      - modify
+    objectType: database
+    objectName: DEMO_GOLD_{{nonce}}
+    roleName: DEMO_AGENT_RW_{{nonce}}
+  - privilege: all
+    objectType: schema
+    objectName: DEMO_BRONZE_{{nonce}}.MAIN
+    roleName: DEMO_AGENT_RW_{{nonce}}
+  - privilege: all
+    objectType: schema
+    objectName: DEMO_SILVER_{{nonce}}.MAIN
+    roleName: DEMO_AGENT_RW_{{nonce}}
+  - privilege: all
+    objectType: schema
+    objectName: DEMO_GOLD_{{nonce}}.MAIN
+    roleName: DEMO_AGENT_RW_{{nonce}}

@@ -1,0 +1,386 @@
+sourceType: snowflake
+tables:
+  - name: PRODUCT_CATEGORIES_RAW
+    database: DEMO_BRONZE_${DEMO_NONCE}
+    schema: MAIN
+    rows: 15
+    columns:
+      - name: CATEGORY_ID
+        primaryKey: true
+        provider: NumberSequence
+        config:
+          start: 100
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+        jdbcType: BIGINT
+      - name: CATEGORY_NAME
+        provider: LastName
+        nullable: false
+        dataType: VARCHAR
+        precision: 50
+        scale: 0
+        jdbcType: VARCHAR
+      - name: CATEGORY_DESCRIPTION
+        provider: ProductName
+        density: 0.8
+        nullable: true
+        dataType: VARCHAR
+        precision: 200
+        scale: 0
+        jdbcType: VARCHAR
+
+  - name: PRODUCTS_RAW
+    database: DEMO_BRONZE_${DEMO_NONCE}
+    schema: MAIN
+    # 1000 products. CATEGORY_ID is generated as a random number in the
+    # category PK range rather than declared as a foreign key, because
+    # datagen's FK iteration coupling requires the parent to have ≥ iters as
+    # the child. Snowflake-side referential integrity is preserved: every
+    # value lands in PRODUCT_CATEGORIES_RAW.CATEGORY_ID. The discovery
+    # agent will infer the join from data + query lineage.
+    rows: 1000
+    columns:
+      - name: SKU
+        primaryKey: true
+        provider: NumberSequence
+        config:
+          start: 1000000
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+        jdbcType: BIGINT
+      - name: PRODUCT_NAME
+        provider: ProductName
+        nullable: false
+        dataType: VARCHAR
+        precision: 100
+        scale: 0
+        jdbcType: VARCHAR
+      - name: CATEGORY_ID
+        # Matches PRODUCT_CATEGORIES_RAW.CATEGORY_ID range (NumberSequence start=100, 15 rows).
+        provider: RandomNumber
+        config:
+          min: 100
+          max: 114
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+        jdbcType: BIGINT
+      - name: LIST_PRICE
+        provider: RandomNumber
+        config:
+          min: 5
+          max: 500
+        nullable: false
+        dataType: NUMBER
+        precision: 10
+        scale: 2
+        jdbcType: DECIMAL
+      - name: ACTIVE_FLAG
+        provider: Enum
+        config:
+          values:
+            - "Y"
+            - "N"
+        nullable: false
+        dataType: VARCHAR
+        precision: 1
+        scale: 0
+        jdbcType: VARCHAR
+
+  - name: STORE_LOCATIONS_RAW
+    database: DEMO_BRONZE_${DEMO_NONCE}
+    schema: MAIN
+    rows: 30
+    columns:
+      - name: LOCATION_ID
+        primaryKey: true
+        provider: NumberSequence
+        config:
+          start: 200
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+        jdbcType: BIGINT
+      - name: CITY
+        provider: City
+        nullable: false
+        dataType: VARCHAR
+        precision: 50
+        scale: 0
+        jdbcType: VARCHAR
+      - name: STATE
+        provider: State
+        nullable: false
+        dataType: VARCHAR
+        precision: 50
+        scale: 0
+        jdbcType: VARCHAR
+      - name: COUNTRY
+        provider: Country
+        nullable: false
+        dataType: VARCHAR
+        precision: 50
+        scale: 0
+        jdbcType: VARCHAR
+      - name: POSTAL_CODE
+        provider: RandomNumber
+        config:
+          min: 10000
+          max: 99999
+        nullable: true
+        density: 0.9
+        dataType: VARCHAR
+        precision: 10
+        scale: 0
+        jdbcType: VARCHAR
+
+  - name: STORES_RAW
+    database: DEMO_BRONZE_${DEMO_NONCE}
+    schema: MAIN
+    rows: 25
+    columns:
+      - name: STORE_CODE
+        primaryKey: true
+        provider: NumberSequence
+        config:
+          start: 5000
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+        jdbcType: BIGINT
+      - name: STORE_NAME
+        provider: StreetName
+        nullable: false
+        dataType: VARCHAR
+        precision: 100
+        scale: 0
+        jdbcType: VARCHAR
+      - name: LOCATION_ID
+        foreignKey: DEMO_BRONZE_${DEMO_NONCE}.MAIN.STORE_LOCATIONS_RAW.LOCATION_ID
+        nullable: false
+      - name: OPEN_DATE
+        provider: RandomDate
+        nullable: false
+        dataType: DATE
+        jdbcType: DATE
+
+  - name: CUSTOMERS_RAW
+    database: DEMO_BRONZE_${DEMO_NONCE}
+    schema: MAIN
+    rows: 1000
+    columns:
+      - name: CUSTOMER_ID
+        primaryKey: true
+        provider: NumberSequence
+        config:
+          start: 9000000
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+        jdbcType: BIGINT
+      - name: FIRST_NAME
+        provider: FirstName
+        nullable: false
+        dataType: VARCHAR
+        precision: 50
+        scale: 0
+        jdbcType: VARCHAR
+      - name: LAST_NAME
+        provider: LastName
+        nullable: false
+        dataType: VARCHAR
+        precision: 50
+        scale: 0
+        jdbcType: VARCHAR
+      - name: EMAIL
+        provider: Email
+        density: 0.85
+        nullable: true
+        dataType: VARCHAR
+        precision: 100
+        scale: 0
+        jdbcType: VARCHAR
+      - name: GENDER
+        provider: Gender
+        density: 0.8
+        nullable: true
+        dataType: VARCHAR
+        precision: 10
+        scale: 0
+        jdbcType: VARCHAR
+      - name: BIRTH_YEAR
+        provider: RandomNumber
+        config:
+          min: 1945
+          max: 2005
+        density: 0.7
+        nullable: true
+        dataType: NUMBER
+        precision: 4
+        scale: 0
+        jdbcType: INTEGER
+      - name: CITY
+        provider: City
+        density: 0.9
+        nullable: true
+        dataType: VARCHAR
+        precision: 50
+        scale: 0
+        jdbcType: VARCHAR
+      - name: STATE
+        provider: State
+        density: 0.9
+        nullable: true
+        dataType: VARCHAR
+        precision: 50
+        scale: 0
+        jdbcType: VARCHAR
+      - name: SIGNUP_AT
+        provider: RandomTimestamp
+        nullable: false
+        dataType: TIMESTAMP_NTZ
+        jdbcType: TIMESTAMP
+
+  - name: ORDERS_RAW
+    database: DEMO_BRONZE_${DEMO_NONCE}
+    schema: MAIN
+    # ~3-7 orders per customer (1000 customers) → ~5000 rows, capped at 6000.
+    # Stores (25) are sampled randomly for each order row.
+    rowGenerator:
+      range: "3..7"
+      max: 6000
+      affinity: DEMO_BRONZE_${DEMO_NONCE}.MAIN.CUSTOMERS_RAW
+    columns:
+      - name: ORDER_ID
+        primaryKey: true
+        provider: NumberSequence
+        config:
+          start: 70000000
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+        jdbcType: BIGINT
+      - name: CUSTOMER_ID
+        foreignKey: DEMO_BRONZE_${DEMO_NONCE}.MAIN.CUSTOMERS_RAW.CUSTOMER_ID
+        nullable: false
+      - name: STORE_CODE
+        # Matches STORES_RAW.STORE_CODE range (NumberSequence start=5000, 25 rows).
+        # Not an FK — see PRODUCTS_RAW.CATEGORY_ID for the rationale.
+        provider: RandomNumber
+        config:
+          min: 5000
+          max: 5024
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+        jdbcType: BIGINT
+      - name: ORDER_TS
+        provider: RandomTimestamp
+        nullable: false
+        dataType: TIMESTAMP_NTZ
+        jdbcType: TIMESTAMP
+      - name: ORDER_STATUS
+        provider: Enum
+        config:
+          values:
+            - "PLACED"
+            - "SHIPPED"
+            - "DELIVERED"
+            - "RETURNED"
+            - "CANCELLED"
+        nullable: false
+        dataType: VARCHAR
+        precision: 20
+        scale: 0
+        jdbcType: VARCHAR
+      - name: CHANNEL
+        provider: Enum
+        config:
+          values:
+            - "WEB"
+            - "MOBILE"
+            - "STORE"
+        nullable: false
+        dataType: VARCHAR
+        precision: 10
+        scale: 0
+        jdbcType: VARCHAR
+
+  - name: ORDER_LINES_RAW
+    database: DEMO_BRONZE_${DEMO_NONCE}
+    schema: MAIN
+    # ~2-4 lines per order (anchored on ORDERS_RAW) → ~15000 rows, capped at 18000.
+    # Products are sampled randomly for each line.
+    rowGenerator:
+      range: "2..4"
+      max: 18000
+      affinity: DEMO_BRONZE_${DEMO_NONCE}.MAIN.ORDERS_RAW
+    columns:
+      - name: ORDER_LINE_ID
+        primaryKey: true
+        provider: NumberSequence
+        config:
+          start: 80000000
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+        jdbcType: BIGINT
+      - name: ORDER_ID
+        foreignKey: DEMO_BRONZE_${DEMO_NONCE}.MAIN.ORDERS_RAW.ORDER_ID
+        nullable: false
+      - name: SKU
+        # Matches PRODUCTS_RAW.SKU range (NumberSequence start=1000000, 1000 rows).
+        # Independent random sampling here gives realistic variety: each order
+        # line picks any product, not just the one PRODUCTS_RAW row generated
+        # in the same iteration. Not an FK — see PRODUCTS_RAW.CATEGORY_ID rationale.
+        provider: RandomNumber
+        config:
+          min: 1000000
+          max: 1000999
+        nullable: false
+        dataType: NUMBER
+        precision: 38
+        scale: 0
+        jdbcType: BIGINT
+      - name: QUANTITY
+        provider: RandomNumber
+        config:
+          min: 1
+          max: 8
+        nullable: false
+        dataType: NUMBER
+        precision: 3
+        scale: 0
+        jdbcType: INTEGER
+      - name: UNIT_PRICE
+        provider: RandomNumber
+        config:
+          min: 5
+          max: 500
+        nullable: false
+        dataType: NUMBER
+        precision: 10
+        scale: 2
+        jdbcType: DECIMAL
+      - name: DISCOUNT_PCT
+        provider: RandomNumber
+        config:
+          min: 0
+          max: 30
+        density: 0.4
+        nullable: true
+        dataType: NUMBER
+        precision: 5
+        scale: 2
+        jdbcType: DECIMAL
