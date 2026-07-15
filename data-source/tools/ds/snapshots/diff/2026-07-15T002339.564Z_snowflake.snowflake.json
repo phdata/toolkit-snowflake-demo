@@ -41,36 +41,36 @@
   },
   "metadata": {
     "identifier": {
-      "id": "snowflake.snowflake:diff:2026-05-15T003359.888Z",
+      "id": "snowflake.snowflake:diff:2026-07-15T002339.564Z",
       "tool": "ds",
       "source": "snowflake.snowflake",
       "type": "diff",
-      "timestamp": "2026-05-15T00:33:59.888Z"
+      "timestamp": "2026-07-15T00:23:39.564Z"
     },
     "source": {
       "name": "snowflake",
       "type": "snowflake",
       "lineage": {
         "scan": {
-          "id": "snowflake:scan:2026-05-14T003607.597Z",
+          "id": "snowflake:scan:2026-07-14T002507.190Z",
           "tool": "ds",
           "source": "snowflake",
           "type": "scan",
-          "timestamp": "2026-05-14T00:36:07.597Z"
+          "timestamp": "2026-07-14T00:25:07.190Z"
         },
         "profile": {
-          "id": "snowflake:profile:2026-05-14T003625.034Z",
+          "id": "snowflake:profile:2026-07-14T002529.490Z",
           "tool": "ds",
           "source": "snowflake",
           "type": "profile",
-          "timestamp": "2026-05-14T00:36:25.034Z"
+          "timestamp": "2026-07-14T00:25:29.490Z"
         },
         "match": {
-          "id": "snowflake.snowflake:match:2026-05-15T003359.319Z",
+          "id": "snowflake.snowflake:match:2026-07-15T002339.229Z",
           "tool": "ds",
           "source": "snowflake.snowflake",
           "type": "match",
-          "timestamp": "2026-05-15T00:33:59.319Z"
+          "timestamp": "2026-07-15T00:23:39.229Z"
         }
       },
       "accountName": "PHDATAPARTNER-DEMO"
@@ -80,33 +80,33 @@
       "type": "snowflake",
       "lineage": {
         "scan": {
-          "id": "snowflake:scan:2026-05-15T003331.244Z",
+          "id": "snowflake:scan:2026-07-15T002314.200Z",
           "tool": "ds",
           "source": "snowflake",
           "type": "scan",
-          "timestamp": "2026-05-15T00:33:31.244Z"
+          "timestamp": "2026-07-15T00:23:14.200Z"
         },
         "profile": {
-          "id": "snowflake:profile:2026-05-15T003347.368Z",
+          "id": "snowflake:profile:2026-07-15T002330.599Z",
           "tool": "ds",
           "source": "snowflake",
           "type": "profile",
-          "timestamp": "2026-05-15T00:33:47.368Z"
+          "timestamp": "2026-07-15T00:23:30.599Z"
         },
         "match": {
-          "id": "snowflake.snowflake:match:2026-05-15T003359.319Z",
+          "id": "snowflake.snowflake:match:2026-07-15T002339.229Z",
           "tool": "ds",
           "source": "snowflake.snowflake",
           "type": "match",
-          "timestamp": "2026-05-15T00:33:59.319Z"
+          "timestamp": "2026-07-15T00:23:39.229Z"
         }
       },
       "accountName": "PHDATAPARTNER-DEMO"
     },
-    "version": "dev",
+    "version": "0.99.0",
     "license": "PRO",
-    "start": "2026-05-15T00:33:59.729045Z",
-    "end": "2026-05-15T00:33:59.888362Z"
+    "start": "2026-07-15T00:23:39.462192Z",
+    "end": "2026-07-15T00:23:39.564101Z"
   },
   "tables": [
     {
@@ -141,6 +141,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": true,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -180,13 +181,13 @@
               },
               {
                 "name": "stddev",
-                "value": 8720.094604420814,
+                "value": 8384.50194946128,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 8720.094604420814 and target value 8714.275358332843 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 8384.50194946128 and target value 8379.309557735769 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 8714.275358332843,
+                      "target": 8379.309557735769,
                       "type": "MODIFIED"
                     }
                   ],
@@ -196,6 +197,36 @@
               {
                 "name": "zero_count",
                 "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ],
                 "diff": {
                   "type": "UNCHANGED"
                 }
@@ -235,6 +266,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -281,17 +313,47 @@
               },
               {
                 "name": "null_count",
-                "value": 127513,
+                "value": 139774,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 127513 and target numeric 127714 were compared directly",
+                      "description": "Source numeric 139774 and target numeric 139975 were compared directly",
                       "path": "value",
-                      "target": 127714,
+                      "target": 139975,
                       "type": "MODIFIED"
                     }
                   ],
                   "type": "MODIFIED"
+                }
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  null,
+                  "Melvin",
+                  "Cody",
+                  "Hassan",
+                  "Gregorio",
+                  "Jeromy",
+                  "Morton",
+                  "Hilario",
+                  "Romaine",
+                  "Lane",
+                  "Hong",
+                  "Joey",
+                  "Laverne",
+                  "Marshall",
+                  "Ismael",
+                  "Jan",
+                  "Leigh",
+                  "Irving",
+                  "Kyle",
+                  "Les"
+                ],
+                "diff": {
+                  "type": "UNCHANGED"
                 }
               }
             ],
@@ -329,6 +391,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -381,6 +444,36 @@
                 }
               }
             ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Jast",
+                  "Miller",
+                  "Muller",
+                  "Harvey",
+                  "Funk",
+                  "Hammes",
+                  "Olson",
+                  "Hessel",
+                  "Kling",
+                  "Langworth",
+                  "McLaughlin",
+                  "Legros",
+                  "Nikolaus",
+                  "Hand",
+                  "Hamill",
+                  "Glover",
+                  "Kutch",
+                  "Ledner",
+                  "Koepp",
+                  "McKenzie"
+                ],
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
             "diff": {
               "type": "UNCHANGED"
             }
@@ -415,6 +508,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -467,6 +561,36 @@
                 }
               }
             ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Louisiana",
+                  "Nevada",
+                  "North Carolina",
+                  "Mississippi",
+                  "New Hampshire",
+                  "Kentucky",
+                  "Maine",
+                  "Montana",
+                  "Nebraska",
+                  "Missouri",
+                  "New Mexico",
+                  "New Jersey",
+                  "Massachusetts",
+                  "Maryland",
+                  "Minnesota",
+                  "New York",
+                  "Ohio",
+                  "Oklahoma",
+                  "Iowa",
+                  "Michigan"
+                ],
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
             "diff": {
               "type": "UNCHANGED"
             }
@@ -501,6 +625,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -553,6 +678,36 @@
                 }
               }
             ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "701##",
+                  "898##",
+                  "288##",
+                  "387##",
+                  "036##",
+                  "404##",
+                  "042##",
+                  "590##",
+                  "688##",
+                  "650##",
+                  "880##",
+                  "076##",
+                  "026##",
+                  "210##",
+                  "555##",
+                  "122##",
+                  "444##",
+                  "730##",
+                  "510##",
+                  "480##"
+                ],
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
             "diff": {
               "type": "UNCHANGED"
             }
@@ -566,13 +721,13 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": -9152623029507701588,
+            "value": 429668077849981889,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric -9152623029507701588 and target numeric 3768286695777020488 were compared directly",
+                  "description": "Source numeric 429668077849981889 and target numeric -6037876248344815423 were compared directly",
                   "path": "value",
-                  "target": 3768286695777020488,
+                  "target": -6037876248344815423,
                   "type": "MODIFIED"
                 }
               ],
@@ -581,13 +736,13 @@
           },
           {
             "name": "row_count",
-            "value": 479715,
+            "value": 525282,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric 479715 and target numeric 480462 were compared directly",
+                  "description": "Source numeric 525282 and target numeric 526029 were compared directly",
                   "path": "value",
-                  "target": 480462,
+                  "target": 526029,
                   "type": "MODIFIED"
                 }
               ],
@@ -599,6 +754,9 @@
           "type": "MODIFIED"
         }
       },
+      "createdAt": "2024-08-19T23:28:57.350Z",
+      "lastAltered": "2024-08-19T23:28:57.350Z",
+      "lastAlteredBy": "DROPPED_USER(1172276996)",
       "constraints": [
         {
           "type": "PRIMARY_KEY",
@@ -631,6 +789,7 @@
         "nullable": false,
         "identity": false,
         "primaryKey": true,
+        "partitionKey": false,
         "profile": {
           "gauges": [
             {
@@ -655,70 +814,42 @@
             },
             {
               "name": "stddev",
-              "value": 8720.094604420814
+              "value": 8384.50194946128
             },
             {
               "name": "zero_count",
               "value": 0
             }
+          ],
+          "histograms": [
+            {
+              "name": "top_values",
+              "value": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ]
+            }
           ]
         }
       },
-      "primaryKeyColumns": [
-        {
-          "name": "ID",
-          "ordinalPosition": 1,
-          "type": {
-            "name": "NUMBER",
-            "precision": 38,
-            "scale": 0,
-            "length": 38
-          },
-          "mappedType": {
-            "name": "NUMBER",
-            "precision": 38,
-            "scale": 0,
-            "length": 38
-          },
-          "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
-          "nullable": false,
-          "identity": false,
-          "primaryKey": true,
-          "profile": {
-            "gauges": [
-              {
-                "name": "distinct_count",
-                "value": 40035
-              },
-              {
-                "name": "max",
-                "value": 40062
-              },
-              {
-                "name": "min",
-                "value": 1
-              },
-              {
-                "name": "negative_count",
-                "value": 0
-              },
-              {
-                "name": "null_count",
-                "value": 0
-              },
-              {
-                "name": "stddev",
-                "value": 8720.094604420814
-              },
-              {
-                "name": "zero_count",
-                "value": 0
-              }
-            ]
-          }
-        }
-      ],
       "qualifiedName": "SYNTHETIC_SALES.MAIN.CUSTOMER",
       "diff": {
         "type": "MODIFIED"
@@ -756,6 +887,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -795,13 +927,13 @@
               },
               {
                 "name": "stddev",
-                "value": 5388.3792081968395,
+                "value": 5144.001632239147,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 5388.3792081968395 and target value 5384.0500323033775 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 5144.001632239147 and target value 5140.301917502123 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 5384.0500323033775,
+                      "target": 5140.301917502123,
                       "type": "MODIFIED"
                     }
                   ],
@@ -811,6 +943,36 @@
               {
                 "name": "zero_count",
                 "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ],
                 "diff": {
                   "type": "UNCHANGED"
                 }
@@ -850,6 +1012,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -889,13 +1052,13 @@
               },
               {
                 "name": "stddev",
-                "value": 1056.784827535388,
+                "value": 1004.3731876464046,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 1056.784827535388 and target value 1055.858463474627 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 1004.3731876464046 and target value 1003.5777520167534 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 1055.858463474627,
+                      "target": 1003.5777520167534,
                       "type": "MODIFIED"
                     }
                   ],
@@ -905,6 +1068,36 @@
               {
                 "name": "zero_count",
                 "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  39,
+                  18,
+                  11,
+                  7,
+                  46,
+                  3,
+                  40,
+                  32,
+                  21,
+                  24,
+                  8,
+                  34,
+                  26,
+                  43,
+                  10,
+                  13,
+                  42,
+                  9,
+                  30,
+                  2
+                ],
                 "diff": {
                   "type": "UNCHANGED"
                 }
@@ -944,6 +1137,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -983,13 +1177,13 @@
               },
               {
                 "name": "stddev",
-                "value": 4186.868099644888,
+                "value": 3979.702329185815,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 4186.868099644888 and target value 4183.206200527055 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 3979.702329185815 and target value 3976.5585038876266 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 4183.206200527055,
+                      "target": 3976.5585038876266,
                       "type": "MODIFIED"
                     }
                   ],
@@ -999,6 +1193,36 @@
               {
                 "name": "zero_count",
                 "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  178,
+                  256,
+                  130,
+                  169,
+                  563,
+                  601,
+                  681,
+                  98,
+                  202,
+                  263,
+                  338,
+                  402,
+                  573,
+                  717,
+                  52,
+                  182,
+                  260,
+                  357,
+                  390,
+                  468
+                ],
                 "diff": {
                   "type": "UNCHANGED"
                 }
@@ -1038,17 +1262,18 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 2652724,
+                "value": 2922868,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 2652724 and target numeric 2657220 were compared directly",
+                      "description": "Source numeric 2922868 and target numeric 2927147 were compared directly",
                       "path": "value",
-                      "target": 2657220,
+                      "target": 2927147,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1057,12 +1282,12 @@
               },
               {
                 "name": "max",
-                "value": "2026-05-12T23:16:54.998+00:00",
+                "value": "2026-07-12T21:27:50.259+00:00",
                 "diff": {
                   "events": [
                     {
                       "path": "value",
-                      "target": "2026-05-13T23:16:54.998+00:00",
+                      "target": "2026-07-14T16:34:07.651+00:00",
                       "type": "MODIFIED"
                     }
                   ],
@@ -1081,6 +1306,64 @@
                 "value": 0,
                 "diff": {
                   "type": "UNCHANGED"
+                }
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "1999-12-12T18:31:38.171+00:00",
+                  "1998-12-04T21:49:59.944+00:00",
+                  "1998-12-08T23:51:17.790+00:00",
+                  "2000-12-07T23:39:10.137+00:00",
+                  "2012-12-05T11:19:38.362+00:00",
+                  "2020-12-05T11:19:38.362+00:00",
+                  "2016-12-03T21:28:41.229+00:00",
+                  "1995-12-14T00:16:39.383+00:00",
+                  "1993-12-11T00:32:22.614+00:00",
+                  "2000-12-10T02:30:27.087+00:00",
+                  "2001-12-06T13:51:06.845+00:00",
+                  "2004-12-06T02:30:27.087+00:00",
+                  "2015-12-03T21:28:41.229+00:00",
+                  "2017-12-03T21:28:41.229+00:00",
+                  "2023-12-05T11:19:38.362+00:00",
+                  "1996-12-06T23:02:17.362+00:00",
+                  "2000-12-24T00:51:49.371+00:00",
+                  "2014-12-05T11:19:38.362+00:00",
+                  "1994-12-11T17:43:45.069+00:00",
+                  "2004-12-06T01:40:26.606+00:00"
+                ],
+                "diff": {
+                  "events": [
+                    {
+                      "path": "value",
+                      "target": [
+                        "1999-12-12T18:31:38.171+00:00",
+                        "1998-12-04T21:49:59.944+00:00",
+                        "1998-12-08T23:51:17.790+00:00",
+                        "2000-12-07T23:39:10.137+00:00",
+                        "2012-12-05T11:19:38.362+00:00",
+                        "2020-12-05T11:19:38.362+00:00",
+                        "2016-12-03T21:28:41.229+00:00",
+                        "1995-12-14T00:16:39.383+00:00",
+                        "2015-12-03T21:28:41.229+00:00",
+                        "1993-12-11T00:32:22.614+00:00",
+                        "2000-12-10T02:30:27.087+00:00",
+                        "2001-12-06T13:51:06.845+00:00",
+                        "2004-12-06T02:30:27.087+00:00",
+                        "2017-12-03T21:28:41.229+00:00",
+                        "2023-12-05T11:19:38.362+00:00",
+                        "1994-12-11T17:43:45.069+00:00",
+                        "1996-12-06T23:02:17.362+00:00",
+                        "2000-12-24T00:51:49.371+00:00",
+                        "2014-12-05T11:19:38.362+00:00",
+                        "2004-12-06T01:40:26.606+00:00"
+                      ],
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
                 }
               }
             ],
@@ -1118,17 +1401,18 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 447725,
+                "value": 493486,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 447725 and target numeric 448512 were compared directly",
+                      "description": "Source numeric 493486 and target numeric 494197 were compared directly",
                       "path": "value",
-                      "target": 448512,
+                      "target": 494197,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1137,7 +1421,7 @@
               },
               {
                 "name": "max",
-                "value": "2026-06-01T02:45:33.839+00:00",
+                "value": "2026-08-03T07:45:34.575+00:00",
                 "diff": {
                   "type": "UNCHANGED"
                 }
@@ -1151,13 +1435,71 @@
               },
               {
                 "name": "null_count",
-                "value": 2495837,
+                "value": 2770544,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 2495837 and target numeric 2500327 were compared directly",
+                      "description": "Source numeric 2770544 and target numeric 2775057 were compared directly",
                       "path": "value",
-                      "target": 2500327,
+                      "target": 2775057,
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
+                }
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  null,
+                  "1999-12-23T18:31:38.171+00:00",
+                  "2000-12-24T23:39:10.137+00:00",
+                  "2016-12-14T21:28:41.229+00:00",
+                  "2015-12-14T21:28:41.229+00:00",
+                  "2017-12-14T21:28:41.229+00:00",
+                  "2002-12-28T06:36:44.100+00:00",
+                  "2002-01-02T14:24:08.969+00:00",
+                  "2019-12-14T21:28:41.229+00:00",
+                  "1997-12-28T11:26:24.178+00:00",
+                  "2001-01-06T05:27:17.070+00:00",
+                  "1993-12-27T04:03:15.570+00:00",
+                  "1996-12-28T23:02:17.362+00:00",
+                  "1998-01-10T02:21:57.188+00:00",
+                  "2001-01-05T13:53:40.648+00:00",
+                  "2001-01-06T07:04:22.674+00:00",
+                  "2001-12-28T01:40:26.606+00:00",
+                  "2001-12-30T23:57:37.014+00:00",
+                  "1998-12-23T06:34:09.598+00:00",
+                  "1999-01-10T16:13:57.866+00:00"
+                ],
+                "diff": {
+                  "events": [
+                    {
+                      "path": "value",
+                      "target": [
+                        null,
+                        "1999-12-23T18:31:38.171+00:00",
+                        "2000-12-24T23:39:10.137+00:00",
+                        "2016-12-14T21:28:41.229+00:00",
+                        "2015-12-14T21:28:41.229+00:00",
+                        "2017-12-14T21:28:41.229+00:00",
+                        "2002-12-28T06:36:44.100+00:00",
+                        "2002-01-02T14:24:08.969+00:00",
+                        "2001-01-06T05:27:17.070+00:00",
+                        "2019-12-14T21:28:41.229+00:00",
+                        "1997-12-28T11:26:24.178+00:00",
+                        "1993-12-27T04:03:15.570+00:00",
+                        "1996-12-28T23:02:17.362+00:00",
+                        "1998-01-10T02:21:57.188+00:00",
+                        "2001-01-05T13:53:40.648+00:00",
+                        "2001-01-06T07:04:22.674+00:00",
+                        "2001-12-28T01:40:26.606+00:00",
+                        "2001-12-30T23:57:37.014+00:00",
+                        "1998-12-23T06:34:09.598+00:00",
+                        "1999-01-10T16:13:57.866+00:00"
+                      ],
                       "type": "MODIFIED"
                     }
                   ],
@@ -1178,13 +1520,13 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": -358220522430321839,
+            "value": -999014202499043246,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric -358220522430321839 and target numeric -2592574017958263680 were compared directly",
+                  "description": "Source numeric -999014202499043246 and target numeric 484995327472999586 were compared directly",
                   "path": "value",
-                  "target": -2592574017958263680,
+                  "target": 484995327472999586,
                   "type": "MODIFIED"
                 }
               ],
@@ -1193,13 +1535,13 @@
           },
           {
             "name": "row_count",
-            "value": 3014921,
+            "value": 3346700,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric 3014921 and target numeric 3020360 were compared directly",
+                  "description": "Source numeric 3346700 and target numeric 3352139 were compared directly",
                   "path": "value",
-                  "target": 3020360,
+                  "target": 3352139,
                   "type": "MODIFIED"
                 }
               ],
@@ -1211,6 +1553,9 @@
           "type": "MODIFIED"
         }
       },
+      "createdAt": "2024-08-19T23:28:57.632Z",
+      "lastAltered": "2024-08-19T23:28:57.632Z",
+      "lastAlteredBy": "DROPPED_USER(1172276996)",
       "constraints": [
         {
           "type": "FOREIGN_KEY",
@@ -1282,6 +1627,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": true,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -1321,13 +1667,13 @@
               },
               {
                 "name": "stddev",
-                "value": 3105.647912880821,
+                "value": 3052.0798769801227,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 3105.647912880821 and target value 3104.768350605565 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 3052.0798769801227 and target value 3051.2054499746487 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 3104.768350605565,
+                      "target": 3051.2054499746487,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1337,6 +1683,36 @@
               {
                 "name": "zero_count",
                 "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ],
                 "diff": {
                   "type": "UNCHANGED"
                 }
@@ -1376,6 +1752,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -1428,6 +1805,36 @@
                 }
               }
             ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Mediocre Wool Knife",
+                  "Enormous Silk Knife",
+                  "Mediocre Linen Table",
+                  "Practical Wool Coat",
+                  "Sleek Cotton Hat",
+                  "Sleek Linen Keyboard",
+                  "Awesome Silk Plate",
+                  "Awesome Wool Shoes",
+                  "Incredible Linen Keyboard",
+                  "Sleek Leather Shoes",
+                  "Synergistic Marble Shirt",
+                  "Enormous Rubber Hat",
+                  "Practical Cotton Hat",
+                  "Sleek Linen Lamp",
+                  "Sleek Plastic Keyboard",
+                  "Sleek Wool Hat",
+                  "Practical Wool Lamp",
+                  "Incredible Wool Keyboard",
+                  "Incredible Wool Shirt",
+                  "Practical Iron Hat"
+                ],
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
             "diff": {
               "type": "UNCHANGED"
             }
@@ -1462,6 +1869,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -1514,6 +1922,36 @@
                 }
               }
             ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Centralized tangible focus group",
+                  "Compatible empowering knowledge base",
+                  "Decentralized human-resource protocol",
+                  "Distributed content-based extranet",
+                  "Down-sized demand-driven instruction set",
+                  "Enterprise-wide impactful focus group",
+                  "Exclusive bandwidth-monitored paradigm",
+                  "Exclusive impactful focus group",
+                  "Face to face client-driven leverage",
+                  "Focused optimizing interface",
+                  "Front-line mobile local area network",
+                  "Front-line non-volatile structure",
+                  "Function-based scalable neural-net",
+                  "Fundamental impactful knowledge base",
+                  "Grass-roots radical software",
+                  "Horizontal human-resource projection",
+                  "Implemented even-keeled monitoring",
+                  "Innovative local focus group",
+                  "Integrated heuristic instruction set",
+                  "Intuitive contextually-based customer loyalty"
+                ],
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
             "diff": {
               "type": "UNCHANGED"
             }
@@ -1548,6 +1986,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -1600,6 +2039,36 @@
                 }
               }
             ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Home",
+                  "Baby",
+                  "Toys",
+                  "Health",
+                  "Tools",
+                  "Kids",
+                  "Beauty",
+                  "Computers",
+                  "Jewelry",
+                  "Grocery",
+                  "Garden",
+                  "Clothing",
+                  "Outdoors",
+                  "Beauty & Health",
+                  "Beauty & Grocery",
+                  "Health & Kids",
+                  "Clothing & Health",
+                  "Beauty & Tools",
+                  "Grocery & Tools",
+                  "Kids & Shoes"
+                ],
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
             "diff": {
               "type": "UNCHANGED"
             }
@@ -1634,17 +2103,18 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 28053,
+                "value": 29539,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 28053 and target numeric 28076 were compared directly",
+                      "description": "Source numeric 29539 and target numeric 29565 were compared directly",
                       "path": "value",
-                      "target": 28076,
+                      "target": 29565,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1668,6 +2138,36 @@
               {
                 "name": "null_count",
                 "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "1992-09-12T18:07:29.089+00:00",
+                  "1992-09-11T18:07:29.089+00:00",
+                  "1992-09-13T18:07:29.089+00:00",
+                  "1992-09-14T18:07:29.089+00:00",
+                  "1992-09-15T18:07:29.089+00:00",
+                  "1992-09-17T18:07:29.089+00:00",
+                  "1992-09-18T18:07:29.089+00:00",
+                  "1992-09-19T18:07:29.089+00:00",
+                  "1992-09-20T18:07:29.089+00:00",
+                  "1992-09-21T18:07:29.089+00:00",
+                  "1992-09-22T18:07:29.089+00:00",
+                  "1992-09-23T18:07:29.089+00:00",
+                  "1992-09-29T18:07:29.089+00:00",
+                  "1992-09-30T18:07:29.089+00:00",
+                  "1992-10-01T18:07:29.089+00:00",
+                  "1992-10-02T18:07:29.089+00:00",
+                  "1992-10-03T18:07:29.089+00:00",
+                  "1992-10-05T18:07:29.089+00:00",
+                  "1992-10-06T18:07:29.089+00:00",
+                  "1992-10-07T18:07:29.089+00:00"
+                ],
                 "diff": {
                   "type": "UNCHANGED"
                 }
@@ -1707,17 +2207,18 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 11267,
+                "value": 11809,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 11267 and target numeric 11275 were compared directly",
+                      "description": "Source numeric 11809 and target numeric 11820 were compared directly",
                       "path": "value",
-                      "target": 11275,
+                      "target": 11820,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1740,17 +2241,47 @@
               },
               {
                 "name": "null_count",
-                "value": 33782,
+                "value": 35993,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 33782 and target numeric 33820 were compared directly",
+                      "description": "Source numeric 35993 and target numeric 36029 were compared directly",
                       "path": "value",
-                      "target": 33820,
+                      "target": 36029,
                       "type": "MODIFIED"
                     }
                   ],
                   "type": "MODIFIED"
+                }
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  null,
+                  "2000-09-16T14:13:26.044+00:00",
+                  "2003-08-07T18:53:17.734+00:00",
+                  "1996-12-23T18:07:29.089+00:00",
+                  "1998-05-01T18:07:29.089+00:00",
+                  "1998-05-17T18:07:29.089+00:00",
+                  "1998-11-13T14:33:59.247+00:00",
+                  "2000-07-15T14:13:26.044+00:00",
+                  "2001-01-05T01:18:07.569+00:00",
+                  "2002-01-27T14:33:59.247+00:00",
+                  "2002-05-20T18:53:17.734+00:00",
+                  "2003-01-31T20:49:46.429+00:00",
+                  "2003-08-12T04:38:41.478+00:00",
+                  "2003-11-07T01:53:46.888+00:00",
+                  "2004-07-29T22:24:19.135+00:00",
+                  "2005-10-28T01:53:46.888+00:00",
+                  "1996-12-29T18:07:29.089+00:00",
+                  "1997-01-09T18:07:29.089+00:00",
+                  "1997-01-19T18:07:29.089+00:00",
+                  "1997-09-16T18:07:29.089+00:00"
+                ],
+                "diff": {
+                  "type": "UNCHANGED"
                 }
               }
             ],
@@ -1788,6 +2319,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -1827,13 +2359,13 @@
               },
               {
                 "name": "stddev",
-                "value": 1380.0071038634708,
+                "value": 1385.6298239721566,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 1380.0071038634708 and target value 1380.1058328133843 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 1385.6298239721566 and target value 1385.7156830063452 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 1380.1058328133843,
+                      "target": 1385.7156830063452,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1843,6 +2375,36 @@
               {
                 "name": "zero_count",
                 "value": 0,
+                "diff": {
+                  "type": "UNCHANGED"
+                }
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  111.89,
+                  355.65,
+                  501.34,
+                  509.81,
+                  592.5,
+                  594.0,
+                  612.64,
+                  617.45,
+                  669.38,
+                  751.91,
+                  783.43,
+                  811.5,
+                  823.79,
+                  831.78,
+                  885.91,
+                  946.97,
+                  995.33,
+                  996.55,
+                  1069.72,
+                  1101.86
+                ],
                 "diff": {
                   "type": "UNCHANGED"
                 }
@@ -1882,21 +2444,14 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 23827,
+                "value": 23931,
                 "diff": {
-                  "events": [
-                    {
-                      "description": "Source numeric 23827 and target numeric 23830 were compared directly",
-                      "path": "value",
-                      "target": 23830,
-                      "type": "MODIFIED"
-                    }
-                  ],
-                  "type": "MODIFIED"
+                  "type": "UNCHANGED"
                 }
               },
               {
@@ -1929,13 +2484,13 @@
               },
               {
                 "name": "stddev",
-                "value": 3032.9695527361328,
+                "value": 3043.63692407526,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 3032.9695527361328 and target value 3032.8186195027142 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 3043.63692407526 and target value 3044.58241807453 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 3032.8186195027142,
+                      "target": 3044.58241807453,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1947,6 +2502,64 @@
                 "value": 0,
                 "diff": {
                   "type": "UNCHANGED"
+                }
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  5077.95,
+                  6239.83,
+                  1539.55,
+                  685.38,
+                  1406.81,
+                  6172.21,
+                  5957.73,
+                  1600.71,
+                  1650.09,
+                  888.31,
+                  805.46,
+                  2700.26,
+                  1759.31,
+                  1160.52,
+                  1824.22,
+                  997.65,
+                  2774.07,
+                  4917.38,
+                  8180.51,
+                  733.98
+                ],
+                "diff": {
+                  "events": [
+                    {
+                      "path": "value",
+                      "target": [
+                        5077.95,
+                        6239.83,
+                        1539.55,
+                        685.38,
+                        1406.81,
+                        6172.21,
+                        5957.73,
+                        1650.09,
+                        888.31,
+                        1600.71,
+                        805.46,
+                        2700.26,
+                        1759.31,
+                        1160.52,
+                        1824.22,
+                        997.65,
+                        2774.07,
+                        4917.38,
+                        8180.51,
+                        733.98
+                      ],
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
                 }
               }
             ],
@@ -1963,13 +2576,13 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": -8430865692530367008,
+            "value": -4568253213950275690,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric -8430865692530367008 and target numeric 5044691624814656818 were compared directly",
+                  "description": "Source numeric -4568253213950275690 and target numeric -3819308030423952527 were compared directly",
                   "path": "value",
-                  "target": 5044691624814656818,
+                  "target": -3819308030423952527,
                   "type": "MODIFIED"
                 }
               ],
@@ -1978,13 +2591,13 @@
           },
           {
             "name": "row_count",
-            "value": 46750,
+            "value": 49800,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric 46750 and target numeric 46800 were compared directly",
+                  "description": "Source numeric 49800 and target numeric 49850 were compared directly",
                   "path": "value",
-                  "target": 46800,
+                  "target": 49850,
                   "type": "MODIFIED"
                 }
               ],
@@ -1996,6 +2609,9 @@
           "type": "MODIFIED"
         }
       },
+      "createdAt": "2024-08-19T23:28:56.959Z",
+      "lastAltered": "2024-08-19T23:28:56.959Z",
+      "lastAlteredBy": "DROPPED_USER(1172276996)",
       "constraints": [
         {
           "type": "PRIMARY_KEY",
@@ -2028,6 +2644,7 @@
         "nullable": false,
         "identity": false,
         "primaryKey": true,
+        "partitionKey": false,
         "profile": {
           "gauges": [
             {
@@ -2052,70 +2669,42 @@
             },
             {
               "name": "stddev",
-              "value": 3105.647912880821
+              "value": 3052.0798769801227
             },
             {
               "name": "zero_count",
               "value": 0
             }
+          ],
+          "histograms": [
+            {
+              "name": "top_values",
+              "value": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ]
+            }
           ]
         }
       },
-      "primaryKeyColumns": [
-        {
-          "name": "ID",
-          "ordinalPosition": 1,
-          "type": {
-            "name": "NUMBER",
-            "precision": 38,
-            "scale": 0,
-            "length": 38
-          },
-          "mappedType": {
-            "name": "NUMBER",
-            "precision": 38,
-            "scale": 0,
-            "length": 38
-          },
-          "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
-          "nullable": false,
-          "identity": false,
-          "primaryKey": true,
-          "profile": {
-            "gauges": [
-              {
-                "name": "distinct_count",
-                "value": 10000
-              },
-              {
-                "name": "max",
-                "value": 10022
-              },
-              {
-                "name": "min",
-                "value": 1
-              },
-              {
-                "name": "negative_count",
-                "value": 0
-              },
-              {
-                "name": "null_count",
-                "value": 0
-              },
-              {
-                "name": "stddev",
-                "value": 3105.647912880821
-              },
-              {
-                "name": "zero_count",
-                "value": 0
-              }
-            ]
-          }
-        }
-      ],
       "qualifiedName": "SYNTHETIC_SALES.MAIN.PRODUCT",
       "diff": {
         "type": "MODIFIED"
@@ -2157,6 +2746,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2188,6 +2778,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2219,6 +2810,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2250,6 +2842,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2281,6 +2874,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2312,6 +2906,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2343,6 +2938,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2374,6 +2970,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2405,6 +3002,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2436,11 +3034,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.128Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BANK_FOR_INTERNATIONAL_SETTLEMENTS_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -2480,6 +3080,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2511,6 +3112,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2542,6 +3144,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2573,6 +3176,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2604,6 +3208,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2635,6 +3240,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2666,11 +3272,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.154Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BANK_FOR_INTERNATIONAL_SETTLEMENTS_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -2710,6 +3318,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2741,6 +3350,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2772,6 +3382,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2803,6 +3414,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2834,6 +3446,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2865,6 +3478,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2896,6 +3510,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2927,6 +3542,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -2958,11 +3574,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.290Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -3002,6 +3620,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3033,6 +3652,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3064,6 +3684,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3095,6 +3716,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3126,11 +3748,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.285Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -3170,6 +3794,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3201,6 +3826,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3232,6 +3858,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3263,6 +3890,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3294,6 +3922,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3325,6 +3954,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3356,6 +3986,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3387,11 +4018,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.068Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BUREAU_OF_LABOR_STATISTICS_PRICE_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -3431,6 +4064,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3462,6 +4096,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3493,6 +4128,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3524,6 +4160,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3555,11 +4192,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.149Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BUREAU_OF_LABOR_STATISTICS_PRICE_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -3599,6 +4238,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3630,6 +4270,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3661,6 +4302,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3692,6 +4334,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3723,6 +4366,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3754,6 +4398,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3785,6 +4430,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3816,6 +4462,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3847,6 +4494,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3878,6 +4526,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3909,11 +4558,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.252Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.COMPANY_INDEX",
       "diff": {
         "type": "UNCHANGED"
@@ -3953,6 +4604,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -3984,6 +4636,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4015,6 +4668,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4046,6 +4700,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4077,6 +4732,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4108,6 +4764,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4139,6 +4796,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4170,6 +4828,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4201,11 +4860,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.070Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.COMPANY_RELATIONSHIPS",
       "diff": {
         "type": "UNCHANGED"
@@ -4245,6 +4906,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4276,6 +4938,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4307,6 +4970,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4338,6 +5002,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4369,11 +5034,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.250Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.COMPANY_SECURITY_RELATIONSHIPS",
       "diff": {
         "type": "UNCHANGED"
@@ -4413,6 +5080,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4444,6 +5112,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4475,6 +5144,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4506,6 +5176,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4537,6 +5208,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4568,6 +5240,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4599,6 +5272,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4630,6 +5304,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4661,6 +5336,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4692,6 +5368,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4723,6 +5400,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4754,6 +5432,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4785,6 +5464,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4816,6 +5496,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4847,11 +5528,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.969Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.CYBERSYN_DATA_CATALOG",
       "diff": {
         "type": "UNCHANGED"
@@ -4891,6 +5574,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4922,6 +5606,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4953,6 +5638,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -4984,6 +5670,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5015,6 +5702,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5046,11 +5734,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.960Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.CYBERSYN_DATA_DICTIONARY",
       "diff": {
         "type": "UNCHANGED"
@@ -5090,6 +5780,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5121,6 +5812,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5152,6 +5844,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5183,6 +5876,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5214,6 +5908,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5245,6 +5940,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5276,6 +5972,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5307,6 +6004,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5338,6 +6036,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5369,6 +6068,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5400,11 +6100,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.067Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.CYBERSYN_FINANCIAL_ECONOMIC_INDICATORS_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -5444,6 +6146,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5475,6 +6178,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5506,6 +6210,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5537,6 +6242,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5568,6 +6274,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5599,11 +6306,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.230Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.CYBERSYN_FINANCIAL_ECONOMIC_INDICATORS_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -5643,6 +6352,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5674,6 +6384,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5705,6 +6416,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5736,6 +6448,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5767,6 +6480,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5798,6 +6512,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5829,6 +6544,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5860,6 +6576,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5891,6 +6608,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5922,6 +6640,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5953,6 +6672,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -5984,6 +6704,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6015,6 +6736,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6046,6 +6768,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6077,6 +6800,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6108,11 +6832,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.421Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.CYBERSYN_VARIABLE_CATALOG",
       "diff": {
         "type": "UNCHANGED"
@@ -6152,6 +6878,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6183,6 +6910,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6214,6 +6942,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6245,6 +6974,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6276,6 +7006,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6307,6 +7038,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6338,6 +7070,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6369,6 +7102,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6400,6 +7134,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6431,11 +7166,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.447Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.EUROPEAN_CENTRAL_BANK_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -6475,6 +7212,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6506,6 +7244,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6537,6 +7276,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6568,6 +7308,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6599,6 +7340,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6630,6 +7372,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6661,11 +7404,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:31.268Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.EUROPEAN_CENTRAL_BANK_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -6705,6 +7450,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6736,6 +7482,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6767,6 +7514,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6798,6 +7546,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6829,6 +7578,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6860,6 +7610,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6891,6 +7642,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6922,6 +7674,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6953,6 +7706,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -6984,6 +7738,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7015,6 +7770,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7046,6 +7802,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7077,6 +7834,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7108,6 +7866,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7139,6 +7898,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7170,6 +7930,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7201,6 +7962,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7232,6 +7994,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7263,6 +8026,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7294,6 +8058,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7325,6 +8090,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7356,6 +8122,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7387,6 +8154,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7418,6 +8186,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7449,6 +8218,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7480,6 +8250,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7511,6 +8282,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7542,6 +8314,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7573,6 +8346,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7604,6 +8378,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7635,6 +8410,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7666,6 +8442,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7697,6 +8474,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7728,6 +8506,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7759,11 +8538,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.861Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FDIC_BRANCH_LOCATIONS_INDEX",
       "diff": {
         "type": "UNCHANGED"
@@ -7803,6 +8584,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7834,6 +8616,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7865,6 +8648,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7896,6 +8680,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7927,6 +8712,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -7958,11 +8744,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.604Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FDIC_SUMMARY_OF_DEPOSITS_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -8002,6 +8790,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8033,6 +8822,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8064,6 +8854,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8095,6 +8886,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8126,6 +8918,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8157,6 +8950,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8188,11 +8982,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:09.897Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FDIC_SUMMARY_OF_DEPOSITS_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -8232,6 +9028,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8263,6 +9060,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8294,6 +9092,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8325,6 +9124,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8356,6 +9156,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8387,6 +9188,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8418,11 +9220,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.480Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FHFA_HOUSE_PRICE_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -8462,6 +9266,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8493,6 +9298,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8524,6 +9330,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8555,6 +9362,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8586,6 +9394,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8617,11 +9426,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.758Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FHFA_HOUSE_PRICE_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -8661,6 +9472,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8692,6 +9504,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8723,6 +9536,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8754,6 +9568,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8785,6 +9600,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8816,11 +9632,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.963Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FHFA_MORTGAGE_PERFORMANCE_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -8860,6 +9678,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8891,6 +9710,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8922,6 +9742,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8953,6 +9774,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -8984,6 +9806,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9015,11 +9838,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.606Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FHFA_MORTGAGE_PERFORMANCE_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -9059,6 +9884,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9090,6 +9916,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9121,6 +9948,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9152,6 +9980,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9183,6 +10012,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9214,6 +10044,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9245,6 +10076,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9276,6 +10108,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9307,11 +10140,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.725Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FHFA_UNIFORM_APPRAISAL_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -9351,6 +10186,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9382,6 +10218,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9413,6 +10250,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9444,6 +10282,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9475,6 +10314,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9506,6 +10346,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9537,11 +10378,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:09.962Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FHFA_UNIFORM_APPRAISAL_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -9581,6 +10424,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9612,6 +10456,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9643,6 +10488,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9674,6 +10520,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9705,6 +10552,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9736,6 +10584,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9767,6 +10616,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9798,6 +10648,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9829,6 +10680,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9860,6 +10712,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9891,6 +10744,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9922,6 +10776,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9953,6 +10808,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -9984,6 +10840,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10015,6 +10872,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10046,6 +10904,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10077,11 +10936,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.356Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_BRANCH_ENTITIES",
       "diff": {
         "type": "UNCHANGED"
@@ -10121,6 +10982,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10152,6 +11014,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10183,6 +11046,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10214,6 +11078,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10245,6 +11110,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10276,6 +11142,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10307,6 +11174,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10338,6 +11206,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10369,6 +11238,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10400,6 +11270,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10431,6 +11302,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10462,6 +11334,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10493,6 +11366,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10524,6 +11398,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10555,6 +11430,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10586,6 +11462,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10617,6 +11494,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10648,6 +11526,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10679,6 +11558,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10710,11 +11590,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.320Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_CFPB_COMPLAINT",
       "diff": {
         "type": "UNCHANGED"
@@ -10754,6 +11636,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10785,6 +11668,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10816,6 +11700,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10847,6 +11732,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10878,11 +11764,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.382Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_INSTITUTION_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -10922,6 +11810,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10953,6 +11842,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -10984,6 +11874,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11015,6 +11906,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11046,6 +11938,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11077,6 +11970,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11108,6 +12002,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11139,6 +12034,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11170,6 +12066,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11201,6 +12098,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11232,6 +12130,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11263,6 +12162,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11294,6 +12194,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11325,6 +12226,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11356,6 +12258,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11387,6 +12290,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11418,6 +12322,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11449,6 +12354,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11480,6 +12386,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11511,6 +12418,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11542,6 +12450,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11573,6 +12482,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11604,6 +12514,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11635,6 +12546,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11666,6 +12578,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11697,6 +12610,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11728,6 +12642,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11759,6 +12674,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11790,6 +12706,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11821,11 +12738,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:09.834Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_INSTITUTION_ENTITIES",
       "diff": {
         "type": "UNCHANGED"
@@ -11865,6 +12784,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11896,6 +12816,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11927,6 +12848,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11958,6 +12880,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -11989,6 +12912,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12020,6 +12944,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12051,6 +12976,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12082,6 +13008,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12113,6 +13040,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12144,6 +13072,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12175,11 +13104,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.474Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_INSTITUTION_EVENTS",
       "diff": {
         "type": "UNCHANGED"
@@ -12219,6 +13150,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12250,6 +13182,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12281,6 +13214,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12312,6 +13246,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12343,6 +13278,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12374,6 +13310,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12405,6 +13342,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12436,6 +13374,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12467,6 +13406,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12498,6 +13438,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12529,6 +13470,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12560,11 +13502,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.382Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_INSTITUTION_HIERARCHY",
       "diff": {
         "type": "UNCHANGED"
@@ -12604,6 +13548,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12635,6 +13580,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12666,6 +13612,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12697,6 +13644,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12728,6 +13676,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12759,11 +13708,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.379Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_INSTITUTION_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -12803,6 +13754,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12834,6 +13786,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12865,6 +13818,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12896,6 +13850,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12927,6 +13882,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12958,6 +13914,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -12989,6 +13946,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13020,11 +13978,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:31.065Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FX_RATES_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -13064,6 +14024,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13095,11 +14056,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.101Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.GEOGRAPHY_HIERARCHY",
       "diff": {
         "type": "UNCHANGED"
@@ -13139,6 +14102,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13170,6 +14134,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13201,6 +14166,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13232,6 +14198,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13263,6 +14230,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13294,6 +14262,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13325,6 +14294,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13356,11 +14326,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.195Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.GEOGRAPHY_INDEX",
       "diff": {
         "type": "UNCHANGED"
@@ -13400,6 +14372,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13431,11 +14404,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.639Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.GEOGRAPHY_OVERLAPS",
       "diff": {
         "type": "UNCHANGED"
@@ -13475,6 +14450,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13506,6 +14482,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13537,6 +14514,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13568,6 +14546,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13599,6 +14578,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13630,6 +14610,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13661,11 +14642,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:31.125Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.GEOGRAPHY_RELATIONSHIPS",
       "diff": {
         "type": "UNCHANGED"
@@ -13705,6 +14688,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13736,6 +14720,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13767,6 +14752,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13798,6 +14784,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13829,6 +14816,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13860,11 +14848,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.618Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.INTERNATIONAL_MONETARY_FUND_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -13904,6 +14894,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13935,6 +14926,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13966,6 +14958,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -13997,6 +14990,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14028,6 +15022,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14059,6 +15054,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14090,11 +15086,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:31.168Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.INTERNATIONAL_MONETARY_FUND_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -14134,6 +15132,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14165,6 +15164,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14196,6 +15196,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14227,11 +15228,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.209Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.NAICS_CODE_INDEX",
       "diff": {
         "type": "UNCHANGED"
@@ -14271,6 +15274,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14302,6 +15306,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14333,6 +15338,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14364,6 +15370,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14395,6 +15402,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14426,6 +15434,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14457,11 +15466,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.313Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.OECD_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -14501,6 +15512,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14532,6 +15544,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14563,6 +15576,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14594,6 +15608,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14625,6 +15640,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14656,11 +15672,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.960Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.OECD_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -14700,6 +15718,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14731,6 +15750,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14762,6 +15782,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14793,6 +15814,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14824,6 +15846,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14855,6 +15878,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14886,6 +15910,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14917,6 +15942,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14948,6 +15974,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -14979,6 +16006,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15010,6 +16038,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15041,11 +16070,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:31.437Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.OPENFIGI_SECURITY_INDEX",
       "diff": {
         "type": "UNCHANGED"
@@ -15085,6 +16116,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15116,6 +16148,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15147,6 +16180,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15178,6 +16212,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15209,6 +16244,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15240,6 +16276,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15271,6 +16308,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15302,6 +16340,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15333,6 +16372,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15364,11 +16404,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.513Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.PERMID_SECURITY_INDEX",
       "diff": {
         "type": "UNCHANGED"
@@ -15408,6 +16450,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15439,6 +16482,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15470,6 +16514,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15501,6 +16546,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15532,6 +16578,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15563,11 +16610,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.124Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.PUBLIC_HOLIDAY_CALENDAR",
       "diff": {
         "type": "UNCHANGED"
@@ -15607,6 +16656,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15638,6 +16688,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15669,6 +16720,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15700,6 +16752,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15731,6 +16784,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15762,6 +16816,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15793,6 +16848,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15824,11 +16880,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-26T22:47:31.040Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.STOCK_PRICE_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
@@ -15868,6 +16926,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15899,6 +16958,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15930,6 +16990,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15961,6 +17022,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -15992,6 +17054,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -16023,6 +17086,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -16054,6 +17118,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -16085,6 +17150,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -16116,6 +17182,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -16147,6 +17214,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -16178,11 +17246,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.195Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.US_ECONOMIC_CENSUS_ATTRIBUTES",
       "diff": {
         "type": "UNCHANGED"
@@ -16222,6 +17292,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -16253,6 +17324,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -16284,6 +17356,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -16315,6 +17388,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -16346,6 +17420,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
@@ -16377,11 +17452,13 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "diff": {
             "type": "UNCHANGED"
           }
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.195Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.US_ECONOMIC_CENSUS_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"

@@ -39,30 +39,30 @@
   },
   "metadata": {
     "identifier": {
-      "id": "snowflake:profile:2026-05-15T003347.368Z",
+      "id": "snowflake:profile:2026-07-15T002330.599Z",
       "tool": "ds",
       "source": "snowflake",
       "type": "profile",
-      "timestamp": "2026-05-15T00:33:47.368Z"
+      "timestamp": "2026-07-15T00:23:30.599Z"
     },
     "source": {
       "name": "snowflake",
       "type": "snowflake",
       "lineage": {
         "scan": {
-          "id": "snowflake:scan:2026-05-15T003331.244Z",
+          "id": "snowflake:scan:2026-07-15T002314.200Z",
           "tool": "ds",
           "source": "snowflake",
           "type": "scan",
-          "timestamp": "2026-05-15T00:33:31.244Z"
+          "timestamp": "2026-07-15T00:23:14.200Z"
         }
       },
       "accountName": "PHDATAPARTNER-DEMO"
     },
-    "version": "dev",
+    "version": "0.99.0",
     "license": "PRO",
-    "start": "2026-05-15T00:33:41.490397Z",
-    "end": "2026-05-15T00:33:47.368142Z"
+    "start": "2026-07-15T00:23:21.599895Z",
+    "end": "2026-07-15T00:23:30.599571Z"
   },
   "tables": [
     {
@@ -90,6 +90,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": true,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -114,11 +115,38 @@
               },
               {
                 "name": "stddev",
-                "value": 8714.275358332843
+                "value": 8379.309557735769
               },
               {
                 "name": "zero_count",
                 "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ]
               }
             ]
           }
@@ -142,6 +170,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -170,7 +199,34 @@
               },
               {
                 "name": "null_count",
-                "value": 127714
+                "value": 139975
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  null,
+                  "Melvin",
+                  "Cody",
+                  "Hassan",
+                  "Gregorio",
+                  "Jeromy",
+                  "Morton",
+                  "Hilario",
+                  "Romaine",
+                  "Lane",
+                  "Hong",
+                  "Joey",
+                  "Laverne",
+                  "Marshall",
+                  "Ismael",
+                  "Jan",
+                  "Leigh",
+                  "Irving",
+                  "Kyle",
+                  "Les"
+                ]
               }
             ]
           }
@@ -194,6 +250,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -224,6 +281,33 @@
                 "name": "null_count",
                 "value": 0
               }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Jast",
+                  "Miller",
+                  "Muller",
+                  "Harvey",
+                  "Funk",
+                  "Hammes",
+                  "Olson",
+                  "Hessel",
+                  "Kling",
+                  "Langworth",
+                  "McLaughlin",
+                  "Legros",
+                  "Nikolaus",
+                  "Hand",
+                  "Hamill",
+                  "Glover",
+                  "Kutch",
+                  "Ledner",
+                  "Koepp",
+                  "McKenzie"
+                ]
+              }
             ]
           }
         },
@@ -246,6 +330,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -276,6 +361,33 @@
                 "name": "null_count",
                 "value": 0
               }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Louisiana",
+                  "Nevada",
+                  "North Carolina",
+                  "Mississippi",
+                  "New Hampshire",
+                  "Kentucky",
+                  "Maine",
+                  "Montana",
+                  "Nebraska",
+                  "Missouri",
+                  "New Mexico",
+                  "New Jersey",
+                  "Massachusetts",
+                  "Maryland",
+                  "Minnesota",
+                  "New York",
+                  "Ohio",
+                  "Oklahoma",
+                  "Iowa",
+                  "Michigan"
+                ]
+              }
             ]
           }
         },
@@ -298,6 +410,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -328,6 +441,33 @@
                 "name": "null_count",
                 "value": 0
               }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "701##",
+                  "898##",
+                  "288##",
+                  "387##",
+                  "036##",
+                  "404##",
+                  "042##",
+                  "590##",
+                  "688##",
+                  "650##",
+                  "880##",
+                  "076##",
+                  "026##",
+                  "210##",
+                  "555##",
+                  "122##",
+                  "444##",
+                  "730##",
+                  "510##",
+                  "480##"
+                ]
+              }
             ]
           }
         }
@@ -336,14 +476,17 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": 3768286695777020488
+            "value": -6037876248344815423
           },
           {
             "name": "row_count",
-            "value": 480462
+            "value": 526029
           }
         ]
       },
+      "createdAt": "2024-08-19T23:28:57.350Z",
+      "lastAltered": "2024-08-19T23:28:57.350Z",
+      "lastAlteredBy": "DROPPED_USER(1172276996)",
       "constraints": [
         {
           "type": "PRIMARY_KEY",
@@ -372,6 +515,7 @@
         "nullable": false,
         "identity": false,
         "primaryKey": true,
+        "partitionKey": false,
         "profile": {
           "gauges": [
             {
@@ -396,69 +540,42 @@
             },
             {
               "name": "stddev",
-              "value": 8714.275358332843
+              "value": 8379.309557735769
             },
             {
               "name": "zero_count",
               "value": 0
             }
+          ],
+          "histograms": [
+            {
+              "name": "top_values",
+              "value": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ]
+            }
           ]
         }
       },
-      "primaryKeyColumns": [
-        {
-          "name": "ID",
-          "ordinalPosition": 1,
-          "type": {
-            "name": "NUMBER",
-            "precision": 38,
-            "scale": 0,
-            "length": 38
-          },
-          "mappedType": {
-            "name": "NUMBER",
-            "precision": 38,
-            "scale": 0,
-            "length": 38
-          },
-          "dataTypeName": "NUMBER",
-          "nullable": false,
-          "identity": false,
-          "primaryKey": true,
-          "profile": {
-            "gauges": [
-              {
-                "name": "distinct_count",
-                "value": 40035
-              },
-              {
-                "name": "max",
-                "value": 40062
-              },
-              {
-                "name": "min",
-                "value": 1
-              },
-              {
-                "name": "negative_count",
-                "value": 0
-              },
-              {
-                "name": "null_count",
-                "value": 0
-              },
-              {
-                "name": "stddev",
-                "value": 8714.275358332843
-              },
-              {
-                "name": "zero_count",
-                "value": 0
-              }
-            ]
-          }
-        }
-      ],
       "qualifiedName": "SYNTHETIC_SALES.MAIN.CUSTOMER"
     },
     {
@@ -486,6 +603,7 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -510,11 +628,38 @@
               },
               {
                 "name": "stddev",
-                "value": 5384.0500323033775
+                "value": 5140.301917502123
               },
               {
                 "name": "zero_count",
                 "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ]
               }
             ]
           }
@@ -538,6 +683,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -562,11 +708,38 @@
               },
               {
                 "name": "stddev",
-                "value": 1055.858463474627
+                "value": 1003.5777520167534
               },
               {
                 "name": "zero_count",
                 "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  39,
+                  18,
+                  11,
+                  7,
+                  46,
+                  3,
+                  40,
+                  32,
+                  21,
+                  24,
+                  8,
+                  34,
+                  26,
+                  43,
+                  10,
+                  13,
+                  42,
+                  9,
+                  30,
+                  2
+                ]
               }
             ]
           }
@@ -590,6 +763,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -614,11 +788,38 @@
               },
               {
                 "name": "stddev",
-                "value": 4183.206200527055
+                "value": 3976.5585038876266
               },
               {
                 "name": "zero_count",
                 "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  178,
+                  256,
+                  130,
+                  169,
+                  563,
+                  601,
+                  681,
+                  98,
+                  202,
+                  263,
+                  338,
+                  402,
+                  573,
+                  717,
+                  52,
+                  182,
+                  260,
+                  357,
+                  390,
+                  468
+                ]
               }
             ]
           }
@@ -642,15 +843,16 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 2657220
+                "value": 2927147
               },
               {
                 "name": "max",
-                "value": "2026-05-13T23:16:54.998+00:00"
+                "value": "2026-07-14T16:34:07.651+00:00"
               },
               {
                 "name": "min",
@@ -659,6 +861,33 @@
               {
                 "name": "null_count",
                 "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "1999-12-12T18:31:38.171+00:00",
+                  "1998-12-04T21:49:59.944+00:00",
+                  "1998-12-08T23:51:17.790+00:00",
+                  "2000-12-07T23:39:10.137+00:00",
+                  "2012-12-05T11:19:38.362+00:00",
+                  "2020-12-05T11:19:38.362+00:00",
+                  "2016-12-03T21:28:41.229+00:00",
+                  "1995-12-14T00:16:39.383+00:00",
+                  "2015-12-03T21:28:41.229+00:00",
+                  "1993-12-11T00:32:22.614+00:00",
+                  "2000-12-10T02:30:27.087+00:00",
+                  "2001-12-06T13:51:06.845+00:00",
+                  "2004-12-06T02:30:27.087+00:00",
+                  "2017-12-03T21:28:41.229+00:00",
+                  "2023-12-05T11:19:38.362+00:00",
+                  "1994-12-11T17:43:45.069+00:00",
+                  "1996-12-06T23:02:17.362+00:00",
+                  "2000-12-24T00:51:49.371+00:00",
+                  "2014-12-05T11:19:38.362+00:00",
+                  "2004-12-06T01:40:26.606+00:00"
+                ]
               }
             ]
           }
@@ -682,15 +911,16 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 448512
+                "value": 494197
               },
               {
                 "name": "max",
-                "value": "2026-06-01T02:45:33.839+00:00"
+                "value": "2026-08-03T07:45:34.575+00:00"
               },
               {
                 "name": "min",
@@ -698,7 +928,34 @@
               },
               {
                 "name": "null_count",
-                "value": 2500327
+                "value": 2775057
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  null,
+                  "1999-12-23T18:31:38.171+00:00",
+                  "2000-12-24T23:39:10.137+00:00",
+                  "2016-12-14T21:28:41.229+00:00",
+                  "2015-12-14T21:28:41.229+00:00",
+                  "2017-12-14T21:28:41.229+00:00",
+                  "2002-12-28T06:36:44.100+00:00",
+                  "2002-01-02T14:24:08.969+00:00",
+                  "2001-01-06T05:27:17.070+00:00",
+                  "2019-12-14T21:28:41.229+00:00",
+                  "1997-12-28T11:26:24.178+00:00",
+                  "1993-12-27T04:03:15.570+00:00",
+                  "1996-12-28T23:02:17.362+00:00",
+                  "1998-01-10T02:21:57.188+00:00",
+                  "2001-01-05T13:53:40.648+00:00",
+                  "2001-01-06T07:04:22.674+00:00",
+                  "2001-12-28T01:40:26.606+00:00",
+                  "2001-12-30T23:57:37.014+00:00",
+                  "1998-12-23T06:34:09.598+00:00",
+                  "1999-01-10T16:13:57.866+00:00"
+                ]
               }
             ]
           }
@@ -708,14 +965,17 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": -2592574017958263680
+            "value": 484995327472999586
           },
           {
             "name": "row_count",
-            "value": 3020360
+            "value": 3352139
           }
         ]
       },
+      "createdAt": "2024-08-19T23:28:57.632Z",
+      "lastAltered": "2024-08-19T23:28:57.632Z",
+      "lastAlteredBy": "DROPPED_USER(1172276996)",
       "constraints": [
         {
           "type": "FOREIGN_KEY",
@@ -771,6 +1031,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": true,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -795,11 +1056,38 @@
               },
               {
                 "name": "stddev",
-                "value": 3104.768350605565
+                "value": 3051.2054499746487
               },
               {
                 "name": "zero_count",
                 "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ]
               }
             ]
           }
@@ -823,6 +1111,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -853,6 +1142,33 @@
                 "name": "null_count",
                 "value": 0
               }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Mediocre Wool Knife",
+                  "Enormous Silk Knife",
+                  "Mediocre Linen Table",
+                  "Practical Wool Coat",
+                  "Sleek Cotton Hat",
+                  "Sleek Linen Keyboard",
+                  "Awesome Silk Plate",
+                  "Awesome Wool Shoes",
+                  "Incredible Linen Keyboard",
+                  "Sleek Leather Shoes",
+                  "Synergistic Marble Shirt",
+                  "Enormous Rubber Hat",
+                  "Practical Cotton Hat",
+                  "Sleek Linen Lamp",
+                  "Sleek Plastic Keyboard",
+                  "Sleek Wool Hat",
+                  "Practical Wool Lamp",
+                  "Incredible Wool Keyboard",
+                  "Incredible Wool Shirt",
+                  "Practical Iron Hat"
+                ]
+              }
             ]
           }
         },
@@ -875,6 +1191,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -905,6 +1222,33 @@
                 "name": "null_count",
                 "value": 0
               }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Centralized tangible focus group",
+                  "Compatible empowering knowledge base",
+                  "Decentralized human-resource protocol",
+                  "Distributed content-based extranet",
+                  "Down-sized demand-driven instruction set",
+                  "Enterprise-wide impactful focus group",
+                  "Exclusive bandwidth-monitored paradigm",
+                  "Exclusive impactful focus group",
+                  "Face to face client-driven leverage",
+                  "Focused optimizing interface",
+                  "Front-line mobile local area network",
+                  "Front-line non-volatile structure",
+                  "Function-based scalable neural-net",
+                  "Fundamental impactful knowledge base",
+                  "Grass-roots radical software",
+                  "Horizontal human-resource projection",
+                  "Implemented even-keeled monitoring",
+                  "Innovative local focus group",
+                  "Integrated heuristic instruction set",
+                  "Intuitive contextually-based customer loyalty"
+                ]
+              }
             ]
           }
         },
@@ -927,6 +1271,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -957,6 +1302,33 @@
                 "name": "null_count",
                 "value": 0
               }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Home",
+                  "Baby",
+                  "Toys",
+                  "Health",
+                  "Tools",
+                  "Kids",
+                  "Beauty",
+                  "Computers",
+                  "Jewelry",
+                  "Grocery",
+                  "Garden",
+                  "Clothing",
+                  "Outdoors",
+                  "Beauty & Health",
+                  "Beauty & Grocery",
+                  "Health & Kids",
+                  "Clothing & Health",
+                  "Beauty & Tools",
+                  "Grocery & Tools",
+                  "Kids & Shoes"
+                ]
+              }
             ]
           }
         },
@@ -979,11 +1351,12 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 28076
+                "value": 29565
               },
               {
                 "name": "max",
@@ -996,6 +1369,33 @@
               {
                 "name": "null_count",
                 "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "1992-09-12T18:07:29.089+00:00",
+                  "1992-09-11T18:07:29.089+00:00",
+                  "1992-09-13T18:07:29.089+00:00",
+                  "1992-09-14T18:07:29.089+00:00",
+                  "1992-09-15T18:07:29.089+00:00",
+                  "1992-09-17T18:07:29.089+00:00",
+                  "1992-09-18T18:07:29.089+00:00",
+                  "1992-09-19T18:07:29.089+00:00",
+                  "1992-09-20T18:07:29.089+00:00",
+                  "1992-09-21T18:07:29.089+00:00",
+                  "1992-09-22T18:07:29.089+00:00",
+                  "1992-09-23T18:07:29.089+00:00",
+                  "1992-09-29T18:07:29.089+00:00",
+                  "1992-09-30T18:07:29.089+00:00",
+                  "1992-10-01T18:07:29.089+00:00",
+                  "1992-10-02T18:07:29.089+00:00",
+                  "1992-10-03T18:07:29.089+00:00",
+                  "1992-10-05T18:07:29.089+00:00",
+                  "1992-10-06T18:07:29.089+00:00",
+                  "1992-10-07T18:07:29.089+00:00"
+                ]
               }
             ]
           }
@@ -1019,11 +1419,12 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 11275
+                "value": 11820
               },
               {
                 "name": "max",
@@ -1035,7 +1436,34 @@
               },
               {
                 "name": "null_count",
-                "value": 33820
+                "value": 36029
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  null,
+                  "2000-09-16T14:13:26.044+00:00",
+                  "2003-08-07T18:53:17.734+00:00",
+                  "1996-12-23T18:07:29.089+00:00",
+                  "1998-05-01T18:07:29.089+00:00",
+                  "1998-05-17T18:07:29.089+00:00",
+                  "1998-11-13T14:33:59.247+00:00",
+                  "2000-07-15T14:13:26.044+00:00",
+                  "2001-01-05T01:18:07.569+00:00",
+                  "2002-01-27T14:33:59.247+00:00",
+                  "2002-05-20T18:53:17.734+00:00",
+                  "2003-01-31T20:49:46.429+00:00",
+                  "2003-08-12T04:38:41.478+00:00",
+                  "2003-11-07T01:53:46.888+00:00",
+                  "2004-07-29T22:24:19.135+00:00",
+                  "2005-10-28T01:53:46.888+00:00",
+                  "1996-12-29T18:07:29.089+00:00",
+                  "1997-01-09T18:07:29.089+00:00",
+                  "1997-01-19T18:07:29.089+00:00",
+                  "1997-09-16T18:07:29.089+00:00"
+                ]
               }
             ]
           }
@@ -1059,6 +1487,7 @@
           "nullable": false,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
@@ -1083,11 +1512,38 @@
               },
               {
                 "name": "stddev",
-                "value": 1380.1058328133843
+                "value": 1385.7156830063452
               },
               {
                 "name": "zero_count",
                 "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  111.89,
+                  355.65,
+                  501.34,
+                  509.81,
+                  592.50,
+                  594.00,
+                  612.64,
+                  617.45,
+                  669.38,
+                  751.91,
+                  783.43,
+                  811.50,
+                  823.79,
+                  831.78,
+                  885.91,
+                  946.97,
+                  995.33,
+                  996.55,
+                  1069.72,
+                  1101.86
+                ]
               }
             ]
           }
@@ -1111,11 +1567,12 @@
           "nullable": true,
           "identity": false,
           "primaryKey": false,
+          "partitionKey": false,
           "profile": {
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 23830
+                "value": 23931
               },
               {
                 "name": "max",
@@ -1135,11 +1592,38 @@
               },
               {
                 "name": "stddev",
-                "value": 3032.8186195027142
+                "value": 3044.58241807453
               },
               {
                 "name": "zero_count",
                 "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  5077.95,
+                  6239.83,
+                  1539.55,
+                  685.38,
+                  1406.81,
+                  6172.21,
+                  5957.73,
+                  1650.09,
+                  888.31,
+                  1600.71,
+                  805.46,
+                  2700.26,
+                  1759.31,
+                  1160.52,
+                  1824.22,
+                  997.65,
+                  2774.07,
+                  4917.38,
+                  8180.51,
+                  733.98
+                ]
               }
             ]
           }
@@ -1149,14 +1633,17 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": 5044691624814656818
+            "value": -3819308030423952527
           },
           {
             "name": "row_count",
-            "value": 46800
+            "value": 49850
           }
         ]
       },
+      "createdAt": "2024-08-19T23:28:56.959Z",
+      "lastAltered": "2024-08-19T23:28:56.959Z",
+      "lastAlteredBy": "DROPPED_USER(1172276996)",
       "constraints": [
         {
           "type": "PRIMARY_KEY",
@@ -1185,6 +1672,7 @@
         "nullable": false,
         "identity": false,
         "primaryKey": true,
+        "partitionKey": false,
         "profile": {
           "gauges": [
             {
@@ -1209,69 +1697,42 @@
             },
             {
               "name": "stddev",
-              "value": 3104.768350605565
+              "value": 3051.2054499746487
             },
             {
               "name": "zero_count",
               "value": 0
             }
+          ],
+          "histograms": [
+            {
+              "name": "top_values",
+              "value": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ]
+            }
           ]
         }
       },
-      "primaryKeyColumns": [
-        {
-          "name": "ID",
-          "ordinalPosition": 1,
-          "type": {
-            "name": "NUMBER",
-            "precision": 38,
-            "scale": 0,
-            "length": 38
-          },
-          "mappedType": {
-            "name": "NUMBER",
-            "precision": 38,
-            "scale": 0,
-            "length": 38
-          },
-          "dataTypeName": "NUMBER",
-          "nullable": false,
-          "identity": false,
-          "primaryKey": true,
-          "profile": {
-            "gauges": [
-              {
-                "name": "distinct_count",
-                "value": 10000
-              },
-              {
-                "name": "max",
-                "value": 10022
-              },
-              {
-                "name": "min",
-                "value": 1
-              },
-              {
-                "name": "negative_count",
-                "value": 0
-              },
-              {
-                "name": "null_count",
-                "value": 0
-              },
-              {
-                "name": "stddev",
-                "value": 3104.768350605565
-              },
-              {
-                "name": "zero_count",
-                "value": 0
-              }
-            ]
-          }
-        }
-      ],
       "qualifiedName": "SYNTHETIC_SALES.MAIN.PRODUCT"
     }
   ],
@@ -1302,7 +1763,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -1323,7 +1785,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SERIES_ID",
@@ -1344,7 +1807,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASURE",
@@ -1365,7 +1829,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -1386,7 +1851,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -1407,7 +1873,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASUREMENT_TYPE",
@@ -1428,7 +1895,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SOURCE",
@@ -1449,7 +1917,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GEO_NAME",
@@ -1470,7 +1939,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COUNTERPARTY_GEO_NAME",
@@ -1491,9 +1961,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.128Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BANK_FOR_INTERNATIONAL_SETTLEMENTS_ATTRIBUTES"
     },
     {
@@ -1522,7 +1994,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COUNTERPARTY_GEO_ID",
@@ -1543,7 +2016,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -1564,7 +2038,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -1585,7 +2060,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -1606,7 +2082,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -1627,7 +2104,8 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -1648,9 +2126,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.154Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BANK_FOR_INTERNATIONAL_SETTLEMENTS_TIMESERIES"
     },
     {
@@ -1679,7 +2159,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -1700,7 +2181,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SEASONALLY_ADJUSTED",
@@ -1721,7 +2203,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -1742,7 +2225,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -1763,7 +2247,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "REPORT",
@@ -1784,7 +2269,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASURE",
@@ -1805,7 +2291,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "INDUSTRY",
@@ -1826,7 +2313,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ESTABLISHMENT_SIZE",
@@ -1847,9 +2335,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.290Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES"
     },
     {
@@ -1878,7 +2368,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -1899,7 +2390,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -1920,7 +2412,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -1941,7 +2434,8 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -1962,9 +2456,11 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.285Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES"
     },
     {
@@ -1993,7 +2489,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -2014,7 +2511,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SEASONALLY_ADJUSTED",
@@ -2035,7 +2533,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -2056,7 +2555,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -2077,7 +2577,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "REPORT",
@@ -2098,7 +2599,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PRODUCT",
@@ -2119,7 +2621,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "BASE_TYPE",
@@ -2140,9 +2643,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.068Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BUREAU_OF_LABOR_STATISTICS_PRICE_ATTRIBUTES"
     },
     {
@@ -2171,7 +2676,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -2192,7 +2698,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -2213,7 +2720,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -2234,7 +2742,8 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -2255,9 +2764,11 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.149Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BUREAU_OF_LABOR_STATISTICS_PRICE_TIMESERIES"
     },
     {
@@ -2286,7 +2797,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COMPANY_NAME",
@@ -2307,7 +2819,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ENTITY_LEVEL",
@@ -2328,7 +2841,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "EIN",
@@ -2349,7 +2863,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CIK",
@@ -2370,7 +2885,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "LEI",
@@ -2391,7 +2907,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PERMID_COMPANY_ID",
@@ -2412,7 +2929,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PRIMARY_TICKER",
@@ -2433,7 +2951,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PRIMARY_EXCHANGE_CODE",
@@ -2454,7 +2973,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PRIMARY_EXCHANGE_NAME",
@@ -2475,7 +2995,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GLOBAL_TICKERS",
@@ -2496,9 +3017,11 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.252Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.COMPANY_INDEX"
     },
     {
@@ -2527,7 +3050,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COMPANY_NAME",
@@ -2548,7 +3072,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ENTITY_LEVEL",
@@ -2569,7 +3094,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELATED_COMPANY_ID",
@@ -2590,7 +3116,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELATED_COMPANY_NAME",
@@ -2611,7 +3138,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELATED_ENTITY_LEVEL",
@@ -2632,7 +3160,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELATIONSHIP_TYPE",
@@ -2653,7 +3182,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELATIONSHIP_START_DATE",
@@ -2674,7 +3204,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELATIONSHIP_END_DATE",
@@ -2695,9 +3226,11 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.070Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.COMPANY_RELATIONSHIPS"
     },
     {
@@ -2726,7 +3259,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COMPANY_NAME",
@@ -2747,7 +3281,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SECURITY_ID_TYPE",
@@ -2768,7 +3303,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SECURITY_ID",
@@ -2789,7 +3325,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SECURITY_NAME",
@@ -2810,9 +3347,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.250Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.COMPANY_SECURITY_RELATIONSHIPS"
     },
     {
@@ -2841,7 +3380,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "TABLE_NAME_PROPER",
@@ -2862,7 +3402,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "TABLE_TYPE",
@@ -2883,7 +3424,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "LISTING_URL",
@@ -2904,7 +3446,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "LISTING_NAME",
@@ -2925,7 +3468,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATA_SOURCE",
@@ -2946,7 +3490,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DESCRIPTION",
@@ -2967,7 +3512,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ENTITIES",
@@ -2988,7 +3534,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SELECT_RELATED_TABLES",
@@ -3009,7 +3556,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATA_SOURCE_URL",
@@ -3030,7 +3578,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "LICENSE_URL",
@@ -3051,7 +3600,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CREATED_DATE",
@@ -3072,7 +3622,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "LAST_UPDATED_TIMESTAMP",
@@ -3093,7 +3644,8 @@
           "dataTypeName": "TIMESTAMP_TZ",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DOCUMENTATION_URL",
@@ -3114,7 +3666,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SHORT_DESCRIPTION",
@@ -3135,9 +3688,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.969Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.CYBERSYN_DATA_CATALOG"
     },
     {
@@ -3166,7 +3721,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "TABLE_NAME_PROPER",
@@ -3187,7 +3743,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "TABLE_TYPE",
@@ -3208,7 +3765,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COLUMN_NAME",
@@ -3229,7 +3787,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATA_TYPE",
@@ -3250,7 +3809,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COLUMN_DESCRIPTION",
@@ -3271,9 +3831,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.960Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.CYBERSYN_DATA_DICTIONARY"
     },
     {
@@ -3302,7 +3864,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -3323,7 +3886,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -3344,7 +3908,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELEASE_NAME",
@@ -3365,7 +3930,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELEASE_SOURCE",
@@ -3386,7 +3952,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASURE",
@@ -3407,7 +3974,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "INDUSTRY",
@@ -3428,7 +3996,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -3449,7 +4018,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -3470,7 +4040,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SEASONALLY_ADJUSTED",
@@ -3491,7 +4062,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASUREMENT_TYPE",
@@ -3512,9 +4084,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.067Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.CYBERSYN_FINANCIAL_ECONOMIC_INDICATORS_ATTRIBUTES"
     },
     {
@@ -3543,7 +4117,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -3564,7 +4139,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -3585,7 +4161,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -3606,7 +4183,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -3627,7 +4205,8 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -3648,9 +4227,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.230Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.CYBERSYN_FINANCIAL_ECONOMIC_INDICATORS_TIMESERIES"
     },
     {
@@ -3679,7 +4260,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -3700,7 +4282,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -3721,7 +4304,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -3742,7 +4326,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -3763,7 +4348,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASURE",
@@ -3784,7 +4370,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SEASONALLY_ADJUSTED",
@@ -3805,7 +4392,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ENTITIES",
@@ -3826,7 +4414,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MIN_DATE",
@@ -3847,7 +4436,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MAX_DATE",
@@ -3868,7 +4458,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GEO_ID_LEVELS",
@@ -3889,7 +4480,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ADDITIONAL_DATA",
@@ -3910,7 +4502,8 @@
           "dataTypeName": "VARIANT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATA_SOURCE",
@@ -3931,7 +4524,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DOCUMENTATION_URL",
@@ -3952,7 +4546,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "LISTING_NAME",
@@ -3973,7 +4568,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "LISTING_URL",
@@ -3994,9 +4590,11 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.421Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.CYBERSYN_VARIABLE_CATALOG"
     },
     {
@@ -4025,7 +4623,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -4046,7 +4645,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ITEM_DESCRIPTION",
@@ -4067,7 +4667,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASURE",
@@ -4088,7 +4689,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -4109,7 +4711,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -4130,7 +4733,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASUREMENT_TYPE",
@@ -4151,7 +4755,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GEO_COVERAGE",
@@ -4172,7 +4777,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SEASONALLY_ADJUSTED",
@@ -4193,7 +4799,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SOURCE",
@@ -4214,9 +4821,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.447Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.EUROPEAN_CENTRAL_BANK_ATTRIBUTES"
     },
     {
@@ -4245,7 +4854,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -4266,7 +4876,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -4287,7 +4898,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -4308,7 +4920,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -4329,7 +4942,8 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -4350,7 +4964,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE_COMMENT",
@@ -4371,9 +4986,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:31.268Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.EUROPEAN_CENTRAL_BANK_TIMESERIES"
     },
     {
@@ -4402,7 +5019,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FDIC_BRANCH_ID",
@@ -4423,7 +5041,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FDIC_INSTITUTION_CERTIFICATE_NUMBER",
@@ -4444,7 +5063,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RSSDHCR",
@@ -4465,7 +5085,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RSSDID",
@@ -4486,7 +5107,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "OTS_ID",
@@ -4507,7 +5129,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "HOLDING_COMPANY_NAME",
@@ -4528,7 +5151,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "HOLDING_COMPANY_TYPE",
@@ -4549,7 +5173,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "INSTITUTION_NAME",
@@ -4570,7 +5195,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "BRANCH_NAME",
@@ -4591,7 +5217,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "BRANCH_NUMBER",
@@ -4612,7 +5239,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "BRANCH_TYPE",
@@ -4633,7 +5261,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ESTABLISHED_DATE",
@@ -4654,7 +5283,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ACQUIRED_DATE",
@@ -4675,7 +5305,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MAIN_OFFICE_FLAG",
@@ -4696,7 +5327,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "INSTITUTION_PRIMARY_REGULATORY_AGENCY",
@@ -4717,7 +5349,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FDIC_REGIONAL_OFFICE",
@@ -4738,7 +5371,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FEDERAL_RESERVE_DISTRICT",
@@ -4759,7 +5393,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COMPTROLLER_DISTRICT",
@@ -4780,7 +5415,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "INSTITUTION_PRIMARY_INSURER",
@@ -4801,7 +5437,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FDIC_CLASSIFICATION_CODE",
@@ -4822,7 +5459,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CHARTER_TYPE",
@@ -4843,7 +5481,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "INSTITUTION_CHARTER_AGENCY",
@@ -4864,7 +5503,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "INSTITUTION_CATEGORY",
@@ -4885,7 +5525,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "INSTITUTION_PRIMARY_ASSET_SPECIALIZATION",
@@ -4906,7 +5547,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "INSTITUTION_MINORITY_DEPOSITORY_STATUS",
@@ -4927,7 +5569,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "LATITUDE",
@@ -4948,7 +5591,8 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "LONGITUDE",
@@ -4969,7 +5613,8 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ADDRESS",
@@ -4990,7 +5635,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CITY",
@@ -5011,7 +5657,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GEO_ID_STATE",
@@ -5032,7 +5679,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GEO_ID_ZIP",
@@ -5053,7 +5701,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GEO_ID_COUNTY",
@@ -5074,7 +5723,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GEO_ID_CBSA",
@@ -5095,7 +5745,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GEO_ID_METRO_DIV",
@@ -5116,9 +5767,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.861Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FDIC_BRANCH_LOCATIONS_INDEX"
     },
     {
@@ -5147,7 +5800,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -5168,7 +5822,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASURE",
@@ -5189,7 +5844,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -5210,7 +5866,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -5231,7 +5888,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASUREMENT_TYPE",
@@ -5252,9 +5910,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.604Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FDIC_SUMMARY_OF_DEPOSITS_ATTRIBUTES"
     },
     {
@@ -5283,7 +5943,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FDIC_BRANCH_ID",
@@ -5304,7 +5965,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -5325,7 +5987,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -5346,7 +6009,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -5367,7 +6031,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -5388,7 +6053,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -5409,9 +6075,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:09.897Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FDIC_SUMMARY_OF_DEPOSITS_TIMESERIES"
     },
     {
@@ -5440,7 +6108,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -5461,7 +6130,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PROPERTY_CLASSIFICATION",
@@ -5482,7 +6152,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "INDEX_TYPE",
@@ -5503,7 +6174,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -5524,7 +6196,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SEASONALLY_ADJUSTED",
@@ -5545,7 +6218,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -5566,9 +6240,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.480Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FHFA_HOUSE_PRICE_ATTRIBUTES"
     },
     {
@@ -5597,7 +6273,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -5618,7 +6295,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -5639,7 +6317,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -5660,7 +6339,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -5681,7 +6361,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -5702,9 +6383,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.758Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FHFA_HOUSE_PRICE_TIMESERIES"
     },
     {
@@ -5733,7 +6416,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -5754,7 +6438,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_GROUP",
@@ -5775,7 +6460,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MARKET",
@@ -5796,7 +6482,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -5817,7 +6504,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -5838,9 +6526,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.963Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FHFA_MORTGAGE_PERFORMANCE_ATTRIBUTES"
     },
     {
@@ -5869,7 +6559,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -5890,7 +6581,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -5911,7 +6603,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -5932,7 +6625,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -5953,7 +6647,8 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -5974,9 +6669,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.606Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FHFA_MORTGAGE_PERFORMANCE_TIMESERIES"
     },
     {
@@ -6005,7 +6702,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -6026,7 +6724,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_GROUP",
@@ -6047,7 +6746,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "APPRAISAL_PURPOSE",
@@ -6068,7 +6768,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CHARACTERISTIC",
@@ -6089,7 +6790,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CATEGORY",
@@ -6110,7 +6812,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -6131,7 +6834,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -6152,7 +6856,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "APPRAISAL_SOURCE",
@@ -6173,9 +6878,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.725Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FHFA_UNIFORM_APPRAISAL_ATTRIBUTES"
     },
     {
@@ -6204,7 +6911,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -6225,7 +6933,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -6246,7 +6955,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -6267,7 +6977,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -6288,7 +6999,8 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -6309,7 +7021,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SUPPRESSED",
@@ -6330,9 +7043,11 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:09.962Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FHFA_UNIFORM_APPRAISAL_TIMESERIES"
     },
     {
@@ -6361,7 +7076,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ID_RSSD_PARENT",
@@ -6382,7 +7098,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "NAME_PARENT",
@@ -6403,7 +7120,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "BRANCH_NAME",
@@ -6424,7 +7142,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CATEGORY",
@@ -6445,7 +7164,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "IS_ACTIVE",
@@ -6466,7 +7186,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "START_DATE",
@@ -6487,7 +7208,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "END_DATE",
@@ -6508,7 +7230,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ADDRESS",
@@ -6529,7 +7252,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ADDRESS_LINE2",
@@ -6550,7 +7274,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CITY",
@@ -6571,7 +7296,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "STATE_ABBREVIATION",
@@ -6592,7 +7318,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ZIP_CODE",
@@ -6613,7 +7340,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ID_COUNTRY",
@@ -6634,7 +7362,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ID_STATE",
@@ -6655,7 +7384,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ID_COUNTY",
@@ -6676,7 +7406,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ID_ZIP",
@@ -6697,9 +7428,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.356Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_BRANCH_ENTITIES"
     },
     {
@@ -6728,7 +7461,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ID_STATE",
@@ -6749,7 +7483,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PRODUCT",
@@ -6770,7 +7505,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SUB_PRODUCT",
@@ -6791,7 +7527,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ISSUE",
@@ -6812,7 +7549,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SUB_ISSUE",
@@ -6833,7 +7571,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COMPANY",
@@ -6854,7 +7593,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CONSUMER_COMPLAINT_NARRATIVE",
@@ -6875,7 +7615,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COMPANY_PUBLIC_RESPONSE",
@@ -6896,7 +7637,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COMPANY_RESPONSE_TO_CONSUMER",
@@ -6917,7 +7659,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "STATE",
@@ -6938,7 +7681,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ZIP_CODE",
@@ -6959,7 +7703,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "TAGS",
@@ -6980,7 +7725,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CONSUMER_CONSENT_PROVIDED",
@@ -7001,7 +7747,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SUBMITTED_VIA",
@@ -7022,7 +7769,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CONSUMER_DISPUTED",
@@ -7043,7 +7791,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE_RECEIVED",
@@ -7064,7 +7813,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE_SENT_TO_COMPANY",
@@ -7085,7 +7835,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "TIMELY_RESPONSE",
@@ -7106,7 +7857,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COMPLAINT_ID",
@@ -7127,9 +7879,11 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.320Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_CFPB_COMPLAINT"
     },
     {
@@ -7158,7 +7912,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -7179,7 +7934,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DEFINITION",
@@ -7200,7 +7956,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -7221,7 +7978,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -7242,9 +8000,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.382Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_INSTITUTION_ATTRIBUTES"
     },
     {
@@ -7273,7 +8033,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "NAME",
@@ -7294,7 +8055,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CATEGORY",
@@ -7315,7 +8077,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "IS_ACTIVE",
@@ -7336,7 +8099,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ADDRESS",
@@ -7357,7 +8121,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CITY",
@@ -7378,7 +8143,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "STATE_ABBREVIATION",
@@ -7399,7 +8165,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ZIP_CODE",
@@ -7420,7 +8187,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "URL",
@@ -7441,7 +8209,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "START_DATE",
@@ -7462,7 +8231,8 @@
           "dataTypeName": "TIMESTAMP_NTZ",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "END_DATE",
@@ -7483,7 +8253,8 @@
           "dataTypeName": "TIMESTAMP_NTZ",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CHARTERING_AUTHORITY",
@@ -7504,7 +8275,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CHARTER_TYPE",
@@ -7525,7 +8297,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FEDERAL_REGULATOR",
@@ -7546,7 +8319,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ENTITY_TYPE",
@@ -7567,7 +8341,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "INSURER",
@@ -7588,7 +8363,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FDIC_CERT",
@@ -7609,7 +8385,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "OCC_ID",
@@ -7630,7 +8407,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "THRIFT_ID",
@@ -7651,7 +8429,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ID_COUNTRY",
@@ -7672,7 +8451,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ID_STATE",
@@ -7693,7 +8473,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ID_COUNTY",
@@ -7714,7 +8495,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ID_ZIP",
@@ -7735,7 +8517,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "LEGAL_ENTITY_IDENTIFIER",
@@ -7756,7 +8539,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "EMPLOYER_IDENTIFICATION_NUMBER",
@@ -7777,7 +8561,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "REASON_FOR_ENTITY_TERMINATION",
@@ -7798,7 +8583,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "INTERNATIONAL_BANKING_FACILITY",
@@ -7819,7 +8605,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "NAICS_CODE",
@@ -7840,7 +8627,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MAJORITY_OWNED_BY_MINORITY_OR_WOMEN",
@@ -7861,7 +8649,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SPECIALIZATION_GROUP",
@@ -7882,9 +8671,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:09.834Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_INSTITUTION_ENTITIES"
     },
     {
@@ -7913,7 +8704,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "NAME_SUCCESSOR",
@@ -7934,7 +8726,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ACTIVE_SUCCESSOR",
@@ -7955,7 +8748,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CATEGORY_SUCCESSOR",
@@ -7976,7 +8770,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ID_RSSD_PREDECESSOR",
@@ -7997,7 +8792,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "NAME_PREDECESSOR",
@@ -8018,7 +8814,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ACTIVE_PREDECESSOR",
@@ -8039,7 +8836,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CATEGORY_PREDECESSOR",
@@ -8060,7 +8858,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "TRANSACTION_DATE",
@@ -8081,7 +8880,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "TRANSFORMATION_TYPE",
@@ -8102,7 +8902,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MERGER_ACCOUNTING_METHOD_UTILIZED",
@@ -8123,9 +8924,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.474Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_INSTITUTION_EVENTS"
     },
     {
@@ -8154,7 +8957,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "NAME_PARENT",
@@ -8175,7 +8979,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ACTIVE_PARENT",
@@ -8196,7 +9001,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CATEGORY_PARENT",
@@ -8217,7 +9023,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ID_RSSD_OFFSPRING",
@@ -8238,7 +9045,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "NAME_OFFSPRING",
@@ -8259,7 +9067,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ACTIVE_OFFSPRING",
@@ -8280,7 +9089,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CATEGORY_OFFSPRING",
@@ -8301,7 +9111,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELATIONSHIP_TERMINATED",
@@ -8322,7 +9133,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PARENT_CONTROLS_OFFSPRING",
@@ -8343,7 +9155,8 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PERCENT_CONTROL_OF_OFFSPRING",
@@ -8364,7 +9177,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELATIONSHIP_LEVEL",
@@ -8385,9 +9199,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.382Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_INSTITUTION_HIERARCHY"
     },
     {
@@ -8416,7 +9232,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -8437,7 +9254,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -8458,7 +9276,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -8479,7 +9298,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -8500,7 +9320,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -8521,9 +9342,11 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.379Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FINANCIAL_INSTITUTION_TIMESERIES"
     },
     {
@@ -8552,7 +9375,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -8573,7 +9397,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "BASE_CURRENCY_ID",
@@ -8594,7 +9419,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "QUOTE_CURRENCY_ID",
@@ -8615,7 +9441,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "BASE_CURRENCY_NAME",
@@ -8636,7 +9463,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "QUOTE_CURRENCY_NAME",
@@ -8657,7 +9485,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -8678,7 +9507,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -8699,9 +9529,11 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:31.065Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FX_RATES_TIMESERIES"
     },
     {
@@ -8730,7 +9562,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GEO_ID",
@@ -8751,9 +9584,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.101Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.GEOGRAPHY_HIERARCHY"
     },
     {
@@ -8782,7 +9617,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GEO_NAME",
@@ -8803,7 +9639,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "LEVEL",
@@ -8824,7 +9661,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ISO_NAME",
@@ -8845,7 +9683,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ISO_ALPHA2",
@@ -8866,7 +9705,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ISO_ALPHA3",
@@ -8887,7 +9727,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ISO_NUMERIC_CODE",
@@ -8908,7 +9749,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ISO_3166_2_CODE",
@@ -8929,9 +9771,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.195Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.GEOGRAPHY_INDEX"
     },
     {
@@ -8960,7 +9804,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "OVERLAPS_WITH",
@@ -8981,9 +9826,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.639Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.GEOGRAPHY_OVERLAPS"
     },
     {
@@ -9012,7 +9859,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GEO_ID",
@@ -9033,7 +9881,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "LEVEL",
@@ -9054,7 +9903,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELATED_GEO_NAME",
@@ -9075,7 +9925,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELATED_GEO_ID",
@@ -9096,7 +9947,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELATED_LEVEL",
@@ -9117,7 +9969,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "RELATIONSHIP_TYPE",
@@ -9138,9 +9991,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:31.125Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.GEOGRAPHY_RELATIONSHIPS"
     },
     {
@@ -9169,7 +10024,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -9190,7 +10046,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASURE",
@@ -9211,7 +10068,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -9232,7 +10090,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -9253,7 +10112,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASUREMENT_TYPE",
@@ -9274,9 +10134,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.618Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.INTERNATIONAL_MONETARY_FUND_ATTRIBUTES"
     },
     {
@@ -9305,7 +10167,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "COUNTERPART_GEO_ID",
@@ -9326,7 +10189,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -9347,7 +10211,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -9368,7 +10233,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -9389,7 +10255,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -9410,7 +10277,8 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -9431,9 +10299,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:31.168Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.INTERNATIONAL_MONETARY_FUND_TIMESERIES"
     },
     {
@@ -9462,7 +10332,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SECTOR",
@@ -9483,7 +10354,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "NAICS_CLASSIFICATION_YEAR",
@@ -9504,7 +10376,8 @@
           "dataTypeName": "NUMBER",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "NAICS_HIERARCHY",
@@ -9525,9 +10398,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.209Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.NAICS_CODE_INDEX"
     },
     {
@@ -9556,7 +10431,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -9577,7 +10453,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASURE",
@@ -9598,7 +10475,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -9619,7 +10497,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -9640,7 +10519,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SEASONALLY_ADJUSTED",
@@ -9661,7 +10541,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASUREMENT_TYPE",
@@ -9682,9 +10563,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.313Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.OECD_ATTRIBUTES"
     },
     {
@@ -9713,7 +10596,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -9734,7 +10618,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -9755,7 +10640,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -9776,7 +10662,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -9797,7 +10684,8 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -9818,9 +10706,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:30.960Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.OECD_TIMESERIES"
     },
     {
@@ -9849,7 +10739,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "TOP_LEVEL_OPENFIGI_ID_TYPE",
@@ -9870,7 +10761,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PRIMARY_TICKER",
@@ -9891,7 +10783,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SECURITY_NAME",
@@ -9912,7 +10805,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ASSET_CLASS",
@@ -9933,7 +10827,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SECURITY_TYPE",
@@ -9954,7 +10849,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SECURITY_SUBTYPE",
@@ -9975,7 +10871,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GLOBAL_TICKERS",
@@ -9996,7 +10893,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "OPENFIGI_FIGI_ID",
@@ -10017,7 +10915,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "OPENFIGI_COMPOSITE_ID",
@@ -10038,7 +10937,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "OPENFIGI_SHARE_CLASS_ID",
@@ -10059,7 +10959,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "EXCHANGE_CODES",
@@ -10080,9 +10981,11 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:31.437Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.OPENFIGI_SECURITY_INDEX"
     },
     {
@@ -10111,7 +11014,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PRIMARY_TICKER",
@@ -10132,7 +11036,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SECURITY_NAME",
@@ -10153,7 +11058,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ASSET_CLASS",
@@ -10174,7 +11080,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PRIMARY_EXCHANGE_CODE",
@@ -10195,7 +11102,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PRIMARY_EXCHANGE_NAME",
@@ -10216,7 +11124,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SECURITY_STATUS",
@@ -10237,7 +11146,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "GLOBAL_TICKERS",
@@ -10258,7 +11168,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "EXCHANGE_CODE",
@@ -10279,7 +11190,8 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PERMID_QUOTE_ID",
@@ -10300,9 +11212,11 @@
           "dataTypeName": "ARRAY",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:56:10.513Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.PERMID_SECURITY_INDEX"
     },
     {
@@ -10331,7 +11245,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ISO_ALPHA2",
@@ -10352,7 +11267,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -10373,7 +11289,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "HOLIDAY_NAME",
@@ -10394,7 +11311,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "SUBDIVISION",
@@ -10415,7 +11333,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "IS_FINANCIAL",
@@ -10436,9 +11355,11 @@
           "dataTypeName": "BOOLEAN",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.124Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.PUBLIC_HOLIDAY_CALENDAR"
     },
     {
@@ -10467,7 +11388,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "ASSET_CLASS",
@@ -10488,7 +11410,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PRIMARY_EXCHANGE_CODE",
@@ -10509,7 +11432,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PRIMARY_EXCHANGE_NAME",
@@ -10530,7 +11454,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -10551,7 +11476,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -10572,7 +11498,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -10593,7 +11520,8 @@
           "dataTypeName": "DATE",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -10614,9 +11542,11 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-26T22:47:31.040Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.STOCK_PRICE_TIMESERIES"
     },
     {
@@ -10645,7 +11575,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -10666,7 +11597,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "MEASURE",
@@ -10687,7 +11619,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -10708,7 +11641,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "FREQUENCY",
@@ -10729,7 +11663,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "NAICS_CODE",
@@ -10750,7 +11685,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "NAICS_DESCRIPTION",
@@ -10771,7 +11707,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "OPERATION_TYPE",
@@ -10792,7 +11729,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "TAX_STATUS",
@@ -10813,7 +11751,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "PRODUCT_SERVICES_LINE",
@@ -10834,7 +11773,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "CREDIT_CARD_SERVICES_INCOME",
@@ -10855,9 +11795,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.195Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.US_ECONOMIC_CENSUS_ATTRIBUTES"
     },
     {
@@ -10886,7 +11828,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE",
@@ -10907,7 +11850,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VARIABLE_NAME",
@@ -10928,7 +11872,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "DATE",
@@ -10949,7 +11894,8 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "VALUE",
@@ -10970,7 +11916,8 @@
           "dataTypeName": "FLOAT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         },
         {
           "name": "UNIT",
@@ -10991,9 +11938,11 @@
           "dataTypeName": "TEXT",
           "nullable": true,
           "identity": false,
-          "primaryKey": false
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
+      "createdAt": "2025-11-22T19:36:04.195Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.US_ECONOMIC_CENSUS_TIMESERIES"
     }
   ]
