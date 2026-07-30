@@ -57,6 +57,68 @@ account:
     # set a default log level
     log_level: INFO
 
+budgets:
+  # ACCOUNT ROOT BUDGET
+  - database: SNOWFLAKE
+    schema: LOCAL
+    name: ACCOUNT_ROOT_BUDGET
+    destroy: false
+    properties:
+      spending_limit: 300
+      refresh_tier: TIER_6H
+      notification_threshold: 80
+      email_notification_integration: alert_email_integration
+      notification_email:
+        - toolkit-support@phdata.io
+      notification_mute_flag: false
+
+  # TOOLKIT BUDGET
+  - database: governance
+    schema: budget
+    name: toolkit_budget
+    resources:
+      # access tool
+      - objectType: warehouse
+        identifier: access_wh
+        privileges:
+          - APPLYBUDGET
+      # advisor tool
+      - objectType: warehouse
+        identifier: advisor_wh
+        privileges:
+          - APPLYBUDGET
+      # data-generation tool
+      - objectType: warehouse
+        identifier: datagen_wh
+        privileges:
+          - APPLYBUDGET
+      - objectType: database
+        identifier: synthetic_sales
+        privileges:
+          - APPLYBUDGET
+      # data-source tool
+      - objectType: warehouse
+        identifier: datasource_wh
+        privileges:
+          - APPLYBUDGET
+      # tutorial
+      - objectType: warehouse
+        identifier: tutorial_wh
+        privileges:
+          - APPLYBUDGET
+      - objectType: database
+        identifier: tutorials
+        privileges:
+          - APPLYBUDGET
+    properties:
+      spending_limit: 10
+      refresh_tier: TIER_6H
+      notification_threshold: 80
+      email_notification_integration: alert_email_integration
+      notification_email:
+        - toolkit-support@phdata.io
+      comment: Tracks combined spend across all Toolkit CLI tool warehouses and databases
+
 resourceMonitors:
   - name: account_resource_monitor
     creditQuota: 300
@@ -154,6 +216,8 @@ schemas:
     name: alert
   - database: governance
     name: log
+  - database: governance
+    name: budget
 
 roles:
   - name: log_admin
@@ -308,6 +372,25 @@ privilegeGrants:
     objectName: default_user_wh
     roleName: public
     privilege: usage
+
+simpleGrants:
+  - privilege: usage
+    objectType: database
+    objectName: governance
+    roleName: budget_admin
+  - privilege:
+      - usage
+      - CREATE SNOWFLAKE.CORE.BUDGET
+    objectType: schema
+    objectName: governance.budget
+    roleName: budget_admin
+
+databaseRoleGrants:
+  # The role used to create a budget must be granted this database role
+  - name: BUDGET_CREATOR
+    database: SNOWFLAKE
+    toRoles:
+      - budget_admin
 
 # TODO: This is public for demonstration purposes. Adjust to limit network access.
 networkRules:
