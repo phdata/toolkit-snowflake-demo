@@ -39,21 +39,30 @@
   },
   "metadata": {
     "identifier": {
-      "id": "snowflake:scan:2026-06-03T004746.290Z",
+      "id": "snowflake:profile:2026-08-03T003000.181Z",
       "tool": "ds",
       "source": "snowflake",
-      "type": "scan",
-      "timestamp": "2026-06-03T00:47:46.290Z"
+      "type": "profile",
+      "timestamp": "2026-08-03T00:30:00.181Z"
     },
     "source": {
       "name": "snowflake",
       "type": "snowflake",
+      "lineage": {
+        "scan": {
+          "id": "snowflake:scan:2026-08-03T002936.701Z",
+          "tool": "ds",
+          "source": "snowflake",
+          "type": "scan",
+          "timestamp": "2026-08-03T00:29:36.701Z"
+        }
+      },
       "accountName": "PHDATAPARTNER-DEMO"
     },
-    "version": "0.99.0",
+    "version": "0.106.0",
     "license": "PRO",
-    "start": "2026-06-03T00:47:38.008609Z",
-    "end": "2026-06-03T00:47:46.290051Z"
+    "start": "2026-08-03T00:29:50.174466Z",
+    "end": "2026-08-03T00:30:00.181376Z"
   },
   "tables": [
     {
@@ -78,11 +87,69 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": false,
           "identity": false,
           "primaryKey": true,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 40035
+              },
+              {
+                "name": "max",
+                "value": 40062
+              },
+              {
+                "name": "min",
+                "value": 1
+              },
+              {
+                "name": "negative_count",
+                "value": 0
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              },
+              {
+                "name": "stddev",
+                "value": 8282.404022160958
+              },
+              {
+                "name": "zero_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "FIRST_NAME",
@@ -100,11 +167,69 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 4439
+              },
+              {
+                "name": "empty_count",
+                "value": 0
+              },
+              {
+                "name": "max",
+                "value": "Willian"
+              },
+              {
+                "name": "max_length",
+                "value": 11
+              },
+              {
+                "name": "min",
+                "value": "Albert"
+              },
+              {
+                "name": "min_length",
+                "value": 2
+              },
+              {
+                "name": "null_count",
+                "value": 143794
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  null,
+                  "Melvin",
+                  "Cody",
+                  "Hassan",
+                  "Gregorio",
+                  "Jeromy",
+                  "Morton",
+                  "Hilario",
+                  "Romaine",
+                  "Lane",
+                  "Hong",
+                  "Joey",
+                  "Laverne",
+                  "Marshall",
+                  "Ismael",
+                  "Jan",
+                  "Leigh",
+                  "Irving",
+                  "Kyle",
+                  "Les"
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "LAST_NAME",
@@ -122,11 +247,69 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": false,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 454
+              },
+              {
+                "name": "empty_count",
+                "value": 0
+              },
+              {
+                "name": "max",
+                "value": "Wyman"
+              },
+              {
+                "name": "max_length",
+                "value": 13
+              },
+              {
+                "name": "min",
+                "value": "Armstrong"
+              },
+              {
+                "name": "min_length",
+                "value": 3
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Jast",
+                  "Miller",
+                  "Muller",
+                  "Harvey",
+                  "Funk",
+                  "Hammes",
+                  "Olson",
+                  "Hessel",
+                  "Kling",
+                  "Langworth",
+                  "McLaughlin",
+                  "Legros",
+                  "Nikolaus",
+                  "Hand",
+                  "Hamill",
+                  "Glover",
+                  "Kutch",
+                  "Ledner",
+                  "Koepp",
+                  "McKenzie"
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "STATE",
@@ -144,11 +327,69 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 50
+              },
+              {
+                "name": "empty_count",
+                "value": 0
+              },
+              {
+                "name": "max",
+                "value": "Wyoming"
+              },
+              {
+                "name": "max_length",
+                "value": 14
+              },
+              {
+                "name": "min",
+                "value": "Alabama"
+              },
+              {
+                "name": "min_length",
+                "value": 4
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Louisiana",
+                  "Nevada",
+                  "North Carolina",
+                  "Mississippi",
+                  "New Hampshire",
+                  "Kentucky",
+                  "Maine",
+                  "Montana",
+                  "Nebraska",
+                  "Missouri",
+                  "New Mexico",
+                  "New Jersey",
+                  "Massachusetts",
+                  "Maryland",
+                  "Minnesota",
+                  "New York",
+                  "Ohio",
+                  "Oklahoma",
+                  "Iowa",
+                  "Michigan"
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "ZIP_CODE",
@@ -166,13 +407,83 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 776
+              },
+              {
+                "name": "empty_count",
+                "value": 0
+              },
+              {
+                "name": "max",
+                "value": "995##"
+              },
+              {
+                "name": "max_length",
+                "value": 5
+              },
+              {
+                "name": "min",
+                "value": "01257"
+              },
+              {
+                "name": "min_length",
+                "value": 5
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "701##",
+                  "898##",
+                  "288##",
+                  "387##",
+                  "036##",
+                  "404##",
+                  "042##",
+                  "590##",
+                  "688##",
+                  "650##",
+                  "880##",
+                  "076##",
+                  "026##",
+                  "210##",
+                  "555##",
+                  "122##",
+                  "444##",
+                  "730##",
+                  "510##",
+                  "480##"
+                ]
+              }
+            ]
+          }
         }
       ],
+      "profile": {
+        "gauges": [
+          {
+            "name": "hash_agg",
+            "value": -8198643096795412312
+          },
+          {
+            "name": "row_count",
+            "value": 540222
+          }
+        ]
+      },
       "createdAt": "2024-08-19T23:28:57.350Z",
       "lastAltered": "2024-08-19T23:28:57.350Z",
       "lastAlteredBy": "DROPPED_USER(1172276996)",
@@ -201,11 +512,69 @@
           "length": 38
         },
         "dataTypeName": "NUMBER",
-        "dataType": "NUMBER(38, 0)",
         "nullable": false,
         "identity": false,
         "primaryKey": true,
-        "partitionKey": false
+        "partitionKey": false,
+        "profile": {
+          "gauges": [
+            {
+              "name": "distinct_count",
+              "value": 40035
+            },
+            {
+              "name": "max",
+              "value": 40062
+            },
+            {
+              "name": "min",
+              "value": 1
+            },
+            {
+              "name": "negative_count",
+              "value": 0
+            },
+            {
+              "name": "null_count",
+              "value": 0
+            },
+            {
+              "name": "stddev",
+              "value": 8282.404022160958
+            },
+            {
+              "name": "zero_count",
+              "value": 0
+            }
+          ],
+          "histograms": [
+            {
+              "name": "top_values",
+              "value": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ]
+            }
+          ]
+        }
       },
       "qualifiedName": "SYNTHETIC_SALES.MAIN.CUSTOMER"
     },
@@ -231,11 +600,69 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 52528
+              },
+              {
+                "name": "max",
+                "value": 52528
+              },
+              {
+                "name": "min",
+                "value": 1
+              },
+              {
+                "name": "negative_count",
+                "value": 0
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              },
+              {
+                "name": "stddev",
+                "value": 5071.68785982162
+              },
+              {
+                "name": "zero_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "PRODUCT_ID",
@@ -253,11 +680,69 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": false,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 9912
+              },
+              {
+                "name": "max",
+                "value": 10022
+              },
+              {
+                "name": "min",
+                "value": 1
+              },
+              {
+                "name": "negative_count",
+                "value": 0
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              },
+              {
+                "name": "stddev",
+                "value": 988.8145152095008
+              },
+              {
+                "name": "zero_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  39,
+                  18,
+                  11,
+                  7,
+                  46,
+                  3,
+                  40,
+                  32,
+                  21,
+                  24,
+                  8,
+                  34,
+                  26,
+                  43,
+                  10,
+                  13,
+                  42,
+                  9,
+                  30,
+                  2
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "CUSTOMER_ID",
@@ -275,11 +760,69 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": false,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 29319
+              },
+              {
+                "name": "max",
+                "value": 40062
+              },
+              {
+                "name": "min",
+                "value": 1
+              },
+              {
+                "name": "negative_count",
+                "value": 0
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              },
+              {
+                "name": "stddev",
+                "value": 3918.210819102387
+              },
+              {
+                "name": "zero_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  178,
+                  256,
+                  130,
+                  169,
+                  563,
+                  601,
+                  681,
+                  98,
+                  202,
+                  263,
+                  338,
+                  402,
+                  573,
+                  717,
+                  52,
+                  182,
+                  260,
+                  357,
+                  390,
+                  468
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "SALE_TIMESTAMP",
@@ -297,11 +840,57 @@
             "length": 9
           },
           "dataTypeName": "TIMESTAMP_NTZ",
-          "dataType": "TIMESTAMP_NTZ",
           "nullable": false,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 3011023
+              },
+              {
+                "name": "max",
+                "value": "2026-08-01T22:18:26.416+00:00"
+              },
+              {
+                "name": "min",
+                "value": "1990-10-01T18:20:53.619+00:00"
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "1999-12-12T18:31:38.171+00:00",
+                  "1998-12-04T21:49:59.944+00:00",
+                  "1998-12-08T23:51:17.790+00:00",
+                  "2000-12-07T23:39:10.137+00:00",
+                  "2012-12-05T11:19:38.362+00:00",
+                  "2020-12-05T11:19:38.362+00:00",
+                  "1995-12-14T00:16:39.383+00:00",
+                  "2000-12-10T02:30:27.087+00:00",
+                  "2001-12-06T13:51:06.845+00:00",
+                  "2004-12-06T02:30:27.087+00:00",
+                  "2016-12-03T21:28:41.229+00:00",
+                  "2023-12-05T11:19:38.362+00:00",
+                  "1993-12-11T00:32:22.614+00:00",
+                  "2000-12-24T00:51:49.371+00:00",
+                  "2015-12-03T21:28:41.229+00:00",
+                  "2017-12-03T21:28:41.229+00:00",
+                  "1994-12-11T17:43:45.069+00:00",
+                  "1996-12-06T23:02:17.362+00:00",
+                  "2014-12-05T11:19:38.362+00:00",
+                  "2001-12-24T23:56:48.637+00:00"
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "RETURN_TIMESTAMP",
@@ -319,13 +908,71 @@
             "length": 9
           },
           "dataTypeName": "TIMESTAMP_NTZ",
-          "dataType": "TIMESTAMP_NTZ",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 508381
+              },
+              {
+                "name": "max",
+                "value": "2026-08-24T10:01:29.479+00:00"
+              },
+              {
+                "name": "min",
+                "value": "1991-10-07T18:08:36.669+00:00"
+              },
+              {
+                "name": "null_count",
+                "value": 2860774
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  null,
+                  "1999-12-23T18:31:38.171+00:00",
+                  "2000-12-24T23:39:10.137+00:00",
+                  "2016-12-14T21:28:41.229+00:00",
+                  "2015-12-14T21:28:41.229+00:00",
+                  "2017-12-14T21:28:41.229+00:00",
+                  "2001-01-06T05:27:17.070+00:00",
+                  "2002-01-02T14:24:08.969+00:00",
+                  "2002-12-28T06:36:44.100+00:00",
+                  "2019-12-14T21:28:41.229+00:00",
+                  "1997-12-28T11:26:24.178+00:00",
+                  "2001-12-28T01:40:26.606+00:00",
+                  "1993-12-27T04:03:15.570+00:00",
+                  "2001-01-05T13:53:40.648+00:00",
+                  "1996-12-28T23:02:17.362+00:00",
+                  "1998-01-10T02:21:57.188+00:00",
+                  "1998-12-23T06:34:09.598+00:00",
+                  "1999-01-10T16:13:57.866+00:00",
+                  "1999-12-23T08:31:57.219+00:00",
+                  "2001-01-06T07:04:22.674+00:00"
+                ]
+              }
+            ]
+          }
         }
       ],
+      "profile": {
+        "gauges": [
+          {
+            "name": "hash_agg",
+            "value": -4553785821701641118
+          },
+          {
+            "name": "row_count",
+            "value": 3455480
+          }
+        ]
+      },
       "createdAt": "2024-08-19T23:28:57.632Z",
       "lastAltered": "2024-08-19T23:28:57.632Z",
       "lastAlteredBy": "DROPPED_USER(1172276996)",
@@ -381,11 +1028,69 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": false,
           "identity": false,
           "primaryKey": true,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 10000
+              },
+              {
+                "name": "max",
+                "value": 10022
+              },
+              {
+                "name": "min",
+                "value": 1
+              },
+              {
+                "name": "negative_count",
+                "value": 0
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              },
+              {
+                "name": "stddev",
+                "value": 3034.6300821460923
+              },
+              {
+                "name": "zero_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "NAME",
@@ -403,11 +1108,69 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": false,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 3236
+              },
+              {
+                "name": "empty_count",
+                "value": 0
+              },
+              {
+                "name": "max",
+                "value": "Synergistic Wool Table"
+              },
+              {
+                "name": "max_length",
+                "value": 29
+              },
+              {
+                "name": "min",
+                "value": "Aerodynamic Aluminum Keyboard"
+              },
+              {
+                "name": "min_length",
+                "value": 14
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Mediocre Wool Knife",
+                  "Enormous Silk Knife",
+                  "Mediocre Linen Table",
+                  "Practical Wool Coat",
+                  "Sleek Cotton Hat",
+                  "Sleek Linen Keyboard",
+                  "Awesome Silk Plate",
+                  "Awesome Wool Shoes",
+                  "Incredible Linen Keyboard",
+                  "Sleek Leather Shoes",
+                  "Synergistic Marble Shirt",
+                  "Enormous Rubber Hat",
+                  "Practical Cotton Hat",
+                  "Sleek Linen Lamp",
+                  "Sleek Plastic Keyboard",
+                  "Sleek Wool Hat",
+                  "Practical Wool Lamp",
+                  "Incredible Wool Keyboard",
+                  "Incredible Wool Shirt",
+                  "Practical Iron Hat"
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "DESCRIPTION",
@@ -425,11 +1188,69 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": false,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 9908
+              },
+              {
+                "name": "empty_count",
+                "value": 0
+              },
+              {
+                "name": "max",
+                "value": "Virtual solution-oriented methodology"
+              },
+              {
+                "name": "max_length",
+                "value": 60
+              },
+              {
+                "name": "min",
+                "value": "Ameliorated explicit customer loyalty"
+              },
+              {
+                "name": "min_length",
+                "value": 16
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Centralized tangible focus group",
+                  "Compatible empowering knowledge base",
+                  "Decentralized human-resource protocol",
+                  "Distributed content-based extranet",
+                  "Down-sized demand-driven instruction set",
+                  "Enterprise-wide impactful focus group",
+                  "Exclusive bandwidth-monitored paradigm",
+                  "Exclusive impactful focus group",
+                  "Face to face client-driven leverage",
+                  "Focused optimizing interface",
+                  "Front-line mobile local area network",
+                  "Front-line non-volatile structure",
+                  "Function-based scalable neural-net",
+                  "Fundamental impactful knowledge base",
+                  "Grass-roots radical software",
+                  "Horizontal human-resource projection",
+                  "Implemented even-keeled monitoring",
+                  "Innovative local focus group",
+                  "Integrated heuristic instruction set",
+                  "Intuitive contextually-based customer loyalty"
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "CATEGORY",
@@ -447,11 +1268,69 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": false,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 875
+              },
+              {
+                "name": "empty_count",
+                "value": 0
+              },
+              {
+                "name": "max",
+                "value": "Toys"
+              },
+              {
+                "name": "max_length",
+                "value": 35
+              },
+              {
+                "name": "min",
+                "value": "Automotive"
+              },
+              {
+                "name": "min_length",
+                "value": 4
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "Home",
+                  "Baby",
+                  "Toys",
+                  "Health",
+                  "Tools",
+                  "Kids",
+                  "Beauty",
+                  "Computers",
+                  "Jewelry",
+                  "Grocery",
+                  "Garden",
+                  "Clothing",
+                  "Outdoors",
+                  "Beauty & Health",
+                  "Beauty & Grocery",
+                  "Health & Kids",
+                  "Clothing & Health",
+                  "Beauty & Tools",
+                  "Grocery & Tools",
+                  "Kids & Shoes"
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "LAUNCH_TIMESTAMP",
@@ -469,11 +1348,57 @@
             "length": 9
           },
           "dataTypeName": "TIMESTAMP_NTZ",
-          "dataType": "TIMESTAMP_NTZ",
           "nullable": false,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 30029
+              },
+              {
+                "name": "max",
+                "value": "2023-10-23T18:22:08.443+00:00"
+              },
+              {
+                "name": "min",
+                "value": "1990-08-23T20:17:05.686+00:00"
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  "1992-09-12T18:07:29.089+00:00",
+                  "1992-09-11T18:07:29.089+00:00",
+                  "1992-09-13T18:07:29.089+00:00",
+                  "1992-09-14T18:07:29.089+00:00",
+                  "1992-09-15T18:07:29.089+00:00",
+                  "1992-09-17T18:07:29.089+00:00",
+                  "1992-09-18T18:07:29.089+00:00",
+                  "1992-09-19T18:07:29.089+00:00",
+                  "1992-09-20T18:07:29.089+00:00",
+                  "1992-09-21T18:07:29.089+00:00",
+                  "1992-09-22T18:07:29.089+00:00",
+                  "1992-09-23T18:07:29.089+00:00",
+                  "1992-09-29T18:07:29.089+00:00",
+                  "1992-09-30T18:07:29.089+00:00",
+                  "1992-10-01T18:07:29.089+00:00",
+                  "1992-10-02T18:07:29.089+00:00",
+                  "1992-10-03T18:07:29.089+00:00",
+                  "1992-10-05T18:07:29.089+00:00",
+                  "1992-10-06T18:07:29.089+00:00",
+                  "1992-10-07T18:07:29.089+00:00"
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "DISCONTINUED_TIMESTAMP",
@@ -491,11 +1416,57 @@
             "length": 9
           },
           "dataTypeName": "TIMESTAMP_NTZ",
-          "dataType": "TIMESTAMP_NTZ",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 12002
+              },
+              {
+                "name": "max",
+                "value": "2023-06-21T04:46:10.692+00:00"
+              },
+              {
+                "name": "min",
+                "value": "1993-10-02T20:17:05.686+00:00"
+              },
+              {
+                "name": "null_count",
+                "value": 36711
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  null,
+                  "2000-09-16T14:13:26.044+00:00",
+                  "2003-08-07T18:53:17.734+00:00",
+                  "1996-12-23T18:07:29.089+00:00",
+                  "1998-05-01T18:07:29.089+00:00",
+                  "1998-05-17T18:07:29.089+00:00",
+                  "1998-11-13T14:33:59.247+00:00",
+                  "2000-07-15T14:13:26.044+00:00",
+                  "2000-07-16T14:13:26.044+00:00",
+                  "2001-01-05T01:18:07.569+00:00",
+                  "2002-01-27T14:33:59.247+00:00",
+                  "2002-05-20T18:53:17.734+00:00",
+                  "2003-01-31T20:49:46.429+00:00",
+                  "2003-08-12T04:38:41.478+00:00",
+                  "2003-11-07T01:53:46.888+00:00",
+                  "2004-07-29T22:24:19.135+00:00",
+                  "2005-10-28T01:53:46.888+00:00",
+                  "1996-12-29T18:07:29.089+00:00",
+                  "1997-01-09T18:07:29.089+00:00",
+                  "1997-01-19T18:07:29.089+00:00"
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "COST",
@@ -513,11 +1484,69 @@
             "length": 6
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(6, 2)",
           "nullable": false,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 9824
+              },
+              {
+                "name": "max",
+                "value": 8982.70
+              },
+              {
+                "name": "min",
+                "value": 22.75
+              },
+              {
+                "name": "negative_count",
+                "value": 0
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              },
+              {
+                "name": "stddev",
+                "value": 1387.311673239046
+              },
+              {
+                "name": "zero_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  111.89,
+                  355.65,
+                  501.34,
+                  509.81,
+                  592.50,
+                  594.00,
+                  612.64,
+                  617.45,
+                  669.38,
+                  751.91,
+                  783.43,
+                  811.50,
+                  823.79,
+                  831.78,
+                  885.91,
+                  946.97,
+                  995.33,
+                  996.55,
+                  1069.72,
+                  1101.86
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "PRICE",
@@ -535,13 +1564,83 @@
             "length": 7
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(7, 2)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
-          "partitionKey": false
+          "partitionKey": false,
+          "profile": {
+            "gauges": [
+              {
+                "name": "distinct_count",
+                "value": 23973
+              },
+              {
+                "name": "max",
+                "value": 24955.93
+              },
+              {
+                "name": "min",
+                "value": 25.75
+              },
+              {
+                "name": "negative_count",
+                "value": 0
+              },
+              {
+                "name": "null_count",
+                "value": 0
+              },
+              {
+                "name": "stddev",
+                "value": 3050.149059404365
+              },
+              {
+                "name": "zero_count",
+                "value": 0
+              }
+            ],
+            "histograms": [
+              {
+                "name": "top_values",
+                "value": [
+                  5077.95,
+                  6239.83,
+                  1539.55,
+                  685.38,
+                  1406.81,
+                  6172.21,
+                  5957.73,
+                  1650.09,
+                  888.31,
+                  1600.71,
+                  805.46,
+                  1759.31,
+                  2700.26,
+                  1160.52,
+                  1824.22,
+                  997.65,
+                  2774.07,
+                  4917.38,
+                  8180.51,
+                  1985.66
+                ]
+              }
+            ]
+          }
         }
       ],
+      "profile": {
+        "gauges": [
+          {
+            "name": "hash_agg",
+            "value": 7523772253594068230
+          },
+          {
+            "name": "row_count",
+            "value": 50800
+          }
+        ]
+      },
       "createdAt": "2024-08-19T23:28:56.959Z",
       "lastAltered": "2024-08-19T23:28:56.959Z",
       "lastAlteredBy": "DROPPED_USER(1172276996)",
@@ -570,11 +1669,69 @@
           "length": 38
         },
         "dataTypeName": "NUMBER",
-        "dataType": "NUMBER(38, 0)",
         "nullable": false,
         "identity": false,
         "primaryKey": true,
-        "partitionKey": false
+        "partitionKey": false,
+        "profile": {
+          "gauges": [
+            {
+              "name": "distinct_count",
+              "value": 10000
+            },
+            {
+              "name": "max",
+              "value": 10022
+            },
+            {
+              "name": "min",
+              "value": 1
+            },
+            {
+              "name": "negative_count",
+              "value": 0
+            },
+            {
+              "name": "null_count",
+              "value": 0
+            },
+            {
+              "name": "stddev",
+              "value": 3034.6300821460923
+            },
+            {
+              "name": "zero_count",
+              "value": 0
+            }
+          ],
+          "histograms": [
+            {
+              "name": "top_values",
+              "value": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ]
+            }
+          ]
+        }
       },
       "qualifiedName": "SYNTHETIC_SALES.MAIN.PRODUCT"
     }
@@ -604,7 +1761,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -627,7 +1783,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -650,7 +1805,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -673,7 +1827,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -696,7 +1849,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -719,7 +1871,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -742,7 +1893,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -765,7 +1915,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -788,7 +1937,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -811,7 +1959,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -845,7 +1992,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -868,7 +2014,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -891,7 +2036,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -914,7 +2058,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -937,7 +2080,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -960,7 +2102,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -983,7 +2124,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1017,7 +2157,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1040,7 +2179,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1063,7 +2201,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1086,7 +2223,6 @@
             "length": 7
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(7)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1109,7 +2245,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1132,7 +2267,6 @@
             "length": 26
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(26)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1155,7 +2289,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1178,7 +2311,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1201,7 +2333,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1235,7 +2366,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1258,7 +2388,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1281,7 +2410,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1304,7 +2432,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1327,7 +2454,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1361,7 +2487,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1384,7 +2509,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1407,7 +2531,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1430,7 +2553,6 @@
             "length": 11
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(11)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1453,7 +2575,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1476,7 +2597,6 @@
             "length": 20
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(20)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1499,7 +2619,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1522,7 +2641,6 @@
             "length": 24
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(24)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1556,7 +2674,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1579,7 +2696,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1602,7 +2718,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1625,7 +2740,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1648,7 +2762,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1682,7 +2795,6 @@
             "length": 32
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(32)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1705,7 +2817,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1728,7 +2839,6 @@
             "length": 9
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(9)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1751,7 +2861,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1774,7 +2883,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1797,7 +2905,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1820,7 +2927,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1843,7 +2949,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1866,7 +2971,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1889,7 +2993,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1912,7 +3015,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1946,7 +3048,6 @@
             "length": 32
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(32)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1969,7 +3070,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1992,7 +3092,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2015,7 +3114,6 @@
             "length": 32
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(32)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2038,7 +3136,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2061,7 +3158,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2084,7 +3180,6 @@
             "length": 10
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(10)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2107,7 +3202,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2130,7 +3224,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2164,7 +3257,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2187,7 +3279,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2210,7 +3301,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2233,7 +3323,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2256,7 +3345,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2290,7 +3378,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2313,7 +3400,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2336,7 +3422,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2359,7 +3444,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2382,7 +3466,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2405,7 +3488,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2428,7 +3510,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2451,7 +3532,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2474,7 +3554,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2497,7 +3576,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2520,7 +3598,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2543,7 +3620,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2566,7 +3642,6 @@
             "length": 9
           },
           "dataTypeName": "TIMESTAMP_TZ",
-          "dataType": "TIMESTAMP_TZ",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2589,7 +3664,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2612,7 +3686,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2646,7 +3719,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2669,7 +3741,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2692,7 +3763,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2715,7 +3785,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2738,7 +3807,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2761,7 +3829,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2795,7 +3862,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2818,7 +3884,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2841,7 +3906,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2864,7 +3928,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2887,7 +3950,6 @@
             "length": 36
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(36)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2910,7 +3972,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2933,7 +3994,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2956,7 +4016,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -2979,7 +4038,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3002,7 +4060,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3025,7 +4082,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3059,7 +4115,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3082,7 +4137,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3105,7 +4159,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3128,7 +4181,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3151,7 +4203,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3174,7 +4225,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3208,7 +4258,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3231,7 +4280,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3254,7 +4302,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3277,7 +4324,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3300,7 +4346,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3323,7 +4368,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3346,7 +4390,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3369,7 +4412,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3392,7 +4434,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3415,7 +4456,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3438,7 +4478,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3461,7 +4500,6 @@
             "length": 0
           },
           "dataTypeName": "VARIANT",
-          "dataType": "VARIANT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3484,7 +4522,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3507,7 +4544,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3530,7 +4566,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3553,7 +4588,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3587,7 +4621,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3610,7 +4643,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3633,7 +4665,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3656,7 +4687,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3679,7 +4709,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3702,7 +4731,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3725,7 +4753,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3748,7 +4775,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3771,7 +4797,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3794,7 +4819,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3828,7 +4852,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3851,7 +4874,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3874,7 +4896,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3897,7 +4918,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3920,7 +4940,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3943,7 +4962,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -3966,7 +4984,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4000,7 +5017,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4023,7 +5039,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4046,7 +5061,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4069,7 +5083,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4092,7 +5105,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4115,7 +5127,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4138,7 +5149,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4161,7 +5171,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4184,7 +5193,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4207,7 +5215,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4230,7 +5237,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4253,7 +5259,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4276,7 +5281,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4299,7 +5303,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4322,7 +5325,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4345,7 +5347,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4368,7 +5369,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4391,7 +5391,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4414,7 +5413,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4437,7 +5435,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4460,7 +5457,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4483,7 +5479,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4506,7 +5501,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4529,7 +5523,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4552,7 +5545,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4575,7 +5567,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4598,7 +5589,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4621,7 +5611,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4644,7 +5633,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4667,7 +5655,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4690,7 +5677,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4713,7 +5699,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4736,7 +5721,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4759,7 +5743,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4782,7 +5765,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4816,7 +5798,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4839,7 +5820,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4862,7 +5842,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4885,7 +5864,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4908,7 +5886,6 @@
             "length": 6
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(6)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4931,7 +5908,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4965,7 +5941,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -4988,7 +5963,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5011,7 +5985,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5034,7 +6007,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5057,7 +6029,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5080,7 +6051,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5103,7 +6073,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5137,7 +6106,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5160,7 +6128,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5183,7 +6150,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5206,7 +6172,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5229,7 +6194,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5252,7 +6216,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5275,7 +6238,6 @@
             "length": 5
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(5)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5309,7 +6271,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5332,7 +6293,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5355,7 +6315,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5378,7 +6337,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5401,7 +6359,6 @@
             "length": 6
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(6, 2)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5424,7 +6381,6 @@
             "length": 5
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(5)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5458,7 +6414,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5481,7 +6436,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5504,7 +6458,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5527,7 +6480,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5550,7 +6502,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5573,7 +6524,6 @@
             "length": 7
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(7)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5607,7 +6557,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5630,7 +6579,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5653,7 +6601,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5676,7 +6623,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5699,7 +6645,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5722,7 +6667,6 @@
             "length": 7
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(7)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5756,7 +6700,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5779,7 +6722,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5802,7 +6744,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5825,7 +6766,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5848,7 +6788,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5871,7 +6810,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5894,7 +6832,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5917,7 +6854,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5940,7 +6876,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5974,7 +6909,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -5997,7 +6931,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6020,7 +6953,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6043,7 +6975,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6066,7 +6997,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6089,7 +7019,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6112,7 +7041,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6146,7 +7074,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6169,7 +7096,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6192,7 +7118,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6215,7 +7140,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6238,7 +7162,6 @@
             "length": 27
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(27)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6261,7 +7184,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6284,7 +7206,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6307,7 +7228,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6330,7 +7250,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6353,7 +7272,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6376,7 +7294,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6399,7 +7316,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6422,7 +7338,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6445,7 +7360,6 @@
             "length": 11
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(11)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6468,7 +7382,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6491,7 +7404,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6514,7 +7426,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6548,7 +7459,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6571,7 +7481,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6594,7 +7503,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6617,7 +7525,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6640,7 +7547,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6663,7 +7569,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6686,7 +7591,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6709,7 +7613,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6732,7 +7635,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6755,7 +7657,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6778,7 +7679,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6801,7 +7701,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6824,7 +7723,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6847,7 +7745,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6870,7 +7767,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6893,7 +7789,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6916,7 +7811,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6939,7 +7833,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6962,7 +7855,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -6985,7 +7877,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7019,7 +7910,6 @@
             "length": 25
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(25)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7042,7 +7932,6 @@
             "length": 242
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(242)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7065,7 +7954,6 @@
             "length": 5819
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(5819)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7088,7 +7976,6 @@
             "length": 9
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(9)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7111,7 +7998,6 @@
             "length": 13
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(13)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7145,7 +8031,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7168,7 +8053,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7191,7 +8075,6 @@
             "length": 27
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(27)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7214,7 +8097,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7237,7 +8119,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7260,7 +8141,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7283,7 +8163,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7306,7 +8185,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7329,7 +8207,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7352,7 +8229,6 @@
             "length": 9
           },
           "dataTypeName": "TIMESTAMP_NTZ",
-          "dataType": "TIMESTAMP_NTZ",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7375,7 +8251,6 @@
             "length": 9
           },
           "dataTypeName": "TIMESTAMP_NTZ",
-          "dataType": "TIMESTAMP_NTZ",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7398,7 +8273,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7421,7 +8295,6 @@
             "length": 55
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(55)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7444,7 +8317,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7467,7 +8339,6 @@
             "length": 85
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(85)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7490,7 +8361,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7513,7 +8383,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7536,7 +8405,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7559,7 +8427,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7582,7 +8449,6 @@
             "length": 11
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(11)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7605,7 +8471,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7628,7 +8493,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7651,7 +8515,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7674,7 +8537,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7697,7 +8559,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7720,7 +8581,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7743,7 +8603,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7766,7 +8625,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7789,7 +8647,6 @@
             "length": 23
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(23)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7812,7 +8669,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7846,7 +8702,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7869,7 +8724,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7892,7 +8746,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7915,7 +8768,6 @@
             "length": 27
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(27)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7938,7 +8790,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7961,7 +8812,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -7984,7 +8834,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8007,7 +8856,6 @@
             "length": 27
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(27)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8030,7 +8878,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8053,7 +8900,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8076,7 +8922,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8110,7 +8955,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8133,7 +8977,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8156,7 +8999,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8179,7 +9021,6 @@
             "length": 27
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(27)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8202,7 +9043,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8225,7 +9065,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8248,7 +9087,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8271,7 +9109,6 @@
             "length": 27
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(27)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8294,7 +9131,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8317,7 +9153,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8340,7 +9175,6 @@
             "length": 38
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(38, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8363,7 +9197,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8397,7 +9230,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8420,7 +9252,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8443,7 +9274,6 @@
             "length": 242
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(242)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8466,7 +9296,6 @@
             "length": 28
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(28, 11)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8489,7 +9318,6 @@
             "length": 13
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(13)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8512,7 +9340,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8546,7 +9373,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8569,7 +9395,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8592,7 +9417,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8615,7 +9439,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8638,7 +9461,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8661,7 +9483,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8684,7 +9505,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8707,7 +9527,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8741,7 +9560,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8764,7 +9582,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8798,7 +9615,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8821,7 +9637,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8844,7 +9659,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8867,7 +9681,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8890,7 +9703,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8913,7 +9725,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8936,7 +9747,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8959,7 +9769,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -8993,7 +9802,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9016,7 +9824,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9050,7 +9857,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9073,7 +9879,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9096,7 +9901,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9119,7 +9923,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9142,7 +9945,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9165,7 +9967,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9188,7 +9989,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9222,7 +10022,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9245,7 +10044,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9268,7 +10066,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9291,7 +10088,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9314,7 +10110,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9337,7 +10132,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9371,7 +10165,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9394,7 +10187,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9417,7 +10209,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9440,7 +10231,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9463,7 +10253,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9486,7 +10275,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9509,7 +10297,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9543,7 +10330,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9566,7 +10352,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9589,7 +10374,6 @@
             "length": 4
           },
           "dataTypeName": "NUMBER",
-          "dataType": "NUMBER(4, 0)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9612,7 +10396,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9646,7 +10429,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9669,7 +10451,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9692,7 +10473,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9715,7 +10495,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9738,7 +10517,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9761,7 +10539,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9784,7 +10561,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9818,7 +10594,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9841,7 +10616,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9864,7 +10638,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9887,7 +10660,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9910,7 +10682,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9933,7 +10704,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9967,7 +10737,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -9990,7 +10759,6 @@
             "length": 23
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(23)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10013,7 +10781,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10036,7 +10803,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10059,7 +10825,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10082,7 +10847,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10105,7 +10869,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10128,7 +10891,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10151,7 +10913,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10174,7 +10935,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10197,7 +10957,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10220,7 +10979,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10254,7 +11012,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10277,7 +11034,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10300,7 +11056,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10323,7 +11078,6 @@
             "length": 28
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(28)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10346,7 +11100,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10369,7 +11122,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10392,7 +11144,6 @@
             "length": 8
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(8)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10415,7 +11166,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10438,7 +11188,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10461,7 +11210,6 @@
             "length": 0
           },
           "dataTypeName": "ARRAY",
-          "dataType": "ARRAY",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10476,7 +11224,7 @@
       "schema": "CYBERSYN",
       "name": "PUBLIC_HOLIDAY_CALENDAR",
       "type": "VIEW",
-      "comment": "The Public Holiday Calendar provides reference data containing government-designated holidays for 119 countries since 1970, as well as the financial market holidays for the European Central Bank (ECB) and New York Stock Exchange (NYSE).\nProvides historical values for each public holiday by GEO_ID.\nEach row represents a distinct timeseries, date, and holiday name by geographic entity. It identifies whether the holiday is financial.",
+      "comment": "The Public Holiday Calendar provides reference data containing government-designated holidays worldwide since 1970, as well as the financial market holidays for the European Central Bank (ECB) and New York Stock Exchange (NYSE). Coverage spans national and subdivision-level holidays across a broad set of countries; refer to distinct GEO_ID values for exact current country coverage.\nProvides historical values for each public holiday by GEO_ID.\nEach row represents a distinct timeseries, date, and holiday name by geographic entity. It identifies whether the holiday is financial.",
       "columns": [
         {
           "name": "GEO_ID",
@@ -10495,7 +11243,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10518,7 +11265,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10541,7 +11287,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10564,7 +11309,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10587,7 +11331,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10610,7 +11353,6 @@
             "length": 0
           },
           "dataTypeName": "BOOLEAN",
-          "dataType": "BOOLEAN",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10644,7 +11386,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10667,7 +11408,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10690,7 +11430,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10713,7 +11452,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10736,7 +11474,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10759,7 +11496,6 @@
             "length": 17
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(17)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10782,7 +11518,6 @@
             "length": 0
           },
           "dataTypeName": "DATE",
-          "dataType": "DATE",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10805,7 +11540,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10839,7 +11573,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10862,7 +11595,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10885,7 +11617,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10908,7 +11639,6 @@
             "length": 13
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(13)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10931,7 +11661,6 @@
             "length": 6
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(6)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10954,7 +11683,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -10977,7 +11705,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -11000,7 +11727,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -11023,7 +11749,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -11046,7 +11771,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -11069,7 +11793,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -11103,7 +11826,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -11126,7 +11848,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -11149,7 +11870,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -11172,7 +11892,6 @@
             "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -11195,7 +11914,6 @@
             "length": 0
           },
           "dataTypeName": "FLOAT",
-          "dataType": "FLOAT",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -11218,7 +11936,6 @@
             "length": 13
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(13)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
