@@ -1,6 +1,6 @@
 -- Simulated analyst / BI workload against the bad-gold layer.
 -- Run this file in a loop via `run.sh simulate-workload` so ACCOUNT_USAGE.QUERY_HISTORY
--- accumulates repeated query shapes for `ds history` / `ds lineage` to mine.
+-- accumulates repeated query shapes for `ds collect history` / `ds lineage` to mine.
 
 USE DATABASE DEMO_GOLD_${DEMO_NONCE};
 USE SCHEMA MAIN;
