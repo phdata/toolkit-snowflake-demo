@@ -12,7 +12,7 @@
 # subcommands see the same names. `teardown` removes build/ so the next run
 # gets a fresh nonce.
 #
-# The agent walkthrough (ds history, ds lineage, agent discovery-build,
+# The agent walkthrough (ds collect history, ds lineage, agent discovery-build,
 # agent model-data, agent discovery, agent pipeline-build) is intentionally
 # NOT wrapped here. See README.md "Agent walkthrough" — each step is meant to
 # be copy-pasted by hand so consultants learn what they're running. Run
@@ -139,7 +139,7 @@ build_all() {
 simulate_workload() {
     require_env
     materialize
-    echo "Running workload ${WORKLOAD_LOOPS}x. Remember: ACCOUNT_USAGE has 45min-3hr latency before ds history will see these."
+    echo "Running workload ${WORKLOAD_LOOPS}x. Remember: ACCOUNT_USAGE has 45min-3hr latency before ds collect history will see these."
     for ((i = 1; i <= WORKLOAD_LOOPS; i++)); do
         echo "--- workload iteration $i / ${WORKLOAD_LOOPS} ---"
         toolkit ds exec demo_sf --file "$BUILD_DIR/sql/30_workload_queries.sql"
@@ -169,10 +169,11 @@ eval "\$(./run.sh env)"
 #    no --filter flag needed. The snapshot is reused by every downstream command.
 toolkit ds scan demo_sf
 
-# 2. Pull the last 2 days of YOUR user's query history.
-toolkit ds history demo_sf --user "\$SNOWFLAKE_USER" --lookback 2
+# 2. Pull the last 2 days of YOUR user's query history into the local collect
+#    store. (Formerly \`toolkit ds history\` — same flags, new command group.)
+toolkit ds collect history demo_sf --user "\$SNOWFLAKE_USER" --lookback 2
 
-# 3. Derive table/column lineage from the history snapshot.
+# 3. Derive table/column lineage from the collected query patterns.
 toolkit ds lineage demo_sf
 
 # 3a. Inspect the lineage for a silver table two ways (read-only views over the

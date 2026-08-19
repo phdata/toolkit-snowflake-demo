@@ -1,7 +1,7 @@
 # Agent pipeline demo
 
 A self-contained Snowflake demo for the Toolkit agent stack —
-`ds history`, `ds lineage`, `agent discovery-build`, `agent model-data`,
+`ds collect history`, `ds lineage`, `agent discovery-build`, `agent model-data`,
 `agent discovery`, and `agent pipeline-build`.
 
 It provisions a fresh three-layer warehouse (bronze / silver / "bad gold"),
@@ -177,7 +177,7 @@ history clustering and lineage parser non-trivial signal to work with.
 
 ### ⚠️ Wait for ACCOUNT_USAGE latency
 
-This is the single biggest place this demo trips up. `ds history` reads
+This is the single biggest place this demo trips up. `ds collect history` reads
 `SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY`, which has **45 minutes to 3 hours of
 latency** after a query lands. The queries are immediately visible in
 `INFORMATION_SCHEMA.QUERY_HISTORY` but that's session-scoped — the agent tools
@@ -244,24 +244,30 @@ After step 1 completes you can address the scan snapshot explicitly as
 `<datasource>:scan:latest`, which `agent discovery-build` accepts directly
 to pin to a specific scan.
 
-### Step 2: `toolkit ds history demo_sf --user $SNOWFLAKE_USER --lookback 2`
+### Step 2: `toolkit ds collect history demo_sf --user $SNOWFLAKE_USER --lookback 2`
 
 ```bash
-toolkit ds history demo_sf --user "$SNOWFLAKE_USER" --lookback 2
+toolkit ds collect history demo_sf --user "$SNOWFLAKE_USER" --lookback 2
 ```
+
+> **Renamed:** this used to be `toolkit ds history`. Query-history collection now
+> lives under the `ds collect` command group alongside `collect remote` (object
+> DDL), `collect script` (SQL files on disk), and `collect etl` (SSIS /
+> Informatica packages) — all of which write into the same local store. The
+> `--user` and `--lookback` flags are unchanged.
 
 **What it does:** Pulls the last **2 days** of queries from
 `SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY` filtered to **your user only**, and
-stores them in a local DuckDB snapshot. Deduplicates by normalized query hash
-so repeated analyst queries collapse to single shapes.
+writes them to the local DuckDB collect store. Deduplicates by normalized query
+hash so repeated analyst queries collapse to single query patterns.
 
 **Why it matters here:** In a shared Snowflake account, other consultants are
-also running their own workloads — without `--user` filtering, the history
-snapshot would be a noisy mix of everyone's queries. `--lookback 2` keeps the
-window tight to what *you* just ran in Phase 5.
+also running their own workloads — without `--user` filtering, the collected
+history would be a noisy mix of everyone's queries. `--lookback 2` keeps the
+window tight to what *you* just ran in Phase 5 (the flag's default is 180 days).
 
-Downstream lineage and discovery-build use the history as the source of "what
-tables actually get queried together". Without real workload (and the
+Downstream lineage and discovery-build read the collect store as the source of
+"what tables actually get queried together". Without real workload (and the
 `ACCOUNT_USAGE` latency wait), the lineage graph has nothing to chew on.
 
 ### Step 3: `toolkit ds lineage demo_sf`
@@ -270,9 +276,9 @@ tables actually get queried together". Without real workload (and the
 toolkit ds lineage demo_sf
 ```
 
-**What it does:** Parses the deduped history snapshot, extracts the read/write
-table sets from each query, and builds table→table (and column→column) lineage
-edges into a DuckDB snapshot.
+**What it does:** Parses the deduped query patterns in the collect store,
+extracts the read/write table sets from each query, and builds table→table (and
+column→column) lineage edges into a DuckDB snapshot.
 
 **Why it matters here:** Tells `discovery-build` which tables are actually
 related, beyond what FK declarations claim. In particular, it'll surface that
@@ -315,8 +321,10 @@ toolkit agent discovery-build demo_sf:scan:latest
 ```
 
 **What it does:** Builds a single warehouse-wide DuckDB index combining
-catalog metadata, the history snapshot from Step 2, the lineage from Step 3,
+catalog metadata, the history collected in Step 2, the lineage from Step 3,
 and (optionally) data profiles. Validates join candidates against actual data.
+(If either is missing it auto-runs `ds collect history` and `ds lineage` for
+you — Steps 2 and 3 exist so you see what feeds the index.)
 
 **Why `:scan:latest`?** Passing the explicit scan selector pins the build to
 the snapshot you produced in Step 1 rather than letting `discovery-build`
