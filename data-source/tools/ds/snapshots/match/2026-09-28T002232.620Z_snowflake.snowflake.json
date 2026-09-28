@@ -1,22 +1,22 @@
 {
   "metadata": {
     "identifier": {
-      "id": "snowflake.snowflake:match:2026-07-29T002555.318Z",
+      "id": "snowflake.snowflake:match:2026-09-28T002232.620Z",
       "tool": "ds",
       "source": "snowflake.snowflake",
       "type": "match",
-      "timestamp": "2026-07-29T00:25:55.318Z"
+      "timestamp": "2026-09-28T00:22:32.620Z"
     },
     "source": {
       "name": "snowflake",
       "type": "snowflake",
       "lineage": {
         "scan": {
-          "id": "snowflake:scan:2026-07-28T002703.494Z",
+          "id": "snowflake:scan:2026-09-27T002149.565Z",
           "tool": "ds",
           "source": "snowflake",
           "type": "scan",
-          "timestamp": "2026-07-28T00:27:03.494Z"
+          "timestamp": "2026-09-27T00:21:49.565Z"
         }
       },
       "accountName": "PHDATAPARTNER-DEMO"
@@ -26,19 +26,19 @@
       "type": "snowflake",
       "lineage": {
         "scan": {
-          "id": "snowflake:scan:2026-07-29T002522.620Z",
+          "id": "snowflake:scan:2026-09-28T002153.300Z",
           "tool": "ds",
           "source": "snowflake",
           "type": "scan",
-          "timestamp": "2026-07-29T00:25:22.620Z"
+          "timestamp": "2026-09-28T00:21:53.300Z"
         }
       },
       "accountName": "PHDATAPARTNER-DEMO"
     },
-    "version": "0.99.0",
+    "version": "0.106.0",
     "license": "PRO",
-    "start": "2026-07-29T00:25:55.058855Z",
-    "end": "2026-07-29T00:25:55.318110Z"
+    "start": "2026-09-28T00:22:32.193698Z",
+    "end": "2026-09-28T00:22:32.620406Z"
   },
   "views": [
     {
@@ -2613,6 +2613,11 @@
       "score": 100,
       "matched": true,
       "columns": [
+        {
+          "target": "PROVENANCE",
+          "score": 0,
+          "matched": false
+        },
         {
           "source": "BASE_CURRENCY_ID",
           "target": "BASE_CURRENCY_ID",
