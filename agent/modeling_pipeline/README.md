@@ -33,9 +33,11 @@ In the rest of this README, `<NONCE>` is shorthand for that value.
 2. **A Snowflake account you can write to.** The demo creates three databases
    (`DEMO_BRONZE_<NONCE>`, `DEMO_SILVER_<NONCE>`, `DEMO_GOLD_<NONCE>`), one
    role (`DEMO_AGENT_RW_<NONCE>`), and one warehouse (`DEMO_WH_<NONCE>`, XS).
-   You need rights to create those and to read
-   `SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY` (typically `ACCOUNTADMIN` or a role
-   granted `IMPORTED PRIVILEGES` on the SNOWFLAKE database).
+   Provision grants the role to your user, and grants it the
+   `SNOWFLAKE.GOVERNANCE_VIEWER` database role so it can read
+   `ACCOUNT_USAGE.QUERY_HISTORY`. You need an admin role that can do all of
+   that (typically `ACCOUNTADMIN`). The admin role is only used by
+   `provision` and `teardown`; every other step runs as `DEMO_AGENT_RW_<NONCE>`.
 3. **A keypair for your Snowflake user.** Password auth works too — see
    "Authentication tweaks" below for the toolkit.conf change.
 4. **Snowflake JDBC driver on the toolkit's driver path.** If you've already
@@ -67,18 +69,25 @@ Mint a nonce (or just let the first `./run.sh` subcommand do it for you):
 # → Using nonce: K4F2XR  (objects will be named e.g. DEMO_BRONZE_K4F2XR)
 ```
 
-Export the env vars consumed by `toolkit.conf`. **Set `SNOWFLAKE_WAREHOUSE`
-to your nonced demo warehouse `DEMO_WH_<NONCE>` *after* you run `provision`.**
-For the first `provision` step set it to any existing warehouse you have rights
-to use — provision needs *some* warehouse to execute its DDL.
+Export the env vars consumed by `toolkit.conf`. `SNOWFLAKE_ROLE` and
+`SNOWFLAKE_WAREHOUSE` are only used by `provision` and `teardown` (the
+`demo_admin` connection), so point them at an existing admin role and
+warehouse. All other steps use the `demo_sf` connection, which logs in as
+`DEMO_AGENT_RW_<NONCE>` on `DEMO_WH_<NONCE>` automatically. You don't need to
+change any env vars after provisioning.
 
 ```bash
 export SNOWFLAKE_ACCOUNT='your_org-your_account'
 export SNOWFLAKE_USER='YOUR_USERNAME'
-export SNOWFLAKE_ROLE='ACCOUNTADMIN'              # or whatever has provision rights
-export SNOWFLAKE_WAREHOUSE='SOME_EXISTING_WH'     # change to DEMO_WH_<NONCE> after provision
+export SNOWFLAKE_ROLE='ACCOUNTADMIN'              # admin role, used only by provision/teardown
+export SNOWFLAKE_WAREHOUSE='SOME_EXISTING_WH'     # existing warehouse, used only by provision/teardown
 export SNOWFLAKE_PRIVATE_KEY_PATH='/abs/path/to/rsa_key.p8'
 ```
+
+Set `SNOWFLAKE_USER` to exactly what `SELECT CURRENT_USER()` returns in
+Snowsight, case included. Provision grants the demo role to that user name, and
+for names with special characters (for example `jane.doe@phdata.io`) the grant
+uses a quoted, case-sensitive identifier.
 
 ## Phase 1: Provision the warehouse
 
@@ -87,18 +96,19 @@ export SNOWFLAKE_PRIVATE_KEY_PATH='/abs/path/to/rsa_key.p8'
 ```
 
 What this does: `toolkit provision apply --approve` against [./stack](stack)
-with `nonce` injected via `provision.variables` in [toolkit.conf](toolkit.conf).
-Creates `DEMO_BRONZE_<NONCE>`, `DEMO_SILVER_<NONCE>`, `DEMO_GOLD_<NONCE>`, each
-with a `MAIN` schema, a `DEMO_AGENT_RW_<NONCE>` role with privileges on all
-three, and a `DEMO_WH_<NONCE>` XS warehouse.
+as your admin role, with `nonce` and `user` injected via `provision.variables`
+in [toolkit.conf](toolkit.conf). Creates `DEMO_BRONZE_<NONCE>`,
+`DEMO_SILVER_<NONCE>`, `DEMO_GOLD_<NONCE>`, each with a `MAIN` schema, a
+`DEMO_AGENT_RW_<NONCE>` role with privileges on all three, and a
+`DEMO_WH_<NONCE>` XS warehouse. It then grants `DEMO_AGENT_RW_<NONCE>` to
+`$SNOWFLAKE_USER`, and grants `SNOWFLAKE.GOVERNANCE_VIEWER` to that role for
+query-history access.
 
-After this step, switch your warehouse env var:
+From here on, every step runs as `DEMO_AGENT_RW_<NONCE>`, so the tables it
+builds are owned by the demo role, not your admin role.
 
-```bash
-export SNOWFLAKE_WAREHOUSE="DEMO_WH_$(./run.sh nonce | awk '/Using nonce/{print $3}')"
-```
-
-Verify in Snowsight: `SHOW DATABASES LIKE 'DEMO_%_<NONCE>'` returns three rows.
+Verify in Snowsight: `SHOW DATABASES LIKE 'DEMO_%_<NONCE>'` returns three rows,
+and `SHOW GRANTS TO USER <you>` includes `DEMO_AGENT_RW_<NONCE>`.
 
 ## Phase 2: Generate raw bronze data
 
@@ -495,8 +505,9 @@ old `TRUNCATE` + `INSERT` in `22_gold_bad_dim_overwrite.sql`. That's the demo.
 ./run.sh teardown
 ```
 
-`toolkit provision destroy --approve` drops `DEMO_BRONZE_<NONCE>`,
-`DEMO_SILVER_<NONCE>`, `DEMO_GOLD_<NONCE>`, `DEMO_AGENT_RW_<NONCE>`, and
+`toolkit provision destroy --approve` (as your admin role) drops
+`DEMO_BRONZE_<NONCE>`, `DEMO_SILVER_<NONCE>`, `DEMO_GOLD_<NONCE>`,
+`DEMO_AGENT_RW_<NONCE>` (and with it the role's grants), and
 `DEMO_WH_<NONCE>`, then removes `build/` so the next run mints a fresh nonce.
 Use this between runs to keep the account clean.
 
@@ -506,16 +517,18 @@ teardown. Delete them by hand if you want a fully clean restart.
 
 ## Authentication tweaks
 
-The default `toolkit.conf` uses keypair auth. If you prefer password auth,
-replace the `properties` block in [toolkit.conf](toolkit.conf):
+The default `toolkit.conf` uses keypair auth. If you prefer password auth, in
+**both** the `demo_admin` and `demo_sf` connections in
+[toolkit.conf](toolkit.conf), replace:
 
 ```hocon
-properties {
-    user = ${SNOWFLAKE_USER}
-    role = ${SNOWFLAKE_ROLE}
-    warehouse = ${SNOWFLAKE_WAREHOUSE}
-    password = ${SNOWFLAKE_PASSWORD}
-}
+private_key_file = ${SNOWFLAKE_PRIVATE_KEY_PATH}
+```
+
+with:
+
+```hocon
+password = ${SNOWFLAKE_PASSWORD}
 ```
 
 And `export SNOWFLAKE_PASSWORD=...` instead of `SNOWFLAKE_PRIVATE_KEY_PATH`.
@@ -578,12 +591,16 @@ Anthropic client configs also fall back to reading the env var directly if
 You can validate the stack YAML compiles without touching Snowflake:
 
 ```bash
-toolkit provision apply --plan --approve
+SNOWFLAKE_ACCOUNT=x SNOWFLAKE_USER=DEMO_USER SNOWFLAKE_ROLE=ACCOUNTADMIN \
+  SNOWFLAKE_WAREHOUSE=x SNOWFLAKE_PRIVATE_KEY_PATH=x DEMO_NONCE=TEST01 \
+  toolkit provision apply --local
 ```
 
-`--plan` mode prints the diff that *would* be applied without executing
-anything against a Snowflake account. Useful when reviewing PRs that change
-the stack.
+`--local` prints the SQL provision *would* run, assuming an empty account,
+without connecting to Snowflake, so dummy env values are fine. (`--plan`
+connects to Snowflake to diff against its current state.) Useful when
+reviewing PRs that change the stack. It writes `plan.sql`, `logs/`, and
+`tools/` into the current directory; delete them afterward.
 
 ## Notes for maintainers
 
