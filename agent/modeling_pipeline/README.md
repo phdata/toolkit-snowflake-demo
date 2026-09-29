@@ -43,10 +43,11 @@ In the rest of this README, `<NONCE>` is shorthand for that value.
 5. **An LLM the agent commands can call.** `agent discovery-build`,
    `agent model-data`, `agent discovery`, and `agent pipeline-build` all
    make LLM calls.
-    - **If you're a phData consultant**, you don't have to do anything —
-      `toolkit.conf` falls back to Amazon Bedrock automatically when no
-      explicit `llmClient` block is configured, and the toolkit auth flow
-      brokers Bedrock access for phData users behind the scenes.
+    - **If you have [Claude Code](https://claude.ai/code) installed and
+      logged in**, you don't have to do anything. `toolkit.conf` has no
+      `llmClient` block, so the toolkit uses its default, Claude Code, which
+      sends prompts to the `claude` CLI on your `PATH`. Run
+      `claude --version` to check that it's available.
     - **Otherwise**, add an `llmClient { ... }` block to
       [toolkit.conf](toolkit.conf) pointing at whichever provider you have
       credentials for. See "LLM provider" below.
@@ -523,12 +524,21 @@ And `export SNOWFLAKE_PASSWORD=...` instead of `SNOWFLAKE_PRIVATE_KEY_PATH`.
 
 The agent commands (`discovery-build`, `model-data`, `discovery`,
 `pipeline-build`) call an LLM. When no `llmClient` block is set in
-[toolkit.conf](toolkit.conf), the toolkit defaults to **Amazon Bedrock** —
-which is the right answer for phData consultants because the toolkit's auth
-flow already brokers Bedrock access for phData users; nothing else needs to
-be configured.
+[toolkit.conf](toolkit.conf), the toolkit defaults to **Claude Code**, which
+sends each prompt to the `claude` CLI you already have installed and logged
+in. You don't need an API key or any other setup. To choose a model or allow
+more time for long agent runs, add an explicit block:
 
-If you're not on the phData auth flow, add one of the following to
+```hocon
+llmClient {
+    type = ClaudeCode
+    model = "claude-sonnet-4-6"       # blank = Claude Code's configured default
+    timeout = 10m                     # default 5m
+    command = "/usr/local/bin/claude" # only needed if `claude` isn't on PATH
+}
+```
+
+If you don't use Claude Code, add one of the following to
 [toolkit.conf](toolkit.conf) as a top-level block (peer to `connections`,
 `ds`, `provision`):
 
