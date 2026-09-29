@@ -18,6 +18,21 @@ schemas:
 roles:
   - name: DEMO_AGENT_RW_{{nonce}}
 
+# Grant the demo role to the user running the demo; the `demo_sf` connection in
+# toolkit.conf logs in with it.
+roleGrants:
+  - name: DEMO_AGENT_RW_{{nonce}}
+    toUsers:
+      - "{{user}}"
+
+# `ds collect history` reads SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY, which
+# GOVERNANCE_VIEWER covers.
+databaseRoleGrants:
+  - name: GOVERNANCE_VIEWER
+    database: SNOWFLAKE
+    toRoles:
+      - DEMO_AGENT_RW_{{nonce}}
+
 privilegeGrants:
   - privilege:
       - usage
