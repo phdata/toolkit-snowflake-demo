@@ -41,36 +41,36 @@
   },
   "metadata": {
     "identifier": {
-      "id": "snowflake.snowflake:diff:2026-08-03T003016.784Z",
+      "id": "snowflake.snowflake:diff:2026-10-03T001929.641Z",
       "tool": "ds",
       "source": "snowflake.snowflake",
       "type": "diff",
-      "timestamp": "2026-08-03T00:30:16.784Z"
+      "timestamp": "2026-10-03T00:19:29.641Z"
     },
     "source": {
       "name": "snowflake",
       "type": "snowflake",
       "lineage": {
         "scan": {
-          "id": "snowflake:scan:2026-08-02T003009.747Z",
+          "id": "snowflake:scan:2026-10-02T002035.530Z",
           "tool": "ds",
           "source": "snowflake",
           "type": "scan",
-          "timestamp": "2026-08-02T00:30:09.747Z"
+          "timestamp": "2026-10-02T00:20:35.530Z"
         },
         "profile": {
-          "id": "snowflake:profile:2026-08-02T003027.963Z",
+          "id": "snowflake:profile:2026-10-02T002056.289Z",
           "tool": "ds",
           "source": "snowflake",
           "type": "profile",
-          "timestamp": "2026-08-02T00:30:27.963Z"
+          "timestamp": "2026-10-02T00:20:56.289Z"
         },
         "match": {
-          "id": "snowflake.snowflake:match:2026-08-03T003016.150Z",
+          "id": "snowflake.snowflake:match:2026-10-03T001929.049Z",
           "tool": "ds",
           "source": "snowflake.snowflake",
           "type": "match",
-          "timestamp": "2026-08-03T00:30:16.150Z"
+          "timestamp": "2026-10-03T00:19:29.049Z"
         }
       },
       "accountName": "PHDATAPARTNER-DEMO"
@@ -80,33 +80,33 @@
       "type": "snowflake",
       "lineage": {
         "scan": {
-          "id": "snowflake:scan:2026-08-03T002936.701Z",
+          "id": "snowflake:scan:2026-10-03T001853.591Z",
           "tool": "ds",
           "source": "snowflake",
           "type": "scan",
-          "timestamp": "2026-08-03T00:29:36.701Z"
+          "timestamp": "2026-10-03T00:18:53.591Z"
         },
         "profile": {
-          "id": "snowflake:profile:2026-08-03T003000.181Z",
+          "id": "snowflake:profile:2026-10-03T001914.791Z",
           "tool": "ds",
           "source": "snowflake",
           "type": "profile",
-          "timestamp": "2026-08-03T00:30:00.181Z"
+          "timestamp": "2026-10-03T00:19:14.791Z"
         },
         "match": {
-          "id": "snowflake.snowflake:match:2026-08-03T003016.150Z",
+          "id": "snowflake.snowflake:match:2026-10-03T001929.049Z",
           "tool": "ds",
           "source": "snowflake.snowflake",
           "type": "match",
-          "timestamp": "2026-08-03T00:30:16.150Z"
+          "timestamp": "2026-10-03T00:19:29.049Z"
         }
       },
       "accountName": "PHDATAPARTNER-DEMO"
     },
     "version": "0.106.0",
     "license": "PRO",
-    "start": "2026-08-03T00:30:16.597730Z",
-    "end": "2026-08-03T00:30:16.784611Z"
+    "start": "2026-10-03T00:19:29.476529Z",
+    "end": "2026-10-03T00:19:29.641344Z"
   },
   "tables": [
     {
@@ -181,13 +181,13 @@
               },
               {
                 "name": "stddev",
-                "value": 8287.422912519247,
+                "value": 7996.652092144562,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 8287.422912519247 and target value 8282.404022160958 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 7996.652092144562 and target value 7992.131701455626 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 8282.404022160958,
+                      "target": 7992.131701455626,
                       "type": "MODIFIED"
                     }
                   ],
@@ -313,13 +313,13 @@
               },
               {
                 "name": "null_count",
-                "value": 143593,
+                "value": 155854,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 143593 and target numeric 143794 were compared directly",
+                      "description": "Source numeric 155854 and target numeric 156055 were compared directly",
                       "path": "value",
-                      "target": 143794,
+                      "target": 156055,
                       "type": "MODIFIED"
                     }
                   ],
@@ -721,13 +721,13 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": 5654157472886447525,
+            "value": 6385504726968534332,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric 5654157472886447525 and target numeric -8198643096795412312 were compared directly",
+                  "description": "Source numeric 6385504726968534332 and target numeric 5614502133878536615 were compared directly",
                   "path": "value",
-                  "target": -8198643096795412312,
+                  "target": 5614502133878536615,
                   "type": "MODIFIED"
                 }
               ],
@@ -736,13 +736,13 @@
           },
           {
             "name": "row_count",
-            "value": 539475,
+            "value": 585042,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric 539475 and target numeric 540222 were compared directly",
+                  "description": "Source numeric 585042 and target numeric 585789 were compared directly",
                   "path": "value",
-                  "target": 540222,
+                  "target": 585789,
                   "type": "MODIFIED"
                 }
               ],
@@ -814,7 +814,7 @@
             },
             {
               "name": "stddev",
-              "value": 8287.422912519247
+              "value": 7996.652092144562
             },
             {
               "name": "zero_count",
@@ -927,13 +927,13 @@
               },
               {
                 "name": "stddev",
-                "value": 5075.221482353652,
+                "value": 4873.966265451783,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 5075.221482353652 and target value 5071.68785982162 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 4873.966265451783 and target value 4870.891594316897 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 5071.68785982162,
+                      "target": 4870.891594316897,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1052,13 +1052,13 @@
               },
               {
                 "name": "stddev",
-                "value": 989.5753513689597,
+                "value": 946.1454752589583,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 989.5753513689597 and target value 988.8145152095008 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 946.1454752589583 and target value 945.4803792829337 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 988.8145152095008,
+                      "target": 945.4803792829337,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1177,13 +1177,13 @@
               },
               {
                 "name": "stddev",
-                "value": 3921.217746094955,
+                "value": 3749.589998035652,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 3921.217746094955 and target value 3918.210819102387 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 3749.589998035652 and target value 3746.9618603193708 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 3918.210819102387,
+                      "target": 3746.9618603193708,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1267,13 +1267,13 @@
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 3006543,
+                "value": 3269095,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 3006543 and target numeric 3011023 were compared directly",
+                      "description": "Source numeric 3269095 and target numeric 3273509 were compared directly",
                       "path": "value",
-                      "target": 3011023,
+                      "target": 3273509,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1282,9 +1282,16 @@
               },
               {
                 "name": "max",
-                "value": "2026-08-01T22:18:26.416+00:00",
+                "value": "2026-10-01T16:34:31.933+00:00",
                 "diff": {
-                  "type": "UNCHANGED"
+                  "events": [
+                    {
+                      "path": "value",
+                      "target": "2026-10-02T19:55:01.044+00:00",
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
                 }
               },
               {
@@ -1307,28 +1314,56 @@
                 "name": "top_values",
                 "value": [
                   "1999-12-12T18:31:38.171+00:00",
-                  "1998-12-04T21:49:59.944+00:00",
                   "1998-12-08T23:51:17.790+00:00",
-                  "2000-12-07T23:39:10.137+00:00",
+                  "1998-12-04T21:49:59.944+00:00",
                   "2012-12-05T11:19:38.362+00:00",
+                  "2000-12-07T23:39:10.137+00:00",
+                  "2000-12-24T00:51:49.371+00:00",
+                  "2023-12-05T11:19:38.362+00:00",
                   "2020-12-05T11:19:38.362+00:00",
+                  "1993-12-11T00:32:22.614+00:00",
+                  "1994-12-11T17:43:45.069+00:00",
                   "1995-12-14T00:16:39.383+00:00",
+                  "2000-12-09T20:52:59.036+00:00",
+                  "2004-12-06T02:30:27.087+00:00",
+                  "2015-12-03T21:28:41.229+00:00",
                   "2000-12-10T02:30:27.087+00:00",
                   "2001-12-06T13:51:06.845+00:00",
-                  "2004-12-06T02:30:27.087+00:00",
-                  "2016-12-03T21:28:41.229+00:00",
-                  "2023-12-05T11:19:38.362+00:00",
-                  "1993-12-11T00:32:22.614+00:00",
-                  "2000-12-24T00:51:49.371+00:00",
-                  "2015-12-03T21:28:41.229+00:00",
+                  "2001-12-11T06:10:14.324+00:00",
                   "2017-12-03T21:28:41.229+00:00",
-                  "1994-12-11T17:43:45.069+00:00",
                   "1996-12-06T23:02:17.362+00:00",
-                  "2014-12-05T11:19:38.362+00:00",
-                  "2001-12-24T23:56:48.637+00:00"
+                  "2001-12-11T06:36:44.100+00:00"
                 ],
                 "diff": {
-                  "type": "UNCHANGED"
+                  "events": [
+                    {
+                      "path": "value",
+                      "target": [
+                        "1999-12-12T18:31:38.171+00:00",
+                        "1998-12-08T23:51:17.790+00:00",
+                        "1998-12-04T21:49:59.944+00:00",
+                        "2012-12-05T11:19:38.362+00:00",
+                        "2000-12-07T23:39:10.137+00:00",
+                        "2000-12-24T00:51:49.371+00:00",
+                        "2023-12-05T11:19:38.362+00:00",
+                        "2000-12-09T20:52:59.036+00:00",
+                        "2020-12-05T11:19:38.362+00:00",
+                        "1993-12-11T00:32:22.614+00:00",
+                        "1994-12-11T17:43:45.069+00:00",
+                        "1995-12-14T00:16:39.383+00:00",
+                        "2004-12-06T02:30:27.087+00:00",
+                        "2015-12-03T21:28:41.229+00:00",
+                        "2000-12-10T02:30:27.087+00:00",
+                        "2001-12-06T13:51:06.845+00:00",
+                        "2001-12-11T06:10:14.324+00:00",
+                        "2017-12-03T21:28:41.229+00:00",
+                        "1996-12-06T23:02:17.362+00:00",
+                        "2001-12-11T06:36:44.100+00:00"
+                      ],
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
                 }
               }
             ],
@@ -1371,13 +1406,13 @@
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 507647,
+                "value": 552226,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 507647 and target numeric 508381 were compared directly",
+                      "description": "Source numeric 552226 and target numeric 553025 were compared directly",
                       "path": "value",
-                      "target": 508381,
+                      "target": 553025,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1386,7 +1421,7 @@
               },
               {
                 "name": "max",
-                "value": "2026-08-24T10:01:29.479+00:00",
+                "value": "2026-10-28T14:12:03.105+00:00",
                 "diff": {
                   "type": "UNCHANGED"
                 }
@@ -1400,13 +1435,13 @@
               },
               {
                 "name": "null_count",
-                "value": 2856258,
+                "value": 3131274,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 2856258 and target numeric 2860774 were compared directly",
+                      "description": "Source numeric 3131274 and target numeric 3135765 were compared directly",
                       "path": "value",
-                      "target": 2860774,
+                      "target": 3135765,
                       "type": "MODIFIED"
                     }
                   ],
@@ -1421,54 +1456,26 @@
                   null,
                   "1999-12-23T18:31:38.171+00:00",
                   "2000-12-24T23:39:10.137+00:00",
-                  "2016-12-14T21:28:41.229+00:00",
                   "2015-12-14T21:28:41.229+00:00",
                   "2017-12-14T21:28:41.229+00:00",
-                  "2001-01-06T05:27:17.070+00:00",
+                  "2016-12-14T21:28:41.229+00:00",
+                  "2001-01-06T04:46:25.992+00:00",
+                  "2001-01-06T07:04:22.674+00:00",
                   "2002-01-02T14:24:08.969+00:00",
+                  "1993-12-27T04:03:15.570+00:00",
+                  "2010-12-14T21:28:41.229+00:00",
+                  "2001-01-06T05:27:17.070+00:00",
                   "2002-12-28T06:36:44.100+00:00",
+                  "1999-12-23T08:31:57.219+00:00",
+                  "2001-12-28T01:40:26.606+00:00",
                   "2019-12-14T21:28:41.229+00:00",
                   "1997-12-28T11:26:24.178+00:00",
-                  "2001-12-28T01:40:26.606+00:00",
-                  "1993-12-27T04:03:15.570+00:00",
                   "2001-01-05T13:53:40.648+00:00",
                   "1996-12-28T23:02:17.362+00:00",
-                  "1998-01-10T02:21:57.188+00:00",
-                  "1998-12-23T06:34:09.598+00:00",
-                  "1999-01-10T16:13:57.866+00:00",
-                  "2001-01-06T07:04:22.674+00:00",
-                  "2001-12-30T23:57:37.014+00:00"
+                  "1998-01-03T10:54:48.997+00:00"
                 ],
                 "diff": {
-                  "events": [
-                    {
-                      "path": "value",
-                      "target": [
-                        null,
-                        "1999-12-23T18:31:38.171+00:00",
-                        "2000-12-24T23:39:10.137+00:00",
-                        "2016-12-14T21:28:41.229+00:00",
-                        "2015-12-14T21:28:41.229+00:00",
-                        "2017-12-14T21:28:41.229+00:00",
-                        "2001-01-06T05:27:17.070+00:00",
-                        "2002-01-02T14:24:08.969+00:00",
-                        "2002-12-28T06:36:44.100+00:00",
-                        "2019-12-14T21:28:41.229+00:00",
-                        "1997-12-28T11:26:24.178+00:00",
-                        "2001-12-28T01:40:26.606+00:00",
-                        "1993-12-27T04:03:15.570+00:00",
-                        "2001-01-05T13:53:40.648+00:00",
-                        "1996-12-28T23:02:17.362+00:00",
-                        "1998-01-10T02:21:57.188+00:00",
-                        "1998-12-23T06:34:09.598+00:00",
-                        "1999-01-10T16:13:57.866+00:00",
-                        "1999-12-23T08:31:57.219+00:00",
-                        "2001-01-06T07:04:22.674+00:00"
-                      ],
-                      "type": "MODIFIED"
-                    }
-                  ],
-                  "type": "MODIFIED"
+                  "type": "UNCHANGED"
                 }
               }
             ],
@@ -1485,13 +1492,13 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": -3246453792459301745,
+            "value": -1322835017497438995,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric -3246453792459301745 and target numeric -4553785821701641118 were compared directly",
+                  "description": "Source numeric -1322835017497438995 and target numeric 4807226276090362689 were compared directly",
                   "path": "value",
-                  "target": -4553785821701641118,
+                  "target": 4807226276090362689,
                   "type": "MODIFIED"
                 }
               ],
@@ -1500,13 +1507,13 @@
           },
           {
             "name": "row_count",
-            "value": 3450041,
+            "value": 3781820,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric 3450041 and target numeric 3455480 were compared directly",
+                  "description": "Source numeric 3781820 and target numeric 3787259 were compared directly",
                   "path": "value",
-                  "target": 3455480,
+                  "target": 3787259,
                   "type": "MODIFIED"
                 }
               ],
@@ -1632,13 +1639,13 @@
               },
               {
                 "name": "stddev",
-                "value": 3035.5004864137313,
+                "value": 2982.915492469071,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 3035.5004864137313 and target value 3034.6300821460923 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 2982.915492469071 and target value 2982.063248302759 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 3034.6300821460923,
+                      "target": 2982.063248302759,
                       "type": "MODIFIED"
                     }
                   ],
@@ -2073,13 +2080,13 @@
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 30010,
+                "value": 31488,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 30010 and target numeric 30029 were compared directly",
+                      "description": "Source numeric 31488 and target numeric 31504 were compared directly",
                       "path": "value",
-                      "target": 30029,
+                      "target": 31504,
                       "type": "MODIFIED"
                     }
                   ],
@@ -2177,13 +2184,13 @@
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 11990,
+                "value": 12523,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 11990 and target numeric 12002 were compared directly",
+                      "description": "Source numeric 12523 and target numeric 12529 were compared directly",
                       "path": "value",
-                      "target": 12002,
+                      "target": 12529,
                       "type": "MODIFIED"
                     }
                   ],
@@ -2206,13 +2213,13 @@
               },
               {
                 "name": "null_count",
-                "value": 36675,
+                "value": 38876,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 36675 and target numeric 36711 were compared directly",
+                      "description": "Source numeric 38876 and target numeric 38914 were compared directly",
                       "path": "value",
-                      "target": 36711,
+                      "target": 38914,
                       "type": "MODIFIED"
                     }
                   ],
@@ -2225,25 +2232,25 @@
                 "name": "top_values",
                 "value": [
                   null,
+                  "1998-11-13T14:33:59.247+00:00",
                   "2000-09-16T14:13:26.044+00:00",
                   "2003-08-07T18:53:17.734+00:00",
                   "1996-12-23T18:07:29.089+00:00",
                   "1998-05-01T18:07:29.089+00:00",
                   "1998-05-17T18:07:29.089+00:00",
-                  "1998-11-13T14:33:59.247+00:00",
                   "2000-07-15T14:13:26.044+00:00",
                   "2000-07-16T14:13:26.044+00:00",
                   "2001-01-05T01:18:07.569+00:00",
                   "2002-01-27T14:33:59.247+00:00",
+                  "2002-03-11T14:13:26.044+00:00",
                   "2002-05-20T18:53:17.734+00:00",
+                  "2002-06-02T01:18:07.569+00:00",
                   "2003-01-31T20:49:46.429+00:00",
                   "2003-08-12T04:38:41.478+00:00",
                   "2003-11-07T01:53:46.888+00:00",
                   "2004-07-29T22:24:19.135+00:00",
                   "2005-10-28T01:53:46.888+00:00",
-                  "1996-12-29T18:07:29.089+00:00",
-                  "1997-01-09T18:07:29.089+00:00",
-                  "1997-01-19T18:07:29.089+00:00"
+                  "2006-02-14T20:49:46.429+00:00"
                 ],
                 "diff": {
                   "type": "UNCHANGED"
@@ -2324,13 +2331,13 @@
               },
               {
                 "name": "stddev",
-                "value": 1387.2293129885888,
+                "value": 1391.9466746283397,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 1387.2293129885888 and target value 1387.311673239046 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 1391.9466746283397 and target value 1392.01913540536 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 1387.311673239046,
+                      "target": 1392.01913540536,
                       "type": "MODIFIED"
                     }
                   ],
@@ -2414,13 +2421,13 @@
             "gauges": [
               {
                 "name": "distinct_count",
-                "value": 23972,
+                "value": 24071,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source numeric 23972 and target numeric 23973 were compared directly",
+                      "description": "Source numeric 24071 and target numeric 24072 were compared directly",
                       "path": "value",
-                      "target": 23973,
+                      "target": 24072,
                       "type": "MODIFIED"
                     }
                   ],
@@ -2457,13 +2464,13 @@
               },
               {
                 "name": "stddev",
-                "value": 3049.662548180671,
+                "value": 3056.6997068059472,
                 "diff": {
                   "events": [
                     {
-                      "description": "Source value 3049.662548180671 and target value 3050.149059404365 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
+                      "description": "Source value 3056.6997068059472 and target value 3057.3671236797613 were compared as double precision floating point numbers with a tolerance of 1.0E-5",
                       "path": "value",
-                      "target": 3050.149059404365,
+                      "target": 3057.3671236797613,
                       "type": "MODIFIED"
                     }
                   ],
@@ -2492,19 +2499,47 @@
                   1650.09,
                   888.31,
                   1600.71,
-                  805.46,
                   1759.31,
-                  2700.26,
+                  2774.07,
+                  805.46,
                   1160.52,
+                  2700.26,
                   1824.22,
                   997.65,
-                  2774.07,
-                  4917.38,
-                  8180.51,
-                  1985.66
+                  1221.54,
+                  1511.89,
+                  1097.43
                 ],
                 "diff": {
-                  "type": "UNCHANGED"
+                  "events": [
+                    {
+                      "path": "value",
+                      "target": [
+                        5077.95,
+                        6239.83,
+                        1539.55,
+                        685.38,
+                        1406.81,
+                        6172.21,
+                        5957.73,
+                        1650.09,
+                        888.31,
+                        1600.71,
+                        1759.31,
+                        2774.07,
+                        805.46,
+                        1160.52,
+                        2700.26,
+                        1824.22,
+                        997.65,
+                        1097.43,
+                        1221.54,
+                        1511.89
+                      ],
+                      "type": "MODIFIED"
+                    }
+                  ],
+                  "type": "MODIFIED"
                 }
               }
             ],
@@ -2521,13 +2556,13 @@
         "gauges": [
           {
             "name": "hash_agg",
-            "value": -3452020304620804287,
+            "value": 5603774254440826249,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric -3452020304620804287 and target numeric 7523772253594068230 were compared directly",
+                  "description": "Source numeric 5603774254440826249 and target numeric -7914379685720815441 were compared directly",
                   "path": "value",
-                  "target": 7523772253594068230,
+                  "target": -7914379685720815441,
                   "type": "MODIFIED"
                 }
               ],
@@ -2536,13 +2571,13 @@
           },
           {
             "name": "row_count",
-            "value": 50750,
+            "value": 53800,
             "diff": {
               "events": [
                 {
-                  "description": "Source numeric 50750 and target numeric 50800 were compared directly",
+                  "description": "Source numeric 53800 and target numeric 53850 were compared directly",
                   "path": "value",
-                  "target": 50800,
+                  "target": 53850,
                   "type": "MODIFIED"
                 }
               ],
@@ -2614,7 +2649,7 @@
             },
             {
               "name": "stddev",
-              "value": 3035.5004864137313
+              "value": 2982.915492469071
             },
             {
               "name": "zero_count",
@@ -13670,7 +13705,7 @@
       "schema": "CYBERSYN",
       "name": "FX_RATES_TIMESERIES",
       "type": "VIEW",
-      "comment": "Foreign exchange rates for currency pairs (base and quote currencies), with data from ECB, BIS, IMF, and national central banks (CBI, SBV, BanRep).\n\nForeign exchange (FX) rates are the rates at which one currency can be exchanged for another. These rates fluctuate based on various factors including economic indicators, market sentiment, political events, and global financial stability. Foreign exchange rates are crucial for international trade and finance, as they determine how much of one currency is needed to buy a unit of another currency. These rates can be floating, changing continuously based on market forces, or they might be pegged (fixed) to another major currency or basket of currencies, managed by a country's central bank. FX rates data is provided by the European Central Bank (ECB), Bank for International Settlements (BIS), Central Bank of Iceland (CBI), State Bank of Vietnam (SBV), Banco de la República of Colombia (BanRep), and the International Monetary Fund (IMF). To note, these data sources often do not publish the exchange rate every day.\n\nProvides historical values for each currency pair collected by BASE_CURRENCY_ID and QUOTE_CURRENCY_ID.\n\nEach row represents a distinct timeseries, date, and value by currency pair.",
+      "comment": "Foreign exchange rates for currency pairs (base and quote currencies), with data from ECB, BIS, IMF, and national central banks (CBI, SBV, BanRep).\n\nForeign exchange (FX) rates are the rates at which one currency can be exchanged for another. These rates fluctuate based on various factors including economic indicators, market sentiment, political events, and global financial stability. Foreign exchange rates are crucial for international trade and finance, as they determine how much of one currency is needed to buy a unit of another currency. These rates can be floating, changing continuously based on market forces, or they might be pegged (fixed) to another major currency or basket of currencies, managed by a country's central bank. FX rates data is provided by the European Central Bank (ECB), Bank for International Settlements (BIS), Central Bank of Iceland (CBI), State Bank of Vietnam (SBV), Banco de la República of Colombia (BanRep), and the International Monetary Fund (IMF). To note, these data sources often do not publish the exchange rate every day.\n\nProvides historical values for each currency pair collected by BASE_CURRENCY_ID and QUOTE_CURRENCY_ID.\n\nEach row represents a distinct timeseries, date, and value by currency pair.\n\nThe PROVENANCE column is a JSON object identifying where each rate came from. PROVENANCE:SOURCE names the institution that published the underlying quote(s) and PROVENANCE:RATE_TYPE says whether the value is a published quote or was derived. Most rows are derived cross rates rather than published quotes, so for a cross PROVENANCE:CROSS_CURRENCY_ID gives the currency it was calculated through and PROVENANCE:BASE_LEG_VARIABLE / PROVENANCE:QUOTE_LEG_VARIABLE identify the two input rates (joinable to VARIABLE on the same DATE), with PROVENANCE:BASE_LEG_SOURCE / PROVENANCE:QUOTE_LEG_SOURCE naming their institutions. PROVENANCE:SOURCES lists the institutions behind a row (one element when the legs agree or for a single-input row, two when they differ). PROVENANCE:ATTRIBUTION_URLS lists the source institutions' data-page URLs, parallel to PROVENANCE:SOURCES. Because every published value is rounded to 4 decimal places, dividing the two published leg values reproduces a cross rate only approximately.",
       "columns": [
         {
           "name": "VARIABLE",
@@ -13927,9 +13962,41 @@
           "diff": {
             "type": "UNCHANGED"
           }
+        },
+        {
+          "name": "PROVENANCE",
+          "ordinalPosition": 9,
+          "comment": "Provenance for the rate as a JSON object (VARIANT). Read fields with the Snowflake `:` operator (returns NULL for absent keys). SOURCE names the institution that published the underlying quote(s) - ECB, BIS, IMF, CBI, SBV or BanRep; for a derived cross whose two input legs come from different institutions this is 'Multiple' and SOURCES lists the individual legs. SOURCES is an array of the institutions behind the row (one element when the legs agree or for a single-input row, two when they differ). ATTRIBUTION_URLS is an array of the source institutions' data-page URLs, parallel to SOURCES (same length and [base, quote] order). RATE_TYPE is 'Published Quote', 'Derived Inverse', 'Derived Cross', 'Derived Cross Inverse', or 'Historical (ECB legacy series)' (historical rows whose calculation method was not recorded). CROSS_CURRENCY_ID is the ISO 4217 code of the pivot currency of a derived cross (EUR, USD or ISK); absent when the rate is not a derived cross. BASE_LEG_VARIABLE / QUOTE_LEG_VARIABLE identify the two input rates of a cross, joinable to VARIABLE on the same DATE; absent when not a cross. BASE_LEG_SOURCE / QUOTE_LEG_SOURCE name the institution of each input leg as used. Because every published value is rounded to 4 decimal places, dividing the two published leg values reproduces a cross rate only approximately.",
+          "type": {
+            "name": "OBJECT",
+            "precision": 0,
+            "scale": 0,
+            "length": 0,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "mappedType": {
+            "name": "OBJECT",
+            "precision": 0,
+            "scale": 0,
+            "length": 0,
+            "diff": {
+              "type": "UNCHANGED"
+            }
+          },
+          "dataTypeName": "OBJECT",
+          "dataType": "OBJECT",
+          "nullable": true,
+          "identity": false,
+          "primaryKey": false,
+          "partitionKey": false,
+          "diff": {
+            "type": "UNCHANGED"
+          }
         }
       ],
-      "createdAt": "2025-11-26T22:47:31.065Z",
+      "createdAt": "2026-09-27T22:22:45.284Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FX_RATES_TIMESERIES",
       "diff": {
         "type": "UNCHANGED"
