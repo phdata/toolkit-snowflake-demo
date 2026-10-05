@@ -56,10 +56,11 @@ In the rest of this README, `<NONCE>` is shorthand for that value.
 
 ## One-time setup
 
-`cd` into the demo directory — every command below assumes you're here:
+From the repository root, `cd` into the demo directory — every command below
+assumes you're here:
 
 ```bash
-cd demo/agent-pipeline
+cd agent/modeling_pipeline
 ```
 
 Mint a nonce (or just let the first `./run.sh` subcommand do it for you):
@@ -218,7 +219,7 @@ happens.
 > the current nonce already interpolated into the `--rewrite-tables` /
 > `--replace-tables` flags. Use it as a copy-paste source.
 
-All commands are run from this directory (`demo/agent-pipeline`).
+All commands are run from this directory (`agent/modeling_pipeline`).
 
 ### Step 0: export the nonce into your shell
 
@@ -356,8 +357,8 @@ what the catalog says.
 
 ```bash
 toolkit agent model-data demo_sf \
-    --use-case agent/model-data-use-case.md \
-    --questions agent/model-data-questions.txt \
+    --use-case agent/data-modeling-use-case.md \
+    --questions agent/data-modeling-questions.txt \
     --rewrite-tables "DEMO_GOLD_${DEMO_NONCE}.MAIN.GOLD_SALES_FULL" \
     --replace-tables "DEMO_GOLD_${DEMO_NONCE}.MAIN.GOLD_CUSTOMER_SNAPSHOT,DEMO_GOLD_${DEMO_NONCE}.MAIN.GOLD_PRODUCT_SNAPSHOT" \
     --use-index \

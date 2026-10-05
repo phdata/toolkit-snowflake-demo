@@ -190,8 +190,8 @@ toolkit agent discovery-build demo_sf:scan:latest
 
 # 5. Design the new dimensional model to replace the bad gold.
 toolkit agent model-data demo_sf \\
-    --use-case agent/model-data-use-case.md \\
-    --questions agent/model-data-questions.txt \\
+    --use-case agent/data-modeling-use-case.md \\
+    --questions agent/data-modeling-questions.txt \\
     --rewrite-tables DEMO_GOLD_${DEMO_NONCE}.MAIN.GOLD_SALES_FULL \\
     --replace-tables DEMO_GOLD_${DEMO_NONCE}.MAIN.GOLD_CUSTOMER_SNAPSHOT,DEMO_GOLD_${DEMO_NONCE}.MAIN.GOLD_PRODUCT_SNAPSHOT \\
     --use-index \\
