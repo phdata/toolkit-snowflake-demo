@@ -14,6 +14,1085 @@ privilegeGrants:
     roleName: alert_admin
     privilege: usage
 
+procedures:
+  - name: sp_alert_failures
+    database: governance
+    schema: alert
+    returns:
+      type: table
+    body: |
+      BEGIN
+      LET res RESULTSET := (
+        SELECT
+          database_name,
+          schema_name,
+          name,
+          state,
+          error_code,
+          error_message
+        FROM
+          snowflake.account_usage.alert_history
+        WHERE
+          STATE IN ('FAILED', 'CONDITION_FAILED', 'ACTION_FAILED')
+          AND COMPLETED_TIME >= DATEADD(DAY, -1, CURRENT_TIMESTAMP())
+      );
+      RETURN TABLE(res);
+      END;
+    properties:
+      comment: 'Returns a table of failed alerts'
+  - name: sp_alert_failures_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          SELECT
+            database_name,
+            schema_name,
+            name,
+            state,
+            error_code,
+            error_message
+        FROM
+          snowflake.account_usage.alert_history
+        WHERE
+          STATE IN ('FAILED', 'CONDITION_FAILED', 'ACTION_FAILED')
+          AND COMPLETED_TIME >= DATEADD(DAY, -1, CURRENT_TIMESTAMP())
+        )
+        SELECT
+          TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string
+        FROM
+          query_wrapper
+      )
+      SELECT
+        listagg(all_rows_string, '\n\n') as email_body_text
+      FROM
+        email_body;
+      
+      subj varchar;
+      msg varchar;
+      
+      BEGIN OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_ALERT_FAILURES();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - ALERT_FAILURES - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails a list of failed alerts'
+  - name: sp_cloud_services_ratio_of_cloud_services_being_billed
+    database: governance
+    schema: alert
+    returns:
+      type: table
+    body: |
+      BEGIN
+      LET res RESULTSET := (
+        WITH days as (
+        SELECT
+          DATE(end_time) AS USAGE_DATE,
+          CAST(SUM(credits_used_compute) as float) CREDITS_USED_COMPUTE,
+          CAST(SUM(credits_used_cloud_services) as float) CREDITS_USED_CLOUD_SERVICES,
+          CAST(SUM(credits_used) as float) CREDITS_USED,
+          CAST(SUM(credits_used)*.1 as float) TEN_PERCENT,
+          'CLOUD_SERVICES_USAGE' || '.' || DATE(END_TIME) AS OBJECT_NAME,
+          'X_GENERATED_ACCOUNT_METRIC' AS OBJECT_TYPE
+        FROM
+          snowflake.account_usage.warehouse_metering_history
+        where
+          usage_date >= dateadd(DAY, -1, current_timestamp())
+          group by object_name, usage_date
+        )
+        select * from days where credits_used_cloud_services > TEN_PERCENT
+      );
+      RETURN TABLE(res);
+      END;
+    properties:
+      comment: 'Cloud services usage ratio of cloud services being billed'
+  - name: sp_cloud_services_ratio_of_cloud_services_being_billed_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE c1 CURSOR FOR WITH email_body AS (
+          WITH query_wrapper AS (
+          WITH days as (
+          SELECT
+            DATE(END_TIME) AS USAGE_DATE,
+            cast(SUM(CREDITS_USED_COMPUTE) as float) CREDITS_USED_COMPUTE,
+            cast(SUM(CREDITS_USED_CLOUD_SERVICES) as float) CREDITS_USED_CLOUD_SERVICES,
+            cast(SUM(CREDITS_USED) as float) CREDITS_USED,
+            cast(SUM(CREDITS_USED) *.1 as float) TEN_PERCENT,
+            'CLOUD_SERVICES_USAGE' || '.' || DATE(END_TIME) AS OBJECT_NAME,
+            'X_GENERATED_ACCOUNT_METRIC' AS OBJECT_TYPE
+          FROM
+            snowflake.account_usage.warehouse_metering_history
+          where
+            usage_date >= dateadd(DAY, -1, current_timestamp())
+          GROUP BY
+            object_name,
+            usage_date
+        )
+        SELECT
+         *
+        FROM
+         days
+        WHERE
+        CREDITS_USED_CLOUD_SERVICES > TEN_PERCENT
+        )
+        SELECT
+          TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string
+        FROM
+          query_wrapper
+        )
+      SELECT
+        listagg(all_rows_string, '\n\n') as email_body_text
+      FROM
+        email_body;
+      
+      subj varchar;
+      msg varchar;
+      
+      BEGIN OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_CLOUD_SERVICES_RATIO_OF_CLOUD_SERVICES_BEING_BILLED();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - CLOUD_SERVICES_RATIO_OF_CLOUD_SERVICES_BEING_BILLED - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails cloud services ratio of cloud services being billed'
+  - name: sp_grants_for_high_privilege_roles
+    database: governance
+    schema: alert
+    returns:
+      type: table
+    body: |
+      BEGIN
+      LET res RESULTSET := (
+      SELECT
+        QUERY_ID,
+        QUERY_TEXT,
+        UPPER(REGEXP_SUBSTR(query_text, '\\s([^\\s]+)\\sto\\s',1,1,'ie')) AS PRIVILEGE,
+        REGEXP_SUBSTR(query_text, '\\sto\\s([^\\s]+\\s([^\\s]+))',1,1,'ie') AS RECIPIENT,
+        USER_NAME as ACTING_USER_NAME,
+        ROLE_NAME as ACTING_ROLE_NAME,
+        START_TIME,
+        'ROLE' AS OBJECT_TYPE,
+        PRIVILEGE AS OBJECT_NAME
+      FROM
+        snowflake.account_usage.query_history
+      WHERE
+        start_time >= dateadd(DAY, -1, CURRENT_TIMESTAMP()) AND
+        query_type='GRANT' AND
+        execution_status='SUCCESS' AND
+        (
+        privilege ILIKE 'securityadmin' OR
+        privilege ILIKE 'accountadmin' OR
+        privilege ILIKE 'useradmin' OR
+        privilege ILIKE 'sysadmin'
+        )
+      );
+      RETURN TABLE(res);
+      END;
+    properties:
+      comment: 'Return grants for high privilege roles'
+  - name: sp_grants_for_high_privilege_roles_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+        c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+        SELECT
+          QUERY_ID,
+          QUERY_TEXT,
+          UPPER(REGEXP_SUBSTR(query_text, '\\s([^\\s]+)\\sto\\s',1,1,'ie')) AS PRIVILEGE,
+          REGEXP_SUBSTR(query_text, '\\sto\\s([^\\s]+\\s([^\\s]+))',1,1,'ie') AS RECIPIENT,
+          USER_NAME as ACTING_USER_NAME,
+          ROLE_NAME as ACTING_ROLE_NAME,
+          START_TIME,
+          'ROLE' AS OBJECT_TYPE,
+          PRIVILEGE AS OBJECT_NAME
+        FROM
+          snowflake.account_usage.query_history
+        WHERE
+          start_time >= dateadd(DAY, -1, CURRENT_TIMESTAMP()) AND
+          query_type='GRANT' AND
+          execution_status='SUCCESS' AND
+          (
+          privilege ILIKE 'securityadmin' OR
+          privilege ILIKE 'accountadmin' OR
+          privilege ILIKE 'useradmin' OR
+          privilege ILIKE 'sysadmin'
+          )
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+        )
+        SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+        subj varchar;
+        msg varchar;
+        BEGIN
+        OPEN c1;
+        FETCH c1 INTO msg;
+        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_GRANTS_FOR_HIGH_PRIVILEGE_ROLES();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+        subj := 'SNOWFLAKE ALERT - GRANTS_FOR_HIGH_PRIVILEGE_ROLES - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      
+        CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails grants for high privilege roles'
+  - name: sp_materialized_views_that_are_invalid
+    database: governance
+    schema: alert
+    returns:
+      type: table
+    body: |
+      DECLARE
+        presql RESULTSET DEFAULT (SHOW MATERIALIZED VIEWS IN ACCOUNT);
+      BEGIN
+      LET res RESULTSET := (
+        SELECT
+        'VIEW' AS OBJECT_TYPE,
+        "name" AS OBJECT_NAME,
+        "database_name" AS DATABASE_NAME,
+        "schema_name" AS SCHEMA_NAME,
+        "invalid_reason" AS INVALID_REASON,
+        "owner" AS OWNER
+      FROM
+        TABLE(RESULT_SCAN(LAST_QUERY_ID()))
+      where
+        "invalid"
+          AND "invalid_reason" != 'Marked Materialized View as invalid manually.'
+      );
+      RETURN TABLE(res);
+      END;
+    properties:
+      comment: 'Returns a table of invalid materialized views'
+  - name: sp_materialized_views_that_are_invalid_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+        presql RESULTSET DEFAULT (SHOW MATERIALIZED VIEWS IN ACCOUNT);
+      
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+        SELECT
+        'VIEW' AS OBJECT_TYPE,
+        "name" AS OBJECT_NAME,
+        "database_name" AS DATABASE_NAME,
+        "schema_name" AS SCHEMA_NAME,
+        "invalid_reason" AS INVALID_REASON,
+        "owner" AS OWNER
+        FROM
+        TABLE(RESULT_SCAN(LAST_QUERY_ID()))
+        where
+        "invalid"
+        AND "invalid_reason" != 'Marked Materialized View as invalid manually.'
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+      )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_MATERIALIZED_VIEWS_THAT_ARE_INVALID();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - MATERIALIZED_VIEWS_THAT_ARE_INVALID - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails materialized views that are invalid'
+  - name: sp_queries_long_running_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+        c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          SELECT
+            QUERY_ID,
+            USER_NAME,
+            ROLE_NAME,
+            WAREHOUSE_NAME,
+            WAREHOUSE_SIZE,
+            EXECUTION_STATUS,
+            START_TIME,
+            END_TIME,
+            TOTAL_ELAPSED_TIME / 1000 / 60 AS TOTAL_ELAPSED_TIME_MINUTES
+          FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY
+          WHERE TOTAL_ELAPSED_TIME_MINUTES >= 1
+          AND START_TIME >= DATEADD(DAY, -1, CURRENT_TIMESTAMP())
+          ORDER BY TOTAL_ELAPSED_TIME_MINUTES DESC
+          LIMIT 20
+          )
+          SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+        )
+        SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+        subj varchar;
+        msg varchar;
+        BEGIN
+        OPEN c1;
+        FETCH c1 INTO msg;
+        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_QUERIES_LONG_RUNNING();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+        subj := 'SNOWFLAKE ALERT - QUERIES_LONG_RUNNING - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+        CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails queries that are long running'
+  - name: sp_replication_group_failure_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+        c1 CURSOR FOR WITH email_body AS (
+          WITH query_wrapper AS (
+          SELECT
+            start_time,
+            replication_group_name,
+            error
+          FROM snowflake.account_usage.replication_group_refresh_history
+          WHERE phase_name = 'FAILED' AND start_time >= DATEADD(DAY, -1, CURRENT_TIMESTAMP())
+          )
+          SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+        )
+        SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+        subj varchar;
+        msg varchar;
+        BEGIN
+        OPEN c1;
+        FETCH c1 INTO msg;
+        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_REPLICATION_GROUP_FAILURE();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+        subj := 'SNOWFLAKE ALERT - REPLICATION_GROUP_FAILURE - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+        CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails replication group failures'
+  - name: sp_replication_group_lag_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+        c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          SELECT
+            replication_group_name,
+            timediff(minute, start_time, end_time) as replication_lag_minutes,
+            start_time,
+            end_time,
+            total_bytes
+            FROM snowflake.account_usage.replication_group_refresh_history
+            WHERE replication_lag_minutes >= 60
+          )
+          SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+        )
+        SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+        subj varchar;
+        msg varchar;
+        BEGIN
+        OPEN c1;
+        FETCH c1 INTO msg;
+        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_REPLICATION_GROUP_LAG();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+        subj := 'SNOWFLAKE ALERT - REPLICATION_GROUP_LAG - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+        CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails replication group lags'
+  - name: sp_stage_average_usage_increased_by_x_or_exceeeded_y
+    database: governance
+    schema: alert
+    returns:
+      type: table
+    body: |
+      BEGIN
+      LET res RESULTSET := (
+        WITH stage_days AS (
+          SELECT
+            usage_date,
+            average_stage_bytes / POWER(1024, 3) AS average_stage_gb,
+            LAG(average_stage_bytes / POWER(1024, 3)) OVER (ORDER BY usage_date ASC) AS previous_average_stage_gb,
+            (average_stage_gb - previous_average_stage_gb) AS DIFF_GB
+          FROM snowflake.account_usage.stage_storage_usage_history
+          ORDER BY usage_date DESC
+          LIMIT 1
+        )
+        SELECT * FROM STAGE_DAYS WHERE DIFF_GB >= 25 OR AVERAGE_STAGE_GB >= 1024
+      );
+      RETURN TABLE(res);
+      END;
+    properties:
+      comment:  'Returns stage storage data'
+  - name: sp_stage_average_usage_increased_by_x_or_exceeeded_y_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+        c1 CURSOR FOR WITH email_body AS (
+          WITH query_wrapper AS (
+            WITH STAGE_DAYS AS (
+            SELECT
+              usage_date,
+              average_stage_bytes / POWER(1024, 3) AS average_stage_gb,
+              LAG(average_stage_bytes / POWER(1024, 3)) OVER (ORDER BY usage_date ASC) AS previous_average_stage_gb,
+              (average_stage_gb - previous_average_stage_gb) AS diff_gb
+            FROM snowflake.account_usage.stage_storage_usage_history
+            ORDER BY usage_date DESC
+            LIMIT 1
+            )
+            SELECT * FROM STAGE_DAYS WHERE DIFF_GB >= 25 OR AVERAGE_STAGE_GB >= 1024
+          )
+          SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+        )
+        SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+        subj varchar;
+        msg varchar;
+        BEGIN
+        OPEN c1;
+        FETCH c1 INTO msg;
+        msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_STAGE_AVERAGE_USAGE_INCREASED_BY_X_OR_EXCEEEDED_Y();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+        subj := 'SNOWFLAKE ALERT - STAGE_AVERAGE_USAGE_INCREASED_BY_X_OR_EXCEEEDED_Y - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+        CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails stage average usage increased by x or exceeded y'
+  - name: sp_storage_usage_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          SELECT
+            SUM(ACTIVE_BYTES) / POWER(1024, 3) AS ACTIVE_GB,
+            SUM(TIME_TRAVEL_BYTES) / POWER(1024, 3) AS TIME_TRAVEL_GB,
+            SUM(FAILSAFE_BYTES) / POWER(1024, 3) AS FAILSAFE_GB,
+            SUM(RETAINED_FOR_CLONE_BYTES) / POWER(1024, 3) AS RETAINED_FOR_CLONE_GB
+          FROM SNOWFLAKE.ACCOUNT_USAGE.TABLE_STORAGE_METRICS
+          HAVING ACTIVE_GB >= 1 OR TIME_TRAVEL_GB >= 1024 OR FAILSAFE_GB >= 1024 OR RETAINED_FOR_CLONE_GB >= 1024
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+      )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_STORAGE_USAGE();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - STORAGE_USAGE - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails storage usage'
+  - name: sp_tables_cloned_and_holding_storage_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+        SELECT
+          table_catalog,
+          table_schema,
+          table_name,
+          clone_group_id,
+          ROUND(retained_for_clone_bytes / POWER(1024, 3), 4) AS retained_for_clone_gb
+        FROM snowflake.account_usage.table_storage_metrics
+        WHERE deleted AND retained_for_clone_bytes > 0
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+      )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_TABLES_CLONED_AND_HOLDING_STORAGE();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - TABLES_CLONED_AND_HOLDING_STORAGE - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails tables cloned and holding storage'
+  - name: sp_tables_empty_with_data_protection_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          SELECT
+            table_catalog,
+            table_schema,
+            table_name,
+            time_travel_bytes / POWER(1024, 3) AS time_travel_bytes_gb,
+            failsafe_bytes / POWER(1024, 3) AS failsafe_bytes_gb,
+            (time_travel_bytes + FAILSAFE_BYTES) / POWER(1024, 3) AS data_protection_gb
+          FROM snowflake.account_usage.table_storage_metrics
+          WHERE active_bytes = 0
+          HAVING data_protection_gb > 0
+          ORDER BY data_protection_gb DESC
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+      )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_TABLES_EMPTY_WITH_DATA_PROTECTION();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - TABLES_EMPTY_WITH_DATA_PROTECTION - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails tables empty with data protection'
+  - name: sp_tables_storage_find_duplicate_tables_using_time_travel
+    database: governance
+    schema: alert
+    returns:
+      type: table
+    body: |
+      BEGIN
+      LET res RESULTSET := (
+        WITH duped_tables AS (
+          SELECT table_name,
+            table_schema,
+            table_catalog
+          FROM   snowflake.account_usage.table_storage_metrics
+          WHERE  time_travel_bytes > 0
+            OR active_bytes > 0
+          GROUP  BY table_name,
+            table_schema,
+            table_catalog,
+            table_created,
+            table_dropped
+          HAVING Count(*) > 1)
+          SELECT tsm.id,
+            tsm.table_name,
+            tsm.table_schema,
+            tsm.table_catalog,
+            tsm.table_created,
+            tsm.table_dropped,
+            tsm.time_travel_bytes,
+            tsm.active_bytes,
+            tsm.deleted
+          FROM   snowflake.account_usage.table_storage_metrics tsm
+            inner join duped_tables
+            ON tsm.table_name = duped_tables.table_name
+            AND tsm.table_schema = duped_tables.table_schema
+          WHERE
+            table_created >= dateadd(DAY, -1, current_timestamp())
+            AND tsm.time_travel_bytes > 0
+            OR tsm.active_bytes > 0
+          ORDER  BY tsm.table_name
+      );
+      RETURN TABLE(res);
+      END;
+    properties:
+      comment: 'Returns duplicate tables using time travel'
+  - name: sp_tables_storage_find_duplicate_tables_using_time_travel_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          WITH duped_tables
+            AS (SELECT table_name,
+              table_schema,
+              table_catalog
+            FROM  snowflake.account_usage.table_storage_metrics
+            WHERE time_travel_bytes > 0
+              OR active_bytes > 0
+            GROUP  BY table_name,
+              table_schema,
+              table_catalog,
+              table_created,
+              table_dropped
+            HAVING Count(*) > 1)
+          SELECT tsm.id,
+            tsm.table_name,
+            tsm.table_schema,
+            tsm.table_catalog,
+            tsm.table_created,
+            tsm.table_dropped,
+            tsm.time_travel_bytes,
+            tsm.active_bytes,
+            tsm.deleted
+          FROM  snowflake.account_usage.table_storage_metrics tsm
+            inner join duped_tables
+            ON tsm.table_name = duped_tables.table_name
+            AND tsm.table_schema = duped_tables.table_schema
+          WHERE
+            table_created >= DATEADD(DAY, -1, CURRENT_TIMESTAMP())
+            AND tsm.time_travel_bytes > 0
+            OR tsm.active_bytes > 0
+          ORDER  BY tsm.table_name
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+        )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_TABLES_STORAGE_FIND_DUPLICATE_TABLES_USING_TIME_TRAVEL();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - TABLES_STORAGE_FIND_DUPLICATE_TABLES_USING_TIME_TRAVEL - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails duplicate tables using time travel'
+  - name: sp_task_errors_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          SELECT
+            COUNT(*) OVER (
+            PARTITION BY database_name,schema_name,name
+            ) AS failure_count,
+            query_id,
+            scheduled_time,
+            completed_time,
+            query_start_time,
+            error_code,
+            error_message,
+            database_name,
+            schema_name,
+            name as object_name,
+            'TASK' AS object_type
+          FROM
+            snowflake.account_usage.task_history
+          WHERE
+            state = 'FAILED'
+            AND completed_time > DATEADD(DAY, -1,CURRENT_TIMESTAMP())
+            AND scheduled_time < CURRENT_TIMESTAMP()
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+      )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_TASK_ERRORS();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - TASK_ERRORS - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails task errors'
+  - name: sp_users_login_failures_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          SELECT user_name
+          FROM snowflake.account_usage.login_history
+          WHERE
+            event_timestamp >= DATEADD(DAY, -1, current_timestamp())
+            AND is_success = 'NO'
+          GROUP BY user_name
+          HAVING COUNT(*) > 5
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+      )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_USERS_LOGIN_FAILURES();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - USERS_LOGIN_FAILURES - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails users with login failures'
+  - name: sp_users_without_log_in_for_90_days_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+        c1 CURSOR FOR WITH email_body AS (
+          WITH query_wrapper AS (
+            SELECT
+              login_name,
+              display_name,
+              email,
+              last_success_login
+            FROM
+              snowflake.account_usage.users
+            WHERE
+            last_success_login < DATEADD(DAY, -90, CURRENT_TIMESTAMP())
+            AND deleted_on IS NULL
+            AND disabled = FALSE
+          )
+          SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+        )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_USERS_WITHOUT_LOG_IN_FOR_90_DAYS();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - USERS_WITHOUT_LOG_IN_FOR_90_DAYS - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails users without log in for 90 days'
+  - name: sp_users_with_a_password_set_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+        SELECT
+          'USER' AS object_type,
+          name AS object_name,
+          first_name,
+          last_name,
+          login_name,
+          created_on,
+          has_password
+        FROM
+          snowflake.account_usage.users
+        WHERE
+          password_last_set_time >= DATEADD(DAY, -1, CURRENT_TIMESTAMP())
+          AND has_password
+          AND disabled = 'false'
+          AND deleted_on IS NULL
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+      )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_USERS_WITH_A_PASSWORD_SET();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - USERS_WITH_A_PASSWORD_SET - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails users with a password set'
+  - name: sp_warehouses_without_a_resource_monitor
+    database: governance
+    schema: alert
+    returns:
+      type: table
+    body: |
+      DECLARE
+      presql RESULTSET DEFAULT (show warehouses in account);
+      BEGIN
+      LET res RESULTSET := (
+        SELECT
+        "name",
+        "auto_resume",
+        "auto_suspend"
+        From TABLE(RESULT_SCAN(LAST_QUERY_ID()))
+        WHERE
+        "resource_monitor" = 'null'
+      );
+      RETURN TABLE(res);
+      END;
+    properties:
+      comment: 'Return warehouses without a resource monitor'
+  - name: sp_warehouses_without_a_resource_monitor_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+      presql RESULTSET DEFAULT (show warehouses in account);
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          SELECT
+            "name",
+            "auto_resume",
+            "auto_suspend"
+          FROM TABLE(RESULT_SCAN(LAST_QUERY_ID()))
+          WHERE
+          "resource_monitor" = 'null'
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+      )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_WAREHOUSES_WITHOUT_A_RESOURCE_MONITOR();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - WAREHOUSES_WITHOUT_A_RESOURCE_MONITOR - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails warehouses without a resource monitor'
+  - name: sp_warehouse_queueing
+    database: governance
+    schema: alert
+    returns:
+      type: table
+    body: |
+      BEGIN
+      LET res RESULTSET := (
+        WITH agg AS (
+          SELECT
+            warehouse_name,
+            DATE(START_TIME) AS usage_date,
+            MAX(ROUND(AVG_QUEUED_LOAD, 0)) AS QUEUED_LOAD_AVG,
+            MAX(ROUND(AVG_QUEUED_PROVISIONING, 0)) AS QUEUED_PROVISIONING_AVG
+          FROM snowflake.ACCOUNT_USAGE.warehouse_load_history
+          WHERE
+            start_time >= dateadd(DAY, -1, current_timestamp())
+            AND warehouse_name NOT IN ('IGNORE_THIS_WH')
+          GROUP BY
+            WAREHOUSE_NAME,
+            usage_date
+          ORDER BY QUEUED_LOAD_AVG DESC
+      )
+      SELECT * FROM agg WHERE QUEUED_LOAD_AVG > 0 OR QUEUED_PROVISIONING_AVG > 0
+      );
+      RETURN TABLE(res);
+      END;
+    properties:
+      comment: 'Returns a table of warehouse queueing'
+  - name: sp_warehouse_queueing_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          WITH agg AS (
+            SELECT
+              warehouse_name,
+              DATE(START_TIME) AS usage_date,
+              MAX(ROUND(AVG_QUEUED_LOAD, 0)) AS QUEUED_LOAD_AVG,
+              MAX(ROUND(AVG_QUEUED_PROVISIONING, 0)) AS QUEUED_PROVISIONING_AVG
+            FROM snowflake.ACCOUNT_USAGE.warehouse_load_history
+            WHERE
+              start_time >= dateadd(DAY, -1, current_timestamp())
+              AND warehouse_name NOT IN ('IGNORE_THIS_WH')
+            GROUP BY
+              WAREHOUSE_NAME,
+              usage_date
+            ORDER BY QUEUED_LOAD_AVG DESC
+          )
+          SELECT * FROM agg WHERE QUEUED_LOAD_AVG > 0 OR QUEUED_PROVISIONING_AVG > 0
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+      )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_WAREHOUSE_QUEUEING();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - WAREHOUSE_QUEUEING - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails warehouse queueing'
+  - name: sp_warehouse_spilling_to_storage
+    database: governance
+    schema: alert
+    returns:
+      type: table
+    body: |
+      BEGIN
+      LET res RESULTSET := (
+        WITH agg AS (
+          SELECT
+            warehouse_name,
+            round(avg(bytes_spilled_to_local_storage) / power(1024, 3), 4)
+            AS gb_spilled_to_local_storage,
+            round(avg(bytes_spilled_to_remote_storage) / power(1024, 3), 4) AS gb_spilled_to_remote_storage,
+            (gb_spilled_to_local_storage + gb_spilled_to_remote_storage) AS gb_spilled_total
+          FROM snowflake.account_usage.query_history
+          WHERE
+            start_time >= dateadd(DAY, -1, current_timestamp())
+            AND warehouse_name IS NOT NULL
+            AND warehouse_name NOT IN ('IGNORE_THIS_WH')
+          GROUP BY warehouse_name
+        )
+        SELECT * FROM agg WHERE gb_spilled_total > 0
+      );
+      RETURN TABLE(res);
+      END;
+    properties:
+      comment: 'Returns a table of warehouse spilling to storage'
+  - name: sp_warehouse_spilling_to_storage_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          WITH agg AS (
+            SELECT
+              warehouse_name,
+              round(avg(bytes_spilled_to_local_storage) / power(1024, 3), 4)
+              AS gb_spilled_to_local_storage,
+              round(avg(bytes_spilled_to_remote_storage) / power(1024, 3), 4)
+              AS gb_spilled_to_remote_storage,
+              (gb_spilled_to_local_storage + gb_spilled_to_remote_storage)
+              AS gb_spilled_total
+            FROM snowflake.account_usage.query_history
+            WHERE
+              start_time >= dateadd(DAY, -1, current_timestamp())
+              AND warehouse_name IS NOT NULL
+              AND warehouse_name NOT IN ('IGNORE_THIS_WH')
+            GROUP BY warehouse_name
+          )
+          SELECT * FROM agg WHERE gb_spilled_total > 0
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+      )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_WAREHOUSE_SPILLING_TO_STORAGE();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - WAREHOUSE_SPILLING_TO_STORAGE - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails warehouse spilling to storage'
+  - name: sp_pipe_errors_email
+    database: governance
+    schema: alert
+    returns:
+      type: dataType
+      dataType: varchar
+    body: |
+      DECLARE
+      c1 CURSOR FOR WITH email_body AS (
+        WITH query_wrapper AS (
+          SELECT
+            pipetv.pipe_name AS object_name,
+            pipetv.pipe_schema_name AS schema_name,
+            pipetv.pipe_catalog_name AS database_name,
+            'pipe' AS object_type,
+            file_name,
+            pipe_received_time,
+            first_error_message,
+            first_error_line_number,
+            first_error_column_name
+          FROM
+            snowflake.account_usage.copy_history as pipetv
+          WHERE
+            last_load_time >= DATEADD(DAY, -1,CURRENT_TIMESTAMP())
+            AND
+            pipetv.pipe_name IS NOT NULL
+            AND pipetv.STATUS IN
+            (
+            'LOAD_FAILED',
+            'LOAD_SKIPPED',
+            'PARTIALLY_LOADED'
+            )
+        )
+        SELECT TO_VARCHAR(OBJECT_CONSTRUCT(*)) AS all_rows_string FROM query_wrapper
+      )
+      SELECT listagg(all_rows_string, '\n\n') as email_body_text FROM email_body;
+      subj varchar;
+      msg varchar;
+      BEGIN
+      OPEN c1;
+      FETCH c1 INTO msg;
+      msg := 'TO VIEW THE OUTPUT OF THE ALERT, RUN: \n CALL GOVERNANCE.ALERT.SP_PIPE_ERRORS();' || '\n\n OUTPUT OF ALERT:\n' || msg;
+      subj := 'SNOWFLAKE ALERT - PIPE_ERRORS - ACCOUNT ' || current_account() || ' - ' || current_timestamp();
+      CALL SYSTEM$SEND_EMAIL('alert_email_integration','toolkit-support@phdata.io',:subj,:msg);
+      END;
+    properties:
+      comment: 'Emails warehouse spilling to storage'
+
 alerts:
   - name: break_glass_login_alert
     database: governance
@@ -39,3 +1118,332 @@ alerts:
     state: resume
     properties:
       comment: Alerts if the break glass account was used in the last hour
+  - name: alert_failures
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      CALL governance.alert.sp_alert_failures()
+    action: |
+      CALL governance.alert.sp_alert_failures_email()
+    state: resume
+    properties:
+      comment: 'Alerts if any alerts have failed'
+  - name: cloud_services_ratio_of_cloud_services_being_billed
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      CALL governance.alert.sp_cloud_services_ratio_of_cloud_services_being_billed()
+    action: |
+      CALL governance.alert.sp_cloud_services_ratio_of_cloud_services_being_billed_email()
+    state: resume
+    properties:
+      comment: 'Alerts if cloud services ratio of cloud services being billed'
+  - name: grants_for_high_privilege_roles
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      CALL governance.alert.sp_grants_for_high_privilege_roles()
+    action: |
+      CALL governance.alert.sp_grants_for_high_privilege_roles_email()
+    state: resume
+    properties:
+      comment: 'Alerts if cloud services ratio of cloud services being billed'
+  - name: materialized_views_that_are_invalid
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      CALL governance.alert.sp_materialized_views_that_are_invalid()
+    action: |
+      CALL governance.alert.sp_materialized_views_that_are_invalid_email()
+    state: resume
+    properties:
+      comment: 'Alerts if materialized views are invalid'
+  - name: queries_long_running
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      SELECT
+        query_id,
+        total_elapsed_time / 1000 / 60 AS total_elapsed_time_minutes
+      FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY
+      WHERE total_elapsed_time_minutes >= 1
+      AND start_time >= DATEADD(DAY, -1, CURRENT_TIMESTAMP())
+      ORDER BY total_elapsed_time_minutes DESC
+      LIMIT 1
+    action: |
+      CALL governance.alert.sp_queries_long_running_email()
+    state: resume
+    properties:
+      comment: 'Alerts if queries are long running'
+  - name: replication_group_failure
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      SELECT
+        start_time,
+        replication_group_name,
+        error
+      FROM snowflake.account_usage.replication_group_refresh_history
+      WHERE phase_name = 'FAILED' AND start_time >= DATEADD(DAY, -1, CURRENT_TIMESTAMP())
+      LIMIT 1
+    action: |
+      CALL governance.alert.sp_replication_group_failure_email()
+    state: resume
+    properties:
+      comment: 'Alerts if replication group failed'
+  - name: replication_group_lag
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      SELECT
+        replication_group_name,
+        timediff(minute, start_time, end_time) as replication_lag_minutes,
+        start_time,
+        end_time,
+        total_bytes
+      FROM snowflake.account_usage.replication_group_refresh_history
+      WHERE replication_lag_minutes >= 60
+      LIMIT 1
+    action: |
+      CALL governance.alert.sp_replication_group_lag_email()
+    state: resume
+    properties:
+      comment: 'Alerts if replication group is lagging'
+  - name: stage_average_usage_increased_by_x_or_exceeeded_y
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      CALL governance.alert.sp_stage_average_usage_increased_by_x_or_exceeeded_y()
+    action: |
+      CALL governance.alert.sp_stage_average_usage_increased_by_x_or_exceeeded_y_email()
+    state: resume
+    properties:
+      comment: 'Alerts if stage average usage increased by X or exceeded Y'
+  - name: storage_usage
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      SELECT
+        SUM(active_bytes) / POWER(1024, 3) AS active_gb,
+        SUM(time_travel_bytes) / POWER(1024, 3) AS time_travel_gb,
+        SUM(failsafe_bytes) / POWER(1024, 3) AS failsafe_gb,
+        SUM(retained_for_clone_bytes) / POWER(1024, 3) AS retained_for_clone_gb
+      FROM snowflake.account_usage.table_storage_metrics
+      HAVING active_gb >= 1 OR time_travel_gb >= 1024 OR failsafe_gb >= 1024 OR retained_for_clone_gb >= 1024
+    action: |
+      CALL governance.alert.sp_storage_usage_email()
+    state: resume
+    properties:
+      comment: 'Alerts storage usage'
+  - name: tables_cloned_and_holding_storage
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      SELECT
+        table_catalog,
+        table_schema,
+        table_name,
+        clone_group_id,
+        ROUND(retained_for_clone_bytes / POWER(1024, 3), 4) AS retained_for_clone_gb
+      FROM snowflake.account_usage.table_storage_metrics
+      WHERE deleted AND retained_for_clone_bytes > 0
+      LIMIT 1
+    action: |
+      CALL governance.alert.sp_tables_cloned_and_holding_storage_email()
+    state: resume
+    properties:
+      comment: 'Alerts tables cloned and holding storage'
+  - name: tables_empty_with_data_protection
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      SELECT
+        table_catalog,
+        table_schema,
+        table_name,
+        time_travel_bytes / POWER(1024, 3) AS time_travel_bytes_gb,
+        failsafe_bytes / POWER(1024, 3) AS failsafe_bytes_gb,
+        (time_travel_bytes + failsafe_bytes) / POWER(1024, 3) AS data_protection_gb
+      FROM snowflake.account_usage.table_storage_metrics
+      WHERE active_bytes = 0
+      HAVING data_protection_gb > 0
+      LIMIT 1
+    action: |
+      CALL governance.alert.sp_tables_empty_with_data_protection_email()
+    state: resume
+    properties:
+      comment: 'Alerts tables empty with data protection'
+  - name: tables_storage_find_duplicate_tables_using_time_travel
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      CALL governance.alert.sp_tables_storage_find_duplicate_tables_using_time_travel()
+    action: |
+      CALL governance.alert.sp_tables_storage_find_duplicate_tables_using_time_travel_email()
+    state: resume
+    properties:
+      comment: 'Alerts duplicate tables using time travel'
+  - name: task_errors
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      SELECT
+        query_id,
+      FROM
+        snowflake.account_usage.task_history
+      WHERE
+        state = 'FAILED'
+        AND completed_time > DATEADD(DAY, -1,CURRENT_TIMESTAMP())
+        AND scheduled_time < CURRENT_TIMESTAMP()
+      LIMIT 1
+    action: |
+      CALL governance.alert.sp_task_errors_email()
+    state: resume
+    properties:
+      comment: 'Alerts task errors'
+  - name: users_login_failures
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      SELECT user_name
+      FROM snowflake.account_usage.login_history
+      WHERE
+        event_timestamp >= DATEADD(DAY, -1, current_timestamp())
+        AND is_success = 'NO'
+      GROUP BY user_name
+      HAVING COUNT(*) > 5
+    action: |
+      CALL governance.alert.sp_users_login_failures_email()
+    state: resume
+    properties:
+      comment: 'Alerts users login failures'
+  - name: users_without_log_in_for_90_days
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      SELECT
+        login_name,
+      FROM
+        snowflake.account_usage.users
+      WHERE
+        last_success_login < DATEADD(DAY, -90, CURRENT_TIMESTAMP())
+        AND deleted_on IS NULL
+        AND disabled = FALSE
+    action: |
+      CALL governance.alert.sp_users_without_log_in_for_90_days_email()
+    state: resume
+    properties:
+      comment: 'Alerts users without log in for 90 days'
+  - name: users_with_a_password_set
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      SELECT
+        login_name
+      FROM
+        snowflake.account_usage.users
+      WHERE
+        password_last_set_time >= DATEADD(DAY, -1, CURRENT_TIMESTAMP())
+        AND has_password
+        AND disabled = 'false'
+        AND deleted_on IS NULL
+      LIMIT 1
+    action: |
+      CALL governance.alert.sp_users_with_a_password_set_email()
+    state: resume
+    properties:
+      comment: 'Alerts users with a password set'
+  - name: warehouses_without_a_resource_monitor
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      CALL governance.alert.sp_warehouses_without_a_resource_monitor()
+    action: |
+      CALL governance.alert.sp_warehouses_without_a_resource_monitor_email()
+    state: resume
+    properties:
+      comment: 'Alerts warehouses without a resource monitor'
+  - name: warehouse_queueing
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      CALL governance.alert.sp_warehouse_queueing()
+    action: |
+      CALL governance.alert.sp_warehouse_queueing_email()
+    state: resume
+    properties:
+      comment: 'Alerts if warehouse queueing is high'
+  - name: warehouse_spilling_to_storage
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+      CALL governance.alert.sp_warehouse_spilling_to_storage()
+    action: |
+      CALL governance.alert.sp_warehouse_spilling_to_storage_email()
+    state: resume
+    properties:
+      comment: 'Alerts if warehouse spilling to storage'
+  - name: pipe_errors
+    database: governance
+    schema: alert
+    warehouse: alert_wh
+    schedule: USING CRON 0 * * * * UTC
+    condition: |
+        SELECT
+          pipetv.PIPE_NAME
+        FROM
+          snowflake.account_usage.copy_history as pipetv
+        WHERE
+          last_load_time >= DATEADD(DAY, -1,CURRENT_TIMESTAMP())
+          AND
+          pipetv.PIPE_NAME IS NOT NULL
+          AND pipetv.STATUS IN
+          (
+          'LOAD_FAILED',
+          'LOAD_SKIPPED',
+          'PARTIALLY_LOADED'
+          )
+        LIMIT 1
+    action: |
+      CALL governance.alert.sp_pipe_errors_email()
+    state: resume
+    properties:
+      comment: 'Alerts if pipe errors occured'
