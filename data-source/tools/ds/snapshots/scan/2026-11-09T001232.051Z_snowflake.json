@@ -39,11 +39,11 @@
   },
   "metadata": {
     "identifier": {
-      "id": "snowflake:scan:2026-09-09T001913.756Z",
+      "id": "snowflake:scan:2026-11-09T001232.051Z",
       "tool": "ds",
       "source": "snowflake",
       "type": "scan",
-      "timestamp": "2026-09-09T00:19:13.756Z"
+      "timestamp": "2026-11-09T00:12:32.051Z"
     },
     "source": {
       "name": "snowflake",
@@ -52,8 +52,8 @@
     },
     "version": "0.106.0",
     "license": "PRO",
-    "start": "2026-09-09T00:18:55.927815Z",
-    "end": "2026-09-09T00:19:13.756352Z"
+    "start": "2026-11-09T00:12:14.533554Z",
+    "end": "2026-11-09T00:12:32.051761Z"
   },
   "tables": [
     {
@@ -998,7 +998,7 @@
       "schema": "CYBERSYN",
       "name": "BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES",
       "type": "VIEW",
-      "comment": "Employment, job openings, labor turnover, and wages tracked across US regions in the LAUS, JOLTS, and SAE reports from the BLS.\n\nThe US Bureau of Labor Statistics (BLS) produces granular employment reports: Local Area Unemployment Statistics (LAUS) provides monthly and annual employment, unemployment, and labor force data for states and localities; Job Openings and Labor Turnover Survey (JOLTS) covers labor demand and turnover rates, including data on job openings, hires, and separations; and State and Metro Employment (SAE) delivers employment and wage data across various industries at state and metropolitan levels.\n\nProvides a wide format breakdown of variables included in the bureau_of_labor_statistics_employment_timeseries table. The BLS report is provided for reference. Additionally, variables are defined by seasonal adjustment, related industry, and size of the establishment referenced.",
+      "comment": "Employment, unemployment, job openings, labor turnover, hours, and earnings tracked for the US and its regions in the BLS Employment Situation (CES and CPS), LAUS, JOLTS, and SAE reports.\n\nThe US Bureau of Labor Statistics (BLS) produces granular employment reports: the monthly Employment Situation release combines the Current Employment Statistics (CES) payroll survey, which provides national employment, hours, and earnings by industry, and the Current Population Survey (CPS) household survey, which provides national labor force, employment, and unemployment statistics by demographic group; Local Area Unemployment Statistics (LAUS) provides monthly and annual employment, unemployment, and labor force data for states and localities; Job Openings and Labor Turnover Survey (JOLTS) covers labor demand and turnover rates, including data on job openings, hires, and separations; and State and Metro Employment (SAE) delivers employment and wage data across various industries at state and metropolitan levels.\n\nProvides a wide format breakdown of variables included in the bureau_of_labor_statistics_employment_timeseries table. The BLS report is provided for reference. Additionally, variables are defined by seasonal adjustment, related industry, and size of the establishment referenced.",
       "columns": [
         {
           "name": "VARIABLE",
@@ -1075,18 +1075,18 @@
           "comment": "Frequency of the variable measurement",
           "type": {
             "name": "TEXT",
-            "precision": 7,
+            "precision": 16777216,
             "scale": 0,
-            "length": 7
+            "length": 16777216
           },
           "mappedType": {
             "name": "TEXT",
-            "precision": 7,
+            "precision": 16777216,
             "scale": 0,
-            "length": 7
+            "length": 16777216
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(7)",
+          "dataType": "TEXT(16777216)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1118,21 +1118,21 @@
         {
           "name": "REPORT",
           "ordinalPosition": 6,
-          "comment": "BLS dataset the time series originates from",
+          "comment": "BLS dataset the time series originates from: Current Employment Statistics (National), Current Population Survey (CPS), JOLTS, Local Area Unemployment, or State and Metro Employment",
           "type": {
             "name": "TEXT",
-            "precision": 26,
+            "precision": 40,
             "scale": 0,
-            "length": 26
+            "length": 40
           },
           "mappedType": {
             "name": "TEXT",
-            "precision": 26,
+            "precision": 40,
             "scale": 0,
-            "length": 26
+            "length": 40
           },
           "dataTypeName": "TEXT",
-          "dataType": "TEXT(26)",
+          "dataType": "TEXT(40)",
           "nullable": true,
           "identity": false,
           "primaryKey": false,
@@ -1208,7 +1208,7 @@
           "partitionKey": false
         }
       ],
-      "createdAt": "2025-11-22T19:36:04.290Z",
+      "createdAt": "2026-11-04T21:43:24.983Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES"
     },
     {
@@ -1216,7 +1216,7 @@
       "schema": "CYBERSYN",
       "name": "BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES",
       "type": "VIEW",
-      "comment": "Employment, job openings, labor turnover, and wages tracked across US regions in the LAUS, JOLTS, and SAE reports from the BLS.\n\nThe US Bureau of Labor Statistics (BLS) produces granular employment reports: Local Area Unemployment Statistics (LAUS) provides monthly and annual employment, unemployment, and labor force data for states and localities; Job Openings and Labor Turnover Survey (JOLTS) covers labor demand and turnover rates, including data on job openings, hires, and separations; and State and Metro Employment (SAE) delivers employment and wage data across various industries at state and metropolitan levels.\n\nEach row represents a distinct timeseries collected by the BLS reports (LAUS, JOLTS, and SAE), date, and value by geographic entity JOINABLE to Cybersyn's geography entity tables. Each variable is detailed in the bureau_of_labor_statistics_employment_attributes table.",
+      "comment": "Employment, unemployment, job openings, labor turnover, hours, and earnings tracked for the US and its regions in the BLS Employment Situation (CES and CPS), LAUS, JOLTS, and SAE reports.\n\nThe US Bureau of Labor Statistics (BLS) produces granular employment reports: the monthly Employment Situation release combines the Current Employment Statistics (CES) payroll survey, which provides national employment, hours, and earnings by industry, and the Current Population Survey (CPS) household survey, which provides national labor force, employment, and unemployment statistics by demographic group; Local Area Unemployment Statistics (LAUS) provides monthly and annual employment, unemployment, and labor force data for states and localities; Job Openings and Labor Turnover Survey (JOLTS) covers labor demand and turnover rates, including data on job openings, hires, and separations; and State and Metro Employment (SAE) delivers employment and wage data across various industries at state and metropolitan levels.\n\nEach row represents a distinct timeseries collected by the BLS reports (CES, CPS, LAUS, JOLTS, and SAE), date, and value by geographic entity JOINABLE to Cybersyn's geography entity tables. Each variable is detailed in the bureau_of_labor_statistics_employment_attributes table.",
       "columns": [
         {
           "name": "GEO_ID",
@@ -8527,7 +8527,7 @@
       "schema": "CYBERSYN",
       "name": "FX_RATES_TIMESERIES",
       "type": "VIEW",
-      "comment": "Foreign exchange rates for currency pairs (base and quote currencies), with data from ECB, BIS, IMF, and national central banks (CBI, SBV, BanRep).\n\nForeign exchange (FX) rates are the rates at which one currency can be exchanged for another. These rates fluctuate based on various factors including economic indicators, market sentiment, political events, and global financial stability. Foreign exchange rates are crucial for international trade and finance, as they determine how much of one currency is needed to buy a unit of another currency. These rates can be floating, changing continuously based on market forces, or they might be pegged (fixed) to another major currency or basket of currencies, managed by a country's central bank. FX rates data is provided by the European Central Bank (ECB), Bank for International Settlements (BIS), Central Bank of Iceland (CBI), State Bank of Vietnam (SBV), Banco de la República of Colombia (BanRep), and the International Monetary Fund (IMF). To note, these data sources often do not publish the exchange rate every day.\n\nProvides historical values for each currency pair collected by BASE_CURRENCY_ID and QUOTE_CURRENCY_ID.\n\nEach row represents a distinct timeseries, date, and value by currency pair.",
+      "comment": "Foreign exchange rates for currency pairs (base and quote currencies), with data from ECB, BIS, IMF, and national central banks (CBI, SBV, BanRep).\n\nForeign exchange (FX) rates are the rates at which one currency can be exchanged for another. These rates fluctuate based on various factors including economic indicators, market sentiment, political events, and global financial stability. Foreign exchange rates are crucial for international trade and finance, as they determine how much of one currency is needed to buy a unit of another currency. These rates can be floating, changing continuously based on market forces, or they might be pegged (fixed) to another major currency or basket of currencies, managed by a country's central bank. FX rates data is provided by the European Central Bank (ECB), Bank for International Settlements (BIS), Central Bank of Iceland (CBI), State Bank of Vietnam (SBV), Banco de la República of Colombia (BanRep), and the International Monetary Fund (IMF). To note, these data sources often do not publish the exchange rate every day.\n\nProvides historical values for each currency pair collected by BASE_CURRENCY_ID and QUOTE_CURRENCY_ID.\n\nEach row represents a distinct timeseries, date, and value by currency pair.\n\nThe PROVENANCE column is a JSON object identifying where each rate came from. PROVENANCE:SOURCE names the institution that published the underlying quote(s) and PROVENANCE:RATE_TYPE says whether the value is a published quote or was derived. Most rows are derived cross rates rather than published quotes, so for a cross PROVENANCE:CROSS_CURRENCY_ID gives the currency it was calculated through and PROVENANCE:BASE_LEG_VARIABLE / PROVENANCE:QUOTE_LEG_VARIABLE identify the two input rates (joinable to VARIABLE on the same DATE), with PROVENANCE:BASE_LEG_SOURCE / PROVENANCE:QUOTE_LEG_SOURCE naming their institutions. PROVENANCE:SOURCES lists the institutions behind a row (one element when the legs agree or for a single-input row, two when they differ). PROVENANCE:ATTRIBUTION_URLS lists the source institutions' data-page URLs, parallel to PROVENANCE:SOURCES. Because every published value is rounded to 4 decimal places, dividing the two published leg values reproduces a cross rate only approximately.",
       "columns": [
         {
           "name": "VARIABLE",
@@ -8712,9 +8712,32 @@
           "identity": false,
           "primaryKey": false,
           "partitionKey": false
+        },
+        {
+          "name": "PROVENANCE",
+          "ordinalPosition": 9,
+          "comment": "Provenance for the rate as a JSON object (VARIANT). Read fields with the Snowflake `:` operator (returns NULL for absent keys). SOURCE names the institution that published the underlying quote(s) - ECB, BIS, IMF, CBI, SBV or BanRep; for a derived cross whose two input legs come from different institutions this is 'Multiple' and SOURCES lists the individual legs. SOURCES is an array of the institutions behind the row (one element when the legs agree or for a single-input row, two when they differ). ATTRIBUTION_URLS is an array of the source institutions' data-page URLs, parallel to SOURCES (same length and [base, quote] order). RATE_TYPE is 'Published Quote', 'Derived Inverse', 'Derived Cross', 'Derived Cross Inverse', or 'Historical (ECB legacy series)' (historical rows whose calculation method was not recorded). CROSS_CURRENCY_ID is the ISO 4217 code of the pivot currency of a derived cross (EUR, USD or ISK); absent when the rate is not a derived cross. BASE_LEG_VARIABLE / QUOTE_LEG_VARIABLE identify the two input rates of a cross, joinable to VARIABLE on the same DATE; absent when not a cross. BASE_LEG_SOURCE / QUOTE_LEG_SOURCE name the institution of each input leg as used. Because every published value is rounded to 4 decimal places, dividing the two published leg values reproduces a cross rate only approximately.",
+          "type": {
+            "name": "OBJECT",
+            "precision": 0,
+            "scale": 0,
+            "length": 0
+          },
+          "mappedType": {
+            "name": "OBJECT",
+            "precision": 0,
+            "scale": 0,
+            "length": 0
+          },
+          "dataTypeName": "OBJECT",
+          "dataType": "OBJECT",
+          "nullable": true,
+          "identity": false,
+          "primaryKey": false,
+          "partitionKey": false
         }
       ],
-      "createdAt": "2025-11-26T22:47:31.065Z",
+      "createdAt": "2026-09-27T22:22:45.284Z",
       "qualifiedName": "FINANCE__ECONOMICS.CYBERSYN.FX_RATES_TIMESERIES"
     },
     {
